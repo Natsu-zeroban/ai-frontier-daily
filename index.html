@@ -110,10 +110,10 @@ h1 .en { display:block; font-family:var(--mono); font-size:14px; font-weight:600
 .issue-toc a .ix { font-family:var(--mono); font-size:12.5px; color:var(--accent); flex:none; }
 .issue-toc a .cat { font-family:var(--mono); font-size:11.5px; color:var(--muted); margin-left:auto; flex:none; }
 
-/* 要闻速览 */
-.newsflash { margin:22px 0 4px; border:1px solid var(--border); border-radius:13px; background:var(--surface); padding:16px 20px; box-shadow:var(--shadow); }
-.newsflash .lb { font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); margin-bottom:7px; }
-.newsflash p { color:var(--ink-2); font-size:14px; margin:0; }
+/* 要闻茶点：琥珀色虚线框，视觉上明确区别于正文精读 */
+.newsflash { margin:20px 0 2px; border:1px dashed color-mix(in srgb, var(--s3) 50%, transparent); border-radius:13px; background:color-mix(in srgb, var(--s3) 7%, transparent); padding:14px 18px 13px; }
+.newsflash .lb { font-family:var(--mono); font-size:11px; letter-spacing:.12em; color:var(--s3); margin-bottom:7px; }
+.newsflash p { color:var(--ink-2); font-size:14px; margin:0; line-height:1.85; }
 .newsflash b { color:var(--ink); }
 .newsflash a { color:var(--muted); font-family:var(--mono); font-size:12px; }
 
@@ -249,6 +249,12 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
 
   <!-- ==================== VOL.03 ==================== -->
   <section class="issue active" id="v3">
+
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 — 一句话时效消息，和下面的精读不是一类，扫完就走</div>
+      <p><b>AI 早报 2026-07-19（橘鸦Juya）</b>｜最值得知道的一条：Anthropic 从 7/20 起把 <b>Claude Fable 5 加进 Max、Team Premium 订阅</b>（用量为标准档一半），Claude Code 提额活动延长到 8/19；其余为商汤、京东出新模型、马斯克称 Grok 2T 下周训完等厂商动态。 <a href="https://mp.weixin.qq.com/s/4k07o-WTQqgospWI6vTLiw">原文</a></p>
+    </div>
+
     <div class="issue-head">
       <div class="issue-vol">VOL.03 / 2026·07·16</div>
       <h2 class="issue-theme">角色的重写：设计师 · 工具 · 组织</h2>
