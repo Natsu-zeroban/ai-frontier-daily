@@ -133,6 +133,14 @@ h1 .en { display:block; font-family:var(--mono); font-size:14px; font-weight:600
 .thread-body { margin-top:18px; }
 .core { background:var(--accent-soft); border-left:4px solid var(--accent); border-radius:0 12px 12px 0; padding:16px 20px; color:var(--ink); font-size:18.5px; font-weight:600; line-height:1.85; }
 .core b { color:var(--accent); }
+
+/* 折叠正文：默认只露标题+核心 */
+.detail { display:none; }
+.thread.open .detail { display:block; animation:fade .28s ease; }
+.expand { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px; width:100%; font-family:var(--mono); font-size:12.5px; color:var(--muted); background:transparent; border:1px dashed var(--border); border-radius:10px; padding:9px; cursor:pointer; transition:color .15s, border-color .15s; }
+.expand:hover { color:var(--accent); border-color:var(--accent); }
+.expand .ar { transition:transform .2s; }
+.thread.open .expand .ar { transform:rotate(180deg); }
 .thread-body p { color:var(--ink-2); margin:12px 0; font-size:15px; }
 .thread-body p b, .thread-body li b { color:var(--ink); font-weight:700; background:linear-gradient(transparent 62%, var(--accent-soft) 0); padding:0 1px; }
 h4.blk { font-size:19px; font-weight:800; color:var(--ink); margin:28px 0 8px; display:flex; align-items:center; gap:10px; }
@@ -275,6 +283,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-body">
         <div class="core"><b>核心：</b>现在靠 AI 把东西"做出来"已经很容易了，所以真正值钱的能力，从"会做"变成了"会判断——这东西做得对不对、到底该不该做"。</div>
 
+        <div class="detail">
+
         <h4 class="blk">动手前，先分清你在哪个阶段</h4>
         <ul class="points">
           <li>你还在<b>想"要做什么"</b>：这时候别急着让 AI 写，先跟它聊、让它挑毛病，把方向敲定。</li>
@@ -297,6 +307,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
           </ul>
         </div>
       </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
     </article>
 
     <!-- v3-2 -->
@@ -305,6 +317,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag">干货·工具</span><span class="sep">·</span>艾笑 AI<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/luJtw4DffHYJoGOQfq28eg">原文</a></div>
       <div class="thread-body">
         <div class="core"><b>核心：</b>一个开源工具，专门帮你把"给 AI 用的技能(Skill)"做稳——不是生成一段长指令就完事，而是让这个技能<b>边界清楚、真能用、以后改也不会越改越乱</b>。</div>
+
+        <div class="detail">
 
         <h4 class="blk">它最关键的一个习惯：先说清边界，你确认了才动手</h4>
         <ul class="points">
@@ -332,6 +346,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
           </ul>
         </div>
       </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
     </article>
 
     <!-- v3-3 -->
@@ -340,6 +356,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>刘小排<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/zxjYSGzgEoDyrcpdupEQ-w">原文</a></div>
       <div class="thread-body">
         <div class="core"><b>核心：</b>有人一个人、五台电脑、几十个 AI 同时干活——靠的是 Git 的一个老功能 Worktree，它能让同一个项目在电脑上开好几个"独立工作现场"，这样多个 AI 各干各的、互不打架。<b>一句话记：分支管"往哪个方向走"，Worktree 管"同时开几个干活的现场"。</b></div>
+
+        <div class="detail">
 
         <h4 class="blk">什么时候用谁（从简到繁）</h4>
         <ul class="points">
@@ -359,6 +377,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
 
         <blockquote>作者的收尾比喻：以前一个程序员一个工位（碳基工位）；现在一个程序员带着几十个 AI，每个 AI 也得配一个工位（硅基工位）。</blockquote>
       </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
     </article>
 
     <!-- v3-4 -->
@@ -367,6 +387,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag op">观点</span><span class="sep">·</span>Lenny's Podcast，嘉宾是 Netflix 首席产品与技术官<span class="sep">·</span>晚点再听 LaterCast<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Humku-Qw54NhhNq41BaGuw">原文</a></div>
       <div class="thread-body">
         <div class="core"><b>核心：</b>当人人都能用 AI 写代码、做原型，光守着自己那一小块专业就不够了；Netflix 更愿意把机会给<b>"能看清整个系统怎么连起来"的人</b>。</div>
+
+        <div class="detail">
 
         <h4 class="blk">为什么开始抢这种人</h4>
         <p>现在每个小组都塞了个 AI 助手去自动干活，麻烦来了：这个 AI 该信哪份数据？能不能碰用户的付费信息？哪些危险操作得拦住？要是十个组各搭一套、各定各的规矩，出乱子的概率翻十倍。所以他们要一种人——能把十个组重复造的东西看明白，提炼成一套<b>所有人和所有 AI 都能直接拿来用的"标准零件"</b>。就像与其让每家自己修路，不如先修一条带护栏的高速，大家上来就能跑到 80%。</p>
@@ -387,6 +409,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
             <li><b>出了错别急着加流程：</b>与其"一出事就加一堆审批和检查清单"，不如用"无责复盘"——把人困在流程里，最能干活的人反而被拖住。</li>
           </ul>
         </div>
+      </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
       </div>
     </article>
 
@@ -418,6 +442,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-body">
         <div class="core"><b>核心：</b>飞书里从来不缺信息，缺的是"下一步谁来做"。三场分享讲的都是怎么让 AI 在飞书里真正把活干完、还把结果留下来。</div>
 
+        <div class="detail">
+
         <h4 class="blk">AJ：跑了 100 个真实案例，总结出一套顺手流程</h4>
         <ul class="points">
           <li><b>找 → 读 → 理 → 写 → 验：</b>先定位是哪段时间/哪个群/哪个项目，读懂，去重分类，把结果写回文档或表格或群里，最后再读一遍核对。<b>越重要的活，越要走到最后一步"验"。</b></li>
@@ -433,6 +459,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
           </ul>
         </div>
       </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
     </article>
 
     <article class="thread" id="v2-2">
@@ -440,6 +468,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>晚点再听 LaterCast，讲的是创业者 Dan Martell 的做法<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/MpIT-GBl_1-CQkj27CXP5w">原文</a></div>
       <div class="thread-body">
         <div class="core"><b>核心：</b>为什么 AI 老觉得"不懂你"？因为每开一个新对话它就断片了。解法：把关于你的资料存成一批文件放在固定地方，让 AI 每次都能读到，它就不用你反复交代背景。</div>
+
+        <div class="detail">
 
         <h4 class="blk">怎么搭</h4>
         <ul class="points">
@@ -451,6 +481,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         </ul>
 
         <blockquote>最终目的：让 AI 真能替你办事。你说"给张三发个邀请"，它能从资料里认出是哪个张三、翻出邮箱电话。<b>没有这些背景，AI 就没法自己动手干活。</b></blockquote>
+      </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
       </div>
     </article>
   </section>
@@ -476,6 +508,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag">干货</span><span class="sep">·</span>赛博禅心 · 译自 OpenAI 官方文档<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/QK61rmL_DknIb5X52FfkVg">原文</a></div>
       <div class="thread-body">
         <div class="core"><b>核心：</b>给 AI 下指令不用背模板、念咒语，把四件事说清就行：<b>要它干什么、给它哪些背景、你要什么样的成品、有哪些红线不能碰</b>。用得上才写，不用全填。</div>
+
+        <div class="detail">
         <ul class="points">
           <li><b>要它干什么：</b>直接说你要的结果，别写一堆步骤。"把这些会议记录整理成给项目组的通报，决策和下一步放最前面。"</li>
           <li><b>给哪些背景：</b>只给能影响结果的；附文件要说清"从这份里取什么"，给截图要指出看哪一块。</li>
@@ -484,6 +518,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         </ul>
         <blockquote>几个好用的小习惯：第一条指令不用完美，看了结果再说"哪里改"；重要的活让它最后自查一遍（每个待办有没有负责人和截止日期）；修 bug 时把"怎么一步步复现"告诉它，比笼统描述有用得多。</blockquote>
       </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
     </article>
 
     <article class="thread" id="v1-2">
@@ -491,11 +527,15 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>OpenAI 官方案例站<span class="sep">·</span><a href="https://the-infinite-build.openai.chatgpt.site/">原站</a></div>
       <div class="thread-body">
         <div class="core"><b>核心：</b>OpenAI 演示怎么让 AI 长期"当项目负责人"连续做一个游戏——你只管定方向、把关品味，具体开发让它自己循环推进。</div>
+
+        <div class="detail">
         <ul class="points">
           <li>先让 AI 画几张"游戏实际长什么样"的概念图来定目标，再做一个 <b>5–10 分钟真能玩</b>的最小版本，别一上来就堆功能。</li>
           <li>然后进入固定循环：<b>玩一遍找出最该修的问题 → 只修这一处 → 在真游戏里验证 → 发布 → 再来一轮。</b></li>
           <li>分工：AI 管代码、测试、版本、更新日志；你管"这游戏到底要给人什么体验"和红线。反复强调：先把已有的做深做透，别为了功能清单好看就乱加东西。</li>
         </ul>
+      </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
       </div>
     </article>
 
@@ -504,7 +544,11 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag nw">要闻·观察</span><span class="sep">·</span>微信公众号<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/ZS93ELLYH4zyfeFu8jPJRw">原文</a></div>
       <div class="thread-body">
         <div class="core"><b>核心（两句）：</b>2026 年 7 月 48 小时内 Grok 4.5、Meta Muse Spark 1.1、GPT-5.6 接连发布，共同信号是——大家都不比"谁更会聊天"了，改比"谁替你把活干得又好又便宜"；OpenAI 干脆把桌面版 ChatGPT 的主入口换成了帮你干活的 Codex。</div>
+
+        <div class="detail">
         <blockquote><b>对普通用户就两点：</b>一是现在是"占便宜的窗口期"，模型变强、价格跳水；二是个提醒——有测试发现 GPT-5.6 会为了刷分作弊，所以<b>别全信 AI 说的"我做完了"，自己要验收</b>。（各家参数对比属于时效信息，想细看点原文。）</blockquote>
+      </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
       </div>
     </article>
 
@@ -513,6 +557,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag">干货·踩坑</span><span class="sep">·</span>阿文（设计师，实战总结）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/NHYP2zrsfh6AxBFqdE-SRw">原文</a></div>
       <div class="thread-body">
         <div class="core"><b>核心：</b>网红提示词大多没用；用 Seedance 出视频，把提示词写好只需四块，外加几条反常识的实测经验。</div>
+
+        <div class="detail">
         <h4 class="blk">四块</h4>
         <p><b>主体</b>（先出一张角色图存好，以后直接调用）· <b>场景</b>（直接传张场景图，把主角放进去好交代大小比例）· <b>音乐</b>（<b>只要音效、别让它生成配乐</b>，方便你后期自己配）· <b>镜头</b>（一句话说清这个镜头是远景近景、发生了啥）。抽卡：每个镜头 2–3 秒，一次直出 15 秒能得到 5 个连贯镜头。</p>
         <h4 class="blk">几条反常识的实测</h4>
@@ -522,6 +568,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
           <div class="myth-row"><div class="m">直接选 1080p 一步到位</div><div class="f">720p 对提示词的响应反而最好、又快又便宜；定稿了再用工具放大到 4K。</div></div>
         </div>
       </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
     </article>
 
     <article class="thread" id="v1-5">
@@ -529,7 +577,11 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag nw">发布</span><span class="sep">·</span>字节跳动 Seed 官方<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/COjQ-auPvV9Cc3AFZZxzbg">原文</a></div>
       <div class="thread-body">
         <div class="core"><b>核心（一两句）：</b>字节发布图像模型 Seedream 5.0 Pro，主打"专业能用"。最实用的新能力是<b>精准局部编辑</b>——能点选/圈选改画面的某一块、把一张成品海报拆成十几个可单独编辑的图层、还能照着草图渲染。另外信息图、多语言排版、真实人像质感都有提升。</div>
+
+        <div class="detail">
         <blockquote>已上线火山方舟，豆包 / 即梦陆续上线。属于发布类，想看实际效果图点原文。</blockquote>
+      </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
       </div>
     </article>
 
@@ -538,6 +590,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="meta"><span class="tag op">观点·数据</span><span class="sep">·</span>晚点再听 × Lenny's Podcast（约 6000 份回答）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Y7o0CYohUDk1rypGjZc_Wg">原文</a></div>
       <div class="thread-body">
         <div class="core"><b>核心：</b>同一个 AI，有人觉得它让自己更强了，有人觉得自己被架空了——而"我是被放大还是被削弱"这种感受，对你干得开不开心的影响，是"摊上好领导还是烂领导"的三倍。</div>
+
+        <div class="detail">
         <div class="viz">
           <div class="viz-title">AI 有没有改变你的职业身份？</div>
           <div class="viz-sub">受访者自己怎么看 · 约 6000 人</div>
@@ -562,6 +616,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
           <li><b>小心"手感变钝"：</b>可以让 AI 写初稿，但别把最后"这东西到底对不对"的判断也交出去。</li>
           <li><b>给个人的建议：</b>挑两三件重要的事把 AI 用深；活越堆越多就尽早跟领导对齐范围；找工作时认真挑未来的直属领导——模型天天换，带你的人影响更久。</li>
         </ul>
+      </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
       </div>
     </article>
   </section>
@@ -596,6 +652,28 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     updateProg();
   }
   tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.issue); }); });
+
+  // 展开/收起正文
+  document.querySelectorAll('.thread .expand').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var art = btn.closest('.thread');
+      var open = art.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+      btn.querySelector('.tx').textContent = open ? '收起' : '展开全文';
+      if (!open) art.scrollIntoView({ behavior:'smooth', block:'start' });
+      updateProg();
+    });
+  });
+  // 从目录点进来时自动展开对应文章
+  document.querySelectorAll('.issue-toc a').forEach(function(a){
+    a.addEventListener('click', function(){
+      var art = document.getElementById(a.getAttribute('href').slice(1));
+      if (art && !art.classList.contains('open')) {
+        var btn = art.querySelector('.expand');
+        if (btn) btn.click();
+      }
+    });
+  });
 
   function setTheme(m){
     root.setAttribute('data-theme', m);
