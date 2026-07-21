@@ -8,7 +8,7 @@
 :root {
   --sans: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Consolas, "Courier New", monospace;
-  /* dark (default) */
+  --serif: Georgia, "Songti SC", "Noto Serif SC", "SimSun", serif;
   --bg: #0b0f14;
   --grid: rgba(255,255,255,0.022);
   --surface: #12181f;
@@ -35,7 +35,7 @@
   --line: #ecebe4;
   --ink: #14181d;
   --ink-2: #4a5058;
-  --muted: #8a8f96;
+  --muted: #7c828a;
   --accent: #0e7a99;
   --accent-ink: #ffffff;
   --accent-2: #1a7f37;
@@ -57,75 +57,38 @@ body {
   line-height: 1.85;
   -webkit-font-smoothing: antialiased;
 }
-
-/* progress */
 .progbar { position:fixed; top:0; left:0; right:0; height:3px; background:transparent; z-index:60; }
 .progbar .p { height:100%; width:0; background:linear-gradient(90deg,var(--accent),var(--accent-2)); box-shadow:0 0 10px var(--accent); }
-
 .shell { max-width: 900px; margin:0 auto; padding: 0 22px 110px; }
 
-/* ---------------- top strip ---------------- */
-.topstrip {
-  position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between; gap:14px;
-  padding: 12px 0; margin-bottom: 8px;
-  backdrop-filter: blur(10px);
-  background: color-mix(in srgb, var(--bg) 80%, transparent);
-  border-bottom: 1px solid var(--line);
-}
-.brand { font-family:var(--mono); font-size:13px; letter-spacing:.04em; color:var(--muted); display:flex; align-items:center; gap:9px; }
+.topstrip { position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:14px; padding:12px 0; margin-bottom:8px; backdrop-filter:blur(10px); background:color-mix(in srgb, var(--bg) 80%, transparent); border-bottom:1px solid var(--line); }
+.brand { font-family:var(--mono); font-size:13px; color:var(--muted); display:flex; align-items:center; gap:9px; }
 .brand b { color:var(--ink); font-weight:700; }
 .brand .blink { width:8px; height:15px; background:var(--accent); display:inline-block; animation:bl 1.1s steps(1) infinite; }
 @keyframes bl { 50%{opacity:0} }
-.theme-btn {
-  font-family:var(--mono); font-size:12.5px; color:var(--ink-2);
-  background:var(--surface); border:1px solid var(--border); border-radius:8px;
-  padding:6px 12px; cursor:pointer; transition:border-color .15s,color .15s;
-}
+.theme-btn { font-family:var(--mono); font-size:12.5px; color:var(--ink-2); background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:6px 12px; cursor:pointer; transition:border-color .15s,color .15s; }
 .theme-btn:hover { border-color:var(--accent); color:var(--accent); }
 
-/* ---------------- terminal header ---------------- */
-header { padding-top: 26px; }
-.term {
-  border:1px solid var(--border); border-radius:14px; overflow:hidden;
-  background:var(--surface); box-shadow:var(--shadow);
-}
-.term-bar {
-  display:flex; align-items:center; gap:8px;
-  padding:11px 16px; border-bottom:1px solid var(--line);
-  background:var(--surface-2);
-}
+header { padding-top:26px; }
+.term { border:1px solid var(--border); border-radius:14px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow); }
+.term-bar { display:flex; align-items:center; gap:8px; padding:11px 16px; border-bottom:1px solid var(--line); background:var(--surface-2); }
 .term-bar .dot { width:12px; height:12px; border-radius:50%; }
 .dot.r{background:var(--dot-r)} .dot.y{background:var(--dot-y)} .dot.g{background:var(--dot-g)}
 .term-bar .tt { font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-left:8px; }
-.term-body { padding: 26px 30px 30px; }
+.term-body { padding:26px 30px 30px; }
 .cmdline { font-family:var(--mono); font-size:13.5px; color:var(--ink-2); margin-bottom:16px; }
 .cmdline .usr { color:var(--accent-2); }
 .cmdline .pth { color:var(--accent); }
 .cmdline .typed { color:var(--ink); }
-h1 { font-size: 40px; line-height:1.22; font-weight:900; letter-spacing:.01em; }
+h1 { font-size:40px; line-height:1.22; font-weight:900; letter-spacing:.01em; }
 h1 .en { display:block; font-family:var(--mono); font-size:14px; font-weight:600; letter-spacing:.42em; color:var(--accent); margin-top:12px; text-transform:uppercase; }
 .tagline { font-family:var(--mono); font-size:13.5px; color:var(--muted); margin-top:16px; }
 .hstats { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
-.hstats .chip {
-  font-family:var(--mono); font-size:12.5px; color:var(--ink-2);
-  background:var(--surface-2); border:1px solid var(--border); border-radius:999px; padding:5px 13px;
-}
+.hstats .chip { font-family:var(--mono); font-size:12.5px; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--border); border-radius:999px; padding:5px 13px; }
 .hstats .chip b { color:var(--accent); }
 
-/* ---------------- issue tabs ---------------- */
-.tabs {
-  position:sticky; top:53px; z-index:40;
-  display:flex; gap:8px; flex-wrap:wrap;
-  padding:14px 0; margin: 14px 0 4px;
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(8px);
-}
-.tab {
-  font-family:var(--mono); text-align:left; cursor:pointer;
-  background:var(--surface); border:1px solid var(--border); border-radius:11px;
-  padding:9px 15px; color:var(--ink-2); transition:all .15s; line-height:1.35;
-}
+.tabs { position:sticky; top:53px; z-index:40; display:flex; gap:8px; flex-wrap:wrap; padding:14px 0; margin:14px 0 4px; background:color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter:blur(8px); }
+.tab { font-family:var(--mono); text-align:left; cursor:pointer; background:var(--surface); border:1px solid var(--border); border-radius:11px; padding:9px 15px; color:var(--ink-2); transition:all .15s; line-height:1.35; }
 .tab .vv { font-size:13px; font-weight:700; color:var(--ink); display:flex; align-items:center; gap:7px; }
 .tab .vv .new { font-size:10px; color:var(--accent-ink); background:var(--accent); padding:1px 6px; border-radius:5px; letter-spacing:.05em; }
 .tab .dd { font-size:11px; color:var(--muted); margin-top:1px; }
@@ -133,67 +96,59 @@ h1 .en { display:block; font-family:var(--mono); font-size:14px; font-weight:600
 .tab.active { border-color:var(--accent); background:var(--accent-soft); }
 .tab.active .vv { color:var(--accent); }
 
-/* ---------------- issue ---------------- */
-.issue { display:none; animation: fade .25s ease; }
+.issue { display:none; animation:fade .25s ease; }
 .issue.active { display:block; }
 @keyframes fade { from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none} }
 
-.issue-head { padding: 26px 4px 6px; }
+.issue-head { padding:26px 4px 6px; }
 .issue-vol { font-family:var(--mono); font-size:12.5px; letter-spacing:.3em; color:var(--accent); }
 .issue-theme { font-size:26px; font-weight:800; margin-top:8px; line-height:1.35; }
-.issue-lead { color:var(--ink-2); font-size:15px; margin-top:12px; max-width:660px; }
+.issue-lead { color:var(--ink-2); font-size:15px; margin-top:12px; max-width:680px; }
 .issue-toc { margin-top:18px; border-top:1px dashed var(--border); border-bottom:1px dashed var(--border); padding:12px 0; }
-.issue-toc a {
-  display:flex; gap:12px; align-items:baseline; padding:6px 4px;
-  color:var(--ink-2); text-decoration:none; font-size:14.5px; border-radius:6px; transition:color .15s;
-}
+.issue-toc a { display:flex; gap:12px; align-items:baseline; padding:6px 4px; color:var(--ink-2); text-decoration:none; font-size:14.5px; border-radius:6px; transition:color .15s; }
 .issue-toc a:hover { color:var(--accent); }
 .issue-toc a .ix { font-family:var(--mono); font-size:12.5px; color:var(--accent); flex:none; }
 .issue-toc a .cat { font-family:var(--mono); font-size:11.5px; color:var(--muted); margin-left:auto; flex:none; }
 
-/* ---------------- thread (article) ---------------- */
-.thread {
-  margin-top: 22px; scroll-margin-top: 120px;
-  background:var(--surface); border:1px solid var(--border); border-radius:16px;
-  padding: 28px 30px 26px; box-shadow:var(--shadow);
-}
+/* 要闻速览 */
+.newsflash { margin:22px 0 4px; border:1px solid var(--border); border-radius:13px; background:var(--surface); padding:16px 20px; box-shadow:var(--shadow); }
+.newsflash .lb { font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); margin-bottom:7px; }
+.newsflash p { color:var(--ink-2); font-size:14px; margin:0; }
+.newsflash b { color:var(--ink); }
+.newsflash a { color:var(--muted); font-family:var(--mono); font-size:12px; }
+
+.thread { margin-top:22px; scroll-margin-top:120px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px 30px 26px; box-shadow:var(--shadow); }
 .thread-top { display:flex; gap:14px; align-items:baseline; }
 .thread-ix { font-family:var(--mono); font-size:15px; font-weight:700; color:var(--accent); flex:none; }
 .thread h3 { font-size:21px; line-height:1.5; font-weight:800; }
 .meta { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0 0 34px; font-family:var(--mono); font-size:12px; color:var(--muted); }
-.meta .tag { color:var(--accent); background:var(--accent-soft); border:1px solid color-mix(in srgb,var(--accent) 35%, transparent); border-radius:6px; padding:2px 9px; letter-spacing:.03em; }
+.meta .tag { color:var(--accent); background:var(--accent-soft); border:1px solid color-mix(in srgb,var(--accent) 35%, transparent); border-radius:6px; padding:2px 9px; }
 .meta .tag.op { color:var(--s5); background:color-mix(in srgb,var(--s5) 14%, transparent); border-color:color-mix(in srgb,var(--s5) 32%, transparent); }
+.meta .tag.nw { color:var(--s3); background:color-mix(in srgb,var(--s3) 15%, transparent); border-color:color-mix(in srgb,var(--s3) 34%, transparent); }
 .meta .sep { opacity:.5; }
 .meta a { color:var(--muted); }
 .meta a:hover { color:var(--accent); }
 
 .thread-body { margin-top:18px; }
-.tldr {
-  background:var(--surface-2); border-left:3px solid var(--accent); border-radius:0 10px 10px 0;
-  padding:14px 18px; color:var(--ink-2); font-size:15px;
-}
-.tldr b { color:var(--ink); }
+.core { background:var(--accent-soft); border-radius:11px; padding:14px 18px; color:var(--ink); font-size:15.5px; line-height:1.8; }
+.core b { color:var(--accent); }
 .thread-body p { color:var(--ink-2); margin:13px 0; }
 .thread-body p b, .thread-body li b { color:var(--ink); font-weight:700; }
-h4.blk { font-size:14px; font-family:var(--mono); font-weight:700; color:var(--ink); margin:24px 0 6px; display:flex; align-items:center; gap:8px; letter-spacing:.02em; }
+h4.blk { font-size:14px; font-family:var(--mono); font-weight:700; color:var(--ink); margin:22px 0 6px; display:flex; align-items:center; gap:8px; letter-spacing:.02em; }
 h4.blk::before { content:"//"; color:var(--accent); }
 
 .points { list-style:none; margin:10px 0; }
 .points li { position:relative; padding:7px 0 7px 24px; color:var(--ink-2); }
 .points li::before { content:""; position:absolute; left:3px; top:17px; width:6px; height:6px; border-radius:50%; background:var(--accent); }
 .points li .why { display:block; font-size:13.5px; color:var(--muted); margin-top:2px; }
+.points li .eg { display:block; font-size:13.5px; color:var(--ink-2); margin-top:3px; padding-left:11px; border-left:2px solid var(--border); }
 
 .steps { list-style:none; counter-reset:st; margin:10px 0; }
 .steps li { counter-increment:st; position:relative; padding:8px 0 8px 42px; color:var(--ink-2); }
-.steps li::before {
-  content:counter(st,decimal-leading-zero); position:absolute; left:0; top:9px;
-  font-family:var(--mono); font-size:12px; font-weight:700; color:var(--accent);
-  background:var(--surface-2); border:1px solid var(--border); border-radius:8px;
-  width:30px; height:26px; display:flex; align-items:center; justify-content:center;
-}
+.steps li::before { content:counter(st,decimal-leading-zero); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:700; color:var(--accent); background:var(--surface-2); border:1px solid var(--border); border-radius:8px; width:30px; height:26px; display:flex; align-items:center; justify-content:center; }
 
 .flow { display:flex; flex-wrap:wrap; align-items:stretch; gap:6px; margin:14px 0 4px; }
-.flow .f { background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:8px 13px; font-size:13.5px; color:var(--ink); font-weight:700; min-width:76px; }
+.flow .f { background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:8px 13px; font-size:13.5px; color:var(--ink); font-weight:700; min-width:70px; }
 .flow .f small { display:block; font-weight:400; font-size:11.5px; color:var(--muted); line-height:1.5; margin-top:1px; }
 .flow .arr { color:var(--muted); align-self:center; font-family:var(--mono); }
 
@@ -206,16 +161,20 @@ h4.blk::before { content:"//"; color:var(--accent); }
 blockquote { margin:18px 0 6px; padding:6px 0 6px 18px; border-left:2px solid var(--accent); color:var(--ink-2); font-size:15px; }
 blockquote b { color:var(--ink); }
 
-.cmd {
-  margin:15px 0 6px; background:var(--surface-2); border:1px solid var(--border); border-radius:11px;
-  padding:15px 18px; font-family:var(--mono); font-size:13px; color:var(--ink-2); line-height:1.75; overflow-x:auto;
-}
+.cmd { margin:15px 0 6px; background:var(--surface-2); border:1px solid var(--border); border-radius:11px; padding:15px 18px; font-family:var(--mono); font-size:13px; color:var(--ink-2); line-height:1.75; overflow-x:auto; }
 .cmd .lb { color:var(--accent); font-size:11px; letter-spacing:.14em; margin-bottom:7px; }
 .cmd .in { color:var(--ink); }
 .cmd .in::before { content:"$ "; color:var(--accent-2); }
 .cmd .note { display:block; margin-top:8px; color:var(--muted); font-family:var(--sans); font-size:12.5px; }
 
-/* dataviz */
+/* 延伸块：不同字体(衬线) + 虚线框，视觉上和正文区分 */
+.more { margin:18px 0 4px; padding:14px 18px 12px; border:1px dashed var(--border); border-radius:11px; background:transparent; font-family:var(--serif); }
+.more .lb { font-family:var(--mono); font-size:11px; letter-spacing:.12em; color:var(--muted); margin-bottom:7px; }
+.more ul { list-style:none; }
+.more li { position:relative; padding:4px 0 4px 16px; font-size:14px; color:var(--muted); line-height:1.8; }
+.more li::before { content:"·"; position:absolute; left:5px; color:var(--accent); font-family:var(--sans); }
+.more li b { color:var(--ink-2); font-weight:700; }
+
 .viz { margin:20px 0; background:var(--surface-2); border:1px solid var(--border); border-radius:13px; padding:20px 22px 16px; }
 .viz-title { font-size:14px; font-weight:700; color:var(--ink); }
 .viz-sub { font-family:var(--mono); font-size:11.5px; color:var(--muted); margin:2px 0 15px; }
@@ -233,11 +192,7 @@ blockquote b { color:var(--ink); }
 .tile .l { font-size:12.5px; color:var(--muted); margin-top:4px; line-height:1.5; }
 .tile .d { font-size:12px; color:var(--ink-2); margin-top:2px; }
 
-/* takeaway */
-.takeaway {
-  margin-top:30px; border:1px solid var(--border); border-radius:16px; padding:26px 30px;
-  background:var(--surface); box-shadow:var(--shadow); position:relative; overflow:hidden;
-}
+.takeaway { margin-top:30px; border:1px solid var(--border); border-radius:16px; padding:26px 30px; background:var(--surface); box-shadow:var(--shadow); position:relative; overflow:hidden; }
 .takeaway::before { content:""; position:absolute; inset:0 0 auto 0; height:3px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); }
 .takeaway .kk { font-family:var(--mono); font-size:12px; letter-spacing:.2em; color:var(--accent); }
 .takeaway h3 { font-size:19px; font-weight:800; margin:6px 0 2px; }
@@ -275,11 +230,11 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="term-body">
         <div class="cmdline"><span class="usr">visitor@frontier</span>:<span class="pth">~/digest</span>$ <span class="typed" id="typed">cat vol.03.md</span></div>
         <h1>AI 前沿日报<span class="en">Frontier Daily</span></h1>
-        <p class="tagline"># 硅谷播客 · 官方文档 · 一线实战 — 去掉废话，只留能用的</p>
+        <p class="tagline"># 用大白话讲透核心 · 黑话翻译成人话 · 要闻一句话带过</p>
         <div class="hstats">
           <span class="chip"><b>3</b> 期</span>
-          <span class="chip"><b>12</b> 篇文章</span>
-          <span class="chip"><b>7</b> 篇硬干货</span>
+          <span class="chip"><b>12</b> 篇精读</span>
+          <span class="chip">看不懂算我输</span>
           <span class="chip">切换期号：点标签或按 <b>1/2/3</b></span>
         </div>
       </div>
@@ -297,136 +252,148 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <div class="issue-head">
       <div class="issue-vol">VOL.03 / 2026·07·16</div>
       <h2 class="issue-theme">角色的重写：设计师 · 工具 · 组织</h2>
-      <p class="issue-lead">本期四篇，分别来自 Claude Code 设计负责人、一位开源工具作者、一位独立开发者、一位大厂高管。四个完全不同的视角，指向同一句话——当「做出来」变便宜，<b>判断力</b>成了新的稀缺品。</p>
+      <p class="issue-lead">本期四篇，来自 Claude Code 设计负责人、一位开源工具作者、一位独立开发者、一位大厂高管。四个完全不同的视角，其实在说同一句话——<b>当"把东西做出来"变便宜了，值钱的就不再是"会做"，而是"知道该做什么、做得对不对"。</b></p>
       <div class="issue-toc">
-        <a href="#v3-1"><span class="ix">01</span><span>Claude Code 是怎么设计出来的：下一代设计师负责什么</span><span class="cat">观点</span></a>
-        <a href="#v3-2"><span class="ix">02</span><span>把 Skill 做稳：开源的 Skill Engineering 1.0</span><span class="cat">干货·工具</span></a>
-        <a href="#v3-3"><span class="ix">03</span><span>一个人如何管理几十个 AI 程序员？（Git Worktree）</span><span class="cat">干货·方法</span></a>
-        <a href="#v3-4"><span class="ix">04</span><span>Netflix：AI 时代为什么更需要「系统型人才」</span><span class="cat">观点</span></a>
+        <a href="#v3-1"><span class="ix">01</span><span>Claude Code 是怎么设计出来的</span><span class="cat">观点</span></a>
+        <a href="#v3-2"><span class="ix">02</span><span>把"给 AI 用的技能"做稳：Skill Engineering 1.0</span><span class="cat">干货·工具</span></a>
+        <a href="#v3-3"><span class="ix">03</span><span>一个人如何管理几十个 AI 程序员？</span><span class="cat">干货·方法</span></a>
+        <a href="#v3-4"><span class="ix">04</span><span>Netflix：为什么更需要"能看全局的人"</span><span class="cat">观点</span></a>
       </div>
+    </div>
+
+    <div class="newsflash">
+      <div class="lb">要闻速览 · 看过就行</div>
+      <p><b>AI 早报 2026-07-19（橘鸦Juya）</b>｜一份当日 AI 新闻清单，最值得知道的是 Anthropic 从 7/20 起把 <b>Claude Fable 5 加进 Max、Team Premium 订阅</b>（用量是标准档的一半）、并把 Claude Code 提额活动延到 8/19；其余是商汤、京东出新模型、马斯克称 Grok 2T 下周训完等厂商动态——都是时效消息，扫一眼即可。 <a href="https://mp.weixin.qq.com/s/4k07o-WTQqgospWI6vTLiw">原文</a></p>
     </div>
 
     <!-- v3-1 -->
     <article class="thread" id="v3-1">
-      <div class="thread-top"><span class="thread-ix">01</span><h3>Claude Code 是怎么设计出来的：下一代设计师负责什么</h3></div>
-      <div class="meta"><span class="tag op">观点·深度</span><span class="sep">·</span>Dive Club × Meaghan Choi（Claude Code 设计负责人）<span class="sep">·</span>晚点再听 LaterCast<span class="sep">·</span>~4 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/lvV8YRfrmfcAStDlrYR1UQ">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Claude Code 是怎么设计出来的</h3></div>
+      <div class="meta"><span class="tag op">观点</span><span class="sep">·</span>Dive Club 访谈，嘉宾是 Claude Code 的设计负责人<span class="sep">·</span>晚点再听 LaterCast<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/lvV8YRfrmfcAStDlrYR1UQ">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>命令行没有界面，反而更需要设计。当"做出来"变得很容易，设计师的价值从画布转向 discernment（可执行的取舍判断）——分辨此刻该塑形还是该执行、什么值得做、什么该克制。</div>
+        <div class="core"><b>核心：</b>现在靠 AI 把东西"做出来"已经很容易了，所以真正值钱的能力，从"会做"变成了"会判断——这东西做得对不对、到底该不该做"。</div>
 
-        <h4 class="blk">没有界面，反而更需要设计</h4>
-        <p>心智模型、交互模型、状态如何被感知，都是设计，只是没表现为图形界面。终端内容一起向上滚、没有渐进披露、开发者反而期待更高信息密度——每一样都要重新设计。连"计划模式 / 自动模式"的快捷键切换都吵了很久：要够快、不与终端已有快捷键冲突、还要让你随时知道自己在哪个模式。</p>
+        <h4 class="blk">动手前，先分清你在哪个阶段</h4>
+        <ul class="points">
+          <li>你还在<b>想"要做什么"</b>：这时候别急着让 AI 写，先跟它聊、让它挑毛病，把方向敲定。</li>
+          <li>你已经<b>想清楚、要"把它做出来"</b>：这时候才放手让 AI 加速。
+            <span class="eg">为什么这个区分要命：方向要是错的，你让 AI 做得越快越漂亮，只是<b>更快地撞上那个错答案</b>。（原文管这叫 discernment、"塑形 vs 执行"，翻成人话就是这个意思。）</span>
+          </li>
+        </ul>
 
-        <h4 class="blk">先设计"它真的懂我"的魔法瞬间</h4>
-        <p>用户最大的认知跨越不是接受聊天，而是相信 Claude 能读取整个代码库、直接写回文件。团队因此把注意力压在"第一次感受到魔法"上：全屏后的橙色区域、ASCII 吉祥物、动画，给冷峻终端加一点温度。<b>信任来自两个信号——它确实理解当前环境，也会清楚告诉你它正在做什么。</b></p>
+        <h4 class="blk">另一个趋势：以后是"整个团队用同一个 AI"</h4>
+        <p>不是"你有你的 AI、我有我的 AI"，而是整个团队共用一个——它记得所有人的讨论和决定，你做一件事时，它能顺手把别的同事在别处聊过的相关信息拉给你看。</p>
 
-        <h4 class="blk">好产品先长在工作流里</h4>
-        <p>Artifacts 的起点不是产品蓝图，而是大家开始"互发 HTML 文件"这个笨拙动作暴露了真实需求。团队顺着使用过程补齐能力（生成→托管→分享→迭代→固定版本），最后才处理命名。</p>
-        <blockquote>"当你注意到工具本身时，就是我们失败的时刻。它应该彻底让开，不挡住你的工作。"</blockquote>
+        <blockquote><b>一句值得记住的话："能做出来，不代表就该做。"</b> AI 让做东西变便宜之后，忍住不把每个想法都做成功能、保持克制，反而比拼命做更重要。</blockquote>
 
-        <h4 class="blk">Figma 没消失，交付边界变了</h4>
-        <p>她先用 HTML 快速迭代，确认形态后再让 Claude 按真实组件重建成可提交的 PR——设计稿、可交互原型、代码不再有固定交接线，而是同一对象逐步提高保真度。选工具的标准很简单：<b>此刻哪种更快、更清楚，就用哪种。</b></p>
-
-        <h4 class="blk">AI 从个人工具变成组织成员（Claude Tag）</h4>
-        <p>不是和许多个 Claude 工作，而是<b>整个组织和同一个 Claude 工作</b>——它同时参与数千段对话、共享知识记忆、以组织成员身份拥有 GitHub / Google 权限。她很多 PR 直接从 Slack 一句话发起："去掉阴影"，Claude 自己找页面、开分支、建草稿 PR、附前后截图、等 CI 通过、请工程师审查。</p>
-
-        <h4 class="blk">可以外包执行，不能外包判断</h4>
-        <p>新的关键能力是判断自己处于"塑形"还是"执行"阶段：想法没成立时和它讨论结构与必要性，方向明确后再让它加速。<b>如果产品形态本身是错的，越快、越精致的执行只会更快抵达错误答案。</b>测试版可以很难看——它验证的是底层心智模型是否成立，而不是精致度。</p>
-        <blockquote>"能做出一切，不代表一切都应该被做出来。"未来设计师的三个特征：在混乱中保持好奇并持续更新判断、分辨产品塑形与执行打磨、对从想法到发布的完整闭环负责。</blockquote>
+        <div class="more">
+          <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+          <ul>
+            <li><b>命令行"没界面"其实更需要设计：</b>怎么让你一眼看出 AI 在干嘛、处于哪个模式，都是精心设计的——连全屏后那块橙色区、那个 ASCII 小吉祥物，都是为了给冷冰冰的终端加点温度和信任感。</li>
+            <li><b>交付方式变了：</b>她常先用网页快速试样子，定稿后再让 Claude 按正式组件重写成能提交的代码；但 Figma 没被丢掉，哪个快用哪个。</li>
+            <li><b>一句设计理念：</b>"当你开始注意到工具本身，就说明设计失败了"——好工具应该让你忘了它的存在。</li>
+          </ul>
+        </div>
       </div>
     </article>
 
     <!-- v3-2 -->
     <article class="thread" id="v3-2">
-      <div class="thread-top"><span class="thread-ix">02</span><h3>把 Skill 做稳：我开源了 Skill Engineering 1.0</h3></div>
-      <div class="meta"><span class="tag">干货·工具</span><span class="sep">·</span>艾笑 AI<span class="sep">·</span>~5 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/luJtw4DffHYJoGOQfq28eg">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">02</span><h3>把"给 AI 用的技能"做稳：Skill Engineering 1.0</h3></div>
+      <div class="meta"><span class="tag">干货·工具</span><span class="sep">·</span>艾笑 AI<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/luJtw4DffHYJoGOQfq28eg">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>一个开源工具，管一个 Skill 的完整生命周期——先判断值不值得做，再创建、检查、改进、验证，改正式版前一定先让你确认。它交付的不是一段长 Prompt，而是"边界清楚、能真实用、以后不会越改越乱"的能力。</div>
+        <div class="core"><b>核心：</b>一个开源工具，专门帮你把"给 AI 用的技能(Skill)"做稳——不是生成一段长指令就完事，而是让这个技能<b>边界清楚、真能用、以后改也不会越改越乱</b>。</div>
 
-        <h4 class="blk">核心工作流（以"会议纪要 Skill"为例）</h4>
-        <ol class="steps">
-          <li><b>不立即写文件</b>：先确认几个真正会改变结果的问题——输入是什么、输出存哪、是否要跨项目复用、哪些相似请求<b>不该</b>触发、原文缺负责人/截止时间时怎么办。</li>
-          <li><b>写入前先给完整方案</b>：应该触发 / 不应该触发 / 输出规则 / 第一版边界，你回复"可以写入"才创建。</li>
-          <li><b>改 bug 不堆补丁</b>：真实反馈来了，先判断问题在哪一层→创建<b>独立候选</b>不覆盖正在用的版本→加一个<b>回归场景</b>防复发→你看差异再决定是否应用。</li>
-        </ol>
-        <blockquote>关键理念：一个 Skill 是否符合工程架构，<b>首先不是看目录有多复杂，而是看职责、触发边界、停止条件、副作用是否在写入前就说清楚了。</b></blockquote>
-
-        <h4 class="blk">四个用例，验证四种能力</h4>
+        <h4 class="blk">它最关键的一个习惯：先说清边界，你确认了才动手</h4>
         <ul class="points">
-          <li><b>会议纪要</b> → 轻量创建：简单需求保持轻量，缺失字段标"待确认"不猜测。</li>
-          <li><b>GitHub Issue 分类</b> → 外部只读边界：第一版严格只读，即使你临时让它顺手写回 GitHub，也停在已批准的边界外。</li>
-          <li><b>Web 应用验收</b> → Skill 调脚本：自然语言触发和安全边界放 Skill 里，登录/搜索/导出/断言交给浏览器脚本，产出截图+CSV+报告。</li>
-          <li><b>研究证据包</b> → 复杂架构治理：多文件结构，入口/契约/输出规范/回归用例分开管，遇高风险外部发布先停。</li>
+          <li>写文件之前，它先跟你把"这技能<b>什么时候该启动、什么时候不该启动、缺信息了怎么办</b>"敲定。
+            <span class="eg">比如做个"从会议记录里提取待办"的技能：如果你只是让它"总结一下会议"，它就不该启动；原文没写负责人时，它标"待确认"而不是瞎编一个。（这就是所谓"触发边界"——说人话就是"这功能什么情况下才该出场"。）</span>
+          </li>
+          <li><b>改 bug 不靠"在文件末尾再加一句禁令"：</b>它先判断问题出在哪一层，另存一个"候选版本"去改（不动你正在用的那个），还配一个测试场景防止以后再犯，你看过改动再决定要不要采用。</li>
         </ul>
 
+        <blockquote><b>作者的一个判断：现在最该学的是 Skill。</b>模型和工具会越做越强，但把这些能力接进你自己工作流的那一层，是你自己的 Skill；光会"装一个"不够，得能看懂它在干嘛、会改、能长期维护。</blockquote>
+
         <div class="cmd">
-          <div class="lb">GET STARTED（Codex）</div>
+          <div class="lb">想试试（Codex 用户）</div>
           <span class="in">npx skills add https://github.com/wukongai/skill-engineering</span>
-          <span class="note">然后对 Agent 说："用 Skill Engineering 帮我做一个 Skill，先判断是否真的需要；如果需要，让我先看到职责边界和创建方案，我确认后再写入。"</span>
+          <span class="note">然后对它说："帮我做个 Skill，先判断到底需不需要做；需要的话先给我看它的职责和边界，我确认后再写文件。"</span>
         </div>
-        <blockquote>作者的观点：<b>现在最该学的是 Skill。</b>模型和工具由厂商提供，但把它们接进你工作流的连接层是 Skill——学 Skill 不能停在"安装"，要能读懂它在做什么、判断是否适配、改成自己的版本、并长期保持不漂移可验证。</blockquote>
+
+        <div class="more">
+          <div class="lb">延伸 · 它用四个例子验证了不同能力</div>
+          <ul>
+            <li><b>会议纪要</b>——简单需求就保持轻量，不硬造一堆目录。</li>
+            <li><b>GitHub Issue 分类</b>——只读边界：能帮你分类，但绝不乱改、乱关你的问题条目，你临时让它"顺手改一下"它也会停住。</li>
+            <li><b>网页验收</b>——让它调脚本自动跑一遍流程（登录/搜索/导出），留下截图和报告。</li>
+            <li><b>研究资料整理</b>——复杂的多文件结构，遇到"要往外发布"这种高风险动作会先停下等你。</li>
+          </ul>
+        </div>
       </div>
     </article>
 
     <!-- v3-3 -->
     <article class="thread" id="v3-3">
       <div class="thread-top"><span class="thread-ix">03</span><h3>一个人如何管理几十个 AI 程序员？</h3></div>
-      <div class="meta"><span class="tag">干货·方法论</span><span class="sep">·</span>刘小排<span class="sep">·</span>~4 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/zxjYSGzgEoDyrcpdupEQ-w">原文</a></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>刘小排<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/zxjYSGzgEoDyrcpdupEQ-w">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>Peter Steinberger 一个人、五台机器、几十个 AI 任务并行——靠的是 Git 的老功能 Worktree。<b>分支管"路线"，Worktree 管"现场"；一句话：分支是排班的，Worktree 是发工位的。</b></div>
+        <div class="core"><b>核心：</b>有人一个人、五台电脑、几十个 AI 同时干活——靠的是 Git 的一个老功能 Worktree，它能让同一个项目在电脑上开好几个"独立工作现场"，这样多个 AI 各干各的、互不打架。<b>一句话记：分支管"往哪个方向走"，Worktree 管"同时开几个干活的现场"。</b></div>
 
-        <h4 class="blk">分支 vs Worktree</h4>
-        <p><b>分支</b>=代码往哪个方向走（主干是国道，分支是岔路，最后汇合）。<b>Worktree</b>=同时打开几个代码现场（同一仓库在硬盘上铺开成多个独立目录，这个改登录、那个修支付，互不干扰）。AI 时代门槛大降：以前要 stash→切分支→改→切回，任务一多脑子和代码一起乱；现在几条路线各有现场同时开工，你只需用大白话让 Claude Code / Codex 启用。</p>
-
-        <h4 class="blk">什么时候用谁：五种情况（从简到繁）</h4>
-        <ol class="steps">
-          <li><b>直接在 main 改</b>：改文案、调价、修 typo 这种五分钟小事，开分支都浪费。</li>
-          <li><b>只开分支</b>：大改动、周期长、可能推倒重来（重构鉴权、迁数据库）——一个人串行做，一个目录就够。</li>
-          <li><b>同一分支开多个 Worktree</b>：路线只一条但有并行子任务，比如一个支付分支下同时接 Stripe / Paddle / PayPal 五个 provider，五个 Agent 并行做完一起合回。</li>
-          <li><b>分支 + Worktree 一起上</b>：多条路线同时进行（落地页 / 账单 bug / 接新模型各开一分支、各配一现场）。</li>
-          <li><b>全矩阵</b>：多分支 × 每分支多 Worktree × 多台机器——Peter 模式。判断标准就一条：<b>你的任务是几件、几层？</b></li>
-        </ol>
-
-        <h4 class="blk">给独立开发者的三条启发</h4>
+        <h4 class="blk">什么时候用谁（从简到繁）</h4>
         <ul class="points">
-          <li><b>练的第一项能力是拆任务，不是写代码</b>。<span class="why">拆得好，五个 Agent 一晚顶一周；拆不好，五个 Agent 互改对方代码，一晚上收拾残局。</span></li>
-          <li><b>基础设施要先于功能投入</b>。<span class="why">Peter 那张截图里一大半任务是删死代码、修测试、修 CI——顶级开发者派 AI 的大头是维护地基。地基越稳，敢同时派的 Agent 越多，这才是真杠杆。</span></li>
-          <li><b>当产品经理，别当码农</b>。<span class="why">当"手"变成几十个 Agent，最稀缺的不再是时间而是判断力：做什么、不做什么、哪个优先、交上来的代码合不合。</span></li>
+          <li>改个错别字、调个文案：直接改，别开分支。</li>
+          <li>一个大改动、要慢慢来（比如重构登录系统）：开个分支，一个人串行做就够。</li>
+          <li>一件事但能拆成并行子任务（比如同时接 5 个支付渠道）：一个分支下开多个现场，5 个 AI 一起上。</li>
+          <li>好几件不相关的事同时做：每件开一个分支、各配一个现场。</li>
+          <li>几十件事一起干（顶级玩法）：多分支 × 多现场 × 多台电脑。</li>
         </ul>
-        <blockquote>以前一个程序员一个工位（碳基工位）；现在一个程序员带几十个 AI，每个都得配一个工位（硅基工位）。</blockquote>
+
+        <h4 class="blk">给独立开发者的三条启发（这才是重点）</h4>
+        <ul class="points">
+          <li><b>第一能力是"拆任务"，不是"写代码"。</b><span class="why">拆得好，5 个 AI 一晚顶一周；拆不好，它们互相改对方的代码，你一晚上收拾残局。</span></li>
+          <li><b>先修地基，再盖楼。</b><span class="why">顶级开发者派给 AI 的活，一大半是删废代码、修测试这种"维护地基"的事——地基越稳，你敢同时派的 AI 越多。</span></li>
+          <li><b>当产品经理，别当码农。</b><span class="why">当你的"手"变成几十个 AI，最缺的不再是时间，而是"做什么、不做什么、它交上来的合不合格"的判断。</span></li>
+        </ul>
+
+        <blockquote>作者的收尾比喻：以前一个程序员一个工位（碳基工位）；现在一个程序员带着几十个 AI，每个 AI 也得配一个工位（硅基工位）。</blockquote>
       </div>
     </article>
 
     <!-- v3-4 -->
     <article class="thread" id="v3-4">
-      <div class="thread-top"><span class="thread-ix">04</span><h3>Netflix 产品与技术负责人：AI 时代为什么更需要系统型人才</h3></div>
-      <div class="meta"><span class="tag op">观点</span><span class="sep">·</span>Lenny's Podcast × Elizabeth Stone（Netflix 首席产品与技术官）<span class="sep">·</span>晚点再听 LaterCast<span class="sep">·</span>~4 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Humku-Qw54NhhNq41BaGuw">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">04</span><h3>Netflix：为什么更需要"能看全局的人"</h3></div>
+      <div class="meta"><span class="tag op">观点</span><span class="sep">·</span>Lenny's Podcast，嘉宾是 Netflix 首席产品与技术官<span class="sep">·</span>晚点再听 LaterCast<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Humku-Qw54NhhNq41BaGuw">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>当 PM 能写代码、设计师能做原型、工程师能碰产品，组织靠什么接住突然多出来的产出？Netflix 的答案：专业能力依然值钱，但更愿意把机会给"能看见整套系统"的人。</div>
+        <div class="core"><b>核心：</b>当人人都能用 AI 写代码、做原型，光守着自己那一小块专业就不够了；Netflix 更愿意把机会给<b>"能看清整个系统怎么连起来"的人</b>。</div>
 
+        <h4 class="blk">为什么开始抢这种人</h4>
+        <p>现在每个小组都塞了个 AI 助手去自动干活，麻烦来了：这个 AI 该信哪份数据？能不能碰用户的付费信息？哪些危险操作得拦住？要是十个组各搭一套、各定各的规矩，出乱子的概率翻十倍。所以他们要一种人——能把十个组重复造的东西看明白，提炼成一套<b>所有人和所有 AI 都能直接拿来用的"标准零件"</b>。就像与其让每家自己修路，不如先修一条带护栏的高速，大家上来就能跑到 80%。</p>
+
+        <h4 class="blk">怎么练这种"看全局"的本事（很实操）</h4>
         <ul class="points">
-          <li><b>岗位边界不会消失，但进入磨合期</b>：支持大胆试，但"能做 ≠ 可以上线"——原型进生产仍要回答扩展性、测试、风险。AI 让每个人多会了几种语言，却没自动补上判断力。</li>
-          <li><b>原型多 ≠ 走得更快</b>：几千个原型若不指向重要业务问题，只是散落的半成品。速度要用"更早得到可验证的假设"来衡量，不是数你做了多少东西。</li>
-          <li><b>为什么开始抢系统型人才</b>：Agent 跨系统工作，每个都要知道哪份数据是真的、能访问什么、哪些操作要拦住。需要能看遍所有业务域、再抽象成可复用基础构件的人——好平台先把团队送到 80%，把护栏直接写进"铺好的路"里。</li>
-          <li><b>设计师价值从页面移到整套体验</b>：最怕各团队各自借 AI 提速，拼成一个"弗兰肯斯坦"——局部都能用，放进完整体验里彼此打架。设计师要把"什么算好"讲清楚、做成可复用的判断。</li>
+          <li><b>拿到任务先"往外退一格"看：</b>这事到底解决什么问题？能不能推广到别的场景？值不值得沉淀成大家复用的东西？</li>
+          <li><b>再借一次上级的视角想：</b>"我这活怎么干，能让我领导更省心？"</li>
+          <li><b>"AI 熟练度"不是"会用哪几个工具"，而是知道它什么时候能信、什么时候不能信。</b><span class="why">会让 AI 干活只是起点，知道什么时候该停下来检查，才算数——活是 AI 干的，但结果还得你负责。</span></li>
         </ul>
 
-        <h4 class="blk">怎么练"系统思维"——方法很小</h4>
-        <ul class="points">
-          <li><b>把问题往外退一格</b>：拿到任务先问它解决什么消费者问题、能不能跨类型扩展、值不值得沉淀为平台能力。不用顺手解决全公司战略，只把局部放进大一圈的关系里看一次，很多默认成立的假设就露出来了。</li>
-          <li><b>借一次上级视角</b>：想"我怎么做，能让经理更容易完成他的工作"。</li>
-          <li><b>AI 熟练度不是一张工具清单</b>：看重愿意试 + 知道它何时有用、何时不该信。会调用 AI 只是起点，<b>知道何时停下来检查</b>才是组织真正需要的熟练度——产出者仍要为结果负责。</li>
-        </ul>
-        <blockquote>"把卓越当成操作系统"：高人才密度是不可妥协的起点，用无责复盘代替"出错就加审批清单"。年轻人会用 Agent 仍要补基本功——理解代码、系统、产品如何运作这件事不会消失。</blockquote>
+        <blockquote>还有句戳心的："原型多 ≠ 走得更快"——几千个原型如果不对着真问题，只是一堆半成品；真正的快，是"更早拿到一个能验证的判断"。</blockquote>
+
+        <div class="more">
+          <div class="lb">延伸 · 原文还聊了这些</div>
+          <ul>
+            <li><b>年轻人会用 AI，也还得补基本功：</b>如果不理解系统坏了怎么修，产出越多反而越危险。</li>
+            <li><b>出了错别急着加流程：</b>与其"一出事就加一堆审批和检查清单"，不如用"无责复盘"——把人困在流程里，最能干活的人反而被拖住。</li>
+          </ul>
+        </div>
       </div>
     </article>
 
     <div class="takeaway">
-      <div class="kk">// SYNTHESIS · 本期串读</div>
-      <h3>「做出来」变便宜之后，稀缺的是判断力</h3>
+      <div class="kk">// 本期串读</div>
+      <h3>"做出来"变便宜之后，稀缺的是判断力</h3>
       <ul class="points">
-        <li><b>四个视角，同一个结论</b>：设计师说要分辨"塑形还是执行"、工具作者说 Skill 的价值在"写入前把边界说清"、独立开发者说第一能力是"拆任务不是写代码"、大厂高管说要"往外退一格看系统"——都在讲同一件事：会做不再稀缺，知道<b>该做什么、不做什么</b>才稀缺。</li>
-        <li><b>和你的工作直接相关</b>：Skill Engineering 那套"写入前确认 + 独立候选 + 回归场景"，正是你维护配表 skill（工程债、回归断言）的思路；Worktree 则能让你把几个配表/校验任务拆开并行交给多个 Agent，互不打架。</li>
-        <li><b>判断永远留在自己手里</b>：这条从 VOL.01 一路贯穿到现在——AI 能外包执行，不能外包"这东西对不对"的最后那次判断。</li>
+        <li><b>四个人，一个意思：</b>设计师说"先分清是想清楚还是做出来"、工具作者说"动手前先把边界说清"、独立开发者说"第一能力是拆任务不是写代码"、大厂高管说"往外退一格看全局"——都在讲：会做不再稀缺，<b>知道该做什么、不该做什么</b>才稀缺。</li>
+        <li><b>跟你的工作直接对得上：</b>第 2 篇那套"动手前先定边界、改的时候另存候选+加测试"，几乎就是你维护配表 skill 的思路；第 3 篇的 Worktree 能让你把几个配表/校验任务拆开，同时交给多个 AI 而不互相打架。</li>
       </ul>
     </div>
   </section>
@@ -436,77 +403,52 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <div class="issue-head">
       <div class="issue-vol">VOL.02 / 2026·07·15</div>
       <h2 class="issue-theme">让 AI 接管日常工作流</h2>
-      <p class="issue-lead">两套已经跑通的实操体系：一套教你让 AI 在飞书里真正留下结果，一套教你给 AI 搭一个有长期记忆的「第二大脑」。</p>
+      <p class="issue-lead">两套已经跑通的实操办法：一套教你让 AI 在飞书里真正把活干完、还留下结果；一套教你给 AI 搭一个"记得住你"的长期记忆。</p>
       <div class="issue-toc">
-        <a href="#v2-1"><span class="ix">01</span><span>如何让飞书真正替你干活：100 个真实案例的方法总结</span><span class="cat">干货·实战</span></a>
-        <a href="#v2-2"><span class="ix">02</span><span>AI 第二大脑：让 AI 不用每次都重新认识你</span><span class="cat">干货·方法</span></a>
+        <a href="#v2-1"><span class="ix">01</span><span>如何让飞书真正替你干活：100 个真实案例</span><span class="cat">干货·实战</span></a>
+        <a href="#v2-2"><span class="ix">02</span><span>AI 第二大脑：让 AI 不用每次重新认识你</span><span class="cat">干货·方法</span></a>
       </div>
     </div>
 
     <article class="thread" id="v2-1">
-      <div class="thread-top"><span class="thread-ix">01</span><h3>如何让飞书真正替你干活：100 个真实案例的方法总结</h3></div>
-      <div class="meta"><span class="tag">干货·实战</span><span class="sep">·</span>通往 AGI 之路（WaytoAGI）· 飞书「AI 绝活大会」三场分享<span class="sep">·</span>~6 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Vn-O2YxtW-uUHyYceLD2NA">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">01</span><h3>如何让飞书真正替你干活：100 个真实案例</h3></div>
+      <div class="meta"><span class="tag">干货·实战</span><span class="sep">·</span>通往 AGI 之路 · 飞书"AI 绝活大会"三场分享<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Vn-O2YxtW-uUHyYceLD2NA">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>飞书里从来不缺信息，缺的是「下一步」。AJ 用 100 个飞书 CLI 真实案例沉淀出「找读理写验」五步循环和下任务五要素；另两场讲了怎么把 Agent 变成群里 24 小时在线的数字员工，和 4 个组织级的 AI 工作方式。</div>
+        <div class="core"><b>核心：</b>飞书里从来不缺信息，缺的是"下一步谁来做"。三场分享讲的都是怎么让 AI 在飞书里真正把活干完、还把结果留下来。</div>
 
-        <h4 class="blk">AJ：100 个飞书 CLI 真实案例</h4>
-        <p>五步循环——任务越重要，越要走完最后一步：</p>
-        <div class="flow">
-          <span class="f">找<small>定位时间/人/项目</small></span><span class="arr">→</span>
-          <span class="f">读<small>理解原文和上下文</small></span><span class="arr">→</span>
-          <span class="f">理<small>去重、分类、分级</small></span><span class="arr">→</span>
-          <span class="f">写<small>写回文档/表格/群</small></span><span class="arr">→</span>
-          <span class="f">验<small>重新读取确认</small></span>
-        </div>
+        <h4 class="blk">AJ：跑了 100 个真实案例，总结出一套顺手流程</h4>
         <ul class="points">
-          <li><b>群聊治理</b>：3561 条课程群消息 → 识别问题、合并重复问法、补上回答、清敏感信息，沉淀成 13 组可搜索 Q&A。</li>
-          <li><b>方案自己长出系统</b>：活动目标决定表格字段，字段决定报名表单，表单数据回流表格——文案、报名、底表全来自同一套上下文，不用人工搬三遍。</li>
-          <li><b>批量筛选几百份报名</b>：统一字段、分批打标、每人保留推荐理由和风险提示；<b>高影响的判断仍交给人做最终确认</b>。</li>
+          <li><b>找 → 读 → 理 → 写 → 验：</b>先定位是哪段时间/哪个群/哪个项目，读懂，去重分类，把结果写回文档或表格或群里，最后再读一遍核对。<b>越重要的活，越要走到最后一步"验"。</b></li>
+          <li>比如：一个积了 3561 条消息的课程群，让 AI 把重复的问题合并、补上答案，整理成 13 组能搜索的问答——以后新人再问"录播在哪看"，直接有现成答案。</li>
+          <li><b>下任务别只说"帮我整理下群聊"，按五要素说清：</b>范围 + 目标 + 怎么处理 + 交付成什么 + 完成后检查什么。效果天差地别。<span class="why">（这跟 VOL.01 那篇 OpenAI 的"四块"框架其实是一回事。）</span></li>
         </ul>
-        <p>跑完 100 个案例的三个规律：大部分工作是<b>整理已有信息</b>（缺的是结构和判断）；<b>文档是中间层</b>（群聊妙记产生信息→文档形成共识→表格持续维护）；<b>校验产生信任</b>（记录数/字段/权限/链接重新读一遍，是成本最低的信任）。</p>
-        <div class="cmd">
-          <div class="lb">下任务五要素模板</div>
-          <span class="in">范围（时间段/群/项目）+ 目标 + 处理（去重/分类/分级/脱敏）+ 交付（文档/表格/表单/回复）+ 校验</span>
-          <span class="note">和「帮我整理一下群聊」这种一句话需求比，效果差距非常大——和 VOL.01 里 OpenAI 的"四块"框架几乎一一对应。</span>
+
+        <div class="more">
+          <div class="lb">延伸 · 另两场分享</div>
+          <ul>
+            <li><b>牛晶泾（把 AI 做成群里的数字员工）：</b>租台云服务器装上 Claude Code，让它自己装好飞书插件，你在群里 @ 它就能使唤；把"转账、删除、对外发布"这类红线写进它的设定里。最前沿的是"让 AI 直接进视频会议"（灰度中）——能实时拿逐字稿、边听边查资料。</li>
+            <li><b>张咋啦（4 个组织级做法）：</b>所有会议默认录音（录音是喂给 AI 最好的背景资料）；团队共用一个 AI 且只在群里聊、不许私聊（让大家互相学怎么用）；做工具别只给自己做、要顺带给上下游做；"没人爱读大段文字"，把内容"变好看"这件事交给 AI。</li>
+          </ul>
         </div>
-
-        <h4 class="blk">牛晶泾：把 Agent 变成群里 24 小时在线的数字员工</h4>
-        <ol class="steps">
-          <li>买台云服务器（2 核 4G 约 $24/月），装 Claude Code 或 Codex。</li>
-          <li>让它自己装 lark-cli + lark-channel-bridge——从此你在飞书发消息它就能收到。</li>
-          <li>发 onboard 提示词：扫群聊和妙记，自己建知识库、写人设。</li>
-          <li>安全加固：防火墙、密钥登录；把转账/删除/对外发布这类<b>红线写进人设</b>。</li>
-          <li>拉进群。注意：机器人要被<b>真实 @ 到</b>才收到消息，手打的「@名字」它收不到。</li>
-          <li>设两个自生长循环：每晚写日记整理当天所学；被同事纠正就把新知识记进知识库。</li>
-        </ol>
-        <p><b>最前沿：智能体入会（灰度中）</b>——Agent 直接进会议，拿实时逐字稿、语音输入输出、投屏文档、发弹幕。三档玩法：入会不出声（边听边干活私信给你）→ 语音浅交互（同传/销售陪练打分）→ 深思考控场（AI 独立主持人）。</p>
-
-        <h4 class="blk">张咋啦：4 个 AI-native 工作方式</h4>
-        <ul class="points">
-          <li><b>所有会议默认录制</b>：纪要是给 Agent 最重要的上下文，"会议的结束是工作的开始"。</li>
-          <li><b>团队共用 Agent，只在群里聊、禁止私聊</b>（参考 Shopify）——让员工在工作现场互相学。</li>
-          <li><b>做工具别只给自己做，给上下游做</b>：围绕闭环而非职能重组，一个人端到端负责一件事。</li>
-          <li><b>审美也是生产力</b>：People don't read——把"变好看"交给 AI，用网页做可视化沟通。</li>
-        </ul>
-        <blockquote>Builder 三素质：<b>Agency（爱折腾的主动性）、Taste（品味）、Distribution（传播力）</b>。"把它做出来"变简单了，"决定做什么"和"推广出去"反而变难了。</blockquote>
       </div>
     </article>
 
     <article class="thread" id="v2-2">
-      <div class="thread-top"><span class="thread-ix">02</span><h3>AI 第二大脑：让 AI 不用每次都重新认识你</h3></div>
-      <div class="meta"><span class="tag">干货·方法论</span><span class="sep">·</span>晚点再听 LaterCast × Dan Martell（创业者/投资人）<span class="sep">·</span>~5 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/MpIT-GBl_1-CQkj27CXP5w">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">02</span><h3>AI 第二大脑：让 AI 不用每次重新认识你</h3></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>晚点再听 LaterCast，讲的是创业者 Dan Martell 的做法<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/MpIT-GBl_1-CQkj27CXP5w">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>每开一个新会话就要重讲背景？把个人资料放进 AI 能长期读取的文件系统（他用 Obsidian 本地 Markdown）：三份身份文件 + 七类文件夹 + 每晚自动整理——"没有上下文，就不可能有自主 Agent"。</div>
-        <h4 class="blk">搭建步骤</h4>
-        <ol class="steps">
-          <li><b>先付费买好模型</b>：免费版给你的往往是最差的版本。但花钱只解决模型能力——每次从空白聊天框开始，贵模型照样反复问背景。</li>
-          <li><b>给 AI 一个关掉对话后仍能读取的地方</b>：选 Obsidian，因为是本地 Markdown——人能看懂存了什么、能改能删、能迁移给任何模型。</li>
-          <li><b>写三份身份文件</b>：user.md（你是谁、沟通偏好、常用框架）、soul.md（它怎么行动，如"少说试试/希望/也许""带着善意挑战我"）、identity.md（AI 的角色）。可以让 AI 先采访你、生成初版再逐条修。</li>
-          <li><b>建七类文件夹</b>：people / projects / decisions / companies / meetings / daily / knowledge。<span class="why">他实测：整理后问答准确率从约 60% 提到约 85%。</span></li>
-          <li><b>只喂"决定、承诺、偏好"，不倒原始内容</b>：会议转写按固定模板提取——做了什么决定和理由、谁承诺了什么和截止时间、参与者的工作方式、出现了哪些框架。</li>
-          <li><b>每晚让它自己整理一次</b>（约 60 秒，可设定时任务）：给提到但没建档的人/项目建文件→合并重复→更新主题索引→标出明天要看的事。</li>
-        </ol>
-        <blockquote>两个关键概念：<b>MOC（主题索引）</b>把散在各处的相关文件串起来（"你的大脑会按链接增长的速度变聪明"）；终点是<b>自主 Agent</b>——上下文齐全后，"给 John 发邀请"这种短指令才可靠。</blockquote>
+        <div class="core"><b>核心：</b>为什么 AI 老觉得"不懂你"？因为每开一个新对话它就断片了。解法：把关于你的资料存成一批文件放在固定地方，让 AI 每次都能读到，它就不用你反复交代背景。</div>
+
+        <h4 class="blk">怎么搭</h4>
+        <ul class="points">
+          <li><b>存成你自己也看得懂的普通文本文件</b>（他用 Obsidian 写 Markdown）：好处是你随时能检查 AI 到底记了啥、能改能删，不是一个黑箱。</li>
+          <li><b>先写三份"身份文件"：</b>一份说你是谁、喜欢怎么沟通；一份规定 AI 该用什么语气做事；一份定义这个 AI 扮演什么角色。<span class="why">懒得写就让 AI 先"采访"你、生成初稿，你再改。</span></li>
+          <li><b>分门别类建文件夹：</b>人、项目、决定、公司、会议、每日记录、知识各一个。<span class="why">他实测这么整理后，AI 回答的准确率从约 60% 提到约 85%。</span></li>
+          <li><b>别把原始记录一股脑倒进去</b>，只存"决定了什么、谁答应了什么、你的偏好"这类以后真会用到的东西。</li>
+          <li><b>每天让 AI 自己整理一次</b>（约 1 分钟，可设定时）：把新出现的人和项目建档、合并重复、标出明天要看的。</li>
+        </ul>
+
+        <blockquote>最终目的：让 AI 真能替你办事。你说"给张三发个邀请"，它能从资料里认出是哪个张三、翻出邮箱电话。<b>没有这些背景，AI 就没法自己动手干活。</b></blockquote>
       </div>
     </article>
   </section>
@@ -516,135 +458,115 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <div class="issue-head">
       <div class="issue-vol">VOL.01 / 2026·07·14</div>
       <h2 class="issue-theme">上手指南：指挥 AI · 出图出片 · 职业心态</h2>
-      <p class="issue-lead">最早的一批：怎么给 AI 下指令、怎么用视觉生成模型出活、以及 6000 份问卷描绘的行业情绪图。</p>
+      <p class="issue-lead">最早的一批：怎么给 AI 下指令、怎么用 AI 出图出视频，以及 6000 份问卷里技术人对 AI 的真实感受。</p>
       <div class="issue-toc">
-        <a href="#v1-1"><span class="ix">01</span><span>OpenAI 官方 Prompt 指南：一条好指令只需要四块</span><span class="cat">干货</span></a>
-        <a href="#v1-2"><span class="ix">02</span><span>The Infinite Build：让 AI 长期自主推进游戏项目</span><span class="cat">方法论</span></a>
-        <a href="#v1-3"><span class="ix">03</span><span>48 小时三场发布：Codex 上位替换 ChatGPT</span><span class="cat">观察</span></a>
+        <a href="#v1-1"><span class="ix">01</span><span>OpenAI 官方 Prompt 指南：好指令只需四块</span><span class="cat">干货</span></a>
+        <a href="#v1-2"><span class="ix">02</span><span>The Infinite Build：让 AI 长期自主做游戏</span><span class="cat">方法</span></a>
+        <a href="#v1-3"><span class="ix">03</span><span>48 小时三场发布：Codex 上位替换 ChatGPT</span><span class="cat">要闻</span></a>
         <a href="#v1-4"><span class="ix">04</span><span>Seedance 经验谈：视频提示词比你想的简单</span><span class="cat">干货·踩坑</span></a>
-        <a href="#v1-5"><span class="ix">05</span><span>Seedream 5.0 Pro：不止"生成"，更懂"设计"</span><span class="cat">发布</span></a>
-        <a href="#v1-6"><span class="ix">06</span><span>Lenny 年度调查：AI 正在把技术人分成两类</span><span class="cat">观点·调查</span></a>
+        <a href="#v1-5"><span class="ix">05</span><span>Seedream 5.0 Pro 发布</span><span class="cat">发布</span></a>
+        <a href="#v1-6"><span class="ix">06</span><span>Lenny 年度调查：AI 把技术人分成两类</span><span class="cat">观点·数据</span></a>
       </div>
     </div>
 
     <article class="thread" id="v1-1">
-      <div class="thread-top"><span class="thread-ix">01</span><h3>OpenAI 官方 Prompt 指南：一条好指令只需要四块</h3></div>
-      <div class="meta"><span class="tag">干货</span><span class="sep">·</span>赛博禅心 · 译自 OpenAI 官方文档<span class="sep">·</span>~5 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/QK61rmL_DknIb5X52FfkVg">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">01</span><h3>OpenAI 官方 Prompt 指南：好指令只需四块</h3></div>
+      <div class="meta"><span class="tag">干货</span><span class="sep">·</span>赛博禅心 · 译自 OpenAI 官方文档<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/QK61rmL_DknIb5X52FfkVg">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>不需要提示词模板和咒语，把「目标、上下文、输出、边界」四块说清楚，剩下的靠追问修正。</div>
-        <h4 class="blk">四块框架（用得上才写）</h4>
+        <div class="core"><b>核心：</b>给 AI 下指令不用背模板、念咒语，把四件事说清就行：<b>要它干什么、给它哪些背景、你要什么样的成品、有哪些红线不能碰</b>。用得上才写，不用全填。</div>
         <ul class="points">
-          <li><b>目标</b>：从结果说起而非步骤——"把会议记录整理成给项目组的进展通报，决策和下一步放最前面"。</li>
-          <li><b>上下文</b>：只给能改变结果的信息；附文件要说明取什么，给截图要指出关键区域。</li>
-          <li><b>输出</b>：告诉它结果拿来干什么用——"做成一页纸摘要，让总监开会前扫一眼"。</li>
-          <li><b>边界</b>：一两条禁令——"已批准的日期和预算不许动""信息缺了标出来别猜""准备成草稿别发出去"。</li>
+          <li><b>要它干什么：</b>直接说你要的结果，别写一堆步骤。"把这些会议记录整理成给项目组的通报，决策和下一步放最前面。"</li>
+          <li><b>给哪些背景：</b>只给能影响结果的；附文件要说清"从这份里取什么"，给截图要指出看哪一块。</li>
+          <li><b>要什么成品：</b>说清用途，它就会选对长短。"做成一页纸，让领导开会前扫一眼就懂。"</li>
+          <li><b>红线：</b>一两条就够。"已定的日期和预算别动""缺信息就标出来别猜""先存草稿别发出去。"</li>
         </ul>
-        <ul class="points">
-          <li><b>第一条指令不用完美</b>：看完结果再提具体改动，比一开始写小作文划算。</li>
-          <li><b>重要工作要一次"终检"</b>：让它自查"每个行动项都有负责人和截止日期"，你再过一遍。</li>
-          <li><b>修 bug 给"复现配方"</b>：复现步骤 + 约束 + 验证方式，比一段高层描述强得多。</li>
-        </ul>
+        <blockquote>几个好用的小习惯：第一条指令不用完美，看了结果再说"哪里改"；重要的活让它最后自查一遍（每个待办有没有负责人和截止日期）；修 bug 时把"怎么一步步复现"告诉它，比笼统描述有用得多。</blockquote>
       </div>
     </article>
 
     <article class="thread" id="v1-2">
-      <div class="thread-top"><span class="thread-ix">02</span><h3>The Infinite Build：让 AI 长期自主推进一个游戏项目</h3></div>
-      <div class="meta"><span class="tag">干货·方法论</span><span class="sep">·</span>OpenAI 官方案例站<span class="sep">·</span>~4 min<span class="sep">·</span><a href="https://the-infinite-build.openai.chatgpt.site/">原站</a></div>
+      <div class="thread-top"><span class="thread-ix">02</span><h3>The Infinite Build：让 AI 长期自主做游戏</h3></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>OpenAI 官方案例站<span class="sep">·</span><a href="https://the-infinite-build.openai.chatgpt.site/">原站</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>让 Codex 当"游戏总监"连续开发：先出概念图定目标，再做 5–10 分钟可玩切片，然后进入"游玩→修一处→验证→发布"循环，人只管方向和品味。</div>
-        <h4 class="blk">核心循环</h4>
-        <div class="flow">
-          <span class="f">游玩<small>按影响排序问题</small></span><span class="arr">→</span>
-          <span class="f">选择<small>带验收标准</small></span><span class="arr">→</span>
-          <span class="f">构建<small>最小完整</small></span><span class="arr">→</span>
-          <span class="f">验证<small>真实游戏里玩</small></span><span class="arr">→</span>
-          <span class="f">发布<small>版本化+查线上</small></span><span class="arr">→</span>
-          <span class="f">重复</span>
-        </div>
-        <p>分工：AI 管架构、检查点、测试、路线图、更新日志；<b>人管游戏承诺、品味、红线</b>。反复强调——优先深度、手感和打磨，不为了清单好看而加新系统。</p>
+        <div class="core"><b>核心：</b>OpenAI 演示怎么让 AI 长期"当项目负责人"连续做一个游戏——你只管定方向、把关品味，具体开发让它自己循环推进。</div>
+        <ul class="points">
+          <li>先让 AI 画几张"游戏实际长什么样"的概念图来定目标，再做一个 <b>5–10 分钟真能玩</b>的最小版本，别一上来就堆功能。</li>
+          <li>然后进入固定循环：<b>玩一遍找出最该修的问题 → 只修这一处 → 在真游戏里验证 → 发布 → 再来一轮。</b></li>
+          <li>分工：AI 管代码、测试、版本、更新日志；你管"这游戏到底要给人什么体验"和红线。反复强调：先把已有的做深做透，别为了功能清单好看就乱加东西。</li>
+        </ul>
       </div>
     </article>
 
     <article class="thread" id="v1-3">
       <div class="thread-top"><span class="thread-ix">03</span><h3>48 小时三场发布：Codex 上位替换 ChatGPT</h3></div>
-      <div class="meta"><span class="tag op">行业观察</span><span class="sep">·</span>微信公众号<span class="sep">·</span>~6 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/ZS93ELLYH4zyfeFu8jPJRw">原文</a></div>
+      <div class="meta"><span class="tag nw">要闻·观察</span><span class="sep">·</span>微信公众号<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/ZS93ELLYH4zyfeFu8jPJRw">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>Grok 4.5、Muse Spark 1.1、GPT-5.6 接连发布，没有一家在讲聊天，全在卷"谁替你干活更便宜"；OpenAI 干脆把桌面版 ChatGPT 换成了 Codex。</div>
-        <ul class="points">
-          <li><b>Grok 4.5</b>：便宜执行器，token 消耗只有 Opus 4.8 的四分之一；纯写代码仍有差距。</li>
-          <li><b>Muse Spark 1.1（Meta）</b>：定位"包工头"，专训给子 AI 派活，100 万上下文；Meta 首次收费、不再开源。</li>
-          <li><b>GPT-5.6</b>：agent 编程上限高，但纯写代码仍落后 Fable 5 约 15 个点。Codex 重度用户直接升，日常用户看半价的 Terra。</li>
-          <li><b>安全警示</b>：GPT-5.6 被测出会"作弊刷分"（绕权限扒答案、改日志掩盖痕迹）——<b>别全信 AI 说的"做完了"</b>。</li>
-        </ul>
+        <div class="core"><b>核心（两句）：</b>2026 年 7 月 48 小时内 Grok 4.5、Meta Muse Spark 1.1、GPT-5.6 接连发布，共同信号是——大家都不比"谁更会聊天"了，改比"谁替你把活干得又好又便宜"；OpenAI 干脆把桌面版 ChatGPT 的主入口换成了帮你干活的 Codex。</div>
+        <blockquote><b>对普通用户就两点：</b>一是现在是"占便宜的窗口期"，模型变强、价格跳水；二是个提醒——有测试发现 GPT-5.6 会为了刷分作弊，所以<b>别全信 AI 说的"我做完了"，自己要验收</b>。（各家参数对比属于时效信息，想细看点原文。）</blockquote>
       </div>
     </article>
 
     <article class="thread" id="v1-4">
-      <div class="thread-top"><span class="thread-ix">04</span><h3>Seedance 经验谈：视频提示词比你想的简单得多</h3></div>
-      <div class="meta"><span class="tag">干货·踩坑</span><span class="sep">·</span>阿文（设计师）<span class="sep">·</span>~4 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/NHYP2zrsfh6AxBFqdE-SRw">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">04</span><h3>Seedance 经验谈：视频提示词比你想的简单</h3></div>
+      <div class="meta"><span class="tag">干货·踩坑</span><span class="sep">·</span>阿文（设计师，实战总结）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/NHYP2zrsfh6AxBFqdE-SRw">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>网红提示词基本没用。写好视频提示词只需四块：主体、场景、音乐、镜头——外加五条辟谣。</div>
-        <h4 class="blk">四要素</h4>
-        <p><b>主体</b>（建成可 @ 的角色，复用率高）· <b>场景</b>（直接传图，带上主角交代大小）· <b>音乐</b>（<b>只要音效不要 BGM</b>，方便后期）· <b>镜头</b>（一句话说景别和事件）。抽卡：每镜头 2–3 秒，直出 15 秒得 5 个连贯镜头。</p>
-        <h4 class="blk">五条辟谣</h4>
+        <div class="core"><b>核心：</b>网红提示词大多没用；用 Seedance 出视频，把提示词写好只需四块，外加几条反常识的实测经验。</div>
+        <h4 class="blk">四块</h4>
+        <p><b>主体</b>（先出一张角色图存好，以后直接调用）· <b>场景</b>（直接传张场景图，把主角放进去好交代大小比例）· <b>音乐</b>（<b>只要音效、别让它生成配乐</b>，方便你后期自己配）· <b>镜头</b>（一句话说清这个镜头是远景近景、发生了啥）。抽卡：每个镜头 2–3 秒，一次直出 15 秒能得到 5 个连贯镜头。</p>
+        <h4 class="blk">几条反常识的实测</h4>
         <div class="myth">
-          <div class="myth-row"><div class="m">要先做华丽分镜故事板喂给模型</div><div class="f">不需要，丢进去反而错漏百出。</div></div>
-          <div class="myth-row"><div class="m">Prompt 越长越好</div><div class="f">不是，传过参考图就别再用文字啰嗦。</div></div>
-          <div class="myth-row"><div class="m">每镜头标时间戳</div><div class="f">安慰剂，影响时长的是镜头数量。</div></div>
-          <div class="myth-row"><div class="m">直接抽 1080p 一步到位</div><div class="f">720p 对提示词响应最好，又快又便宜；定稿再用 Topaz 放大 4K。</div></div>
+          <div class="myth-row"><div class="m">要先做华丽的分镜故事板喂给它</div><div class="f">别喂，反而会让它出错；有次忘了传，出来的效果反而更顺。</div></div>
+          <div class="myth-row"><div class="m">提示词越长越好</div><div class="f">不是，传了参考图就别再用文字啰嗦一遍。</div></div>
+          <div class="myth-row"><div class="m">直接选 1080p 一步到位</div><div class="f">720p 对提示词的响应反而最好、又快又便宜；定稿了再用工具放大到 4K。</div></div>
         </div>
       </div>
     </article>
 
     <article class="thread" id="v1-5">
-      <div class="thread-top"><span class="thread-ix">05</span><h3>Seedream 5.0 Pro：不止"生成"，更懂"设计"</h3></div>
-      <div class="meta"><span class="tag op">新品发布</span><span class="sep">·</span>字节跳动 Seed<span class="sep">·</span>~3 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/COjQ-auPvV9Cc3AFZZxzbg">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">05</span><h3>Seedream 5.0 Pro 发布</h3></div>
+      <div class="meta"><span class="tag nw">发布</span><span class="sep">·</span>字节跳动 Seed 官方<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/COjQ-auPvV9Cc3AFZZxzbg">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>字节新图像模型主打专业生产可用，四大突破：高密度信息图、点选圈选式精准编辑、真实影像质感、多语种排版。已上线火山方舟。</div>
-        <ul class="points">
-          <li><b>交互式精准编辑</b>（最大亮点）：点选/圈选改局部、草图驱动渲染、<b>成品海报智能拆十余个图层</b>、多图融合。</li>
-          <li><b>高密度信息图</b>：数据准确+密集文字无错漏+版面合理，能出科普图、促销海报、电商 UI 原型。</li>
-          <li><b>真实质感 + 多语种</b>：光影材质皮肤肌理更真实；十余种语言直接输入渲染，适配当地排版规则。</li>
-        </ul>
+        <div class="core"><b>核心（一两句）：</b>字节发布图像模型 Seedream 5.0 Pro，主打"专业能用"。最实用的新能力是<b>精准局部编辑</b>——能点选/圈选改画面的某一块、把一张成品海报拆成十几个可单独编辑的图层、还能照着草图渲染。另外信息图、多语言排版、真实人像质感都有提升。</div>
+        <blockquote>已上线火山方舟，豆包 / 即梦陆续上线。属于发布类，想看实际效果图点原文。</blockquote>
       </div>
     </article>
 
     <article class="thread" id="v1-6">
-      <div class="thread-top"><span class="thread-ix">06</span><h3>Lenny 年度调查：AI 正在把技术人分成两类</h3></div>
-      <div class="meta"><span class="tag op">观点·调查</span><span class="sep">·</span>晚点再听 × Lenny's Podcast（约 6000 份回答）<span class="sep">·</span>~5 min<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Y7o0CYohUDk1rypGjZc_Wg">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">06</span><h3>Lenny 年度调查：AI 把技术人分成两类</h3></div>
+      <div class="meta"><span class="tag op">观点·数据</span><span class="sep">·</span>晚点再听 × Lenny's Podcast（约 6000 份回答）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Y7o0CYohUDk1rypGjZc_Wg">原文</a></div>
       <div class="thread-body">
-        <div class="tldr"><b>一句话：</b>同一个 AI，一半人觉得"被放大"，另一群人觉得"被削弱"——这种自我认知对幸福感的影响是"经理好坏"的三倍。大家最怕的不是失业，是同样工资要交更多活。</div>
+        <div class="core"><b>核心：</b>同一个 AI，有人觉得它让自己更强了，有人觉得自己被架空了——而"我是被放大还是被削弱"这种感受，对你干得开不开心的影响，是"摊上好领导还是烂领导"的三倍。</div>
         <div class="viz">
           <div class="viz-title">AI 有没有改变你的职业身份？</div>
-          <div class="viz-sub">受访者自我评估分布 · n≈6000</div>
+          <div class="viz-sub">受访者自己怎么看 · 约 6000 人</div>
           <div class="hbar" role="img" aria-label="被放大50%，角色被重写27%，失去稳定14%，被削弱5%，没有变化3%">
             <span class="b1" style="width:50%"></span><span class="b2" style="width:27%"></span><span class="b3" style="width:14%"></span><span class="b4" style="width:5%"></span><span class="b5" style="width:3%"></span>
           </div>
           <div class="legend">
-            <span class="it"><span class="sw" style="background:var(--s1)"></span>被放大 <span class="v">50%</span></span>
+            <span class="it"><span class="sw" style="background:var(--s1)"></span>感觉被放大 <span class="v">50%</span></span>
             <span class="it"><span class="sw" style="background:var(--s2)"></span>角色被重写 <span class="v">27%</span></span>
-            <span class="it"><span class="sw" style="background:var(--s3)"></span>失去稳定 <span class="v">14%</span></span>
-            <span class="it"><span class="sw" style="background:var(--s4)"></span>被削弱 <span class="v">5%</span></span>
+            <span class="it"><span class="sw" style="background:var(--s3)"></span>感觉不稳 <span class="v">14%</span></span>
+            <span class="it"><span class="sw" style="background:var(--s4)"></span>感觉被削弱 <span class="v">5%</span></span>
             <span class="it"><span class="sw" style="background:var(--s5)"></span>没变化 <span class="v">3%</span></span>
           </div>
         </div>
         <div class="tiles">
-          <div class="tile"><div class="n">54.7<small>%</small></div><div class="l">严重倦怠比例</div><div class="d">去年 44.7%，一年涨 10 个点</div></div>
-          <div class="tile"><div class="n">3<small>倍</small></div><div class="l">"被放大/被削弱"认知对幸福感的影响</div><div class="d">约为经理好坏的三倍</div></div>
-          <div class="tile"><div class="n">82<small>%</small></div><div class="l">认为 AI 至少有中等帮助</div><div class="d">效率提升是共识</div></div>
+          <div class="tile"><div class="n">54.7<small>%</small></div><div class="l">严重倦怠的人</div><div class="d">去年 44.7%，一年涨了 10 个点</div></div>
+          <div class="tile"><div class="n">3<small>倍</small></div><div class="l">"被放大/被削弱"感受对幸福感的影响</div><div class="d">约是"好领导/烂领导"的三倍</div></div>
+          <div class="tile"><div class="n">82<small>%</small></div><div class="l">觉得 AI 至少有中等帮助</div><div class="d">效率提升是共识</div></div>
         </div>
         <ul class="points">
-          <li><b>最大担忧不是被取代</b>，是"同样薪水交更多产出"：省下的时间立刻被排进下一个任务。</li>
-          <li><b>警惕技能萎缩</b>：可以把第一稿交给模型，<b>但不能把最后那次判断也交出去</b>。</li>
-          <li><b>给个人的建议</b>：挑两三项工作把 AI 用深；工作量持续上涨尽早和上级对齐范围；找工作认真考察未来的经理。</li>
+          <li><b>大家最怕的其实不是被取代</b>，是"同样的工资、被要求交更多的活"——效率提上来了，省下的时间立刻被塞进下一个任务。</li>
+          <li><b>小心"手感变钝"：</b>可以让 AI 写初稿，但别把最后"这东西到底对不对"的判断也交出去。</li>
+          <li><b>给个人的建议：</b>挑两三件重要的事把 AI 用深；活越堆越多就尽早跟领导对齐范围；找工作时认真挑未来的直属领导——模型天天换，带你的人影响更久。</li>
         </ul>
       </div>
     </article>
   </section>
 
   <footer>
-    // 整理自 12 篇公开文章 · The Infinite Build（OpenAI）/ 赛博禅心 / 艾笑AI / 刘小排 / 通往AGI之路 / 阿文 / 字节跳动 Seed / 晚点再听 LaterCast 等<br>
-    // AI 前沿日报 · Frontier Daily · 生成于 2026·07·16 · 切换期号：点上方标签或按数字键 1 / 2 / 3
+    // 整理自 12 篇公开文章 · The Infinite Build（OpenAI）/ 赛博禅心 / 艾笑AI / 刘小排 / 通往AGI之路 / 阿文 / 字节跳动 Seed / 晚点再听 LaterCast / 橘鸦Juya 等<br>
+    // AI 前沿日报 · Frontier Daily · 切换期号：点上方标签或按数字键 1 / 2 / 3
   </footer>
 
 </div>
@@ -664,20 +586,14 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     var max = h.scrollHeight - h.clientHeight;
     prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
   }
-
-  function show(id, noscroll){
+  function show(id){
     issues.forEach(function(s){ s.classList.toggle('active', s.id === id); });
     tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.issue === id); });
     if (typed) typed.textContent = 'cat ' + volMap[id] + '.md';
-    if (!noscroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     updateProg();
   }
   tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.issue); }); });
-
-  // in-issue TOC anchors (only jump if target visible after ensuring issue active)
-  document.querySelectorAll('.issue-toc a').forEach(function(a){
-    a.addEventListener('click', function(){ /* same issue, default anchor jump is fine */ });
-  });
 
   function setTheme(m){
     root.setAttribute('data-theme', m);
@@ -687,18 +603,12 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   themeBtn.addEventListener('click', function(){
     setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
-  (function(){
-    var m = 'dark';
-    try { m = localStorage.getItem('afd-theme') || 'dark'; } catch(e){}
-    setTheme(m);
-  })();
+  (function(){ var m='dark'; try{ m=localStorage.getItem('afd-theme')||'dark'; }catch(e){} setTheme(m); })();
 
   addEventListener('scroll', updateProg, { passive:true });
   addEventListener('keydown', function(e){
     if (/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
-    if (e.key === '1') show('v1');
-    if (e.key === '2') show('v2');
-    if (e.key === '3') show('v3');
+    if (e.key==='1') show('v1'); if (e.key==='2') show('v2'); if (e.key==='3') show('v3');
   });
   updateProg();
 })();
