@@ -241,19 +241,19 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         <h1>AI 前沿日报<span class="en">Frontier Daily</span></h1>
         <p class="tagline"># 用大白话讲透核心 · 黑话翻译成人话 · 要闻一句话带过</p>
         <div class="hstats">
-          <span class="chip"><b>3</b> 期</span>
-          <span class="chip"><b>12</b> 篇精读</span>
+          <span class="chip"><b data-stat="issues">–</b> 期</span>
+          <span class="chip"><b data-stat="threads">–</b> 篇精读</span>
           <span class="chip">看不懂算我输</span>
-          <span class="chip">切换期号：点标签或按 <b>1/2/3</b></span>
+          <span class="chip" data-stat="keys">切换期号：点标签或按数字键</span>
         </div>
       </div>
     </div>
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v3"><span class="vv">VOL.03 <span class="new">最新</span></span><span class="dd">2026·07·16 · 角色的重写</span></button>
-    <button class="tab" data-issue="v2"><span class="vv">VOL.02</span><span class="dd">2026·07·15 · 接管工作流</span></button>
-    <button class="tab" data-issue="v1"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
+    <button class="tab active" data-issue="v3" data-vol="vol.03"><span class="vv">VOL.03 <span class="new">最新</span></span><span class="dd">2026·07·16 · 角色的重写</span></button>
+    <button class="tab" data-issue="v2" data-vol="vol.02"><span class="vv">VOL.02</span><span class="dd">2026·07·15 · 接管工作流</span></button>
+    <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
   <!-- ==================== VOL.03 ==================== -->
@@ -419,7 +419,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <h3>"做出来"变便宜之后，稀缺的是判断力</h3>
       <ul class="points">
         <li><b>四个人，一个意思：</b>设计师说"先分清是想清楚还是做出来"、工具作者说"动手前先把边界说清"、独立开发者说"第一能力是拆任务不是写代码"、大厂高管说"往外退一格看全局"——都在讲：会做不再稀缺，<b>知道该做什么、不该做什么</b>才稀缺。</li>
-        <li><b>跟你的工作直接对得上：</b>第 2 篇那套"动手前先定边界、改的时候另存候选+加测试"，几乎就是你维护配表 skill 的思路；第 3 篇的 Worktree 能让你把几个配表/校验任务拆开，同时交给多个 AI 而不互相打架。</li>
+        <li><b>都能直接上手用：</b>第 2 篇那套"动手前先定边界、改的时候另存候选 + 加测试"，就是给任何"自己搭自动化流程"的人的通用心法；第 3 篇的 Worktree 能让你把好几个任务拆开，同时交给多个 AI 而不互相打架。</li>
       </ul>
     </div>
   </section>
@@ -632,12 +632,15 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
 <script>
 (function(){
   var root = document.documentElement;
-  var tabs = document.querySelectorAll('.tab');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
   var issues = document.querySelectorAll('.issue');
   var typed = document.getElementById('typed');
   var prog = document.getElementById('prog');
   var themeBtn = document.getElementById('theme');
-  var volMap = { v1:'vol.01', v2:'vol.02', v3:'vol.03' };
+
+  // 数据驱动：期号 → vol 标签，全部从 DOM 读取，加新期无需改 JS
+  var volMap = {};
+  tabs.forEach(function(t){ volMap[t.dataset.issue] = t.dataset.vol || t.dataset.issue; });
 
   function updateProg(){
     var h = document.documentElement;
@@ -647,11 +650,21 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   function show(id){
     issues.forEach(function(s){ s.classList.toggle('active', s.id === id); });
     tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.issue === id); });
-    if (typed) typed.textContent = 'cat ' + volMap[id] + '.md';
+    if (typed && volMap[id]) typed.textContent = 'cat ' + volMap[id] + '.md';
     window.scrollTo({ top: 0, behavior: 'smooth' });
     updateProg();
   }
   tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.issue); }); });
+
+  // 头部统计：期数/篇数从 DOM 自动数，永不手改
+  var elIssues = document.querySelector('[data-stat="issues"]');
+  var elThreads = document.querySelector('[data-stat="threads"]');
+  var elKeys = document.querySelector('[data-stat="keys"]');
+  if (elIssues) elIssues.textContent = issues.length;
+  if (elThreads) elThreads.textContent = document.querySelectorAll('.thread').length;
+  if (elKeys) elKeys.innerHTML = tabs.length > 1
+    ? '切换期号：点标签或按 <b>1–' + tabs.length + '</b>'
+    : '切换期号：点标签';
 
   // 展开/收起正文
   document.querySelectorAll('.thread .expand').forEach(function(btn){
@@ -686,9 +699,11 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   (function(){ var m='dark'; try{ m=localStorage.getItem('afd-theme')||'dark'; }catch(e){} setTheme(m); })();
 
   addEventListener('scroll', updateProg, { passive:true });
+  // 数字键切换：第 N 个 tab（顺序即 DOM 顺序），加新期自动生效
   addEventListener('keydown', function(e){
     if (/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
-    if (e.key==='1') show('v1'); if (e.key==='2') show('v2'); if (e.key==='3') show('v3');
+    var n = parseInt(e.key, 10);
+    if (n >= 1 && n <= tabs.length) show(tabs[n-1].dataset.issue);
   });
   updateProg();
 })();
