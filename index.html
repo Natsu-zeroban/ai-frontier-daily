@@ -251,13 +251,56 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v3" data-vol="vol.03"><span class="vv">VOL.03 <span class="new">最新</span></span><span class="dd">2026·07·16 · 角色的重写</span></button>
+    <button class="tab active" data-issue="v4" data-vol="vol.04"><span class="vv">VOL.04 <span class="new">最新</span></span><span class="dd">2026·07·22 · 模型选型</span></button>
+    <button class="tab" data-issue="v3" data-vol="vol.03"><span class="vv">VOL.03</span><span class="dd">2026·07·16 · 角色的重写</span></button>
     <button class="tab" data-issue="v2" data-vol="vol.02"><span class="vv">VOL.02</span><span class="dd">2026·07·15 · 接管工作流</span></button>
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.04 ==================== -->
+  <section class="issue active" id="v4">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.04 / 2026·07·22</div>
+      <h2 class="issue-theme">选对 Agent 模型：一线开发者的实测选型</h2>
+      <p class="issue-lead">一位全程"人只出想法、代码全交给 AI"的开发者，把最近五个主流 Agent 编程模型拉到真实产品里跑了一遍，给出"哪个该用在哪"的大白话建议。（今天若有更多文章会并进这期）</p>
+      <div class="issue-toc">
+        <a href="#v4-1"><span class="ix">01</span><span>聊近期 Agent 模型，以及我的选用建议</span><span class="cat">干货·选型</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v4-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>聊近期 Agent 模型，以及我的选用建议</h3></div>
+      <div class="meta"><span class="tag">干货·选型</span><span class="sep">·</span>一泽Eze（全程用 AI 做产品，把模型拉到真实生产环境实测）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/M-iLX9qsAYGqnZhOFCsDDg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>作者做产品时"人只出想法、代码和设计全交给 AI"，顺手把最近五个主流 Agent 编程模型在真项目里跑了个遍，总结出一句话选型——<b>哪个模型该用在什么活上</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">五个模型，各该用在哪</h4>
+          <ul class="points">
+            <li><b>Fable 5 —— 攻高难新项目，像个"项目合伙人"。</b>它不会被你的提示带着跑，常在你的想法之外给出"超出你判断水平、但论证严密"的方案。<span class="eg">比如：让它站在目标用户视角设计前端交互会有惊喜；后端按"第一性原理"给干净好维护的架构，不像有的模型只会在旧代码上打补丁。缺点是费 token。</span></li>
+            <li><b>GPT-5.6 Sol —— 日常复杂全栈开发的执行型好手，额度便宜大碗。</b>指令遵循极稳(装了的 Skill 基本都会触发)。<span class="eg">但缺点是"太听话"：容易顺着你最初的想法和现有代码钻牛角尖，给不出让你醒悟的启发。用它时少掺自己的主观引导、多说背景和目标；真卡住了还得回去找 Fable 逃出牛角尖。前端交互水平一般。</span></li>
+            <li><b>DeepSeek V4 —— 便宜是核心武器，适合放进产品当默认对话模型。</b>纯写代码不算最强，但性价比突出。<span class="eg">它的提示缓存能存"小时到天"级别，能实打实压低 token 成本——做面向用户的 Agent 产品时值得拿它当内置默认模型。</span></li>
+            <li><b>Kimi K3 —— 前端视觉上限惊人，但贵、烧得快。</b>尤其擅长自己画精细的 3D 网页效果，长程任务的智能也高。<span class="eg">代价是思考过程长、每轮 token 消耗大，得"留到刀刃上用"。</span></li>
+            <li><b>Qwen3.8-Max —— 刚发布，长程任务规划能力明显进步。</b>能"一句话开展长程独立执行"。<span class="eg">作者用得还少，暂无太多结论；3D 前端上限不如 Kimi。</span></li>
+          </ul>
+
+          <blockquote>作者的收尾提醒：<b>"比起去年只盯着模型能力，现在也得看重输出速度和成本。"</b> 单次任务越来越复杂、token 越烧越多，模型再贵下去重度用户扛不住，开发者也难把智能做成产品推给更多人。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>作者的具体档位习惯：</b>GPT-5.6 常规任务用"中推理"、复杂任务用"极高推理"；Claude 这边高难新任务给 Fable、已有模块的修补给 Opus 4.8，Sonnet 5 觉得思考不深不爱用。</li>
+              <li><b>一个趋势判断：</b>国产模型开始进入 2T+ 超大参数量，在长程 Agentic 场景已能深度规划、独立完成复杂 Coding；下半年更值得期待的是"在价格上卷出几个好模型"。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.03 ==================== -->
-  <section class="issue active" id="v3">
+  <section class="issue" id="v3">
 
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 — 一句话时效消息，和下面的精读不是一类，扫完就走</div>
