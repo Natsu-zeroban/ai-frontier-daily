@@ -105,5 +105,6 @@
 3. 浏览器打开 `index.html` 本地看一眼：默认视图只有标题+核心？切 tab、按数字键、展开/收起、深浅色都正常？
    —— 无 GUI 环境则以脚本全过 + 结构自查代替，并在预览说明里注明"未做人工目检"。
 4. **清理工作区**：确认只改了 `index.html`，`git status` 里没有 `tmp_article*.txt` 等抓取暂存文件被 add。
-5. 给用户预览、等确认。**没确认不 push。**
-6. 确认后：`git add index.html && git commit -m "..." && git push origin main`，约 1 分钟 Pages 生效。
+5. 发布(按爆炸半径)：**纯新增**内容(新期/新文章/要闻茶点)校验通过后直接
+   `git add index.html && git commit -m "..." && git push origin main`，无需再确认；
+   **改到往期已发布内容**才先给用户预览、等确认再推。约 1 分钟 Pages 生效。
