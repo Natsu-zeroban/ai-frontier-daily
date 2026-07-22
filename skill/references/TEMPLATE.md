@@ -52,7 +52,7 @@
 放在目标期 `<section class="issue">` 内、`.issue-head` **之前**。一期最多一个茶点区，多条要闻并进同一个：
 ```html
 <div class="newsflash">
-  <div class="lb">☕ 要闻茶点 — 一句话时效消息，和下面的精读不是一类，扫完就走</div>
+  <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
   <p><b>标题（来源）</b>｜一句话说清最值得知道的那一点。 <a href="原文URL">原文</a></p>
 </div>
 ```
