@@ -79,6 +79,11 @@ def main():
             nolink.append(m.group(1))
     check(not nolink, "每篇都带原文链接", "缺原文链接的文章: %s" % nolink, hard=False)
 
+    # 6) 查重：同一原文链接不应在站内出现多次(WARN，安全网；真正的查重在写入前做)
+    urls = re.findall(r'href="(https?://[^"]+)"', t)
+    dup = sorted(set(u for u in urls if urls.count(u) > 1))
+    check(not dup, "无重复原文链接", "同一链接在站内出现多次(可能重复收录): %s" % dup, hard=False)
+
     # 输出
     for m in oks:   print("  OK   " + m)
     for m in warns: print("  WARN " + m)

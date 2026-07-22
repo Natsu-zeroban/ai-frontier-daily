@@ -61,19 +61,22 @@
 
 ## C. 新开一期（只改两处 HTML）
 
+> 下面片段里的 `vN` / `VOL.0N` / 日期 / 主题 都是**占位符**，务必全部换成本期实际值
+> (期号顺着现有最新期 +1，`data-issue` 与 section `id` 一致，`data-vol` 决定命令行显示)。
+
 **1) 在 `<nav class="tabs">` 里加一个 tab 按钮**(通常加在最前面当最新期，并把原来的 `新` 标记去掉)：
 ```html
-<button class="tab active" data-issue="v4" data-vol="vol.04"><span class="vv">VOL.04 <span class="new">最新</span></span><span class="dd">2026·MM·DD · 本期主题</span></button>
+<button class="tab active" data-issue="vN" data-vol="vol.0N"><span class="vv">VOL.0N <span class="new">最新</span></span><span class="dd">2026·MM·DD · 本期主题</span></button>
 ```
 - 记得把上一期 tab 的 `class="tab active"` 改回 `class="tab"`、去掉它的 `<span class="new">最新</span>`。
-- `data-issue` 与下面 section 的 `id` 必须一致；`data-vol` 决定命令行显示 `cat vol.04.md`。
+- `data-issue` 与下面 section 的 `id` 必须一致；`data-vol` 决定命令行显示 `cat vol.0N.md`。
 
 **2) 加一个对应的 section**(放在其它 `<section class="issue">` 之前，让最新期默认显示)：
 ```html
-<section class="issue active" id="v4">
+<section class="issue active" id="vN">
   <!-- 可选：要闻茶点(见 B) -->
   <div class="issue-head">
-    <div class="issue-vol">VOL.04 / 2026·MM·DD</div>
+    <div class="issue-vol">VOL.0N / 2026·MM·DD</div>
     <h2 class="issue-theme">本期主题</h2>
     <p class="issue-lead">本期导语：一句话说清这期几篇讲了什么、串起来是什么意思。</p>
     <div class="issue-toc">
@@ -97,7 +100,10 @@
 ---
 
 ## D. 发布前 checklist（每次都走）
-1. `python skill/scripts/validate_site.py` —— 必须全过(0 FAIL)。
-2. 浏览器打开 `index.html` 本地看一眼：默认视图只有标题+核心？切 tab、按数字键、展开/收起、深浅色都正常？
-3. 给用户预览、等确认。**没确认不 push。**
-4. 确认后：`git add index.html && git commit -m "..." && git push origin main`，约 1 分钟 Pages 生效。
+1. **查重**：待收链接是否已在 index.html 里？(`grep "<url>" index.html`) 命中先问用户。
+2. `python skill/scripts/validate_site.py` —— 必须全过(0 FAIL)；留意"重复原文链接"WARN。
+3. 浏览器打开 `index.html` 本地看一眼：默认视图只有标题+核心？切 tab、按数字键、展开/收起、深浅色都正常？
+   —— 无 GUI 环境则以脚本全过 + 结构自查代替，并在预览说明里注明"未做人工目检"。
+4. **清理工作区**：确认只改了 `index.html`，`git status` 里没有 `tmp_article*.txt` 等抓取暂存文件被 add。
+5. 给用户预览、等确认。**没确认不 push。**
+6. 确认后：`git add index.html && git commit -m "..." && git push origin main`，约 1 分钟 Pages 生效。

@@ -1,0 +1,4 @@
+# 抓取脚本的临时产物，不入库
+tmp_article*.txt
+tmp_a*.txt
+*.tmp
