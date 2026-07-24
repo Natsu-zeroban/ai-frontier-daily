@@ -96,6 +96,18 @@ h1 .en { display:block; font-family:var(--mono); font-size:14px; font-weight:600
 .tab.active { border-color:var(--accent); background:var(--accent-soft); }
 .tab.active .vv { color:var(--accent); }
 
+/* 期号归档下拉：超出的旧期自动收进来，期数再多也不爆版面 */
+.tabwrap-more { position:relative; }
+.tab-more .vv .caret { display:inline-block; transition:transform .2s; font-size:11px; }
+.tab-more.open .vv .caret { transform:rotate(180deg); }
+.archive-panel { position:absolute; top:calc(100% + 6px); right:0; min-width:236px; max-width:calc(100vw - 44px); max-height:min(55vh, 430px); overflow-y:auto; background:var(--surface); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); padding:6px; display:none; z-index:46; }
+.archive-panel.open { display:block; }
+.archive-panel .ai-item { display:block; width:100%; text-align:left; cursor:pointer; background:transparent; border:0; border-radius:8px; padding:8px 12px; font-family:var(--mono); }
+.archive-panel .ai-item:hover { background:var(--accent-soft); }
+.archive-panel .ai-item .vv { font-size:13px; font-weight:700; color:var(--ink); }
+.archive-panel .ai-item:hover .vv, .archive-panel .ai-item.active .vv { color:var(--accent); }
+.archive-panel .ai-item .dd { display:block; font-size:11px; color:var(--muted); margin-top:1px; }
+
 .issue { display:none; animation:fade .25s ease; }
 .issue.active { display:block; }
 @keyframes fade { from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none} }
@@ -825,14 +837,62 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     var max = h.scrollHeight - h.clientHeight;
     prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
   }
+  var syncArchive = function(){};
   function show(id){
     issues.forEach(function(s){ s.classList.toggle('active', s.id === id); });
     tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.issue === id); });
     if (typed && volMap[id]) typed.textContent = 'cat ' + volMap[id] + '.md';
+    syncArchive();
     window.scrollTo({ top: 0, behavior: 'smooth' });
     updateProg();
   }
   tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.issue); }); });
+
+  // 期号归档：导航只保留最近 MAX_TABS 期，更早的自动收进「归档」下拉。
+  // 全部由 DOM 自动生成——新开一期仍然只改 tab+section 两处 HTML，不用碰这里。
+  var MAX_TABS = 4;
+  if (tabs.length > MAX_TABS) {
+    var nav = document.getElementById('tabs');
+    var hidden = tabs.slice(MAX_TABS);
+    var wrap = document.createElement('div'); wrap.className = 'tabwrap-more';
+    var moreBtn = document.createElement('button'); moreBtn.className = 'tab tab-more';
+    var panel = document.createElement('div'); panel.className = 'archive-panel';
+    hidden.forEach(function(t){
+      t.style.display = 'none';
+      var it = document.createElement('button');
+      it.className = 'ai-item'; it.dataset.issue = t.dataset.issue;
+      var vv = t.querySelector('.vv'), dd = t.querySelector('.dd');
+      it.innerHTML = '<span class="vv">' + (vv ? vv.textContent.trim() : t.dataset.issue) + '</span>' +
+                     '<span class="dd">' + (dd ? dd.textContent : '') + '</span>';
+      it.addEventListener('click', function(e){
+        e.stopPropagation();
+        panel.classList.remove('open'); moreBtn.classList.remove('open');
+        show(it.dataset.issue);
+      });
+      panel.appendChild(it);
+    });
+    function closePanel(){ panel.classList.remove('open'); moreBtn.classList.remove('open'); }
+    syncArchive = function(){
+      var act = null;
+      hidden.forEach(function(t){ if (t.classList.contains('active')) act = t; });
+      moreBtn.classList.toggle('active', !!act);
+      moreBtn.innerHTML = '<span class="vv">' + (act ? (act.dataset.vol || '').toUpperCase() : '归档') +
+                          ' <span class="caret">▾</span></span>' +
+                          '<span class="dd">' + (act ? '来自归档' : '更早的 ' + hidden.length + ' 期') + '</span>';
+      panel.querySelectorAll('.ai-item').forEach(function(it){
+        it.classList.toggle('active', !!act && it.dataset.issue === act.dataset.issue);
+      });
+    };
+    moreBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = panel.classList.toggle('open');
+      moreBtn.classList.toggle('open', open);
+    });
+    document.addEventListener('click', closePanel);
+    addEventListener('keydown', function(e){ if (e.key === 'Escape') closePanel(); });
+    wrap.appendChild(moreBtn); wrap.appendChild(panel); nav.appendChild(wrap);
+    syncArchive();
+  }
 
   // 头部统计：期数/篇数从 DOM 自动数，永不手改
   var elIssues = document.querySelector('[data-stat="issues"]');
@@ -841,7 +901,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   if (elIssues) elIssues.textContent = issues.length;
   if (elThreads) elThreads.textContent = document.querySelectorAll('.thread').length;
   if (elKeys) elKeys.innerHTML = tabs.length > 1
-    ? '切换期号：点标签或按 <b>1–' + tabs.length + '</b>'
+    ? '切换期号：点标签或按 <b>1–' + Math.min(tabs.length, 9) + '</b>'
     : '切换期号：点标签';
 
   // 展开/收起正文
