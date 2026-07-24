@@ -900,9 +900,13 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   var elKeys = document.querySelector('[data-stat="keys"]');
   if (elIssues) elIssues.textContent = issues.length;
   if (elThreads) elThreads.textContent = document.querySelectorAll('.thread').length;
-  if (elKeys) elKeys.innerHTML = tabs.length > 1
-    ? '切换期号：点标签或按 <b>1–' + Math.min(tabs.length, 9) + '</b>'
-    : '切换期号：点标签';
+  if (elKeys) {
+    var kn = Math.min(tabs.length, 9);
+    elKeys.innerHTML = tabs.length <= 1 ? '切换期号：点标签'
+      : (tabs.length > kn
+          ? '数字键 <b>1–' + kn + '</b> 切最近几期 · 更早的在归档'
+          : '切换期号：点标签或按 <b>1–' + kn + '</b>');
+  }
 
   // 展开/收起正文
   document.querySelectorAll('.thread .expand').forEach(function(btn){
@@ -937,11 +941,12 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   (function(){ var m='dark'; try{ m=localStorage.getItem('afd-theme')||'dark'; }catch(e){} setTheme(m); })();
 
   addEventListener('scroll', updateProg, { passive:true });
-  // 数字键切换：第 N 个 tab（顺序即 DOM 顺序），加新期自动生效
+  // 数字键 = 快捷方式，只覆盖最近 9 期（1=最新，顺序与可见 tab 一致）。
+  // 更早的期走「归档」下拉——键盘管"快"，归档管"全"，期数破百也不冲突。
   addEventListener('keydown', function(e){
     if (/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
     var n = parseInt(e.key, 10);
-    if (n >= 1 && n <= tabs.length) show(tabs[n-1].dataset.issue);
+    if (n >= 1 && n <= Math.min(tabs.length, 9)) show(tabs[n-1].dataset.issue);
   });
   updateProg();
 })();
