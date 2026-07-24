@@ -249,15 +249,64 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v5" data-vol="vol.05"><span class="vv">VOL.05 <span class="new">最新</span></span><span class="dd">2026·07·23 · 界面与心法</span></button>
+    <button class="tab active" data-issue="v6" data-vol="vol.06"><span class="vv">VOL.06 <span class="new">最新</span></span><span class="dd">2026·07·24 · AI 剪辑</span></button>
+    <button class="tab" data-issue="v5" data-vol="vol.05"><span class="vv">VOL.05</span><span class="dd">2026·07·23 · 界面与心法</span></button>
     <button class="tab" data-issue="v4" data-vol="vol.04"><span class="vv">VOL.04</span><span class="dd">2026·07·22 · 模型选型</span></button>
     <button class="tab" data-issue="v3" data-vol="vol.03"><span class="vv">VOL.03</span><span class="dd">2026·07·16 · 角色的重写</span></button>
     <button class="tab" data-issue="v2" data-vol="vol.02"><span class="vv">VOL.02</span><span class="dd">2026·07·15 · 接管工作流</span></button>
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.06 ==================== -->
+  <section class="issue active" id="v6">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.06 / 2026·07·24</div>
+      <h2 class="issue-theme">剪视频这活，AI 能接走多少</h2>
+      <p class="issue-lead">一份从零到成片的 AI 剪辑实操指南：以前剪一条口播要两三个小时，现在机械操作交给 AI，人只管下指令、检查、微调。作者还把整套流程做成了开源 Skill。</p>
+      <div class="issue-toc">
+        <a href="#v6-1"><span class="ix">01</span><span>ChatCut 自动化剪辑操作指南</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v6-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>ChatCut 自动化剪辑操作指南</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>阿紫説（线下分享的文字版，附开源 Skill）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/B4Lkd6b9IT-OCL22fk6z-g">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>大部分 AI 剪辑工具是"你给素材、它吐成片"，生成不满意就只能从头来过。ChatCut 不同：它给你一条和剪映/PR 一样的<b>时间线</b>，AI 做粗加工，你随手微调精修——<b>AI 负责执行（去口误、对齐字幕、配画面），人负责判断（钩子怎么写、节奏怎么卡、哪段该删）</b>。作者实测：以前剪一条口播两三个小时，现在只剩下指令、检查、微调。</div>
+
+        <div class="detail">
+          <h4 class="blk">新手最小路线：一条口播从上传到导出</h4>
+          <ol class="steps">
+            <li><b>新建任务并上传口播</b>，第一次只用一条视频。关键话术："先转写并给我一版精剪方案；<b>先不要执行</b>。"</li>
+            <li><b>先粗剪文字稿</b>：删重复表达、口语填充词、无信息停顿。<span class="eg">指令可直接抄："剪完先给我新的时长和删减说明，不要添加动画、配乐和音效。"——一次只做一件事。</span></li>
+            <li><b>确认画面方案再执行</b>。初阶只需要三种画面：人物口播、讲重点时的大字图示、讲功能时的真实屏录。<span class="eg">推荐节奏：人物 2–4 秒 → 图文 1–2 秒 → 人物继续。方案按秒数列出、你点头后它才动手。</span></li>
+            <li><b>播放检查时间线</b>：上层画面没挡住人物、大字和口播关键词同步出现、字幕没遮脸、音乐没拖尾——然后导出。</li>
+          </ol>
+
+          <h4 class="blk">用得顺的两个心法</h4>
+          <ul class="points">
+            <li><b>"先出方案，再执行"</b>：创意方向没定时永远先要方案；要求明确了才说"按以上要求执行"。<span class="eg">批量修改也有固定句式，写清四件事：位置、目标、画面方式、不要改什么——"在 34–40 秒做三个 1.2 秒短切点，不要修改口播内容和背景音乐。"</span></li>
+            <li><b>不会拍就先拆对标</b>：找一条同赛道成熟视频让 AI 拆——前 3 秒钩子抛了什么、人物出镜多久切一次画面、关键词怎么高亮。<span class="eg">原则是只借鉴"每个画面在完成什么任务"，不复制文案和素材。</span></li>
+          </ul>
+
+          <blockquote><b>工具的边界（作者写得很清醒）：</b>创意判断不能外包——钩子、观点、删减取舍仍由人决定；自动结果必须在时间线里预览一遍；模板要克制，一支视频只留一套颜色、字体和动效语言。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>进阶包装</b>：MG 动画（一段口播只放一个最强视觉结论）、屏录拆成 1–2 秒短切点对齐功能点、音乐在口播结束后留 0.5 秒尾音再淡出。</li>
+              <li><b>封面生成</b>：给一张本人头像参考 + 对标封面截图，让 AI 出草图再定稿；封面要在发布平台单独设置。</li>
+              <li><b>整套流程已开源成 Skill</b>（GitHub: chatcut-video-workflow-skill），装进 Codex / WorkBuddy 即可复用，适合知识博主和教程类创作者。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.05 ==================== -->
-  <section class="issue active" id="v5">
+  <section class="issue" id="v5">
     <div class="issue-head">
       <div class="issue-vol">VOL.05 / 2026·07·23</div>
       <h2 class="issue-theme">界面与心法：AI 的外形与内功</h2>
