@@ -59,7 +59,16 @@ description: >-
   只要 `validate_site.py` 全过，**直接 `git add index.html && git commit -m "<说明>" && git push origin main`，无需再问用户**。
   新增是低风险、可回滚的追加，停下确认反而碍事。
 - **改到往期已发布内容**(改写 / 删除既有文章、动旧摘要)：爆炸半径大，**先给用户预览、等确认再 push**。
-- 发布后告知用户线上地址(`check_env.py` 可得，形如 `https://<user>.github.io/<repo>/`)，约 1 分钟生效；可打开该地址查看。
+- 发布后告知用户线上地址(`check_env.py` 可得，形如 `https://<user>.github.io/<repo>/`)。
+- **先确认线上真的更新了，再打开浏览器**：push 后 Pages 要构建一会儿，立刻打开看到的是旧版。
+  用本次新增的独特标识(如新期号 `vol.07`)轮询线上页面，命中了才开：
+  ```bash
+  for i in $(seq 1 30); do
+    curl -s "https://<user>.github.io/<repo>/?nocache=$(date +%s)" | grep -q "<新标识>" && break
+    sleep 10
+  done
+  ```
+  轮询超时(约 5 分钟)仍未命中就不要开浏览器，告诉用户部署慢了、稍后手动刷新。
 
 ## 铁律(容易翻车的地方)
 - **看懂 > 精炼 > 好看**；精炼靠"用大白话重讲"，不是删光例子只留结论。(STYLE §0)
