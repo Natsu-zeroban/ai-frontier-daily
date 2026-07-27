@@ -275,10 +275,10 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <div class="issue-head">
       <div class="issue-vol">VOL.07 / 2026·07·27</div>
       <h2 class="issue-theme">指挥的艺术：对一个松绑，对一群立规</h2>
-      <p class="issue-lead">两篇正好是指挥 AI 的一体两面：Claude Code 官方把自己的系统提示词删掉八成，说新模型该松绑了；一位实践者手把手教你把一群 AI 编成"图"——并行干活、互相挑错、你守最后一道闸。</p>
+      <p class="issue-lead">两篇正好是指挥 AI 的一体两面：Claude Code 官方把自己的系统提示词删掉八成，说新模型该松绑了；一位实践者手把手教你一个人带一队 AI 干活——拆活、分头干、互相挑错、你拍板。</p>
       <div class="issue-toc">
         <a href="#v7-1"><span class="ix">01</span><span>Claude Code 官方：我们删掉了 80% 的系统提示词</span><span class="cat">干货·指南</span></a>
-        <a href="#v7-2"><span class="ix">02</span><span>Graph Engineering 全课程：把一群 AI 编成一张图</span><span class="cat">干货·教程</span></a>
+        <a href="#v7-2"><span class="ix">02</span><span>怎么带一队 AI 干活：拆活、互查、你拍板</span><span class="cat">干货·教程</span></a>
       </div>
     </div>
 
@@ -321,27 +321,27 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     </article>
 
     <article class="thread" id="v7-2">
-      <div class="thread-top"><span class="thread-ix">02</span><h3>Graph Engineering 全课程：把一群 AI 编成一张图</h3></div>
-      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>Machina（@EXM7777）· X 长文，52 万浏览<span class="sep">·</span><a href="https://x.com/EXM7777/status/2079934660982047021">原文</a></div>
+      <div class="thread-top"><span class="thread-ix">02</span><h3>怎么带一队 AI 干活：拆活、互查、你拍板</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>Machina（@EXM7777）· X 长文，52 万浏览，原题 "How to master graph engineering"<span class="sep">·</span><a href="https://x.com/EXM7777/status/2079934660982047021">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>把一件大活画成一张"图"：每个节点是一件能交给一个助手的活，箭头是"谁必须等谁"，然后让一群 AI 并行去干、专门的"杠精"负责挑错、<b>你只守最后一道闸</b>。作者说你不需要是工程师——文末三个真实场景连提示词都写好了，粘贴就能跑。</div>
+        <div class="core"><b>核心：</b>你平时用 AI 是"一个窗口一问一答"，活一大它就一条线慢慢磨。这篇教的是升级玩法：<b>把一件大活拆开，同时开好几个 AI 各干一块，再专门安排一个"挑错的"，最后由你拍板</b>。不用会编程——文末三个场景的指令都写好了，在 Claude Code 里粘贴就能跑。</div>
 
         <div class="detail">
-          <h4 class="blk">四节课</h4>
+          <h4 class="blk">四节课，每节一句人话</h4>
           <ul class="points">
-            <li><b>第一课·先删"假箭头"。</b>箭头只有真有产出流过才算数。<span class="eg">"总结这份文件，然后查我的日历"听着像先后顺序，但查日历根本不需要总结的结果——这两件事从来不必互等。把你现在的流程画出来，删掉假箭头，省下的等待比买任何工具都多。</span></li>
-            <li><b>第二课·钻石模式（今年你只需要这一个模式）：</b>拆分 → 几个工人并排挖 → 有人检查 → 合并成一个答案。<span class="eg">检查这步不可省：所有严肃测试都指向同一个结论——模型看不见自己的大部分错误，所以绝不让同一个 AI 给自己批作业；而且每个检查员要问不同的问题：一个问对不对、一个问新不新、一个问来源真不真。</span></li>
-            <li><b>第三课·停止规则（这条省真金白银）：</b>图买来的是"广度"，不是"更好的判断"。<span class="eg">活能拆成互不读对方结果的独立块，上团队才划算；每一步都要看全局的活，老实用单个 AI。加人之前只问一句：我的活从哪里拆？</span></li>
-            <li><b>第四课·人肉闸门：</b>把审批放在"错了很贵"的地方——发送、发布、退款——而不是每一步都卡。<span class="eg">Klarna 公开交过学费：客服全押 AI，后来承认砍过头，把人工请回来当高级服务。闸门装满你就成了瓶颈，一个不装就没人看着。</span></li>
+            <li><b>第一课：拆活之前，先分清"谁真的要等谁"。</b><span class="eg">比如"总结这份文件，然后查我的日历"——听着有先后，其实查日历根本用不着总结的结果，这两件事完全可以同时干。把你现在的流程写下来，找出这种"假排队"，删掉它省下的时间比任何新工具都多。</span></li>
+            <li><b>第二课：组队的标准姿势 = 分头干 + 专人挑错 + 汇总。</b><span class="eg">比如你想弄清"该不该涨价"：把问题拆成五个角度，五个 AI 同时去查、互相不通气；再由一个专门唱反调的 AI 试图推翻每条发现，站得住脚的才进最终报告。挑错这步绝不能省——实测反复证明 AI 看不出自己的大部分错误，所以永远别让干活的那个自己检查自己；几个检查的还要各问不同的问题：对不对、过没过时、来源是不是编的。</span></li>
+            <li><b>第三课：什么时候不该组队（这条省真金白银）。</b>人多买到的是"面广"，不是"更聪明"。<span class="eg">活能拆成互不依赖的几块（各查各的资料）→ 组队划算；每一步都得接着上一步的结果干（顺着一条线索深挖）→ 老实用一个 AI，人多反而更贵更乱。动手前只问一句：这活从哪儿拆得开？拆不开就别组队。</span></li>
+            <li><b>第四课：收不回来的动作，必须过你的手。</b>对外发布、发消息、退款这类"错了很贵"的事，留给你点头才执行；其余步骤别道道设卡。<span class="eg">卡满了你就是瓶颈，一道不卡就没人看着。Klarna 公开交过学费：客服全换 AI，后来承认砍过头，把人工请回来当高级服务。</span></li>
           </ul>
 
-          <blockquote><b>四条保命规则</b>，防止系统变成一场昂贵的事故：每个循环设最大轮数、一个文件只允许一个"写者"、路线用文字步骤写死（AI 只负责填活）、能同时开的 AI 数量永远有上限。</blockquote>
+          <blockquote><b>四条保命规则</b>，防止这套系统跑飞了烧钱：循环必须设次数上限；一个文件只许一个 AI 改（防互相覆盖）；流程步骤由你白纸黑字写死，AI 只负责干活不改路线；同时开工的 AI 数量永远封顶。</blockquote>
 
           <div class="more">
             <div class="lb">延伸 · 原文还聊了这些</div>
             <ul>
-              <li><b>三个可直接粘贴的完整提示词</b>：深度调研台（问题拆 5 个角度并行挖，杠精毙掉站不住的发现）、SEO 内容机（3 路研究并行→出稿→逐条事实核查，绝不自动发布）、上市套件（买家/渠道/竞品并行画像→定位一页纸→三个写手并行出物料）。都在 Claude Code 里跑，提示词里的关键词 "workflow" 就是让它组队的开关。</li>
-              <li><b>一个有意思的呼应</b>：这篇开头引用"Claude Code 的工程师说他已经不 prompt 它了，而是写循环去 prompt 它"——本期第一篇的作者正是 Claude Code 负责人。也有工程师吐槽"图"是几十年老模式换新马甲，作者认为这恰是好消息：跑了几十年关键系统的老模式，才值得托付你的生意。</li>
+              <li><b>三个抄了就能用的指令</b>：深度调研台（一个问题拆五个角度同时查，"杠精"毙掉站不住的结论）、文章生产线（三路研究并行→出稿→逐条核对事实，绝不自动发布）、上市宣传包（买家/渠道/竞品并行摸底→先出一页定位给你过目→三个写手并行出物料）。都在 Claude Code 里跑，指令里写上 "workflow" 这个词，就是"组队干"的开关。</li>
+              <li><b>一个呼应</b>：文章开头引用"Claude Code 的工程师说他已经不直接下指令了，而是写循环去驱动它"——本期第一篇的作者正是 Claude Code 负责人。也有工程师吐槽这套东西是几十年老模式换新名字，作者说这恰是好消息：跑了几十年关键系统的老套路，才值得托付正经生意。</li>
             </ul>
           </div>
         </div>
