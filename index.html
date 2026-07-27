@@ -261,7 +261,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v6" data-vol="vol.06"><span class="vv">VOL.06 <span class="new">最新</span></span><span class="dd">2026·07·24 · AI 剪辑</span></button>
+    <button class="tab active" data-issue="v7" data-vol="vol.07"><span class="vv">VOL.07 <span class="new">最新</span></span><span class="dd">2026·07·27 · 指挥的艺术</span></button>
+    <button class="tab" data-issue="v6" data-vol="vol.06"><span class="vv">VOL.06</span><span class="dd">2026·07·24 · AI 剪辑</span></button>
     <button class="tab" data-issue="v5" data-vol="vol.05"><span class="vv">VOL.05</span><span class="dd">2026·07·23 · 界面与心法</span></button>
     <button class="tab" data-issue="v4" data-vol="vol.04"><span class="vv">VOL.04</span><span class="dd">2026·07·22 · 模型选型</span></button>
     <button class="tab" data-issue="v3" data-vol="vol.03"><span class="vv">VOL.03</span><span class="dd">2026·07·16 · 角色的重写</span></button>
@@ -269,8 +270,97 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.07 ==================== -->
+  <section class="issue active" id="v7">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.07 / 2026·07·27</div>
+      <h2 class="issue-theme">指挥的艺术：对一个松绑，对一群立规</h2>
+      <p class="issue-lead">两篇正好是指挥 AI 的一体两面：Claude Code 官方把自己的系统提示词删掉八成，说新模型该松绑了；一位实践者手把手教你把一群 AI 编成"图"——并行干活、互相挑错、你守最后一道闸。</p>
+      <div class="issue-toc">
+        <a href="#v7-1"><span class="ix">01</span><span>Claude Code 官方：我们删掉了 80% 的系统提示词</span><span class="cat">干货·指南</span></a>
+        <a href="#v7-2"><span class="ix">02</span><span>Graph Engineering 全课程：把一群 AI 编成一张图</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v7-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Claude Code 官方：我们删掉了 80% 的系统提示词</h3></div>
+      <div class="meta"><span class="tag">干货·指南</span><span class="sep">·</span>赛博禅心 · 译自 Claude 官方博客（作者 Thariq Shihipar，Claude Code 负责人）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/afJqCRhBJECw9xMT88vdAg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Claude Code 官方宣布：面向 Opus 5 / Fable 5 这代模型，他们把自己的系统提示词<b>删掉了八成以上，编码测试上测不出任何损失</b>。一句话结论：新模型判断力够了，过去那些"管死它"的规矩，现在多数在帮倒忙。</div>
+
+        <div class="detail">
+          <h4 class="blk">六组"过去 vs 现在"</h4>
+          <ul class="points">
+            <li><b>给它定规矩 → 让它自己判断。</b><span class="eg">以前写"绝不写多行注释块"（防老模型乱写注释的护栏）；现在只写一句"写得像周围的代码：注释密度、命名、惯用法都跟着周围走"。</span></li>
+            <li><b>举例子 → 把接口设计好。</b><span class="eg">例子反而把新模型限死在某个套路里。Todo 工具光把状态列成"待办/进行中/已完成"三个枚举值，就已经在教它怎么用了。</span></li>
+            <li><b>一股脑全放前面 → 需要时才加载。</b><span class="eg">验证、代码审查这些"偶尔才用"的说明挪进独立技能，用时才调；备忘文件别当中心仓库，做成一棵需要才展开的文件树。</span></li>
+            <li><b>重要的话说三遍 → 说一遍、放对地方。</b>怎么用工具写进工具说明里就行，不必在主提示词里复读。</li>
+            <li><b>手动记备忘 → 交给自动记忆。</b></li>
+            <li><b>简单文字方案 → 丰富的参照物。</b><span class="eg">一份 HTML 设计稿通常比文字描述或截图效果更好；"方案"也可以是一套测试用例，甚至一份"什么算好"的评分标准。</span></li>
+          </ul>
+
+          <h4 class="blk">落到你自己身上</h4>
+          <ul class="points">
+            <li><b>备忘文件（CLAUDE.md）保持轻量</b>：简单交代仓库是干嘛的，把 token 花在"坑"上；AI 扫一眼就能知道的"明摆着的事"别写。</li>
+            <li><b>技能是轻量指路牌</b>：用来固化只属于你和你团队的主张与实践，除了极重要的地方别写死。</li>
+            <li>官方出了个 <b>/doctor 命令</b>，能自动帮你把提示词、技能、备忘文件瘦身。</li>
+          </ul>
+
+          <blockquote><b>为什么"删"本身就是优化：</b>有个概念叫 context rot（上下文腐烂）——窗口里的 token 越多，模型准确记起某条信息的能力越差。注意力是预算，每多塞一个字都在花钱。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>产出质量的新瓶颈是"你能不能把未知讲清楚"</b>：动手前让 AI 先找你的盲区、反过来采访你；做完让它讲一遍或出题考你——你答不上来的地方，就是你没交代清楚的地方。</li>
+              <li><b>长任务的三种毛病</b>：偷懒（五十项做了三十五项就宣布完事）、自我偏袒（验自己的活会放水）、目标漂移（每次压缩上下文都是有损的）——解法是拆成多个子任务各带独立上下文，正好接到本期第二篇。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v7-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>Graph Engineering 全课程：把一群 AI 编成一张图</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>Machina（@EXM7777）· X 长文，52 万浏览<span class="sep">·</span><a href="https://x.com/EXM7777/status/2079934660982047021">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>把一件大活画成一张"图"：每个节点是一件能交给一个助手的活，箭头是"谁必须等谁"，然后让一群 AI 并行去干、专门的"杠精"负责挑错、<b>你只守最后一道闸</b>。作者说你不需要是工程师——文末三个真实场景连提示词都写好了，粘贴就能跑。</div>
+
+        <div class="detail">
+          <h4 class="blk">四节课</h4>
+          <ul class="points">
+            <li><b>第一课·先删"假箭头"。</b>箭头只有真有产出流过才算数。<span class="eg">"总结这份文件，然后查我的日历"听着像先后顺序，但查日历根本不需要总结的结果——这两件事从来不必互等。把你现在的流程画出来，删掉假箭头，省下的等待比买任何工具都多。</span></li>
+            <li><b>第二课·钻石模式（今年你只需要这一个模式）：</b>拆分 → 几个工人并排挖 → 有人检查 → 合并成一个答案。<span class="eg">检查这步不可省：所有严肃测试都指向同一个结论——模型看不见自己的大部分错误，所以绝不让同一个 AI 给自己批作业；而且每个检查员要问不同的问题：一个问对不对、一个问新不新、一个问来源真不真。</span></li>
+            <li><b>第三课·停止规则（这条省真金白银）：</b>图买来的是"广度"，不是"更好的判断"。<span class="eg">活能拆成互不读对方结果的独立块，上团队才划算；每一步都要看全局的活，老实用单个 AI。加人之前只问一句：我的活从哪里拆？</span></li>
+            <li><b>第四课·人肉闸门：</b>把审批放在"错了很贵"的地方——发送、发布、退款——而不是每一步都卡。<span class="eg">Klarna 公开交过学费：客服全押 AI，后来承认砍过头，把人工请回来当高级服务。闸门装满你就成了瓶颈，一个不装就没人看着。</span></li>
+          </ul>
+
+          <blockquote><b>四条保命规则</b>，防止系统变成一场昂贵的事故：每个循环设最大轮数、一个文件只允许一个"写者"、路线用文字步骤写死（AI 只负责填活）、能同时开的 AI 数量永远有上限。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>三个可直接粘贴的完整提示词</b>：深度调研台（问题拆 5 个角度并行挖，杠精毙掉站不住的发现）、SEO 内容机（3 路研究并行→出稿→逐条事实核查，绝不自动发布）、上市套件（买家/渠道/竞品并行画像→定位一页纸→三个写手并行出物料）。都在 Claude Code 里跑，提示词里的关键词 "workflow" 就是让它组队的开关。</li>
+              <li><b>一个有意思的呼应</b>：这篇开头引用"Claude Code 的工程师说他已经不 prompt 它了，而是写循环去 prompt 它"——本期第一篇的作者正是 Claude Code 负责人。也有工程师吐槽"图"是几十年老模式换新马甲，作者认为这恰是好消息：跑了几十年关键系统的老模式，才值得托付你的生意。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>少下命令，多设闸门</h3>
+      <ul class="points">
+        <li>对"一个"AI，把话说少——它判断力够了，管太死反而帮倒忙；对"一群"AI，把规立好——并行分工、互相挑错、人守住那道"错了很贵"的闸。</li>
+        <li>两篇的底层是同一件事：<b>注意力是稀缺资源</b>。单个模型的窗口塞太满会"腐烂"，一群模型各带一小块干净上下文反而高效——所以一边在删提示词，一边在拆子任务。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.06 ==================== -->
-  <section class="issue active" id="v6">
+  <section class="issue" id="v6">
     <div class="issue-head">
       <div class="issue-vol">VOL.06 / 2026·07·24</div>
       <h2 class="issue-theme">剪视频这活，AI 能接走多少</h2>
