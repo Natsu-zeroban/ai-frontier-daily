@@ -261,7 +261,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v8" data-vol="vol.08"><span class="vv">VOL.08 <span class="new">最新</span></span><span class="dd">2026·07·28 · 松手之后</span></button>
+    <button class="tab active" data-issue="v9" data-vol="vol.09"><span class="vv">VOL.09 <span class="new">最新</span></span><span class="dd">2026·07·29 · 深水区</span></button>
+    <button class="tab" data-issue="v8" data-vol="vol.08"><span class="vv">VOL.08</span><span class="dd">2026·07·28 · 松手之后</span></button>
     <button class="tab" data-issue="v7" data-vol="vol.07"><span class="vv">VOL.07</span><span class="dd">2026·07·27 · 指挥的艺术</span></button>
     <button class="tab" data-issue="v6" data-vol="vol.06"><span class="vv">VOL.06</span><span class="dd">2026·07·24 · AI 剪辑</span></button>
     <button class="tab" data-issue="v5" data-vol="vol.05"><span class="vv">VOL.05</span><span class="dd">2026·07·23 · 界面与心法</span></button>
@@ -271,8 +272,93 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.09 ==================== -->
+  <section class="issue active" id="v9">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.09 / 2026·07·29</div>
+      <h2 class="issue-theme">深水区：Agent 的地基 · 模型的记忆</h2>
+      <p class="issue-lead">本期两篇都往深处走：一篇 6 万字的趋势报告回答"Agent 技术那么多，到底该学什么"；一篇 500 万浏览的硬核长文把七年模型架构演进讲成了一个"学会遗忘"的故事。都不轻松，但都值得。</p>
+      <div class="issue-toc">
+        <a href="#v9-1"><span class="ix">01</span><span>Agent 开发指南：技术太多，该怎么学？</span><span class="cat">干货·报告</span></a>
+        <a href="#v9-2"><span class="ix">02</span><span>从 GPT-2 到 Kimi K3：模型大了两万倍，真正变的是记忆</span><span class="cat">干货·硬核</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v9-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Agent 开发指南：技术太多，该怎么学？</h3></div>
+      <div class="meta"><span class="tag">干货·报告</span><span class="sep">·</span>浮之静 · 6 万字技术趋势报告（2026-07-28 快照）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Mx1pclSLzkRFXKEME24TYA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>让 AI 回答问题，答错了重问就行；让 AI 干真事——邮件已经发出去、钱已经扣了，程序却在确认前崩了——"重试"可能把邮件再发一遍。所以这份报告的核心判断是：<b>AI 不缺代码，缺"可信的完成"</b>。最值钱的能力正从"让它跑起来"变成让系统能回答四个问题：它做了什么、依据是什么、结果是否成立、失败后怎么恢复。</div>
+
+        <div class="detail">
+          <h4 class="blk">整份报告在讲一件事：给"不完全可靠的大脑"配一个"可靠的身体"</h4>
+          <ul class="points">
+            <li><b>"完成"不能由 AI 自己说了算。</b>要靠测试、截图、外部状态这些<b>证据</b>来认定。<span class="eg">给 AI 定长任务目标时至少写清三样：要什么结果、有什么约束、怎么验证。缺了"怎么验证"和资源上限的目标，本质上是个无限循环。</span></li>
+            <li><b>不可重来的动作要单独设计。</b><span class="eg">发邮件、扣款、改生产数据这类"泼出去的水"，动手前要先想：中断在哪一步会怎样？失败后是重试还是补救？人什么时候必须介入？——先把这些写清楚，再谈更高的自动化。</span></li>
+            <li><b>AI 的"记忆"不是一个筐。</b>至少拆五类分开管：当前干到哪了、发生过什么（审计要靠原始记录不能只留摘要）、领域知识（要带来源和版本）、用户偏好（要能衰减纠错）、密码凭据（单独锁好）。</li>
+          </ul>
+
+          <h4 class="blk">标题的答案：到底该学什么</h4>
+          <ul class="points">
+            <li><b>双栈就够，别追新闻。</b>TypeScript 或 Python 选一门用来快速连接生态；Rust/Go/Zig 选一门往深挖、搞懂运行时和内存。<span class="eg">看到"XX 用 Rust 重写"先别激动——先量化冷启动、延迟、崩溃率、维护成本，"如果收益只是技术上更酷，AI 只会更快地帮你生产一笔更大的维护债"。</span></li>
+            <li><b>比框架更长寿的是老工具。</b>git、shell、测试、浏览器调试器、数据库、日志——理解它们的默认行为和失败语义，比记住某个 Agent 框架的类名活得久。</li>
+            <li><b>接口要同时伺候人和机器</b>：稳定的 ID、能安全重试的设计、明确的错误格式、可恢复的状态——AI 偏爱"非交互、可组合、结构化结果、明确失败"的工具。</li>
+          </ul>
+
+          <blockquote><b>给工程师的一句实话：</b>把清晰需求翻译成样板代码的价值正在快速贬值，工程价值沿着"代码产量 → 结果责任"迁移。长期值钱的是：谁能把模糊问题变成正确约束、谁理解业务真正承受的风险、谁愿意对生产结果负责。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>报告一共 11 章</b>，还扫了：Vercel 和 Cloudflare 两大平台从相反方向补 Agent 全栈、AI 浏览器成为能力平面、Skills 生态把知识变成操作、模型公司正在"吞并数字工作"。</li>
+              <li><b>治学态度值得学</b>：作者刻意区分"已发生的事实 / 基于事实的推断 / 面向未来的预测"，文末把引用的几十个开源仓库全部固定到具体版本快照——"固定快照只证明观察对象，不证明成熟度"。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v9-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>从 GPT-2 到 Kimi K3：模型大了两万倍，真正变的是记忆</h3></div>
+      <div class="meta"><span class="tag">干货·硬核</span><span class="sep">·</span>ali（@waterloo_intern）· X 长文，500 万+浏览，原题 "22580: From GPT2 to Kimi3, Explained"<span class="sep">·</span><a href="https://x.com/waterloo_intern/status/2081762065392541951">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>2019 年的 GPT-2 和 2026 年的 Kimi K3 差了 22580 倍——一个 K3 能装下两万多个 GPT-2。但作者把七年架构演进逐层拆完后的结论是：<b>真正的故事不是"变大"，而是模型的"记忆"被重新设计了一遍</b>——每一步都在解决同一个问题：脑容量有限，怎么记、怎么忘、怎么找回来。</div>
+
+        <div class="detail">
+          <h4 class="blk">把七年演进讲成一个"记笔记"的故事</h4>
+          <ul class="points">
+            <li><b>老办法（GPT-2 那代的注意力）：每写一个新字，都回头把前文全部翻一遍。</b>记得最准，但文章越长翻得越慢、越贵——成本随长度平方增长。</li>
+            <li><b>省钱办法（线性注意力）：改用一张固定大小的"小抄"。</b>不管读多长的文章，小抄就那么大，速度快成本低。<span class="eg">代价：新信息只能往同一张纸上叠着写，写多了新旧内容互相干扰，越记越糊。</span></li>
+            <li><b>之后的演进，全是在教这张小抄"怎么忘"：</b><span class="eg">先学会"擦掉旧的、写上新的"（DeltaNet，精确替换单条记忆）；再学会"整页淡化腾地方"（加门控，像换话题时清空脑子）；到 Kimi 更细——小抄上每一格单独控制擦多少，该留的留、该忘的忘。</span></li>
+            <li><b>Kimi K3 的最终答案是混搭：</b>平时用便宜的小抄记忆，每隔几层配一次"回头翻全文"的精确检索兜底，再加上专家分工——898 个专家每次只叫 16 个干活（所以两万倍参数不等于两万倍成本）。</li>
+          </ul>
+
+          <blockquote><b>收尾的洞见值得抄下来：</b>固定容量的记忆，必须有一套"淘汰策略"——只往里加、从不删除，迟早互相干扰。所以<b>学会遗忘不是缺陷，是能力</b>。这七年每一步都不是盲目堆参数，而是把新容量加在一个有明确功能的位置上。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 硬核提示</div>
+            <ul>
+              <li><b>原文比这份摘要硬得多</b>：带完整代码和数学推导，作者自己说光"并行化 DeltaNet"一节就花了他 7 个小时才真正看懂。想深入模型架构的读者值得点原文精读。</li>
+              <li><b>一个和日常用 AI 相通的点</b>：模型内部的"上下文塞太满会互相干扰"，和 VOL.07 讲的"上下文腐烂"（提示词堆太多反而变笨）是同一件事的内外两面。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>表面是规模竞赛，底下都是资源管理</h3>
+      <ul class="points">
+        <li>一篇讲 Agent 的地基（给不可靠的大脑配可靠的身体），一篇讲模型的地基（给有限的脑容量配聪明的遗忘）。共同点：AI 的进步越来越不靠"更多"，而靠<b>管好有限的东西</b>——注意力预算、记忆容量、信任边界。这和 VOL.07/08 的"少一点控制、多一点检验"连起来，就是这一个月行业叙事的完整弧线。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.08 ==================== -->
-  <section class="issue active" id="v8">
+  <section class="issue" id="v8">
     <div class="issue-head">
       <div class="issue-vol">VOL.08 / 2026·07·28</div>
       <h2 class="issue-theme">松手之后：AI 比你想的更能干，也更像"活物"</h2>
