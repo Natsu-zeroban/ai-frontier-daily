@@ -261,7 +261,9 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v10" data-vol="vol.10"><span class="vv">VOL.10 <span class="new">最新</span></span><span class="dd">2026·07·30 · 幸存者与观星者</span></button>
+    <button class="tab active" data-issue="v12" data-vol="vol.12"><span class="vv">VOL.12 <span class="new">最新</span></span><span class="dd">2026·08·03 · AI 视频换赛道</span></button>
+    <button class="tab" data-issue="v11" data-vol="vol.11"><span class="vv">VOL.11</span><span class="dd">2026·07·31 · 无人值守</span></button>
+    <button class="tab" data-issue="v10" data-vol="vol.10"><span class="vv">VOL.10</span><span class="dd">2026·07·30 · 幸存者与观星者</span></button>
     <button class="tab" data-issue="v9" data-vol="vol.09"><span class="vv">VOL.09</span><span class="dd">2026·07·29 · 深水区</span></button>
     <button class="tab" data-issue="v8" data-vol="vol.08"><span class="vv">VOL.08</span><span class="dd">2026·07·28 · 松手之后</span></button>
     <button class="tab" data-issue="v7" data-vol="vol.07"><span class="vv">VOL.07</span><span class="dd">2026·07·27 · 指挥的艺术</span></button>
@@ -273,8 +275,92 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.12 ==================== -->
+  <section class="issue active" id="v12">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.12 / 2026·08·03</div>
+      <h2 class="issue-theme">AI 视频换赛道：不比好看，比听懂</h2>
+      <p class="issue-lead">一篇视频模型横测：MiniMax 新发的 H3 对上 Seedance 2.5。测的不是画质，是广告、游戏、品牌植入这些真实商业场景——AI 视频的竞争正在从"生成得漂亮"转向"听得懂需求、交得了活"。</p>
+      <div class="issue-toc">
+        <a href="#v12-1"><span class="ix">01</span><span>MiniMax H3 对决 Seedance 2.5：全面横测</span><span class="cat">评测</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v12-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>MiniMax H3 对决 Seedance 2.5：全面横测</h3></div>
+      <div class="meta"><span class="tag nw">评测</span><span class="sep">·</span>Vposy Agent（实测对比，立场偏 MiniMax，见文末提示）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/bxB3ASY6A6lrJMWTdG1oEg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>AI 视频的竞争换赛道了——不再比"谁生成得好看"，改比"<b>谁听得懂复杂需求、能交付商业成片</b>"。这篇用同一套提示词，把 MiniMax 新发的 H3 和 Seedance 2.5 拉到四个真实场景里对打：产品广告、游戏场景、电影预告、品牌植入。</div>
+
+        <div class="detail">
+          <h4 class="blk">四个场景，测出一个趋势</h4>
+          <ul class="points">
+            <li><b>产品广告：卖点说没说准，比画面漂不漂亮值钱。</b><span class="eg">同一句提示词（复古米白头戴耳机宣传片），Seedance 画面好看，但皮革纹理、金色摇杆这些核心卖点没呈现出来，Logo 还跑偏了；H3 把配色、材质、结构、品牌元素抓得更全。</span></li>
+            <li><b>游戏场景：比的是"游戏感"。</b><span class="eg">H3 生成的不只是一张看着酷的画面，而是布局、建筑、装备细节符合游戏设计逻辑的世界——对游戏宣传片和概念设计，这才是拉开差距的地方。</span></li>
+            <li><b>最实用的新玩法：视频内容替换。</b><span class="eg">传一段参考视频，一句话把开头的易拉罐换成可乐、背景便利店招牌换掉、结尾台词从"买了小零食"改成"买了一堆可乐"——不用重拍、不用逐帧修改。品牌植入、广告二创、影视后期改内容，效率完全变了。</span></li>
+            <li><b>背书与价格：</b>第三方榜单（Artificial Analysis）上 H3 的视频编辑能力排全球第一；它也是 MiniMax 首个开源的多模态生成模型，成本比 Seedance 明显更低。</li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 读之前该知道的</div>
+            <ul>
+              <li><b>立场提示</b>：这是一篇明显偏向 MiniMax 的评测（文末附体验入口，有推广性质），具体优劣建议自己上手对比；但"AI 视频从拼画质到拼需求理解"这个大判断本身站得住。</li>
+              <li><b>和 VOL.01 连起来看</b>：那篇 Seedance 经验谈讲的是"怎么把提示词写对"，这篇讲的是"模型开始自己听懂复杂需求"——半年时间，功课正在从用户侧转移到模型侧。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <!-- ==================== VOL.11 ==================== -->
+  <section class="issue" id="v11">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.11 / 2026·07·31</div>
+      <h2 class="issue-theme">无人值守：把人从循环里拔出来</h2>
+      <p class="issue-lead">你有没有这样的期待：睡前把任务布置好，AI 通宵干活，早上起来收活——现实往往是"早上一看，什么东西！"。这篇讲怎么把这个期待变成现实。</p>
+      <div class="issue-toc">
+        <a href="#v11-1"><span class="ix">01</span><span>对 Loop Engineering 的思考</span><span class="cat">干货·思辨</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v11-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>对 Loop Engineering 的思考</h3></div>
+      <div class="meta"><span class="tag">干货·思辨</span><span class="sep">·</span>腾讯云开发者 · 作者吕昊俣<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/g3HtSeJfKfjtqDG4rPTpiw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>别再一句一句指挥 AI 了，改成设计一个能自己转的<b>循环（Loop）</b>：它自己干、自己验、发现错了自己改，人从"盯着"的位置上退出来。整篇最有说服力的是一道数学题：AI 单步正确率 90% 听着不错，但复杂任务要拆成一串子任务，错误会连乘——<b>六步之后正确率就掉到约 50%，跟抛硬币一样</b>。所以"无人值守"不能靠模型更准，只能靠"错了会被发现并纠正"的闭环兜底。</div>
+
+        <div class="detail">
+          <h4 class="blk">一个 160 年前的类比</h4>
+          <p>当年英国《红旗法案》要求每辆汽车前面必须有人举着红旗开道护航——今天人时时刻刻盯着 AI 干活，历史在重演，一个字：累。这篇给的出路，本质是控制论那套老思想（负反馈让系统自己收敛），落到 AI 上的应用。</p>
+
+          <h4 class="blk">怎么设计一个靠谱的循环</h4>
+          <ul class="points">
+            <li><b>从小闭环做起。</b>别一上来就造"全自动开发"的万能循环，先跑通一个最小的、能收敛的小环，再逐步放大。设计前想清四个问题：怎么定义问题、怎么开始、<b>怎么设计反馈、怎么结束</b>。<span class="eg">"怎么结束"不是废话——去看看你的 token 账单就懂了：没有步数上限和熔断的循环，本质是台烧钱机。</span></li>
+            <li><b>让 AI 说"不"，要靠铁证不靠嘱咐。</b>在提示词里写"要严格挑错"没用——那种否定其实还是顺着你说。真正的"不"来自不可否认的事实，最典型的是<b>测试</b>：先写好"什么算对"的测试用例，再让 AI 开发，测试不过就是硬邦邦的负反馈。<span class="eg">这就是老程序员熟悉的 TDD（测试驱动开发）——以前这循环玩不起来是因为推动它的是人，现在控制权交给 AI：结构没变，人变轻松了。</span></li>
+            <li><b>双人制衡 + 证据链。</b>一个 AI 干活（Maker）、另一个专职挑错（Checker），且挑错要凭证据追溯、不凭感觉。<span class="eg">和 VOL.07 那篇"绝不让 AI 自己批自己的作业"是同一个原则。</span></li>
+            <li><b>预算思维。</b>高价值任务用聪明模型，重复杂活绝不用贵的——顶级模型和廉价模型的输出成本能差 <b>180 倍</b>；上下文压缩时，核心规则由人把着不参与压缩，只压过程信息，防止越压越跑偏。</li>
+          </ul>
+
+          <blockquote><b>五代演进一句话理清</b>：提示词工程解决"怎么问"→ 上下文工程解决"缺背景"→ Harness 解决"单次执行可控"→ Loop 解决"不用人盯"→ Graph 解决"多个循环怎么协同"。每一代不是替代，是叠在上一代的能力之上。结尾那句也值得记：<b>"Loop 不是技术框架，是思维模式——把人从循环的更多环节里拔出来，把注意力真正还给人自己。"</b></blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>测试不是万能的，边界要清楚</b>：适合明确规则、接口行为、回归修复；不适合纯体验、架构品味、产品决策。设计功能时先自问一句："这个功能能不能被测试表达？"</li>
+              <li><b>吴恩达的三个环</b>：技术环（系统会不会收敛）套在产品环（是否持续创造用户价值）里，再套在用户环（用户情绪回流产品）里——三层嵌套、速度不同、层层驱动。</li>
+              <li><b>和 VOL.07 是同一条线</b>：那篇讲"图"（怎么组队），这篇讲图下面那层"循环"（怎么让单个流程自己转），开头引用的正是同一句话："你不该再 prompt 你的 agent，该设计 prompt 它们的循环。"</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.10 ==================== -->
-  <section class="issue active" id="v10">
+  <section class="issue" id="v10">
     <div class="issue-head">
       <div class="issue-vol">VOL.10 / 2026·07·30</div>
       <h2 class="issue-theme">幸存者与观星者</h2>
