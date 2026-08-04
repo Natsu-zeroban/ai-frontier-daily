@@ -44,7 +44,8 @@
     │   └── check_env.py       # 协作者环境自检
     └── references/
         ├── STYLE.md           # 写作与呈现铁律(核心资产)
-        └── TEMPLATE.md        # HTML 片段 + 操作 checklist
+        ├── TEMPLATE.md        # HTML 片段 + 操作 checklist
+        └── INSIGHTS.md        # 维护者手记：读日报攒下的可复用洞见(随仓库传承,欢迎续写)
 ```
 
 ## 脚本可独立运行
