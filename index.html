@@ -285,7 +285,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
 
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
-      <p><b>MiniMax H3 正式开源（MiniMax 稀宇科技）</b>｜昨天横测里那个 H3 开源了：一个"全模态"视频模型，能看懂文/图/视频/音频混合输入，生成最高 2K、最长 15 秒、自带立体声的视频，稳定支持 11 种语言。核心的多模态理解模块（H3-Context-IR）暂以 API 形式提供、未随权重开源。 <a href="https://mp.weixin.qq.com/s/2Onot41z7cUqvhnWphz09Q">原文</a></p>
+      <p><b>MiniMax H3 正式开源（MiniMax 稀宇科技）</b>｜昨天横测里那个 H3 开源了：一个"全模态"视频模型，能看懂文/图/视频/音频混合输入，生成最高 2K、最长 15 秒、自带立体声的视频，稳定支持 11 种语言。其中最关键的"读懂复杂需求"那个模块暂时只开放 API、没有跟着一起开源。 <a href="https://mp.weixin.qq.com/s/2Onot41z7cUqvhnWphz09Q">原文</a></p>
     </div>
 
     <div class="issue-head">
@@ -345,7 +345,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
             <li><span class="who hand">手动</span><b>在 Blender 里拼装精修。</b>把上一步的零件像乐高一样拼成完整角色。<span class="eg">拿 2D 原画当背景对齐位置，肚子和裤子穿模的地方用笔刷切掉，手套护腿这种对称件做一半再镜像复制。<b>产出：一个拼好但还很"重"（几百万面）的完整高模。</b></span></li>
             <li><span class="who both">AI+手动</span><b>重新拓扑——把"重高模"换成"能进游戏的轻低模"（这步最关键）。</b>AI 生成的模型布线杂乱，一做动作就穿模卡顿，必须重新把网格梳理规整、同时把几百万面砍到几万面。<span class="eg">分工：躯干、盔甲这种大面积部件交给<b>腾讯混元</b>自动拓扑，省时间；手指、脸这种一动就要变形的关键部位<b>手动</b>拓扑（用 RetopoFlow 插件），才能保证动起来不扭曲。<b>产出：一个几万面、布线规整的低模。</b></span></li>
             <li><span class="who both">AI+手动</span><b>展 UV + 烘焙——让"轻低模"看起来还是那么精细。</b>核心魔法叫"烘焙"：<b>把第 2 步那个百万面高模身上的凹凸细节（划痕、褶皱、盔甲厚度）"拓印"成一张贴图，贴到第 3 步的低模上</b>。<span class="eg">这样一个只有 6 万面的低模，在光照下看起来就有百万面的立体质感——面数没涨，细节骗过了眼睛。（展 UV 是烘焙前的准备：把 3D 表面摊平好画贴图。）<b>产出：低模 + 一张"凹凸贴图"（法线贴图）。</b></span></li>
-            <li><span class="who both">AI+手动</span><b>做 PBR 材质——给它上色和物理质感。</b>上一步解决了"凹凸"，这步解决"颜色"和"是金属还是布"。<span class="eg">用 Modddif 把 AI 生成的 2D 图投射成颜色贴图（衣服图案、头发配色）；再用 Patina 生成金属的拉丝纹理和"金属度/粗糙度"贴图，告诉引擎哪里反光、哪里哑光。<b>产出：一整套贴图，模型现在有色彩、有凹凸、有质感。</b></span></li>
+            <li><span class="who both">AI+手动</span><b>做材质——给它上色、定义"哪儿反光哪儿哑光"（这步的行话叫 PBR，基于物理的材质）。</b>上一步解决了"凹凸"，这步解决"颜色"和"是金属还是布"。<span class="eg">用 Modddif 把 AI 生成的 2D 图投射成颜色贴图（衣服图案、头发配色）；再用 Patina 生成金属的拉丝纹理和"金属度/粗糙度"贴图，告诉引擎哪里反光、哪里哑光。<b>产出：一整套贴图，模型现在有色彩、有凹凸、有质感。</b></span></li>
             <li><span class="who both">AI+手动</span><b>绑骨骼、进虚幻引擎——让它能动。</b><span class="eg">丢进免费软件 AccuRig 几分钟自动生成骨骼（AI）；回 Blender 手动把金属装甲部分的"权重"刷成 100% 绑定单根骨头，跑动挥手时铁甲才不会像橡皮一样扭。最后导入 Unreal Engine 5 接好材质、加光影和头发飘动。<b>产出：一个能在游戏引擎里动起来的成品角色。</b></span></li>
           </ol>
 
