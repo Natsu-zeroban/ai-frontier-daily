@@ -166,6 +166,10 @@ h4.blk::before { content:""; width:5px; height:20px; border-radius:3px; backgrou
 
 .steps { list-style:none; counter-reset:st; margin:10px 0; }
 .steps li { counter-increment:st; position:relative; padding:8px 0 8px 42px; color:var(--ink-2); font-size:15px; }
+.who { display:inline-block; font-family:var(--mono); font-size:11px; font-weight:700; padding:1px 7px; border-radius:5px; margin-right:6px; vertical-align:middle; }
+.who.ai { color:var(--accent); background:var(--accent-soft); border:1px solid color-mix(in srgb,var(--accent) 35%,transparent); }
+.who.hand { color:var(--s3); background:color-mix(in srgb,var(--s3) 14%,transparent); border:1px solid color-mix(in srgb,var(--s3) 34%,transparent); }
+.who.both { color:var(--s2); background:color-mix(in srgb,var(--s2) 14%,transparent); border:1px solid color-mix(in srgb,var(--s2) 34%,transparent); }
 .steps li::before { content:counter(st,decimal-leading-zero); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:700; color:var(--accent); background:var(--surface-2); border:1px solid var(--border); border-radius:8px; width:30px; height:26px; display:flex; align-items:center; justify-content:center; }
 
 .flow { display:flex; flex-wrap:wrap; align-items:stretch; gap:6px; margin:14px 0 4px; }
@@ -334,17 +338,18 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         <div class="core"><b>核心：</b>过去从零做一个能进虚幻引擎、带骨骼和全套贴图的高精度 3D 角色，一个团队要几周到几个月；这套"AI 打底 + 手动微调"的流水线把它压到两天。关键结论也很清醒：<b>指望 AI 一键生成完美 3A 资产不现实——真正的高手是把 AI 当极速素材生成器，再用传统流程把控工业级质量。AI 没取代 3D 艺术家，只是让懂流程的人快了几十倍。</b></div>
 
         <div class="detail">
-          <h4 class="blk">六步流水线（哪步交给 AI、哪步必须手动）</h4>
+          <h4 class="blk">六步流水线：每步谁来做、拿什么做出什么</h4>
+          <p style="font-size:13px;color:var(--muted);margin:2px 0 10px">标签说明：<span class="who ai">AI</span>机器生成 · <span class="who hand">手动</span>人在 Blender 里做 · <span class="who both">AI+手动</span>先 AI 打底再手工修</p>
           <ol class="steps">
-            <li><b>拆件生成，别丢整张全身图。</b><span class="eg">整图丢进去出来的模型粘连、没法用。做法是拆开：让 ChatGPT 看参考图写提示词（强调纯白背景、A 字站姿），再用 Tripo3D 分部件生成——盔甲这种细节多的出百万面高模，武器头发这种简单的限制面数出低模。</span></li>
-            <li><b>Blender 当"手术台"拼接精修</b>：2D 原画作背景对齐零件，穿模的地方用遮罩笔刷切掉，对称部件做一半加镜像。</li>
-            <li><b>重新拓扑（这步是游戏资产的核心）</b>：AI 生成的模型布线杂乱、一动就穿模，得把几百万面的高模重新梳理成几万面的规整低模。<span class="eg">大面积部件（躯干、盔甲）用腾讯混元自动拓扑省时间；手指、面部这种动画关键部位手动拓扑，保证布线规整不扭曲。</span></li>
-            <li><b>UV 展开 + "烘焙"</b>：把百万面高模的凹凸细节（划痕、褶皱）烤成一张法线贴图贴到低模上——6 万面的模型瞬间拥有百万面的质感。</li>
-            <li><b>AI 做 PBR 材质</b>："烘焙画骨、AI 画皮"：用工具把 AI 生成的 2D 图投射成颜色贴图，再用材质工具生成金属的金属度/粗糙度贴图。</li>
-            <li><b>一键绑骨进引擎</b>：丢进 AccuRig 几分钟自动生成骨骼，金属装甲部分权重刷成 100% 绑定单骨，跑动时才不会像橡胶一样扭曲。</li>
+            <li><span class="who ai">AI</span><b>拆件生成粗模。</b>不要丢整张全身图（出来会粘连没法用），拆成一个个部件分别生成。<span class="eg">先让 ChatGPT 看参考图、写出"纯白背景 + A 字站姿"的提示词；再用 Tripo3D 按部件生成——盔甲这种细节多的出"高模"（百万面、够精细），武器头发这种简单的出"低模"（限制面数、够省）。<b>产出：一堆零散的 3D 部件。</b></span></li>
+            <li><span class="who hand">手动</span><b>在 Blender 里拼装精修。</b>把上一步的零件像乐高一样拼成完整角色。<span class="eg">拿 2D 原画当背景对齐位置，肚子和裤子穿模的地方用笔刷切掉，手套护腿这种对称件做一半再镜像复制。<b>产出：一个拼好但还很"重"（几百万面）的完整高模。</b></span></li>
+            <li><span class="who both">AI+手动</span><b>重新拓扑——把"重高模"换成"能进游戏的轻低模"（这步最关键）。</b>AI 生成的模型布线杂乱，一做动作就穿模卡顿，必须重新把网格梳理规整、同时把几百万面砍到几万面。<span class="eg">分工：躯干、盔甲这种大面积部件交给<b>腾讯混元</b>自动拓扑，省时间；手指、脸这种一动就要变形的关键部位<b>手动</b>拓扑（用 RetopoFlow 插件），才能保证动起来不扭曲。<b>产出：一个几万面、布线规整的低模。</b></span></li>
+            <li><span class="who both">AI+手动</span><b>展 UV + 烘焙——让"轻低模"看起来还是那么精细。</b>核心魔法叫"烘焙"：<b>把第 2 步那个百万面高模身上的凹凸细节（划痕、褶皱、盔甲厚度）"拓印"成一张贴图，贴到第 3 步的低模上</b>。<span class="eg">这样一个只有 6 万面的低模，在光照下看起来就有百万面的立体质感——面数没涨，细节骗过了眼睛。（展 UV 是烘焙前的准备：把 3D 表面摊平好画贴图。）<b>产出：低模 + 一张"凹凸贴图"（法线贴图）。</b></span></li>
+            <li><span class="who both">AI+手动</span><b>做 PBR 材质——给它上色和物理质感。</b>上一步解决了"凹凸"，这步解决"颜色"和"是金属还是布"。<span class="eg">用 Modddif 把 AI 生成的 2D 图投射成颜色贴图（衣服图案、头发配色）；再用 Patina 生成金属的拉丝纹理和"金属度/粗糙度"贴图，告诉引擎哪里反光、哪里哑光。<b>产出：一整套贴图，模型现在有色彩、有凹凸、有质感。</b></span></li>
+            <li><span class="who both">AI+手动</span><b>绑骨骼、进虚幻引擎——让它能动。</b><span class="eg">丢进免费软件 AccuRig 几分钟自动生成骨骼（AI）；回 Blender 手动把金属装甲部分的"权重"刷成 100% 绑定单根骨头，跑动挥手时铁甲才不会像橡皮一样扭。最后导入 Unreal Engine 5 接好材质、加光影和头发飘动。<b>产出：一个能在游戏引擎里动起来的成品角色。</b></span></li>
           </ol>
 
-          <blockquote><b>一句话记住这套流水线的分工</b>：AI 负责"快"（出高模结构、基础色彩、材质纹理），传统软件负责"准"（重拓扑、烘焙、权重刷制的工业级把控）。对游戏从业者，这套"AI 打底 + 人工精修"的思路比任何单个工具都值钱。</blockquote>
+          <blockquote><b>一眼看清分工</b>：纯靠 AI 的只有第 1 步（出粗模）；纯手动的只有第 2 步（拼装）；<b>后面四步全是"AI 打底 + 人工把关"</b>——AI 负责快（出结构、出贴图、自动绑骨），人负责准（规整布线、关键部位、权重）。所以标题那句"两天做出 3A 角色"的真相是：AI 把最耗时的粗活压缩了，但每一步的质量闸门还在人手里。</blockquote>
 
           <div class="more">
             <div class="lb">延伸 · 原文还答了三个实操疑问</div>
