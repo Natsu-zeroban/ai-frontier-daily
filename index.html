@@ -261,7 +261,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v12" data-vol="vol.12"><span class="vv">VOL.12 <span class="new">最新</span></span><span class="dd">2026·08·03 · AI 视频换赛道</span></button>
+    <button class="tab active" data-issue="v13" data-vol="vol.13"><span class="vv">VOL.13 <span class="new">最新</span></span><span class="dd">2026·08·04 · 造世界</span></button>
+    <button class="tab" data-issue="v12" data-vol="vol.12"><span class="vv">VOL.12</span><span class="dd">2026·08·03 · AI 视频换赛道</span></button>
     <button class="tab" data-issue="v11" data-vol="vol.11"><span class="vv">VOL.11</span><span class="dd">2026·07·31 · 无人值守</span></button>
     <button class="tab" data-issue="v10" data-vol="vol.10"><span class="vv">VOL.10</span><span class="dd">2026·07·30 · 幸存者与观星者</span></button>
     <button class="tab" data-issue="v9" data-vol="vol.09"><span class="vv">VOL.09</span><span class="dd">2026·07·29 · 深水区</span></button>
@@ -275,8 +276,100 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.13 ==================== -->
+  <section class="issue active" id="v13">
+
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>MiniMax H3 正式开源（MiniMax 稀宇科技）</b>｜昨天横测里那个 H3 开源了：一个"全模态"视频模型，能看懂文/图/视频/音频混合输入，生成最高 2K、最长 15 秒、自带立体声的视频，稳定支持 11 种语言。核心的多模态理解模块（H3-Context-IR）暂以 API 形式提供、未随权重开源。 <a href="https://mp.weixin.qq.com/s/2Onot41z7cUqvhnWphz09Q">原文</a></p>
+    </div>
+
+    <div class="issue-head">
+      <div class="issue-vol">VOL.13 / 2026·08·04</div>
+      <h2 class="issue-theme">造世界：AI 开始搭三维的东西</h2>
+      <p class="issue-lead">两篇都关于"用 AI 把三维世界做出来"：一篇是卡帕西让 Opus 5 花两小时把《指环王》开头写成一个能跑的 3D 场景，近 300 万人围观；一篇是实操——用 AI 加 Blender，两天做出一个能进游戏引擎的 3A 级角色。</p>
+      <div class="issue-toc">
+        <a href="#v13-1"><span class="ix">01</span><span>卡帕西亲测 Opus 5：两小时 5500 行代码搭出 3D 世界</span><span class="cat">干货·观察</span></a>
+        <a href="#v13-2"><span class="ix">02</span><span>用 AI 两天做出 3A 级游戏角色：全流程</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v13-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>卡帕西亲测 Opus 5：两小时 5500 行代码搭出 3D 世界</h3></div>
+      <div class="meta"><span class="tag">干货·观察</span><span class="sep">·</span>AI 前线 · 整理自 Karpathy 的 X 实验（浏览量超 280 万）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/qhZmTqo_JONolhFbHYqK_A">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>AI 大牛卡帕西把《指环王》开头一段文字丢给 Opus 5，给约 10 美元的算力预算，让它用代码渲染成一个 3D 场景。模型跑了两小时、写了 5500 行代码，真做出一个能在浏览器里跑的三维世界。他看重的不是画面（"有点粗糙但很好玩"），而是一个变化：<b>过去因为"太麻烦、太小众、没人愿意做"而根本不会存在的东西，现在一句话加一点点钱就能临时造出来。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">这个实验为什么重要</h4>
+          <ul class="points">
+            <li><b>它走的是"写代码搭场景"的路，不是"生成一段像素画面"。</b><span class="eg">一棵树不是画面里一团绿像素，而是场景里一个有坐标的对象；镜头何时靠近、角色从哪走到哪、字幕何时出现，都得写进程序。模型得自己决定该有哪些角色房屋道路，没有现成美术资源、没人给它坐标。</span></li>
+            <li><b>卡帕西叫它"按需生成的临时版 GTA"。</b><span class="eg">你指定任何小说、历史事件或设定，让模型临时搭一个世界，你可以作为旁观者或角色进去，甚至改变剧情走向——内容定制从"改角色名、换几张图"推进到了"场景、规则、故事进程都能为一个人即时生成"。开发者们已经拿它造了第一人称射击、滑雪、甚至重建了《我的世界》。</span></li>
+          </ul>
+
+          <h4 class="blk">但它暴露了一个越来越关键的矛盾</h4>
+          <ul class="points">
+            <li><b>模型"生成东西"的能力，正在快过它"检验东西"的能力。</b><span class="eg">Opus 5 不能像真人测试员那样进游戏里跑动、回头、判断手感，它只能运行程序、在几个时间点截静态图、看图改代码——这个循环很慢，还容易漏掉只在运动中才出现的问题（角色某一帧位置对、几秒后却穿过了地面）。所以成品留下不少错位。</span></li>
+            <li><b>普通代码可以跑测试、看报错来验证；但动画、游戏、界面的"对不对"藏在连续时间和视觉状态里</b>，模型没法亲自体验，就凑不成完整的"生成→执行→观察→修正"闭环。这正是当前大模型明显欠缺的能力。</li>
+          </ul>
+
+          <blockquote>作者的收尾：模型已经具备"建造临时世界的耐力"（连续工作两小时、组织几千行代码、保持目标一致）；接下来的关键，是它什么时候能真正<b>看见、进入并理解自己造的世界</b>。（注：10 美元只是算力预算估算，不含设计、验收、修改等真实制作成本。）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>和"世界模型"的区别</b>：Opus 5 是写出一套显式程序（可读可改，但只能表达它会写代码的东西）；谷歌 Genie 那种是实时生成视频画面（更丰富，但没有明确的对象和规则）。未来产品可能融合两者——大模型规划规则写代码，世界模型负责画面和物理反馈。</li>
+              <li><b>评测模型的方式在变</b>：从"鹈鹕骑自行车 SVG"这种单张图测空间推理，变成"能不能连续工作两小时、保持数千行代码和目标一致、完成后还能自己进去找问题"。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v13-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>用 AI 两天做出 3A 级游戏角色：全流程</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>AI for Frontend · 编译自国外实战视频<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/XFcyg_UIGwzRT2XY71Qb2w">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>过去从零做一个能进虚幻引擎、带骨骼和全套贴图的高精度 3D 角色，一个团队要几周到几个月；这套"AI 打底 + 手动微调"的流水线把它压到两天。关键结论也很清醒：<b>指望 AI 一键生成完美 3A 资产不现实——真正的高手是把 AI 当极速素材生成器，再用传统流程把控工业级质量。AI 没取代 3D 艺术家，只是让懂流程的人快了几十倍。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">六步流水线（哪步交给 AI、哪步必须手动）</h4>
+          <ol class="steps">
+            <li><b>拆件生成，别丢整张全身图。</b><span class="eg">整图丢进去出来的模型粘连、没法用。做法是拆开：让 ChatGPT 看参考图写提示词（强调纯白背景、A 字站姿），再用 Tripo3D 分部件生成——盔甲这种细节多的出百万面高模，武器头发这种简单的限制面数出低模。</span></li>
+            <li><b>Blender 当"手术台"拼接精修</b>：2D 原画作背景对齐零件，穿模的地方用遮罩笔刷切掉，对称部件做一半加镜像。</li>
+            <li><b>重新拓扑（这步是游戏资产的核心）</b>：AI 生成的模型布线杂乱、一动就穿模，得把几百万面的高模重新梳理成几万面的规整低模。<span class="eg">大面积部件（躯干、盔甲）用腾讯混元自动拓扑省时间；手指、面部这种动画关键部位手动拓扑，保证布线规整不扭曲。</span></li>
+            <li><b>UV 展开 + "烘焙"</b>：把百万面高模的凹凸细节（划痕、褶皱）烤成一张法线贴图贴到低模上——6 万面的模型瞬间拥有百万面的质感。</li>
+            <li><b>AI 做 PBR 材质</b>："烘焙画骨、AI 画皮"：用工具把 AI 生成的 2D 图投射成颜色贴图，再用材质工具生成金属的金属度/粗糙度贴图。</li>
+            <li><b>一键绑骨进引擎</b>：丢进 AccuRig 几分钟自动生成骨骼，金属装甲部分权重刷成 100% 绑定单骨，跑动时才不会像橡胶一样扭曲。</li>
+          </ol>
+
+          <blockquote><b>一句话记住这套流水线的分工</b>：AI 负责"快"（出高模结构、基础色彩、材质纹理），传统软件负责"准"（重拓扑、烘焙、权重刷制的工业级把控）。对游戏从业者，这套"AI 打底 + 人工精修"的思路比任何单个工具都值钱。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还答了三个实操疑问</div>
+            <ul>
+              <li><b>为什么要重新拓扑</b>：降面数（几百万→几万才能实时跑）、规整布线（不然动起来穿模）、方便展 UV、配合烘焙骗过眼睛。</li>
+              <li><b>手动拓扑插件比 AI 自动拓扑好在哪</b>：AI 拓扑布线"随机"、面数不可控（设 1500 出来近 2000）、还会重置坐标导致对不上；手动能画出完美环形布线、面数精准、吸附高模无位移。</li>
+              <li><b>贴图三块拼图</b>：Modddif 管颜色、烘焙管立体凹凸、Patina 管金属布料的物理质感——三者缺一不可。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>一个从零长出来，一个把人接上去</h3>
+      <ul class="points">
+        <li>卡帕西那篇是 AI <b>自己从文字长出</b>一个粗糙但完整的世界，卡在"它看不见自己造的东西"；3A 角色那篇是 AI 出素材、<b>人接手精修</b>到工业级，卡点正好被人的判断补上了。合起来印证了这个月反复出现的那句话：AI 把"做出来"变便宜了，<b>但"检验对不对、精修到能用"这一步，暂时还牢牢握在人手里</b>——对做游戏、做内容的人，这既是效率红利，也是你还不可替代的位置。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.12 ==================== -->
-  <section class="issue active" id="v12">
+  <section class="issue" id="v12">
     <div class="issue-head">
       <div class="issue-vol">VOL.12 / 2026·08·03</div>
       <h2 class="issue-theme">AI 视频换赛道：不比好看，比听懂</h2>
