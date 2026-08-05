@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v13" data-vol="vol.13"><span class="vv">VOL.13 <span class="new">最新</span></span><span class="dd">2026·08·04 · 造世界</span></button>
+    <button class="tab active" data-issue="v14" data-vol="vol.14"><span class="vv">VOL.14 <span class="new">最新</span></span><span class="dd">2026·08·05 · AI 进化论</span></button>
+    <button class="tab" data-issue="v13" data-vol="vol.13"><span class="vv">VOL.13</span><span class="dd">2026·08·04 · 造世界</span></button>
     <button class="tab" data-issue="v12" data-vol="vol.12"><span class="vv">VOL.12</span><span class="dd">2026·08·03 · AI 视频换赛道</span></button>
     <button class="tab" data-issue="v11" data-vol="vol.11"><span class="vv">VOL.11</span><span class="dd">2026·07·31 · 无人值守</span></button>
     <button class="tab" data-issue="v10" data-vol="vol.10"><span class="vv">VOL.10</span><span class="dd">2026·07·30 · 幸存者与观星者</span></button>
@@ -280,8 +281,65 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.14 ==================== -->
+  <section class="issue active" id="v14">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.14 / 2026·08·05</div>
+      <h2 class="issue-theme">AI 进化论：它是怎么一步步变强的</h2>
+      <p class="issue-lead">斯坦福公开了一门讲"AI 自我进化"的课，两位主讲一个带过 Google 5400 亿参数大模型、一个提出了如今主流模型都在用的架构。这篇把过去几年 AI 变强的底层逻辑整个拆开讲了一遍——难得的是不神化也不唱衰。</p>
+      <div class="issue-toc">
+        <a href="#v14-1"><span class="ix">01</span><span>斯坦福新课：AI 怎么自我进化</span><span class="cat">干货·课程精讲</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v14-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>斯坦福新课：AI 怎么自我进化</h3></div>
+      <div class="meta"><span class="tag">干货·课程精讲</span><span class="sep">·</span>深思圈 · 拆解斯坦福 CS329A《自我改进的 AI Agent》课程<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Kxx03MVXZVF1R99Rr8Z-CQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>过去几年 AI 变强，不是一直靠"把模型堆得更大"。这篇最值得记的一条线索是——<b>AI 每一次大跳跃，背后都是一种新的"反馈机制"被打开：从「堆规模」，走到「让模型自己思考、自己验证、自己迭代」</b>。每往前一步，这个反馈循环就往里收紧一层，模型的自主性就多一层。</div>
+
+        <div class="detail">
+          <h4 class="blk">五步，看 AI 怎么一路变强</h4>
+          <ol class="steps">
+            <li><b>堆规模（老路，现在碰壁了）。</b>规律叫"规模定律"：模型参数、训练数据、算力越多，它就越聪明——这条从 2018 一直灵到 2024。<span class="eg">但 2024 起边际收益递减：光靠堆已经堆不动了。这逼着行业找新方向。</span></li>
+            <li><b>思维链：不是设计出来的，是发现的。</b>给模型示范时，不只给"问题+答案"，把中间的解题过程也写出来，模型就学会了同一套思路去解新题。<span class="eg">神奇的是这能力只在够大的模型里"冒"出来，小模型给再多示例也学不会。深层含义：大模型学的不是知识点，是<b>思维方式</b>——把人解决问题的过程展示给它，它能内化。</span></li>
+            <li><b>RLHF：让模型从"会说话"变成"说人话"。</b>ChatGPT 引爆全世界，靠的不是更大——GPT-3 早就在了。关键是加了一步"人类反馈强化学习"：<span class="eg">让人去评价模型的多个答案哪个更有用/更准/更安全，用这些偏好训练出一个"打分器"，再拿它引导模型往人喜欢的方向说。本质是<b>第一次告诉模型：什么叫"对人有用"</b>——预训练让它见过全网文字，但它分不清哪些有价值、哪些是胡说。</span></li>
+            <li><b>反直觉的发现：同一问题问一万次，答案就藏在里面。</b>别只问模型一次，让它对同一题答一万次，再用一个"验证器"（判断答案对不对的机制）挑出对的。<span class="eg">结果：一些比 GPT-4o 小得多的模型，单次回答远不如它，但答一万次的"命中率"反而超过了 GPT-4o——说明小模型其实"知道"答案，只是单次不稳定。采样可以并行，延迟没想象中大。这引出一个关键转变：<b>模型能力不只由训练决定，你在"用它的时候"多花算力（多想、多试），同样能榨出更多本事。</b></span></li>
+            <li><b>推理模型（o1/o3 这类）：把"多花算力"变成会思考。</b>拿到难题不直接答，而是先分析题目→拆成小问题→逐个尝试并验证→走不通就<b>退回来换个思路重试</b>。<span class="eg">屏幕上看它像真人在想：写代码写一半突然"等等，这里可能有问题"，退回去改。投入的推理算力越多、正确率越高，目前还没见到天花板。</span></li>
+          </ol>
+
+          <h4 class="blk">最关键的瓶颈，也是对"该不该把活交给 AI"最实用的判据</h4>
+          <ul class="points">
+            <li><b>"验证器"是 AI Agent 能不能落地的命门。</b>验证器 = 判断 AI 干得对不对的机制。<span class="eg">代码天然有：写完跑单元测试，过了就对；数学答案也能明确验证。但"一篇报告写得好不好""这段文案有没有效"没有客观标准——<b>缺可靠验证，正是 AI 目前很多领域只能打辅助的根本原因。</b></span></li>
+            <li><b>所以 AI 现在真能顶用的地方，几乎都有一个共同点：对错能被客观检验。</b>代码能不能跑、数据分析结论跟数据符不符、搜到的信息跟问题相不相关——这些能查。依赖主观判断的活，AI 目前主要是辅助、不是替代。</li>
+            <li><b>写代码为什么最先能用：它能自己形成闭环。</b><span class="eg">生成代码→生成对应测试→用测试检验自己→没过就改，直到通过，全程不用人盯。特别适合交给它的是那种"重复、有明确对错、人做又烦又易错"的活：代码迁移、重构、数据清洗、写测试。</span></li>
+          </ul>
+
+          <blockquote><b>课程最清醒的一句</b>：最新的"自我进化"循环——模型自己生成答案、自己验证、自己拿去训练下一版、变强后再生成更多好答案——理论上限不明、令人兴奋；但它<b>死死依赖一个可靠的验证器</b>：一旦模型自己造的数据里有错还被拿去训练，错误会被放大而不是纠正。这在代码/数学里好办，开放领域风险真实存在。作者的态度也难得："为什么强化学习能让模型这么强，其实大家还没完全想清楚"——不神化、不唱衰。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>几种"智能体工作流"的结构</b>：从最简单的"一步接一步"，到"按难度分流"、"多路并行同时搜"（Deep Research 那种），到最复杂的"一个总指挥调度一堆执行者"（Claude Code 就是这种）。</li>
+              <li><b>贯穿全课的那条线</b>：规模定律靠的是"损失对参数/数据"的反馈、RLHF 靠"人类偏好"的反馈、推理模型靠"验证器对推理过程"的反馈、自我进化靠"模型对自己行为"的反馈——每进一步，反馈就往内收一层。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>一个能自己检验的活，才是能交出去的活</h3>
+      <ul class="points">
+        <li>这门课把这个月日报反复出现的那条线讲到了底：<b>AI 的价值卡在"能不能验证对错"上</b>。能被客观检验的活（代码、数据、能跑测试的东西），AI 已经能自己成闭环、放心交出去；依赖主观判断、没有明确对错的活，它目前只能辅助。所以判断"要不要把一件事交给 AI"，先问一句：<b>这件事的结果，有没有一个不靠感觉、能一票否决的验证方式？</b>有——大胆交；没有——你的判断就是那个验证器，得留在环里。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.13 ==================== -->
-  <section class="issue active" id="v13">
+  <section class="issue" id="v13">
 
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
