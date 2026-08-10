@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v15" data-vol="vol.15"><span class="vv">VOL.15 <span class="new">最新</span></span><span class="dd">2026·08·06 · 当 AI 的老板</span></button>
+    <button class="tab active" data-issue="v16" data-vol="vol.16"><span class="vv">VOL.16 <span class="new">最新</span></span><span class="dd">2026·08·10 · H3 答疑</span></button>
+    <button class="tab" data-issue="v15" data-vol="vol.15"><span class="vv">VOL.15</span><span class="dd">2026·08·06 · 当 AI 的老板</span></button>
     <button class="tab" data-issue="v14" data-vol="vol.14"><span class="vv">VOL.14</span><span class="dd">2026·08·05 · AI 进化论</span></button>
     <button class="tab" data-issue="v13" data-vol="vol.13"><span class="vv">VOL.13</span><span class="dd">2026·08·04 · 造世界</span></button>
     <button class="tab" data-issue="v12" data-vol="vol.12"><span class="vv">VOL.12</span><span class="dd">2026·08·03 · AI 视频换赛道</span></button>
@@ -282,8 +283,58 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.16 ==================== -->
+  <section class="issue active" id="v16">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.16 / 2026·08·10</div>
+      <h2 class="issue-theme">H3 开源一周，团队答疑聊了什么</h2>
+      <p class="issue-lead">前几期那个开源的 AI 视频模型 H3，团队开源第一周开了两场线上答疑。这篇偏技术向——如果你打算真上手用 H3，下面几条实在信息值得知道；纯看热闹的，扫核心块就够。</p>
+      <div class="issue-toc">
+        <a href="#v16-1"><span class="ix">01</span><span>H3 技术团队答疑：门槛、技巧、后续计划</span><span class="cat">要闻·技术答疑</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v16-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>H3 技术团队答疑：门槛、技巧、后续计划</h3></div>
+      <div class="meta"><span class="tag nw">要闻·技术答疑</span><span class="sep">·</span>MiniMax 稀宇科技 · 整理自 Reddit AMA + ComfyUI 直播<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/kjwKHMy88JWPs0nn9pYFGQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>H3（前几期那个开源 AI 视频模型）开源第一周，团队跟全球开发者开了两场答疑。对<b>想真正上手用它</b>的人，最该知道三件事：① <b>硬件门槛真实存在</b>——模型 600 亿参数、原始精度要约 120GB 显存，普通消费级显卡（24GB）根本装不下，得靠"压缩"和"分批搬运"的办法才能跑；② <b>团队后续会继续开源</b>（一个图文统一的图像模型、高清重生成模块都在路上）；③ <b>已知画质短板在修</b>（参考图模式偏糊、远景小脸会崩）。</div>
+
+        <div class="detail">
+          <h4 class="blk">想上手，这几条实在信息</h4>
+          <ul class="points">
+            <li><b>跑不动是正常的，靠两招缓解。</b>普通显卡装不下整个模型时，一是<b>量化</b>（用更低精度存权重、占用更小），二是<b>offloading</b>（把当前用到的部分搬进显卡、其余暂存在内存里）。<span class="eg">用最新版 ComfyUI + 官方工作流 + 低显存版模型；装不满显卡、速度变慢是正常现象，实际快慢还取决于内存和总线带宽。</span></li>
+            <li><b>几个直接能用的技巧。</b><span class="eg">想让角色对白和画面更稳：把要说的台词用引号写进对应镜头的描述里；做多镜头广告：用参数定好"10 秒、5 个镜头"（平均每个约 2 秒），官方模板库已有现成工作流可改；本地部署先从纯文字生成视频（T2V）上手最简单，熟了再加参考图、音频、镜头控制。</span></li>
+            <li><b>后续开源计划（团队明确说了的）。</b>会开源一个"既能文字生图、又能通用图像编辑"的统一图像模型；目前只给 API 的高清重生成模块后续也会开源；更省算力的"少步版"在评估中，但没承诺时间。</li>
+            <li><b>已知局限、别踩坑。</b>参考图模式（Ref2VA）比图生视频更糊，用它时尽量喂高质量参考图；远景小脸、高频纹理会崩，团队列为重点在修；低分辨率先预览、再想用同一"随机种子"生成高清版对不上——因为分辨率一变初始噪声就变了。</li>
+          </ul>
+
+          <blockquote><b>一个和上一期呼应的有意思发现</b>：团队训练时只教过模型一个简单任务——"看首帧图 + 一句文字描述，预测末帧"，从没专门训练过图像编辑，结果它直接就能在多个图像编辑测试上表现不错。团队由此相信：在自然语言指令引导下，模型"举一反三"的能力能自己泛化到没训练过的新任务上——这正是 VOL.14 那门课讲的"模型学的是思维方式、不是死记任务"。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 更底层的架构问答（做部署/研究再看，可点原文）</div>
+            <ul>
+              <li><b>为什么用两个独立编码器（视觉一个、音频一个）而非合一</b>：音频信息量小、容易先过拟合，分开才好分别控制两种模态的训练节奏。</li>
+              <li><b>稀疏注意力</b>：思路接近 MoBA——相邻画面块相关性高，用简单的平均池化就能判断哪些重要，不必额外学一个索引器；目前只对占比最大的视频部分做，近期会放一个保守版参考实现。</li>
+              <li><b>长视频续写</b>：当前靠"把前一段作为参考"来接续（有开发者靠反复喂上一段的最后 51 帧拼出连贯 60 秒），但还没原生训练过多段递归续写；团队认为"稀疏注意力 + 原生长轨迹训练"是有前景的方向。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>开源的价值，藏在"跑不动"里</h3>
+      <ul class="points">
+        <li>这篇最值得琢磨的不是架构细节，是团队那句态度：开源一周，社区已经自发搞出各种量化版、硬件适配、工作流——<b>"这种快速迭代正是开放协作的价值"</b>。一个 120GB 显存才跑得动的模型，官方一家优化不过来，开源后全球开发者一起啃"怎么在消费级显卡上跑"。对做内容的人，信号很清楚：<b>H3 现在能力够但门槛高，真要用先掂量硬件；不着急的，等社区把轻量化磨顺、等官方图像模型和少步版落地，会舒服得多。</b></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.15 ==================== -->
-  <section class="issue active" id="v15">
+  <section class="issue" id="v15">
 
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
