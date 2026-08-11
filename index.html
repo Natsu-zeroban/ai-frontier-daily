@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v16" data-vol="vol.16"><span class="vv">VOL.16 <span class="new">最新</span></span><span class="dd">2026·08·10 · H3 答疑</span></button>
+    <button class="tab active" data-issue="v17" data-vol="vol.17"><span class="vv">VOL.17 <span class="new">最新</span></span><span class="dd">2026·08·11 · 看不见的胜负手</span></button>
+    <button class="tab" data-issue="v16" data-vol="vol.16"><span class="vv">VOL.16</span><span class="dd">2026·08·10 · H3 答疑</span></button>
     <button class="tab" data-issue="v15" data-vol="vol.15"><span class="vv">VOL.15</span><span class="dd">2026·08·06 · 当 AI 的老板</span></button>
     <button class="tab" data-issue="v14" data-vol="vol.14"><span class="vv">VOL.14</span><span class="dd">2026·08·05 · AI 进化论</span></button>
     <button class="tab" data-issue="v13" data-vol="vol.13"><span class="vv">VOL.13</span><span class="dd">2026·08·04 · 造世界</span></button>
@@ -283,8 +284,93 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.17 ==================== -->
+  <section class="issue active" id="v17">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.17 / 2026·08·11</div>
+      <h2 class="issue-theme">看不见的胜负手</h2>
+      <p class="issue-lead">两篇都在讲同一个道理：真正决定成败的，往往是那个不显眼、容易被跳过、甚至没人去计量的部分。一篇讲跑 AI——赢的不是模型；一篇讲组团队——赢的不在发 offer 那一刻。</p>
+      <div class="issue-toc">
+        <a href="#v17-1"><span class="ix">01</span><span>贵 57 倍的 Opus 全输：赢的不是模型，是那层"执行外壳"</span><span class="cat">干货·深度</span></a>
+        <a href="#v17-2"><span class="ix">02</span><span>Cursor 人力负责人：怎么组建顶尖 AI 团队</span><span class="cat">干货·方法</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v17-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>贵 57 倍的 Opus 全输：赢的不是模型，是那层"执行外壳"</h3></div>
+      <div class="meta"><span class="tag">干货·深度</span><span class="sep">·</span>机器之心 · <b>AOE Tech Labs 自家技术报告，带产品立场</b>（但题目均第三方出、数据可复算）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/i_18N4NLYDlb8-unAaC_ug">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>业内早有个共识等式：<b>模型 + Harness = Agent</b>（Harness = 模型之外、让模型真正干成活的那套系统：它能碰到哪些文件和权限、每一轮怎么不跑偏、工具返回什么、状态存哪）。可"模型"这半每次发布都跑分，"执行外壳"这半却从来没人计量。这篇做了个严格实验：<b>同一个最便宜的模型（比 Opus 4.8 便宜 57 倍），只把执行外壳换掉，五项第三方测试全部反超那个贵 57 倍的旗舰。</b>赢的不是模型，是外壳。</div>
+
+        <div class="detail">
+          <h4 class="blk">为什么这不是"便宜模型真香"的老故事</h4>
+          <ul class="points">
+            <li><b>唯一的变量就是那层外壳。</b>同一个便宜模型，跑在模型厂自己的系统上，对 Opus 4.8 一项没赢；接进这个新外壳后，五项全胜。<span class="eg">模型权重没变、单位成本没变——变量只有执行外壳这一个。而且对照组不是"裸模型"，是模型厂自己调好的系统，比较比"产品打裸接口"严格得多，赢得也更干净。</span></li>
+            <li><b>最有信息量的规律：任务越长、越复杂，外壳的增益越大。</b>五项按任务长短排下来，增益从 +1.9%（短）一路单调涨到 +23.6%（长），没有例外。<span class="eg">因为短任务考的是模型单次发挥，长任务考的是整个执行系统撑不撑得住。而真实工作恰恰全是长程的——跨文件、跨应用、很多步、中途还改主意。</span></li>
+          </ul>
+
+          <h4 class="blk">长程任务到底是怎么失败的（全篇最值得读的一段）</h4>
+          <p>不是"某一步答错了"，而是<b>整个循环不收敛——越跑离你要的东西越远</b>。两个原因叠在一起：</p>
+          <ul class="points">
+            <li><b>人这一侧：验收标准一开始就说不全。</b>真实工作不是标准答案题，很多关键要求（语气对不对、方案能不能落地、够不够直接交付）在第一句话里根本不存在，是边做边清晰的。</li>
+            <li><b>模型这一侧：偏差会被逐轮放大。</b><span class="eg">每一轮输出都带一点点偏差，下一轮又拿上一轮当前提。短任务里看不见，二十步后就累积成方向性错误——最初那句要求被一点点挤出、稀释、改写，模型带着一个已经变形的目标往前跑，还跑得很自信。"偏移不需要出错就能致命：每一步看着都合理，合起来却不是你要的那个东西。"</span></li>
+          </ul>
+          <blockquote>所以需要一个"系统层"每一轮把目标锚点重新拽回来、不让偏差过夜——"一个只会往前跑的循环，跑得越久错得越远；一个会回头核对的循环，才可能在第 20 步还朝着最初那个目标。"团队那句话点透了全文：<b>"只有自己完全可控的系统，才能驾驭高度不可控的模型。"</b></blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>执行外壳分四层，各对应长程任务的一种死法</b>：能碰到什么（文件/权限）、循环能否收敛、工具返回结果对不对（把失败包装成空字符串，会让模型在第 15 步自信地做错决策）、失败能否被回溯。任意一层是别人的，你的上限就是别人的上限。</li>
+              <li><b>提出了一个新指标 HLR</b>（换外壳的收益 ÷ 换模型的收益）：某项上只换外壳拿到的提升，是"升级到贵 57 倍旗舰"所代表的公开性能跨度的 3.6 倍。是自造指标、非行业标准，但分子分母都用第三方公开分、规则公开可复算。</li>
+              <li><b>立场提醒</b>：这是厂商为自家产品 Floatboat 发的报告，结尾在引流注册；但五项题目都不是自家出的（含 OpenAI 官方那套），单变量方法也公开可复现——数据可信，动机记得打折看。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v17-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>Cursor 人力负责人：怎么组建顶尖 AI 团队</h3></div>
+      <div class="meta"><span class="tag op">干货·方法</span><span class="sep">·</span>Lenny's Podcast × Adam Ward（Cursor 人力主管，20 年招聘经验）· 晚点再听 LaterCast<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/1z94KeMrVMhE9H_L99lT9g">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>AI 人才抢到什么程度？满分 10 分他给 11 分。但大多数公司招聘最大的错，是把它当销售漏斗——联系 100 个人、20 个回复、一关关淘汰、最后录用剩下那个（他叫"末日漏斗"）。<b>问题在起点：回复的那 20 个人不是最优的 20%，只是那天恰好愿意看机会的人。</b>正解是反过来——<b>见任何候选人之前，先定义清楚"最想要的是谁"，再去验证。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">怎么招到对的人</h4>
+          <ul class="points">
+            <li><b>第一步最常被跳过：先把"卓越"定义出来。</b>别说"看到好的人我自然知道"——那是把判断交给面试当天的感觉。<span class="eg">真正的定义要在候选人出现前完成：写清技能和经历并排序、想清这个岗位为什么存在、半年后怎样算做得好。这份定义之后决定你去哪找人、第一句话怎么说、面试考什么。</span></li>
+            <li><b>问问题要具体，名字才可靠。</b>别问"你认识的最厉害的产品工程师是谁"（太宽，只会得到一个知名名字）。<span class="eg">要问"你合作过的产品工程师里，谁最会跟设计师协作？谁最擅长把一个框架变成产品？"——当问题跟你的岗位定义一一对应，不同人反复提到同一个名字，那才是可追踪的信号。</span></li>
+            <li><b>"在意是免费的"。</b>候选人满意度里排第一的感受永远是"这家公司真的想要我"，这跟预算无关，只看你愿不愿意多走一步。<span class="eg">一个细节：有位候选人是受过古典训练的提琴手，团队在 offer 晚餐上送了他一件专门找来的土耳其弦乐器——礼物只值几百美元，真正打动他的是"有人认真听过他的故事"。</span></li>
+            <li><b>一起做真实工作，胜过隔桌问答。</b>研究显示"工作样本"对入职后表现的预测力很高。<span class="eg">Cursor 让候选人跟团队并肩做一个真实项目——既拿到技术/价值观/协作的真信号，候选人也借机判断这是不是自己想来的地方。他们曾想取消它，发现做决定时没底气，又加了回来。</span></li>
+          </ul>
+
+          <blockquote><b>一句最好用的定位</b>："招聘者是信心引擎，不是决策引擎。"——真正承受招对/招错后果的是招聘经理和团队，所以决定该由他们做；招聘者的活是让这个决定更有把握。他还有句戳心的："我不认为一个 10 倍人才能存在于糟糕的团队里"——人才密度衡量的是整支队伍，不是某个明星。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>顶尖的人要"持续追"</b>：第一次联系不谈面试、不谈岗位，"只争取下一次对话"；前期可以耐心种几十颗种子等它们在不同时间成熟，但对方一旦准备好，就以小时计地加速。</li>
+              <li><b>市场分裂成两个世界</b>：同一时刻，少数跨职能人才被疯抢（刚毕业博士拿 NBA 级报价），另一批人连面试都难拿到。企业最缺的是"既懂技术、又能进客户现场"的前线人。</li>
+              <li><b>可迁移的一招</b>：招重要岗位前，先别发招聘启事——花一小时写清三项最重要的能力，再拿同一个具体问题问五个可信的人，名字开始重复，人才地图就有了起点。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>胜负手都藏在"没被计量"的地方</h3>
+      <ul class="points">
+        <li>跑 AI，所有人盯着模型跑分，真正拉开差距的是"模型之外、从没人报数"的那层执行外壳；组团队，所有人盯着面试淘汰，真正决定成败的是"发 offer 之前、最容易被跳过"的那步——先定义清楚要什么。<b>两件事都在说：显眼、好计量的那半通常已经卷平了，胜负手在那半没人认真对待的部分。</b>而且都指向同一种功夫——长期主义：外壳管的是长程任务二十步后还不跑偏，招聘管的是几十颗种子慢慢成熟。<b>这一点日常最容易踩：第一篇讲的"长程任务目标被逐轮稀释、越跑越偏"，正是把多步骤活儿交给 AI 时最真实的坑——得有个东西每轮把它拽回最初的目标。</b></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.16 ==================== -->
-  <section class="issue active" id="v16">
+  <section class="issue" id="v16">
     <div class="issue-head">
       <div class="issue-vol">VOL.16 / 2026·08·10</div>
       <h2 class="issue-theme">H3 开源一周，团队答疑聊了什么</h2>
