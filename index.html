@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v17" data-vol="vol.17"><span class="vv">VOL.17 <span class="new">最新</span></span><span class="dd">2026·08·11 · 看不见的胜负手</span></button>
+    <button class="tab active" data-issue="v18" data-vol="vol.18"><span class="vv">VOL.18 <span class="new">最新</span></span><span class="dd">2026·08·12 · AI 当同事</span></button>
+    <button class="tab" data-issue="v17" data-vol="vol.17"><span class="vv">VOL.17</span><span class="dd">2026·08·11 · 看不见的胜负手</span></button>
     <button class="tab" data-issue="v16" data-vol="vol.16"><span class="vv">VOL.16</span><span class="dd">2026·08·10 · H3 答疑</span></button>
     <button class="tab" data-issue="v15" data-vol="vol.15"><span class="vv">VOL.15</span><span class="dd">2026·08·06 · 当 AI 的老板</span></button>
     <button class="tab" data-issue="v14" data-vol="vol.14"><span class="vv">VOL.14</span><span class="dd">2026·08·05 · AI 进化论</span></button>
@@ -284,8 +285,57 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.18 ==================== -->
+  <section class="issue active" id="v18">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.18 / 2026·08·12</div>
+      <h2 class="issue-theme">AI 当同事：从"我的助理"到"团队的一员"</h2>
+      <p class="issue-lead">Karpathy 说 Claude Tag 是 AI 产品的"第三次大变化"。前两次是网站、是电脑应用，这次 AI 直接住进公司的群聊里，像真同事一样干活。这跟你天天用的飞书也直接相关。</p>
+      <div class="issue-toc">
+        <a href="#v18-1"><span class="ix">01</span><span>Claude Tag：AI 从"个人助理"变成"团队同事"</span><span class="cat">观点·产品分析</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v18-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Claude Tag：AI 从"个人助理"变成"团队同事"</h3></div>
+      <div class="meta"><span class="tag op">观点·产品分析</span><span class="sep">·</span>AI 产品阿颖<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/HwpjwT9lPQ33QVykNFf0GA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Karpathy 把 Claude Tag 称为 AI 产品的第三次大变化：第一代是<b>网站</b>（你打开 ChatGPT 去找它），第二代是<b>电脑应用</b>（Claude Code 这种，AI 能碰你电脑的文件和工具），第三代是 AI <b>直接住进团队的聊天软件</b>（Slack/飞书）当同事。关键区别不在"又接了个群机器人"，而在起点变了——<b>从"每个人各有一个 AI"，变成"一整个团队共用同一个 AI"</b>：它待在群里、知道大家讨论过什么，谁都能接着别人交给它的任务往下做。</div>
+
+        <div class="detail">
+          <h4 class="blk">三个层层递进的变化</h4>
+          <ul class="points">
+            <li><b>① 从"个人的 AI"到"团队的 AI"。</b>过去每个人的 Claude 各干各的——你跟它聊了一上午，同事的 Claude 一无所知，团队协作还得靠人把信息来回搬。<span class="eg">Claude Tag 让 AI 直接待在群里：真实工作本来就发生在群聊里（讨论、同步、拍板），那才是最真实的上下文，不用再整理一遍喂给它。官方数据挺夸张：Anthropic 产品团队 65% 的代码已由内部版 Claude Tag 产生。举个例子——有人在群里报个 Bug，Claude 直接看懂对话、去查监控和代码，判断是用户操作问题还是真 Bug，确认后甚至直接准备一个修复提交。</span></li>
+            <li><b>② 进了团队，它得有自己的"工号"。</b>个人 AI 很简单——用你的账号替你干活。但团队里：产品经理 @Claude 去查代码库，可他自己没代码权限，那 Claude 该用谁的权限？<span class="eg">所以给它配了独立身份：在群里以 Claude 身份发言、在代码平台用自己的账号提交、访问数据库用管理员单独配的专用账号。不同群的权限和记忆互相隔开，干过什么都有记录可追溯（谁让它做的、用了什么权限、调了哪些服务）。作者的判断：以后公司 IT 管理的账号，除了员工账号，还会多出越来越多的 AI 账号。</span></li>
+            <li><b>③ 它开始像同事一样独立干活。</b>有了身份和权限，就能把事交出去：让它每周一整理上周的决定和没做完的事、盯着某个群发现问题久拖没解决就主动跟进、还能按群单独设"只在被 @ 时回复"还是"看到问题就主动处理"。<span class="eg">关系从"一问一答"变成"把一件事交出去、你继续忙自己的，它有结果了回来找你、需要你拍板时再 @ 你"——已经很接近跟一个靠谱同事合作了。</span></li>
+          </ul>
+
+          <blockquote><b>一个对"AI 在公司普及"很关键的转变</b>：过去总想着教全公司员工学 AI（怎么写提示词、怎么用技能包），Claude Tag 的答案更简单——<b>少数人把底层配好、把 Claude 放进合适的群，普通员工照原来的方式工作、需要时 @ 它就行</b>。Karpathy 给了个精准的词叫"公司级执行外壳"（呼应上一期：过去那层"执行外壳"服务一个人，现在变成整个公司的基础设施）。这可能才是 AI 在企业里大规模落地更现实的一条路。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 还值得留意的</div>
+            <ul>
+              <li><b>和别的"群里接 AI"的区别</b>：像 OpenClaw 那种是"把一个个人 AI 接进群，群只是它的一个入口"；Claude Tag 从第一天就按团队协作设计，群本身就是它工作的地方、服务整个团队。看着都是群里 @AI，起点不同。</li>
+              <li><b>跟飞书直接相关</b>：文章点了一句——同样的逻辑放到国内，飞书的含金量还在提升，飞书里的豆包也已在内测。对天天泡在飞书里的人，"让 AI 直接进群当同事"不是远景。</li>
+              <li><b>一个回响</b>：Claude Tag 在本站 VOL.03（Claude Code 设计那篇）就露过一面——"不是和许多个 Claude 工作，而是整个组织和同一个 Claude 工作"，当时是一句畅想，现在成了产品。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>AI 普及的拐点，可能不在"人人会用"，而在"进对地方"</h3>
+      <ul class="points">
+        <li>这篇最反直觉的一点：让 AI 在公司落地，未必要靠"培训每个员工会写提示词"，而是把它<b>放进上下文最密集的地方（群聊），让它自己长在工作流里</b>——少数人配好，其他人照旧干活、需要时喊一声。这跟这个月反复出现的两条线接上了：VOL.15 的"红黄绿灯授权/异步文档"是一个人怎么管 AI，这篇是一个组织怎么管 AI；VOL.17 的"执行外壳"服务个人，这里升成了"公司级"。方向越来越清楚：<b>AI 的下一步不是更聪明，是更深地嵌进人本来就在的地方。</b></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.17 ==================== -->
-  <section class="issue active" id="v17">
+  <section class="issue" id="v17">
     <div class="issue-head">
       <div class="issue-vol">VOL.17 / 2026·08·11</div>
       <h2 class="issue-theme">看不见的胜负手</h2>
