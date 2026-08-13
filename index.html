@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v18" data-vol="vol.18"><span class="vv">VOL.18 <span class="new">最新</span></span><span class="dd">2026·08·12 · AI 当同事</span></button>
+    <button class="tab active" data-issue="v19" data-vol="vol.19"><span class="vv">VOL.19 <span class="new">最新</span></span><span class="dd">2026·08·13 · 门槛塌了</span></button>
+    <button class="tab" data-issue="v18" data-vol="vol.18"><span class="vv">VOL.18</span><span class="dd">2026·08·12 · AI 当同事</span></button>
     <button class="tab" data-issue="v17" data-vol="vol.17"><span class="vv">VOL.17</span><span class="dd">2026·08·11 · 看不见的胜负手</span></button>
     <button class="tab" data-issue="v16" data-vol="vol.16"><span class="vv">VOL.16</span><span class="dd">2026·08·10 · H3 答疑</span></button>
     <button class="tab" data-issue="v15" data-vol="vol.15"><span class="vv">VOL.15</span><span class="dd">2026·08·06 · 当 AI 的老板</span></button>
@@ -285,8 +286,99 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.19 ==================== -->
+  <section class="issue active" id="v19">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.19 / 2026·08·13</div>
+      <h2 class="issue-theme">门槛塌了：模型又便宜又能打，爆款出自业余之手</h2>
+      <p class="issue-lead">一篇讲工具端——两个新模型一夜之间把"又好又便宜又快"这件难事撕开了口子；一篇讲落地端——一个开眼镜店的业余爱好者，用这些工具做出了海外 500 万播放的中式仙境。合起来：做东西的门槛正在塌方。</p>
+      <div class="issue-toc">
+        <a href="#v19-1"><span class="ix">01</span><span>DeepSeek V4 Pro 和 Grok 4.6：模型的"不可能三角"被撕开</span><span class="cat">观察·选型</span></a>
+        <a href="#v19-2"><span class="ix">02</span><span>500 万播放的"云上仙宫"，我用 AI 复刻了一遍（附教程）</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v19-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>DeepSeek V4 Pro 和 Grok 4.6：模型的"不可能三角"被撕开</h3></div>
+      <div class="meta"><span class="tag op">观察·选型</span><span class="sep">·</span>数字生命卡兹克 · 个人实测体验（主观）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/JDYKMEbLYMSAUGnxut7C0g">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>一夜之间 DeepSeek V4 Pro 和 Grok 4.6 接连发布，作者说它们撕开了大模型的"<b>不可能三角</b>"——性能、价格、速度这三样过去几乎没法同时满足（聪明的又贵又慢、便宜的性能差、又快又好的不便宜）。这两个新模型从两头逼近：一个把"接近顶级"的能力压到极低价，一个把"接近顶级"的能力配上飞快速度。三角第一次被拉到接近满格。</div>
+
+        <div class="detail">
+          <h4 class="blk">那个最常被忽略的第三角：速度</h4>
+          <p>性能和价格大家天天讨论，速度却总被忘掉——可只有天天用才知道它多要命。<span class="eg">作者原话：一个任务十几分钟一个反馈，"硬生生把时间切成一块一块的碎片"，等的时候百无聊赖只能刷手机。他的判断：<b>速度会把模型的智力真正变成生产力</b>——快到能连续交互，才叫在干活，而不是在等。</span></p>
+
+          <h4 class="blk">作者重新分配的模型组合（选型思路可参考）</h4>
+          <ul class="points">
+            <li><b>日常主力开发 → Grok 4.6。</b>综合能力接近顶级、但速度快到离谱，连续开发四小时几乎没有超过 20 分钟的任务，额度还特别耐用。他说这是唯一一个把不可能三角快拉满的。</li>
+            <li><b>最难、绝不能出错的大任务 + 办公创意 → ChatGPT / Codex。</b>贵且慢，但稳。</li>
+            <li><b>不要求实时的异步、自动化任务 → DeepSeek V4 Pro。</b>性价比无敌（输出价约为顶级模型的 1/57，重复用到的内容部分几乎不要钱），适合挂着批量跑、不用盯。缺点是开发速度一般、且没有多模态。</li>
+          </ul>
+
+          <blockquote><b>"斩杀线"的真正含义</b>：过去每个模型都能靠三角里的某个短板找到生存空间（贵可以慢、便宜可以差、快可以蠢）。现在最低标准被一把抬高——当"又好又便宜"和"又好又快"同时出现，夹在中间没有明显长板的模型就非常难受了。作者感慨："从曾经 Claude 遥遥领先让人绝望，到现在各领风骚也就几周，才不过三四个月。"</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 数据与提醒（时效性强，看个趋势）</div>
+            <ul>
+              <li><b>DeepSeek V4 Pro 的进步</b>：在"让模型自己进终端装环境、敲命令、把任务做完"这类测试上，从预览版 72.1 涨到正式版 87.9，逼近顶级的 88.0；但纯考知识推理、和最难的全栈工程仍差十几分——作者叫它"准顶级的 Agent/Coding 模型"，给工具让它操作环境时最强。</li>
+              <li><b>价格会变</b>：DeepSeek 已预告涨价，Grok 靠订阅制（他实测高强度用几小时才掉几个百分点额度）——具体数字都是当下快照，模型迭代以周计，看趋势别当定论。</li>
+              <li><b>立场</b>：这是个人重度用户的主观体验分享（他自己氪了钱），不是评测机构数据，但"不可能三角"这个框架和选型思路值得借。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v19-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>500 万播放的"云上仙宫"，我用 AI 复刻了一遍（附教程）</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>西羊石 AI 视频 · 小石学长<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/tib5emXWgdbXhvZjG3YEGg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>央视报道过一条火到海外的中式"云上仙宫"视频（白玉长廊、飞檐、云海仙鹤，33 秒无台词，4 天 500 万播放）——作者是个成都开眼镜店、自学两年的业余爱好者。它的流程一点不神秘：<b>先用 Midjourney 出场景图 → 交给国产视频模型让画面动起来 → 剪映踩节拍剪辑配 BGM</b>。作者照这条路完整复刻了一遍，附全流程和实测对比。</div>
+
+        <div class="detail">
+          <h4 class="blk">第一步 · 出图（Midjourney）的两个关键</h4>
+          <ul class="points">
+            <li><b>尽量用英文提示词。</b><span class="eg">中文提示词容易在屋檐、石碑、牌匾上冒出水印、印章或乱码——只要出现在这些地方，这张图基本就废了。中文只用来理清思路，写进模型的用英文。</span></li>
+            <li><b>建筑要大、人物要小，做减法。</b><span class="eg">前景用苍松或廊柱挡住一部分，云瀑必须往下落，整张图只留少量朱红和暖金。什么都往里塞，最后很容易变成"豪华仙侠游戏登录页"——那种廉价的堆砌感。</span></li>
+          </ul>
+
+          <h4 class="blk">第二步 · 让画面动起来（几个视频模型实测对比）</h4>
+          <ul class="points">
+            <li><b>可灵：这种场景的最优解。</b>不需要复杂运镜的稳定大场景，靠高动效和高清晰度胜出，作者第一条复刻就全用它做完。</li>
+            <li><b>海螺 H3：效果不错但慢</b>——一个视频差不多要一小时；云雾偶尔不太自然。</li>
+            <li><b>Seedance 2.0 / 2.5：这种场景两者差别不大</b>；提醒别用太多关键帧去拼，过渡反而不自然。</li>
+            <li><b>阿里 Wan 3.0：能单次生成 30 秒</b>、还能同时读文/图/视频/音频，但目前支持的平台少，实测有时云不动。</li>
+          </ul>
+
+          <h4 class="blk">第三步 · 剪辑（剪映）</h4>
+          <p>5 秒的小片段单看不够震撼，连起来配对 BGM 档次直接上几档。<span class="eg">做法：把原视频的 BGM 导入剪映、音频分离 → 用"踩节拍"标出鼓点 → 在鼓点处衔接不同片段，就很丝滑 → 开头结尾加渐入渐出更柔和。字幕用细字体、10 号左右放画面正下方。</span></p>
+
+          <blockquote>作者的感受：AI 让很多以前"只能想一想"的画面真的开始能被拍出来了——"山川、古建筑、神话、传说其实一直都在那里，现在只是我们多了一支新的笔。"</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 还有这些</div>
+            <ul>
+              <li><b>一个能落地的方向</b>：这套玩法能搬到地方文旅——已有人把云冈石窟做成"天上的宫阙"；作者还构思了"八仙归来·仙境山东"路线（蓬莱阁→崂山太清宫→泰山南天门），真实景点 + 神话世界的改造，旺季给景点引流。</li>
+              <li><b>Midjourney 参数速查</b>：--ar 定横竖比例、--raw 让它少加自己的风格、--s 控美化程度、--chaos 留点构图变化、--seed 固定构图方便微调、--sref 统一整组图的画风。平均一条视频要花 4–5 小时。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>工具塌到脚边，剩下的门槛是"想法和品味"</h3>
+      <ul class="points">
+        <li>第一篇是供给端：模型的性能/价格/速度三角被撕开，工具越来越又好又便宜又快；第二篇是落地端：一个开眼镜店的业余爱好者，靠这些工具做出了 500 万播放的爆款。两件事合起来指向同一个结论——<b>当工具的门槛塌到这个程度，"能不能做出来"不再是问题，"做什么、审美过不过关"才是</b>。这正是这个月反复出现的那句话（VOL.10/15）：会做不再稀缺，判断力和品味才稀缺。那条 33 秒视频没有台词、没有剧情，观众一眼认出"这就是我想象中的仙宫"——赢的从来不是模型，是那个业余爱好者对"中式美学"的判断。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.18 ==================== -->
-  <section class="issue active" id="v18">
+  <section class="issue" id="v18">
     <div class="issue-head">
       <div class="issue-vol">VOL.18 / 2026·08·12</div>
       <h2 class="issue-theme">AI 当同事：从"我的助理"到"团队的一员"</h2>
