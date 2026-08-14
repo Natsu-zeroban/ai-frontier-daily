@@ -45,6 +45,7 @@
     └── references/
         ├── STYLE.md           # 写作与呈现铁律(核心资产)
         ├── TEMPLATE.md        # HTML 片段 + 操作 checklist
+        ├── PLAYBOOK.md        # 运营手记：分类/立场/抓取/串读/发布的经验(接手先读)
         └── INSIGHTS.md        # 维护者手记：读日报攒下的可复用洞见(随仓库传承,欢迎续写)
 ```
 

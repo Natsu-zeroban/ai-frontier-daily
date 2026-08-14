@@ -19,9 +19,11 @@ description: >-
 - JS 数据驱动：期数/篇数/数字键/命令行显示全部从 DOM 自动生成，加新期只改两处 HTML。
 - 部署在 GitHub Pages，`git push` 后约 1 分钟自动更新。
 
-## 前置：先读这两份
-- `references/STYLE.md` —— 写作与呈现铁律(分类型、大白话、翻黑话、层级、只收指定链接)。**每次写摘要前读。**
-- `references/TEMPLATE.md` —— 加文章/加茶点/新开一期的精确 HTML 片段 + 发布 checklist。**动手改 HTML 前读。**
+## 前置：先读这几份
+- `references/STYLE.md` —— 写作与呈现铁律(分类型、大白话、翻黑话、层级、只收指定链接、冷读者复读)。**每次写摘要前读。**
+- `references/TEMPLATE.md` —— 加文章/加茶点/新开一期的精确 HTML 片段 + 归档 + 发布 checklist。**动手改 HTML 前读。**
+- `references/PLAYBOOK.md` —— 运营手记：分类怎么定、立场怎么标、难抓的链接怎么办、串读怎么写、发布怎么不翻车。**接手/拿不准时读。**
+- `references/INSIGHTS.md` —— 读日报文章攒下的、能改进"自己怎么干活"的通用洞见（第 6 步往里加，也供随时翻）。
 
 ## 工作流(五步)
 
