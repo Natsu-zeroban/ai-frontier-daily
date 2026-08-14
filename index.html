@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v19" data-vol="vol.19"><span class="vv">VOL.19 <span class="new">最新</span></span><span class="dd">2026·08·13 · 门槛塌了</span></button>
+    <button class="tab active" data-issue="v20" data-vol="vol.20"><span class="vv">VOL.20 <span class="new">最新</span></span><span class="dd">2026·08·14 · 别管活，搭台</span></button>
+    <button class="tab" data-issue="v19" data-vol="vol.19"><span class="vv">VOL.19</span><span class="dd">2026·08·13 · 门槛塌了</span></button>
     <button class="tab" data-issue="v18" data-vol="vol.18"><span class="vv">VOL.18</span><span class="dd">2026·08·12 · AI 当同事</span></button>
     <button class="tab" data-issue="v17" data-vol="vol.17"><span class="vv">VOL.17</span><span class="dd">2026·08·11 · 看不见的胜负手</span></button>
     <button class="tab" data-issue="v16" data-vol="vol.16"><span class="vv">VOL.16</span><span class="dd">2026·08·10 · H3 答疑</span></button>
@@ -286,8 +287,88 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.20 ==================== -->
+  <section class="issue active" id="v20">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.20 / 2026·08·14</div>
+      <h2 class="issue-theme">别管活，搭台</h2>
+      <p class="issue-lead">两篇一软一硬，说的是同一件事：Agent 时代，价值从"自己冲在前面干活"转向"搭好台子让 AI 自己跑"。一篇讲怎么带一支 AI 队伍（软的管理），一篇讲这支队伍跑在什么底座上（硬的框架）。</p>
+      <div class="issue-toc">
+        <a href="#v20-1"><span class="ix">01</span><span>如何让 34 个 AI Agent 主动干活</span><span class="cat">干货·方法</span></a>
+        <a href="#v20-2"><span class="ix">02</span><span>DeepSeek Harness 开源：AI 的"身体"也能自己拼了</span><span class="cat">发布·框架</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v20-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>如何让 34 个 AI Agent 主动干活</h3></div>
+      <div class="meta"><span class="tag op">干货·方法</span><span class="sep">·</span>Greg Isenberg 播客 × Allie K. Miller（前 AWS 百人团队负责人）· 晚点再听 LaterCast<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/5nR2MOKcZpJlaNY_U7l_Tw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>她带过 AWS 上百人的团队，现在的"团队"是 34 个 AI（顶上一个 AI 幕僚长、下面 6 个"总监"、再各管更小的 AI）。但她说人数是最不重要的部分——真正的转变是：<b>从"每件事都亲自派活"退到"只处理少数需要拍板的例外"</b>。她不再站在队伍前面分发待办（那样 AI 再多也只是更快的执行者），而是搭好环境、定方向、接住意外，让 AI 自己判断该干什么。</div>
+
+        <div class="detail">
+          <h4 class="blk">怎么让 AI 从"等你开口"到"主动找活"</h4>
+          <ul class="points">
+            <li><b>别逐个派活，先把工作环境搭好。</b><span class="eg">只要每项活都等你开口，这些 AI 就只是一批更便宜的执行者，谈不上会主动干活的队伍。她把自己放到组织图的最上层，只管方向、责任和高难度判断，具体走哪条路让 AI 自己商量。</span></li>
+            <li><b>提示语可以只有三个词，但背后要垫一整套背景资料。</b>她给幕僚长的指令就一句"做聪明的事"。<span class="eg">但它背后连着一大堆材料（业务资料、公司和个人的年度目标、会议记录、邮件日历、各系统实时数据），每天扫几遍找哪个项目卡住了、哪有新机会。反直觉的点：<b>越想少写提示语，越要把背景资料写清楚</b>——因为"聪明"没有标准答案，AI 只能从你的目标、旧决定和权限规则里读出你的标准。</span></li>
+            <li><b>分清两种"主动"。</b><span class="eg">一种有明确触发器：录屏丢进文件夹→自动转录→按她口吻写成 9 条社媒文案——这是自动化流程。另一种连起点都没有：AI 根据当前目标自己判断最该做什么——后者才真正减少你发号施令的次数。只知道"怎么做"、不知道"为什么做"的 AI，再勤快也可能忙错方向。</span></li>
+            <li><b>做一本"每日 AI 日记"，把脑子里没进文档的判断倒出来。</b><span class="eg">很多影响判断的细节从没进过正式文档。她每天口述 5–40 分钟那些零碎判断（语音比打字快 4 倍所以能坚持）。踩过的坑：系统以为某个日期定了，其实双方还在短信里商量——它掌握的每条事实都对，少的那一小段却让判断偏了。AI 能不能做对，取决于它能不能看到你当时做判断依据的那部分事实。</span></li>
+          </ul>
+
+          <blockquote><b>一句最值得记的话</b>："想想一个任务背后的工厂，别只想那个任务本身。" 她团队做产品时不直接把东西写出来，而是先搭个小"软件工厂"，把登录、支付、分享这些做成可复用模块——第一个产品带来收入，后面的产品直接沿用底座，不用每次从注册页重来。同理：做一条视频顺手把转录/改写/分发留成模块，处理一条销售线索顺手把研究/分级/跟进做成以后能复用的东西。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些</div>
+            <ul>
+              <li><b>别急着组军团</b>：先找一件熟悉的活跟一个 AI 来回协作、让它主动完成一部分，稳定了再加第二个——权限怎么分、上下文怎么传、哪步要人，都是跑出来才清楚的。"一次生成一百个 Agent 很容易，弄清第二个为什么存在往往更有用。"</li>
+              <li><b>两个反常规的 AI 岗位</b>：一个"首席梦想官"专门在每次交付前追问"能不能放大十倍"；一个只盯其他 AI 怎么工作、记录哪里卡住缺什么权限。启示：设计 AI 岗位先问团队一直缺什么能力，再取名，别照抄旧组织图。</li>
+              <li><b>清醒的一面</b>：代码变便宜只解决了"做出来"，维护、责任、迁移成本还在（她做过一个本地小应用，一年后打开就报错、"一点都不想处理"）。所以别把最难的技术问题当最好的生意——先看它解决后到底值多少钱、多少人愿意付。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v20-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>DeepSeek Harness 开源：AI 的"身体"也能自己拼了</h3></div>
+      <div class="meta"><span class="tag nw">发布·框架</span><span class="sep">·</span>赛博禅心 · 内测体验介绍（偏正面，产品已开源可自跑）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/FsFE62YVlR08FNM1Ar0kZg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>还记得上一期（VOL.17）那个结论吗——"赢的不是模型，是执行外壳（Harness）"。现在 DeepSeek 把自己的执行外壳开源了：一个类似 Claude Code 的 AI 框架。它最大的特点是<b>"一切皆插件"</b>——模型、工具、界面、甚至驱动它运转的主循环，全都是能自由替换重组的插件。想换搜索引擎、接自己公司的模型、改审批规则？改个配置就行，不用动框架代码。</div>
+
+        <div class="detail">
+          <h4 class="blk">"一切皆插件"是什么意思、为什么有用</h4>
+          <ul class="points">
+            <li><b>大多数软件的核心逻辑是写死的，你只能在留好的几个接口上小改；它把一切都拆成可插拔的。</b><span class="eg">内测时大家给它换出同花顺皮肤、Excel 皮肤、甚至往侧边栏塞了个小游戏——都是独立插件。好处：加功能就是挂个新插件、卸载不留残余；企业按合规裁剪工具、个人按习惯组装，用的是同一套框架。</span></li>
+            <li><b>随附四种"模式"，选一个就是选一套完整配置。</b><span class="eg">标准（功能完整的编程助手）、程序化调用（把要走的多步操作写成一段小程序一次跑完，步骤多时更快也更省）、极简（就俩工具，适合测试教学）、创造（用来造你自己的模式——直接跟它说"做一个只能读不能改的代码审查模式"，它帮你搭好）。</span></li>
+          </ul>
+
+          <blockquote><b>为什么值得关注</b>：Agent = 模型 + 执行外壳，模型是灵魂、执行外壳是身体。上一期讲了"身体比灵魂更决定成败"，这一期 DeepSeek 干脆把身体也开源、还做成全部件可自由拼装——等于把这层能力交到所有人手里自己组装。一行命令就能起（<code>npx @deepseek-ai/dsh web</code>）。目前是 v0.1 开发者预览，还会快速迭代。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 更多功能（开发者向，可点原文）</div>
+            <ul>
+              <li><b>干活的工具箱</b>：文件读写、跑命令、全文检索（内置搜索）、持久终端、代码语义跳转、联网搜索；有个"先读后写"的门禁（必须先读过文件才准改）。</li>
+              <li><b>安全</b>：命令能跑在沙箱里、分三档（只读/只能写工作区/完全放开），三大系统各用原生隔离；风险操作要审批；密钥不进日志、数据默认留本地。</li>
+              <li><b>多 AI 协作</b>：能派后台子 AI、用脚本确定性地编排多个子 AI（适合迁移/批量改造）、还有"反复试直到通过"的循环模式（比如把测试修到全绿）。</li>
+              <li>兼容 MCP、能直接复用给 Claude Code / Codex 写的钩子脚本；工程约定很严（注册必须可撤销、配置错误在加载时就报错而不是默默跳过）。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>价值从"冲在前面干"移到"搭好台子"</h3>
+      <ul class="points">
+        <li>两篇一软一硬，恰好是"搭台"的两个层面：Allie 搭的是<b>管理层面的台</b>——把目标、背景资料、权限、主动性都铺好，人退到只接例外；DeepSeek Harness 搭的是<b>技术层面的台</b>——把 AI 的"身体"做成可自由拼装的插件。合起来印证这个月越来越清晰的一条线（VOL.15 一个人怎么管 AI、VOL.18 组织怎么用 AI、VOL.17 执行外壳是胜负手）：<b>当 AI 能自己跑，人的核心工作不再是"亲自把活干完"，而是"把台子搭好、把方向和边界定清楚"</b>。剩下的，让它自己跑。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.19 ==================== -->
-  <section class="issue active" id="v19">
+  <section class="issue" id="v19">
     <div class="issue-head">
       <div class="issue-vol">VOL.19 / 2026·08·13</div>
       <h2 class="issue-theme">门槛塌了：模型又便宜又能打，爆款出自业余之手</h2>
