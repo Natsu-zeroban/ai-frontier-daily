@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v20" data-vol="vol.20"><span class="vv">VOL.20 <span class="new">最新</span></span><span class="dd">2026·08·14 · 别管活，搭台</span></button>
+    <button class="tab active" data-issue="v21" data-vol="vol.21"><span class="vv">VOL.21 <span class="new">最新</span></span><span class="dd">2026·08·17 · 万物皆插件</span></button>
+    <button class="tab" data-issue="v20" data-vol="vol.20"><span class="vv">VOL.20</span><span class="dd">2026·08·14 · 别管活，搭台</span></button>
     <button class="tab" data-issue="v19" data-vol="vol.19"><span class="vv">VOL.19</span><span class="dd">2026·08·13 · 门槛塌了</span></button>
     <button class="tab" data-issue="v18" data-vol="vol.18"><span class="vv">VOL.18</span><span class="dd">2026·08·12 · AI 当同事</span></button>
     <button class="tab" data-issue="v17" data-vol="vol.17"><span class="vv">VOL.17</span><span class="dd">2026·08·11 · 看不见的胜负手</span></button>
@@ -287,8 +288,66 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.21 ==================== -->
+  <section class="issue active" id="v21">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.21 / 2026·08·17</div>
+      <h2 class="issue-theme">万物皆插件</h2>
+      <p class="issue-lead">上一期 DeepSeek 把它的 AI 框架开源、喊了句"一切皆插件"，社区当真了：上线没几天，GitHub 上带这个标签的仓库就冲到 700+ 个。有人拿它做跨会话长期记忆、@文件、一句话拉起 AI 团队真干活，也有人给它塞 18 款小游戏、二次元电子宠物，甚至 2005 年花花绿绿的网页广告——这就是一个工具真正活起来的样子。</p>
+      <div class="issue-toc">
+        <a href="#v21-1"><span class="ix">01</span><span>DeepSeek Harness 插件一夜燃爆 GitHub：700+ 个，从长期记忆到 18 款小游戏</span><span class="cat">生态·工具</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v21-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>DeepSeek Harness 插件一夜燃爆 GitHub：700+ 个，从长期记忆到 18 款小游戏</h3></div>
+      <div class="meta"><span class="tag">生态·工具</span><span class="sep">·</span>量子位 · 梦瑶<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/O6u4JsV-cFl9mKF9t5SJqw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>DeepSeek Harness（上期 VOL.20 讲过——驱动 AI 干活的<b>开源框架/外壳</b>）主打一句"一切皆插件"：像给浏览器装扩展、给手机装 App 一样，谁都能写个小组件塞进去扩展它。结果上线没几天，GitHub 上打 <code>dsh-plugin</code> 标签的公开仓库就冲到 <b>700+ 个</b>。分两拨看：一拨是<b>真能帮你干活的</b>（长期记忆、@文件、拉 AI 团队、从 Claude Code 整体搬家、给它配副能看图的"眼镜"），一拨是<b>纯整活的</b>（18 款小游戏、电子宠物、2005 年风格网页广告）。看点不在某个插件，而在这个现象本身：<b>一个工具火没火，不看官方发了多少功能，看有没有陌生人自愿给它写没用的插件。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">真能提效的一拨：几个说人话的例子</h4>
+          <ul class="points">
+            <li><b>一句话拉起一支 AI 团队</b>（dsh-agent-teams）。<span class="eg">你说一句"用 AgentTeams 调研下 XX"，当前对话里的 AI 就地升职当队长，再拉几个子 AI 进组、拆任务、互相发消息；网页右上角还能实时围观整支队伍——谁在干活、谁空闲、谁在摸鱼。</span></li>
+            <li><b>能"@文件"了</b>（dsh-at-file）。<span class="eg">补上类似 Codex 的能力：在输入框里搜到工作区某个文件，直接把它内容一起塞进提问。以前要自己找文件、复制、粘贴；现在想让它照着登录模块改支付页，打一句 <code>@login.ts</code>，改，完事。</span></li>
+            <li><b>跨会话长期记忆</b>（dsh-memory-evolve）。<span class="eg">今天告诉它"这项目部署端口是 8080"，它写进项目记忆；过几天你重开一个对话再问部署配置，它还接得上，不用你又从项目背景讲一遍。相当于把 AI 从"每次开聊都失忆"变成"能长期跟项目的助手"。</span></li>
+            <li><b>Claude 用户搬家两件套</b>。<span class="eg">claude-bridge 把你在 Claude Code 里攒的 CLAUDE.md、Skills、配置架个桥搬进 DSH；claude-move 更彻底，连旧会话都整体迁过来，甚至能接着之前的对话往下聊。</span></li>
+            <li><b>给它配副"眼镜"</b>（ModLens）。<span class="eg">DSH 本身不会看图，这插件外挂一个视觉引擎：先把图片里的文字、布局、内容整理成结构化信息，再喂给 DSH 去推理。粘张图进去它就能读懂了。</span></li>
+          </ul>
+
+          <h4 class="blk">纯整活的一拨：赛博改装车</h4>
+          <ul class="points">
+            <li><b>18 款小游戏</b>（dsh-minigames）：等模型回复、等任务跑完的时候玩——俄罗斯方块、2048、扫雷、贪吃蛇、坦克大战、吃豆人……一眼望过去像点开了 4399。</li>
+            <li><b>二次元电子宠物 + 皮肤中心</b>（dsh-web-ui），还有把界面做成仿 Claude Code 全屏终端的 dsh-TUI。</li>
+            <li><b>最抽象的一个</b>（dsh-ads）：唯一功能是给界面加 2005 年中文互联网风格的侧栏广告、信息流、角落弹窗、开屏广告——受众成谜，但确实有人做了。</li>
+          </ul>
+
+          <blockquote><b>One More Thing</b>：有个插件叫 deepseek-manners，整个插件只干一件事——每次 AI 回复完，自动补一句"谢谢你，鲸鱼大人"。作者给它总结了句 slogan：<b>Everything is a plugin, including politeness</b>（万物皆插件，连礼貌也是）。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 其他实用插件（一句话，感兴趣可点原文）</div>
+            <ul>
+              <li><b>DSH Better Sidebar</b>：把文件管理、代码编辑、终端、Git 面板、后台任务全塞进侧边栏，装完就是个迷你 IDE，少切几次窗口。</li>
+              <li><b>dsh-github-connector</b>：在对话里直接管 GitHub；<b>context-vista</b>：看上下文的 Token 都被谁吃了；<b>dsh-undo</b>：AI 改崩了一键回滚上下文；<b>dsh-record-replay</b>：你演示一遍操作，它以后能照着复现。</li>
+              <li>社区已经有人维护 <b>Awesome DeepSeek Harness Plugins</b> 精选目录，把开发工具、Agent 编排、效率协作、数据研究、DevOps、设计媒体各类插件都收全了。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>官方搭好台，群众冲上来自己装修</h3>
+      <ul class="points">
+        <li>上一期是 DeepSeek 官方<b>搭台</b>——把 AI 框架开源、做成"一切皆插件"；这一期是<b>群众冲上台自己装修</b>——几天就冒出 700+ 个插件。这恰好印证了上期那个判断：把能力做成人人可拼装的部件、交到所有人手里，会长出你完全没预料的东西——有人拿它补长期记忆、搬家、接视觉真去干活，也有人拿它塞小游戏和广告图一乐。<b>一个平台有没有生命力，就看它开放之后，陌生人愿不愿意在上面浪费时间。</b></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.20 ==================== -->
-  <section class="issue active" id="v20">
+  <section class="issue" id="v20">
     <div class="issue-head">
       <div class="issue-vol">VOL.20 / 2026·08·14</div>
       <h2 class="issue-theme">别管活，搭台</h2>
