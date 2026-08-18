@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v21" data-vol="vol.21"><span class="vv">VOL.21 <span class="new">最新</span></span><span class="dd">2026·08·17 · 万物皆插件</span></button>
+    <button class="tab active" data-issue="v22" data-vol="vol.22"><span class="vv">VOL.22 <span class="new">最新</span></span><span class="dd">2026·08·18 · 什么值得做</span></button>
+    <button class="tab" data-issue="v21" data-vol="vol.21"><span class="vv">VOL.21</span><span class="dd">2026·08·17 · 万物皆插件</span></button>
     <button class="tab" data-issue="v20" data-vol="vol.20"><span class="vv">VOL.20</span><span class="dd">2026·08·14 · 别管活，搭台</span></button>
     <button class="tab" data-issue="v19" data-vol="vol.19"><span class="vv">VOL.19</span><span class="dd">2026·08·13 · 门槛塌了</span></button>
     <button class="tab" data-issue="v18" data-vol="vol.18"><span class="vv">VOL.18</span><span class="dd">2026·08·12 · AI 当同事</span></button>
@@ -288,8 +289,59 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.22 ==================== -->
+  <section class="issue active" id="v22">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.22 / 2026·08·18</div>
+      <h2 class="issue-theme">什么值得做</h2>
+      <p class="issue-lead">OpenAI 设计负责人聊 AI 时代设计师怎么转型：工程师被 AI 提速 10~100 倍，设计师没有——不是设计没用了，是两者的瓶颈不同。而当产出一个"像样方案"越来越便宜，人真正值钱的地方，从"能不能做出来"整体挪到了"判断该做什么、为什么这么做"。这个位移，其实对每个用 AI 干活的人都成立。</p>
+      <div class="issue-toc">
+        <a href="#v22-1"><span class="ix">01</span><span>OpenAI 设计负责人：AI 已经是很好的设计师，人的活变成"判断什么值得做"</span><span class="cat">干货·观点</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v22-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>OpenAI 设计负责人：AI 已经是很好的设计师，人的活变成"判断什么值得做"</h3></div>
+      <div class="meta"><span class="tag op">干货·观点</span><span class="sep">·</span>晚点再听 LaterCast · Lenny's Podcast（嘉宾 Ian Silber，OpenAI 产品设计负责人）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Y-O367LgrM2pcamYglwTiw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Ian Silber 带队设计了 ChatGPT 和 Codex（OpenAI 的编程助手）。他点破一个扎心现实：工程师被 AI 提速了 <b>10~100 倍</b>，设计师没有——不是设计没用了，是两者<b>卡的地方不一样</b>（设计慢在试错、反馈、团队对齐，这些 AI 压不下来）。但他的判断很直接："<b>AI 已经是个很出色的产品设计师了</b>"，能整理需求、生成界面、写原型。于是当产出一个"像样方案"越来越便宜，人真正稀缺的能力，就从"能不能做出来"挪到了<b>判断该服务谁、为什么这么做、给产品一个清楚的立场</b>——这些训练数据里学不来。给被新工具追得慌的人一句落点：别急着补齐所有技能，挑一个真实问题反复用 AI 试，盯住结果。</div>
+
+        <div class="detail">
+          <h4 class="blk">四个能搬到"任何岗位 + AI"的判断</h4>
+          <ul class="points">
+            <li><b>焦虑的真正来源，是"旧标准还没失效、新标准没说清"的悬空感。</b><span class="eg">比如设计师一边看工程师用 Agent 狂写代码，一边被问"你是不是也该每天交代码"。原来那套调研→原型→测试还有用，可新岗位标准迟迟没定——工具陌生只是其中一小部分，真正难受的是没人告诉你现在"做到什么算好"。</span></li>
+            <li><b>AI 越强，稀缺的东西从"能产出"变成"知道该做什么"。</b><span class="eg">AI 能帮任何人整理问题、生成界面、写原型，还会把视觉和交互越做越好。人的价值落在训练数据难代劳的地方：听懂用户没说出口的需求、发明前所未有的交互（多点触控刚出现时，没有任何现成页面能抄）、给产品一个清楚的观点。已经有创业者在把"1 个设计师配 15 个工程师"翻转成"2 个设计师配 1 个很强的工程师"。</span></li>
+            <li><b>"能少做就少做，能不设计就别设计"——听着懒，要求其实更高。</b><span class="eg">当一个产品同时有聊天、语音、图像、Agent、代码，给每个能力单造一套体验，很快堆成一地互不相干的功能。所以先跳出手头这个页面问三句：现有组件够不够用？新需求能不能扩展旧功能？这功能是不是真有必要？工程团队每天提交大量改动时，这种克制比多画一套界面更能守住体验的整体感。</span></li>
+            <li><b>速度快 ≠ 所有细节都该省；要分清哪里能公开试错、哪里得慢慢打磨。</b><span class="eg">判据是：技术稳不稳、错了成本多高、这决定会不会长期留在产品里。ChatGPT 的 Composer 几乎每天都在变、快速试；而"产品如何长期进入你的生活"这类体验，先在内部反复用很久才发布。他在 Instagram 的经历是最好的例子——IGTV 上线后火了一阵就掉队，之后的 Reels 却持续增长：两次投入一样认真，结局完全不同，说明<b>团队的信心不等于用户的答案</b>。</span></li>
+          </ul>
+
+          <blockquote>AI 已经是一名很出色的产品设计师；但当生成一个"像样方案"越来越便宜，知道该服务谁、为什么这样做，会比画出第一版界面更稀缺。（他还有句给人打气的话：现在没人需要觉得自己落后——哪怕今天才开始，也会领先大多数人。）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>今天才开始也不晚</b>：模型变得太快，昨天失败的做法今天未必还失败。他休陪产假时用编程 Agent 老被小问题卡住，一个月后再试 Codex，很多障碍已经消失。与其补完所有教程再动手，不如挑个真实任务反复试。</li>
+              <li><b>三顶帽子仍要有人戴</b>：产品经理、设计、工程的边界更模糊了，但大公司仍需要有人分别戴好。个人策略：先守住一项能形成高标准的核心能力，再学会用原型、数据、代码把判断推得更远——别想当三种职业的满分选手。</li>
+              <li><b>OpenAI 招设计师看什么</b>：不要求你有 AI 背景（旧经验未必能复用），看的是好奇心 + 原型能力——你愿不愿意跳进去学、有没有把想法真做出来（原型变便宜后，做没做出来直接暴露一个人的主动性和判断）。</li>
+              <li><b>ChatGPT 的下一步</b>：让那个空白输入框理解你的处境——界面跟着意图变（开放问题给可点击的追问、写邮件进可直接编辑的块、图像任务出对应工具），日历 / Slack 等上下文让它主动建议下一步。目标是"一个通用输入框，你不用去管模型、速度或它怎么工作"。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>又一个信号：AI 越强，人的活越往"判断"那头挪</h3>
+      <ul class="points">
+        <li>这篇和这个月几条线其实是同一件事的不同侧面——VOL.17「赢的是执行外壳」、VOL.20「别管活、搭好台」、Allie 那句「退到只处理需要拍板的例外」，到这篇「AI 已经会设计，人来判断什么值得做」。共同的位移是：<b>当 AI 把"产出"变便宜（写代码、画界面、生成方案），人的稀缺价值就整体从"能不能做出来"挪到"该做什么、为什么做、给它一个清楚的立场"</b>。Ian 那句"能少做就少做"也是这个意思——先想清楚值不值得做，往往比把它做出来更重要。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.21 ==================== -->
-  <section class="issue active" id="v21">
+  <section class="issue" id="v21">
     <div class="issue-head">
       <div class="issue-vol">VOL.21 / 2026·08·17</div>
       <h2 class="issue-theme">万物皆插件</h2>
