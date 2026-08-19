@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v22" data-vol="vol.22"><span class="vv">VOL.22 <span class="new">最新</span></span><span class="dd">2026·08·18 · 什么值得做</span></button>
+    <button class="tab active" data-issue="v23" data-vol="vol.23"><span class="vv">VOL.23 <span class="new">最新</span></span><span class="dd">2026·08·19 · 先走一遍场</span></button>
+    <button class="tab" data-issue="v22" data-vol="vol.22"><span class="vv">VOL.22</span><span class="dd">2026·08·18 · 什么值得做</span></button>
     <button class="tab" data-issue="v21" data-vol="vol.21"><span class="vv">VOL.21</span><span class="dd">2026·08·17 · 万物皆插件</span></button>
     <button class="tab" data-issue="v20" data-vol="vol.20"><span class="vv">VOL.20</span><span class="dd">2026·08·14 · 别管活，搭台</span></button>
     <button class="tab" data-issue="v19" data-vol="vol.19"><span class="vv">VOL.19</span><span class="dd">2026·08·13 · 门槛塌了</span></button>
@@ -289,8 +290,59 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.23 ==================== -->
+  <section class="issue active" id="v23">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.23 / 2026·08·19</div>
+      <h2 class="issue-theme">先走一遍场</h2>
+      <p class="issue-lead">AI 视频最费钱的坑是"抽卡"——你写一大段提示语描述镜头怎么运、人物怎么走，模型全靠猜，方向和走位经常出错，只能反复重生成碰运气。这篇给一套解法：先在 updream 的"预演台"里用<b>白模</b>（白色无材质的 3D 草模，像搭积木）把空间、走位、机位钉死，录一段丢给 Seedance 2.5 照着渲——一次就对、不用抽卡、还省钱，不会 Blender、没做过 3D 也能上手。</p>
+      <div class="issue-toc">
+        <a href="#v23-1"><span class="ix">01</span><span>告别 AI 视频反复抽卡：先搭白模钉死空间和运镜，再交给 Seedance 2.5 渲</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v23-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>告别 AI 视频反复抽卡：先搭白模钉死空间和运镜，再交给 Seedance 2.5 渲</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>卡尔的 AI 沃茨（卡尔 &amp; 阿汤）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/EsgRQkRAjuUQN4xVkpHm3w">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>AI 视频最大的痛叫"<b>抽卡</b>"——你写一大段话描述镜头怎么运、人物怎么走位，模型全靠猜，生成出来经常方向反了、位置错了，只能反复重生成碰运气，费钱又费时（Seedance 这类生成一次要烧"积分"，不便宜）。作者的解法：先别写那么多字，而是在 <b>updream 的"预演台"</b>里用<b>白模</b>（白色没材质的 3D 草模，像搭积木摆场景）把空间、走位、机位、运镜全钉死，录一段白模视频，再丢给 <b>Seedance 2.5</b>（字节的 AI 视频模型）照着渲染。好处：空间和运镜一次就对、不用抽卡、省钱；门槛还极低——一张参考图 3 分钟自动生成白模，不用会 Blender（专业 3D 建模软件）、没学过 3D 也能上手。</div>
+
+        <div class="detail">
+          <h4 class="blk">为什么"摆个白模"比"狂写提示语"靠谱</h4>
+          <ul class="points">
+            <li><b>文字描述空间，要过两遍翻译、每遍都丢信息。</b><span class="eg">你脑子里明明知道机位在哪、人从哪走到哪、树挡不挡脸，可一旦写成提示语，等于做两遍翻译：你先把空间翻成文字，模型再把文字翻回画面。作者实测同一句提示语：纯文字直出的拍摄方向和人物位置<b>全反了</b>，带白模参考的就对了。一句话——白模锁定的是位置和空间关系，位置对了光影、材质、风格才合理；位置一开始就错，提示词写再长也白搭。</span></li>
+            <li><b>门槛真的低：一张图 3 分钟出白模，不用会建模。</b><span class="eg">在 updream 新建预演台，上传最多 3 张场景参考图（概念图、气氛图、网上抠的静帧都行），3 分钟就自动解析出一个带深度的白模，层次、比例、遮挡都还原到"能开始调度"的程度。作者自称 3D 小白，半小时就摆出十几个人物、重现了一个电影镜头。</span></li>
+            <li><b>怎么摆：搭积木 + 图层管理 + 精调相机。</b><span class="eg">加人物模型、用坐标轴调站位（几十个物体可以像 PS 图层那样按"组"整体移动，不用一个个挪）；给人物画一条移动轨迹让它动起来；再"摆机位"——选好想拍的画面就从当前视角建一个机位，要几个镜头点几次，每个机位单独导出一段运镜，同一空间录的不同机位<b>空间一致性很稳</b>；相机面板连焦距、镜头类型、光圈都能精确设定。</span></li>
+            <li><b>别每个镜头都硬上白模——分清什么值得搭。</b><span class="eg">简单镜头（两人坐着聊天、产品静静放桌上，运镜很老实）纯文字加一张参考图就够，每个都搭白模反而更慢。真正值得先搭的，是"空间关系和运镜一错这段就废了"的镜头：影视大场面空镜（走廊推进、城市从高处俯冲）、多人物有切镜的大场面、品牌广告里产品绕圈 / 镜头旋转展示这类复杂运镜——这些用文字对半天也对不齐。</span></li>
+          </ul>
+
+          <blockquote>再穷的剧组也知道开机前先"走一遍场"——哪有灯、哪能站人、摄像机从哪滑到哪，先在现场比划清楚再开机。搭白模就是给 AI 视频走这一遍场。所以下次为一条镜头狂写提示语之前先问自己：我写 5000 字也能把这个运镜和空间说清楚吗？说不清，就不如去搭个白模。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还讲了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>粗粒度 vs 细粒度白模</b>：粗粒度=只给 AI 看空间、运镜、站位这些"没法用文字说清"的信息，一张图免费自动生成，小白够用；细粒度=已经有完整结构，相当于把 AI 视频模型当渲染器、直接渲材质色彩风格，可上传自己做好的模型。updream 两种都支持。</li>
+              <li><b>特殊镜头用关键帧</b>：比如想要"从俯拍慢慢变仰拍"，只要定好首帧和尾帧的相机位置与角度，中间自动过渡。</li>
+              <li><b>省钱是实打实的</b>：Seedance 2.5 本身不便宜，一次搭好白模、一次生成就搞定，不用反复抽卡，省下大量"积分"。</li>
+              <li><b>缘起</b>：作者从最近爆梗的国产动画《牛来》聊起（建模糙、像没渲完的 3D 作业），他用白模复刻同样的机位走位丢给 Seedance，效果"舒服多了"——等于给一份"被提前打开的白模"补上了渲染。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>能用结构钉死的，就别让模型去猜</h3>
+      <ul class="points">
+        <li>这篇表面是视频教程，底下的道理和这个月反复出现的一条其实是同一个：<b>凡是模型容易猜错、而你心里其实有数的东西，别用语言去描述让它猜，用一个确定的结构把它钉死。</b>白模钉的是空间和运镜，前几天 VOL.21 高德用"规则表"钉的是"该查哪张表"——都在绕开同一个坑：让模型从模糊的文字里去猜意图，最容易出错。判断标准也一样朴素：值得搭白模的只有"空间 / 运镜一错整段就废"的镜头，简单镜头纯文字反而更快——<b>该钉死的钉死，该省事的省事，别过度工程。</b></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.22 ==================== -->
-  <section class="issue active" id="v22">
+  <section class="issue" id="v22">
     <div class="issue-head">
       <div class="issue-vol">VOL.22 / 2026·08·18</div>
       <h2 class="issue-theme">什么值得做</h2>
