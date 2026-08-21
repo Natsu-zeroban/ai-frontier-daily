@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v23" data-vol="vol.23"><span class="vv">VOL.23 <span class="new">最新</span></span><span class="dd">2026·08·19 · 先走一遍场</span></button>
+    <button class="tab active" data-issue="v24" data-vol="vol.24"><span class="vv">VOL.24 <span class="new">最新</span></span><span class="dd">2026·08·20 · 不止聊天框</span></button>
+    <button class="tab" data-issue="v23" data-vol="vol.23"><span class="vv">VOL.23</span><span class="dd">2026·08·19 · 先走一遍场</span></button>
     <button class="tab" data-issue="v22" data-vol="vol.22"><span class="vv">VOL.22</span><span class="dd">2026·08·18 · 什么值得做</span></button>
     <button class="tab" data-issue="v21" data-vol="vol.21"><span class="vv">VOL.21</span><span class="dd">2026·08·17 · 万物皆插件</span></button>
     <button class="tab" data-issue="v20" data-vol="vol.20"><span class="vv">VOL.20</span><span class="dd">2026·08·14 · 别管活，搭台</span></button>
@@ -290,8 +291,91 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.24 ==================== -->
+  <section class="issue active" id="v24">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.24 / 2026·08·20</div>
+      <h2 class="issue-theme">不止聊天框</h2>
+      <p class="issue-lead">两篇讲同一件事的两个层次：怎么把 AI 从"偶尔打开聊天框问一句"，变成一套真正替你干活的系统。一篇是方法——深度用户怎么把每周重复的活写成可复用的"技能包"、喂给 AI 真实工作资料、把最后 10% 和"发送键"留给自己；一篇是工具——当你想更进一步、把模型搬到自己电脑上跑和微调时，Unsloth 这套一体化工作台能省掉在多个工具间来回拼装。</p>
+      <div class="issue-toc">
+        <a href="#v24-1"><span class="ix">01</span><span>把 AI 变成一套工作系统的 6 步：让它接住每周重复的活，你只做最后 10%</span><span class="cat">干货·方法</span></a>
+        <a href="#v24-2"><span class="ix">02</span><span>想在本地跑模型、还要用自己数据微调？Unsloth 把这套流程合成了一个工作台</span><span class="cat">干货·工具</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v24-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>把 AI 变成一套工作系统的 6 步：让它接住每周重复的活，你只做最后 10%</h3></div>
+      <div class="meta"><span class="tag op">干货·方法</span><span class="sep">·</span>晚点再听 LaterCast · Silicon Valley Girl（受访：Kalshi 联创、斯坦福 Erik Brynjolfsson、Peter Yang、Box CEO、可汗学院 Sal Khan）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/c9tQTgvROwtz7WpeDbSOrg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>AI 工具人人都有，真正拿到回报的却是少数——差距已经从"会不会打开聊天框"变成"<b>有没有一套会持续改进的工作流</b>"。这篇集合了几位重度用户（Kalshi 联合创始人、斯坦福数字经济实验室主任、独立创作者 Peter Yang、Box CEO、可汗学院创始人）的具体做法。一句话总纲：<b>让 AI 读你真实的工作资料、接住每周重复发生的任务、再从反馈里更新流程；AI 做 90%，最后 10%（判断、拍板、按发送键）留给你</b>。数据也印证：只把 AI 用在一两项任务上的人，45% 觉得有明显提升；把任务加到 7 项以上，这比例升到 90%——工具没换，是交给 AI 的活变多了。</div>
+
+        <div class="detail">
+          <h4 class="blk">六个可照做的步骤</h4>
+          <ul class="points">
+            <li><b>先看"用得深不深"，别急着换工具。</b><span class="eg">真正拿到价值的人每周至少花 8 小时"养"自己的 AI 能力——把邮件、研究、数据整理这些原本分散的活，接进同一套日常流程，省下的时间每天都会重复出现。别把"公司要求用 AI"做成打卡：试几个问题、觉得复杂、然后放弃。</span></li>
+            <li><b>不知从哪开始，就让 AI 先"采访"你。</b><span class="eg">别先背提示词大全，直接让 ChatGPT / Claude 问你的工作、家庭、上周最头疼的事，聊完它通常能给你十个可尝试的场景，再挑一个"高频、低风险"的开始。（斯坦福的 Erik 说，如果一个月不能用 AI，他愿意付数万美元——研究、旅行、生活安排都嵌进去了，拿走像少了一只手。）</span></li>
+            <li><b>每周重复一次的事，都值得写成 Skill（技能包）。</b><span class="eg">Peter Yang 不会写代码却做了 16 个应用。他空出一整天，对着 Codex 口述自己的播客制作、newsletter 编辑、各平台发布格式、每周数据复盘——原本每周花 1 小时统计各平台收入，现在系统自动找异常、生成经营简报，还会比同类频道、提醒他哪些内容突然跑得更好。Skill 的起点通常很乱，就是那些还在手工复制、改格式、查数据的麻烦事。</span></li>
+            <li><b>用完别关掉，让 Skill 记住这次修改。</b><span class="eg">Skill 很少一次做对；真正有用的动作在任务结束后——把刚才的来回沟通交回给 AI，说"根据我们刚才的对话更新这个 Skill，让它下次更快做对"。但改动要人工检查，别让一次偶然偏好变成长期规则。他的系统 = 一组可复用的 Skills（管"任务怎么做"）+ 一份亲手维护的记忆文件（存业务背景和个人偏好），流程变了只更新对应文件，不必每次重讲整家公司。</span></li>
+            <li><b>先给 AI 固定资料，再要求它"像你"。</b><span class="eg">AI 显得"懂你"，通常是因为它拿到了稳定的上下文（语气、业务策略、目标、决策规则、个人原则）；没有资料，换再强的模型也只能给平均化答案。Box CEO Aaron Levie 每次写很长的提示词并存起来重复用。不用追求一次写全，先放真正影响输出的那几份文件。</span></li>
+            <li><b>让 AI 起草和追问，把"发送键"留给人。</b><span class="eg">可汗学院的边界写得很清楚：AI 能写邮件草稿但不能自己发、能准备社交内容但不能直接发布、医疗和战略决定要真人确认。Sal 每天问 AI "什么事正在掉到缝里？"，让它翻消息邮件、把久未回复的先起草好等他确认。还有个坑：AI 爱附和你、夸你，所以他会明确要求"批评我，真的反驳我"——最稳的分工是 AI 做研究 / 整理 / 唱反调，人承担决定的后果。</span></li>
+          </ul>
+
+          <blockquote>AI 做到 90%，最后 10% 由你完成——而这 10% 的反馈，又会成为下一版工作流的材料。这就是"会持续改进的工作流"和"一次性提问"的区别。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>花钱要和省下的时间一起算</b>：可汗学院约 200 名工程师、一年 Anthropic 账单 120 万美元；有工程师一天烧 3000 美元算力，但几小时干完过去三四个月的活——创始人说"花得值，继续用"。但别盲目冲 Token 消耗，回到具体任务：花多少钱、替代多少工时、产出能不能真投入使用。</li>
+              <li><b>让 Agent 接入工作现场，周报自己长出来</b>：Kalshi 把邮件 / 文档 / 指标接进内部 AI，Agent 先做收集、整理、标记，联创周日终于能安心吃早午餐。难点是权限——连接越深，越要早设计"谁的 Agent 只能读该读的内容"，别等最后再补。</li>
+              <li><b>反向自查</b>："每个新员工都该配一个 Agent"；也可以回看自己过去两周的查询，问 AI "我还该自动化什么"——但只挑真会执行的，别生成一堆当天根本用不上的东西。工作流最终要服从人的节奏。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v24-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>想在本地跑模型、还要用自己数据微调？Unsloth 把这套流程合成了一个工作台</h3></div>
+      <div class="meta"><span class="tag">干货·工具</span><span class="sep">·</span>AI李子<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/YjAcINxD3-AOE8ltGIgKBg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>一家公司买了几张专业显卡，想在自己电脑上跑大模型、还想用自家行业数据做<b>微调</b>（拿现成模型用你的数据再训练一下、让它更懂你的业务），问工具怎么选。作者的答案：只想<b>跑</b>模型，Ollama、LM Studio、llama.cpp 都够成熟；可一旦要<b>训</b>（微调），单纯的运行工具就不够了。他推荐 <b>Unsloth</b>（GitHub 7.3 万星）——它把下载模型、运行、准备数据、训练、效果对比、导出全放进同一个界面，像一套"本地 AI 工作台"。它的老本行是<b>高效微调</b>：靠优化过的底层内核，官方称部分配置下训练快约 2 倍、省约 70% 显存（显存=显卡内存，是能不能跑 / 训大模型的关键瓶颈；这些数字要结合具体模型和显卡看，别当固定门槛）。</div>
+
+        <div class="detail">
+          <h4 class="blk">它到底补上了哪块、又没做什么</h4>
+          <ul class="points">
+            <li><b>推理工具只让你"跑"，Unsloth 还让你"训"。</b><span class="eg">Ollama 那些重点在跑模型、提供服务；要基于自己数据做 <b>LoRA / QLoRA</b>（两种"省显存微调法"，只训练模型的一小部分、让消费级显卡也扛得住），就还需要训练、数据处理、模型导出能力——Unsloth 把这些集中到一处，省掉在数据集、训练脚本、格式转换、部署之间来回拼装。</span></li>
+            <li><b>但它没重新发明推理引擎，别搞混。</b><span class="eg">Unsloth 的本地运行其实还是依托 llama.cpp 和 Hugging Face（开源模型的主要集散地）生态，它给的是更完整的界面、模型管理、参数设置和"训练前后对比"流程。所以你要是只想把一个模型跑起来，Ollama / LM Studio 仍然更简单。</span></li>
+            <li><b>形成闭环：数据 → 训练 → 对比 → 导出。</b><span class="eg">能从 PDF / CSV / JSON / DOCX 整理训练数据（有可视化流程，不用一上来就写脚本）；训练完直接在里面和微调后的模型对话、跟原模型并排比——这步很关键，因为"训练误差下降不代表模型更适合你的业务"（有的更听话了但通用能力掉了、有的把特定格式学过头）；结果能导出成 LoRA / GGUF / Safetensors（模型文件的不同格式），拿去 Ollama、vLLM 等继续部署，训练和上线不必割裂。</span></li>
+            <li><b>能接本地智能体。</b><span class="eg">通过 Unsloth Start 把本地模型接进 Claude Code、Codex（一条 <code>unsloth start claude</code> 就连上），对数据隐私敏感、想少花云端 API 钱的小团队有吸引力。但体验仍取决于模型本身的指令遵循和工具调用能力，以及显卡——它只提供连接方式，不会替你解决模型能力本身的问题。</span></li>
+          </ul>
+
+          <blockquote>它的价值不在于替代所有本地推理工具，而在于把"运行模型"和"训练模型"放进了同一个工具体系。但图形界面只降低了入门门槛——微调仍需理解数据格式、模型类型、量化方式和评估方法，界面替不了数据设计和效果验证。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 更多细节（想本地折腾可点原文）</div>
+            <ul>
+              <li><b>三种用法 + 覆盖范围</b>：Desktop（普通用户）、Studio（本地网页界面）、Core（代码开发者）；支持的已不止语言模型，还有视觉、语音 / 音频、嵌入模型和部分图像视频模型。</li>
+              <li><b>选模型别只看参数规模</b>：格式（GGUF / 4-bit / 16-bit / FP8）、量化等级、上下文长度、显卡显存和带宽同样重要。官方目录有 Qwen、Llama、Gemma、DeepSeek、Mistral、Phi、GLM 等系列。</li>
+              <li><b>适合谁</b>：想本地跑 + 测开源模型的开发者、要用行业数据做适配的小团队、想降低 LoRA / QLoRA 门槛的个人、想把本地模型接进代码工具的人。只想跑几个现成模型，Ollama / LM Studio 依然足够简单。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>从"打开聊天框"到"拥有一套系统"</h3>
+      <ul class="points">
+        <li>两篇是同一条升级路上的前后两段。第一篇是<b>软件层的系统</b>：把每周重复的活写成 Skill、喂 AI 稳定的工作资料、让它接住 90% 而你守住最后 10% 和发送键——大多数人差的不是工具，是这套"会持续改进的工作流"。第二篇是<b>再往下一层</b>：当你连模型本身都想搬到自己电脑上跑、还要用自家数据微调时，Unsloth 把"跑"和"训"合进一个工作台。共同的主张只有一句：<b>别停在"偶尔问一句"，把 AI 沉淀成一套属于你、且能不断改进的系统</b>——无论那套系统是几个 Skill，还是一台你自己的训练机。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.23 ==================== -->
-  <section class="issue active" id="v23">
+  <section class="issue" id="v23">
     <div class="issue-head">
       <div class="issue-vol">VOL.23 / 2026·08·19</div>
       <h2 class="issue-theme">先走一遍场</h2>
