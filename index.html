@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v24" data-vol="vol.24"><span class="vv">VOL.24 <span class="new">最新</span></span><span class="dd">2026·08·20 · 不止聊天框</span></button>
+    <button class="tab active" data-issue="v25" data-vol="vol.25"><span class="vv">VOL.25 <span class="new">最新</span></span><span class="dd">2026·08·21 · 灵魂与外壳</span></button>
+    <button class="tab" data-issue="v24" data-vol="vol.24"><span class="vv">VOL.24</span><span class="dd">2026·08·20 · 不止聊天框</span></button>
     <button class="tab" data-issue="v23" data-vol="vol.23"><span class="vv">VOL.23</span><span class="dd">2026·08·19 · 先走一遍场</span></button>
     <button class="tab" data-issue="v22" data-vol="vol.22"><span class="vv">VOL.22</span><span class="dd">2026·08·18 · 什么值得做</span></button>
     <button class="tab" data-issue="v21" data-vol="vol.21"><span class="vv">VOL.21</span><span class="dd">2026·08·17 · 万物皆插件</span></button>
@@ -291,8 +292,90 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.25 ==================== -->
+  <section class="issue active" id="v25">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.25 / 2026·08·21</div>
+      <h2 class="issue-theme">灵魂与外壳</h2>
+      <p class="issue-lead">两篇都在说同一件事：模型只是"灵魂"，真正决定你用不用得起来、用不用得爽的，是外面那层"外壳"（驱动 AI 干活的框架和工具，这个月一直在讲的 Harness）——而这层外壳正在吞噬传统软件。一篇往下扎：DeepSeek 把外壳做成能被 AI 自己改、自己进化的开放底座，赌的是下一个范式；一篇往上做：MiniMax 把外壳做成极致好用的成品，3D 导演台加对话式批量出片，直接抢剪映、PS、AE 的活。</p>
+      <div class="issue-toc">
+        <a href="#v25-1"><span class="ix">01</span><span>DeepSeek Harness 的真野心：不是更好用的编程助手，是能自己改自己的 Agent 底座</span><span class="cat">干货·观点</span></a>
+        <a href="#v25-2"><span class="ix">02</span><span>MiniMax Design 实测：3D 导演台 + 对话式批量出片，模型厂商做的视频工具有多狠</span><span class="cat">干货·工具</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v25-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>DeepSeek Harness 的真野心：不是更好用的编程助手，是能自己改自己的 Agent 底座</h3></div>
+      <div class="meta"><span class="tag op">干货·观点</span><span class="sep">·</span>海外独角兽（Cage、Daniel）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/wYVQ01SgwK4kE19gZdbqIA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>DeepSeek Harness（DSH，前两期 VOL.20/21 讲过的开源 Agent 框架）真正的野心，这篇说透了：它<b>不是</b>想做一个更好用的编程助手去跟 Claude Code、Codex 抢用户，而是想做一套<b>能被 AI 自己看懂、自己修改、甚至一边运行一边换零件的底座</b>——赌的是下一个范式。一句话对比：Anthropic 的 Claude Code 是"在现在这代模型下，把 Agent 调到最好用"；DeepSeek 押的是另一个问题——"Agent 的这层<b>外壳（Harness）</b>能不能被低成本地改、换、撤销"，最终让 Agent 自己去改进自己。所以它像早期的 Unix：开箱体验粗糙，但底层极其开放，潜力上限像个操作系统。</div>
+
+        <div class="detail">
+          <h4 class="blk">四个把黑话翻成人话的关键点</h4>
+          <ul class="points">
+            <li><b>它把一切都做成"可插拔、还能干净拆走"的插件——难的不是加，是删。</b><span class="eg">大多数 Agent 插件系统只关心"怎么加功能"（装更多工具、技能、外部接口），但加多了会"熵增"：工具越堆越多，模型反而在一堆能力里挑花眼、效果变差（很多人在 Claude Code 里装太多 Skill 后就遇到过）。DSH 底层的 <b>Cordis</b> 框架专治这个——每个插件注册时必须同时登记"怎么把自己撤干净"：注册了工具就记下怎么注销、加了提示就记下怎么移除、开了定时器就记下怎么停，卸载时把留下的痕迹一并清掉，不留"幽灵组件"。</span></li>
+            <li><b>能一边运行一边换零件，不用关机重启（这叫"热重载"）。</b><span class="eg">真正的自进化不能靠"改完重启"。DSH 把一次危险的"整体重写"，缩小成有边界的"换一个零件"：Agent 可以复制当前状态，在隔离环境里改一个插件、热加载试试，行就留、不行就撤——像数据库的事务，能回滚。作者的比喻：一艘忒修斯之船，一边航行一边换掉自己的部件。</span></li>
+            <li><b>两种外壳哲学：Anthropic 求"当下最优"，DeepSeek 求"未来可改"。</b><span class="eg">Anthropic 像实证科学：看当前模型在真实任务里哪儿会栽，才针对性加一段"外壳"扶一把；模型变强了就做"消融实验"（删掉某部件看还行不行）把不再需要的删掉——Opus 5 发布后 Claude Code 就删掉了 80% 的系统提示词。DeepSeek 反过来，一上来就把"能替换、能组合、能撤销"当成第一假设去设计，不追求给一套固定的最佳外壳，而是造一套"能不断改外壳的操作系统"。</span></li>
+            <li><b>短期用户是开发者，长期用户是 Agent 自己。</b><span class="eg">现在它更像开发者预览版，普通人用不如 Claude Code 顺手；但对开发者，记忆、工具、沙箱、权限、界面、甚至 Agent 的"主循环"（反复想→做→看结果的核心逻辑）都能换，做出来可能完全看不出原始 DSH 的样子。更远的想象：把外壳拆成命名清晰、依赖明确的零件，等于给 Agent 画了张"系统地图"，它能定位自己哪儿出问题、只换那一块、失败还能回滚——自我修改从"一次高风险的整体重写"变成"一串可测试、可回滚的小实验"。</span></li>
+          </ul>
+
+          <blockquote>离真正的"自进化"还差一个学习闭环：<b>能改 ≠ 会变好。</b>只有当系统能判断哪些改动真的更好、并把它们留下来，"自我修改"才会变成"自我改进"。DSH 现在做到的是第一步——把自己拆成可定位、可替换的零件；下一步才是让它从这些实验里持续学习。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还讲了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>四个模式</b>：标准（80% 任务、能力全、好排错）、PTC/Code（工具调用密集时先写一段代码一次调多个工具，批量、跨文件检索最省时）、极简（只有命令行+编辑器，用来做对照实验、分清能力来自模型还是外壳）、创造（Creator：让 Agent 检查自己的运行时、试新插件、写新配置——"造 Agent 的 Agent"，也是未来自学习的数据入口）。</li>
+              <li><b>生态已经起飞</b>：截至 8·19，GitHub 的 dsh-plugin 话题聚了约 7700 个仓库，精选目录收录约 1500 个可一键安装的插件；还长出 dsh-market（搜/装/升级插件）、dsh-find-plugin（让 Agent 在对话里自己找插件）。它不只是应用商店，更是一个"可被搜索的外壳空间"。</li>
+              <li><b>还差多远</b>：两个难点——① 改自己时别把自己改崩（Cordis 的"事务式"管理在解决）；② 持续可靠的评测（能生成候选改动，但判断"哪个真更好"还需要留一批测试任务、回归测试、灰度发布）。</li>
+              <li><b>一条更现实的近路</b>（Lilian Weng）：自我改进不一定从改模型权重开始，而是先把模型外部的"外壳"变成优化对象——从提示词、上下文，扩展到工作流、外壳代码，最终到"负责优化外壳的优化器"。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v25-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>MiniMax Design 实测：3D 导演台 + 对话式批量出片，模型厂商做的视频工具有多狠</h3></div>
+      <div class="meta"><span class="tag">干货·工具</span><span class="sep">·</span>小互 AI<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/g6wTg7SVXbHrjdX4aEJQxg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>MiniMax（做视频模型 H3 的公司）出了个视频生成智能体 <b>MiniMax Design</b>——在一块大画布上用对话完成"生成到剪辑"的全流程。最炸的是 <b>3D 导演台</b>：你一句话描述场景（"夜晚街头，一男一女两个武者激烈打斗"），它生成一个能旋转缩放的 3D 场景，你随意摆机位、加道具，甚至<b>用手机扫码把手机变成"虚拟摄像机"</b>、像打游戏一样摇杆录一段运镜路径，再让模型照着渲成视频——等于把电影片场"讲戏、走位、摆机位"那套搬进了工具。此外还有官方现成的 SKILL（品牌片/MV/短片一键模板）、能读懂视频重新混剪的剪辑智能体，以及"说一句需求就自动拆解、产出一整套投放素材"的批量能力。</div>
+
+        <div class="detail">
+          <h4 class="blk">几个实测下来最狠的功能</h4>
+          <ul class="points">
+            <li><b>3D 导演台：把"讲戏、走位、摆机位"搬进工具。</b><span class="eg">一句话搭出可旋转缩放的 3D 场景（这些空间和镜头关系，光靠文字很难说清）。更狠的是手机运镜：手机扫码变成取景器，像打游戏摇杆一样录一段镜头运动、自动传回电脑，也能手动画路径打关键帧；所有运镜排在时间线上像剪视频一样调快慢，导出成"运镜参考"再喂给模型生成。这跟 VOL.23 那套"先搭白模再生成"是同一个思路，只是做成了官方一体化产品。</span></li>
+            <li><b>官方现成 SKILL：品牌片 / MV / 短片一键套模板。</b><span class="eg">用"品牌宣传片生成器"给一段详细提示词（15 秒 / 16:9 / 4K / 主色调 / 大量负空间 / 核心运动元素），出来的片子配音"不肥不瘦"、可用度很高。画布上双击弹出所有功能，把想关联的元素拖到一起，它能根据脚本自动识别意图。</span></li>
+            <li><b>能读懂视频、重新混剪的剪辑智能体（还不耗积分）。</b><span class="eg">把视频导进去说"重新剪一版"，多模态模型直接把视频拆开、读懂每个片段再重组，配音没变、连停顿都严丝合缝。作者顺手发现的薅羊毛玩法：一个脚本生成两三版、全导进去让它混剪出不同节奏——特别适合做切片和投放素材的工作室，要多少版本有多少版本。</span></li>
+            <li><b>说一句需求，自动拆解生成一整套投放素材。</b><span class="eg">作者让它"以这台扫地机器人做 5 条 15 秒竖屏、风格统一但痛点不同（养猫掉毛 / 长发缠绕 / 有娃 / 加班族 / 送长辈）的短视频"，它自己生成几十张图、提炼出统一风格的产品图和场景图、合成广告图、再产出多条视频——"不用你反复做分镜和素材管理，说出需求，Agent 自己分析、创建素材、拆步骤执行"。</span></li>
+          </ul>
+
+          <blockquote>作者的判断：模型公司做工具真的厉害，他们太懂自家模型。每次模型迭代、配套的外壳和 Agent 进化，都在吞噬传统软件——用 Adobe、Canva 的人越来越少，Photoshop、AE 未来的出路可能只剩"做图像/视频模型的专业外壳"。"工具只会越来越简单、按钮越来越少，所有需求都通过对话和文档解决。"</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还讲了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>H3 便宜又开源</b>：API 768P 5 毛/秒、2K 8 毛/秒（年卡最低 4 毛/秒）。社区大神把 120GB 模型压进消费级显卡，Redis 作者 antirez 给 H3 重写了 Mac 原生推理引擎，能在 RTX 3060 8GB 上生成低分辨率视频——"本地打样、云端成片"。</li>
+              <li><b>批量生图</b>：对话里写"生成 X 张单独的图片"就自动出一组，不用一张张来。</li>
+              <li><b>高级玩家</b>：能导入现成的 ComfyUI 工作流（一个很强但很复杂的节点式生成工具），或下载 MiniMax 官方工作流本地部署、由 Agent 调用。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>模型只是灵魂，真正吞噬软件的是那层"外壳"</h3>
+      <ul class="points">
+        <li>两篇一个讲底层、一个讲应用，指的却是同一件事——这个月反复出现的"<b>外壳（Harness）才是胜负手</b>"（VOL.17）。DeepSeek 把外壳做成能自己改自己的开放底座（往下扎，赌下一个范式），MiniMax 把外壳做成极致好用的成品（往上做，3D 导演台、对话式批量出片，直接吞掉剪映 / PS / AE 的活）。小互那句点得最透：每次模型迭代、配套的外壳和 Agent 进化，都在吞噬传统软件，"工具只会越来越简单、按钮越来越少，需求都通过对话和文档解决"。<b>方向相反，结论一致：模型是灵魂，但决定你能不能用起来、用得爽的，是那层外壳。</b></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.24 ==================== -->
-  <section class="issue active" id="v24">
+  <section class="issue" id="v24">
     <div class="issue-head">
       <div class="issue-vol">VOL.24 / 2026·08·20</div>
       <h2 class="issue-theme">不止聊天框</h2>
