@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v25" data-vol="vol.25"><span class="vv">VOL.25 <span class="new">最新</span></span><span class="dd">2026·08·21 · 灵魂与外壳</span></button>
+    <button class="tab active" data-issue="v26" data-vol="vol.26"><span class="vv">VOL.26 <span class="new">最新</span></span><span class="dd">2026·08·24 · 当建造者</span></button>
+    <button class="tab" data-issue="v25" data-vol="vol.25"><span class="vv">VOL.25</span><span class="dd">2026·08·21 · 灵魂与外壳</span></button>
     <button class="tab" data-issue="v24" data-vol="vol.24"><span class="vv">VOL.24</span><span class="dd">2026·08·20 · 不止聊天框</span></button>
     <button class="tab" data-issue="v23" data-vol="vol.23"><span class="vv">VOL.23</span><span class="dd">2026·08·19 · 先走一遍场</span></button>
     <button class="tab" data-issue="v22" data-vol="vol.22"><span class="vv">VOL.22</span><span class="dd">2026·08·18 · 什么值得做</span></button>
@@ -292,8 +293,90 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.26 ==================== -->
+  <section class="issue active" id="v26">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.26 / 2026·08·24</div>
+      <h2 class="issue-theme">当建造者</h2>
+      <p class="issue-lead">两篇一个讲大厂怎么做 AI 产品、一个讲个人怎么搭自己的 AI 环境，指向同一句话：当"造东西"越来越容易，价值就从"会不会用"移到了"你为它准备了什么、你怎么判断它做得好不好"。Anthropic 产品负责人把它落成一句"评测就是新的 PRD"；一位开发者把它落成三个开源 Skill，帮你从零搭一套"懂你的"个人 Harness。别再只当 AI 的消费者。</p>
+      <div class="issue-toc">
+        <a href="#v26-1"><span class="ix">01</span><span>对话 Anthropic 产品负责人：评测就是新的 PRD，不懂评测的 AI 产品经理只是在假装做产品</span><span class="cat">干货·观点</span></a>
+        <a href="#v26-2"><span class="ix">02</span><span>从零搭一个"懂你"的个人 Harness：三个 Skill 帮你创建、体检、可视化</span><span class="cat">干货·工具</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v26-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>对话 Anthropic 产品负责人：评测就是新的 PRD，不懂评测的 AI 产品经理只是在假装做产品</h3></div>
+      <div class="meta"><span class="tag op">干货·观点</span><span class="sep">·</span>Z Finance · Lenny's Podcast（嘉宾 Dianne Penn，Anthropic 产品负责人）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/J7Cj0k8MMO4Lq955Nqwr3g">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Dianne Penn 是 Anthropic 的第一位技术产品经理，参与了从 Claude 2 到 Fable 的模型发布，也孵化过 Claude Code、MCP、Skills。她讲了个反常识的观点：AI 时代做产品，写需求文档（<b>PRD</b>，传统产品经理定义"要做什么"的文档）不再是核心，<b>"评测（eval）就是新的 PRD"</b>——你得把用户模糊的抱怨，拆成"可复现、可打分"的具体测试任务，研究团队才知道要改什么、改了有没有用。更大的一条落点：当"造东西"越来越容易，人真正稀缺的能力就从"能不能做出来"，移到了<b>判断该做什么、什么值得投入、结果够不够好</b>——这需要长期积累的判断力和领域经验。</div>
+
+        <div class="detail">
+          <h4 class="blk">几条对所有用 AI 的人都成立的判断</h4>
+          <ul class="points">
+            <li><b>用户说的问题，往往不是真问题——得拆到具体交互。</b><span class="eg">早期一堆用户反馈"Claude 不擅长遵循指令"，听着很虚、没法改。深挖后发现：大约 <b>80% 其实是同一件事——没按 JSON 格式输出</b>（JSON 是程序之间传数据的标准格式，Agent 调工具、调接口全靠它）。只有把抽象抱怨拆到这个颗粒度，训练才有明确方向。</span></li>
+            <li><b>"评测就是新的 PRD"：把模糊反馈变成能打分的测试题。</b><span class="eg">做法很朴素——收集三四十个 Claude 做砸的真实案例，每个配一个"标准答案"凑成一套评测集；以后每出新版本就跑一遍，分数从"经常错"升到 99.9% 对，这个痛点就算解决了。一句话：无法衡量的东西就无法改进。（PRD 没死：问题清晰时用评测直接定目标，问题还模糊、要拉齐产品/工程/安全/法务时，PRD 仍是统一方向的工具。）</span></li>
+            <li><b>不管职位多高，都得亲自动手、抠到每个 token。</b><span class="eg">她说即使招资深产品经理，入职流程也和新人一样：读用户反馈、跟客户聊、自己搭产品。理由很直接——没亲手做过 AI 产品，根本判断不了"什么是好的 AI 体验"。她自己也总留一两个和模型相关的活亲自干，保持对模型的手感。</span></li>
+            <li><b>今天的产品，要为"更强的未来模型"留空间。</b><span class="eg">她常问团队一个思想实验：假如 Claude 8.0 明天就来，用户行为会怎么变？你现在做的东西还兼容吗？因为模型能力是"跳变"式冒出来的（一个模型可能已经会做某事、开发者却还没意识到，得靠评测才发现），产品既要追着能力跑，还得往前留余量。</span></li>
+            <li><b>让 AI 会"反驳你"，它才更有用；它还能提升你的 EQ。</b><span class="eg">专注安全和对齐（给模型立一套"行为准则"）没让 Claude 变笨，反而让它更有个性、更愿意在该反对时反对——"只会附和你的 AI"是最没用的。她甚至照《关键对话》做了个 Skill，让 Claude 帮她准备难沟通的谈话、复盘怎么当更好的管理者——AI 不只能提高 IQ，也能提高 EQ。</span></li>
+          </ul>
+
+          <blockquote>当"构建"本身越来越容易，真正难的部分就变成了：我们<b>应该</b>构建什么？已经构建的东西是否正确、优秀，是否值得继续投入？——这恰恰是产品经理擅长的事，所以产品经理不会消失，PRD 也没有死，只是把一部分工作让位给了评测。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>Golden Gate Claude</b>：早期一个只上线 24 小时的实验——把模型里"金门大桥"那个特征调到最大，它回答啥都能绕回金门大桥。这让公司意识到"我们能用自己的方式做出独特产品"，是找到身份的转折点。</li>
+              <li><b>Labs 怎么运作</b>：专找"放大 10 倍 / 100 倍会怎样"的不连续大押注（Claude Code、Skills、MCP 都出自这里）；团队小、自下而上、允许失败，专选那些"真爱从 0 到 1"的人。</li>
+              <li><b>给孩子、也给成年人的建议</b>：好奇心、坚持、形成并相信"自己内心的声音"——先有自己的观点，再拿 AI 当陪练去挑战它，别让 AI 替你思考（这也是防"大脑退化"的办法）。</li>
+              <li><b>隐藏变量是组织协作</b>：今年一个季度发的模型比去年一整年还多，靠的是"低自我、以团队为导向"的文化——发布前一晚，不是核心负责人的人也会留下来帮忙改文案、做 Demo。</li>
+              <li><b>可验证性 &gt; 谁写的</b>：与其纠结"内容是不是 AI 写的"，不如关注"谁验证、谁最终签字确认"——这才会越来越重要。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v26-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>从零搭一个"懂你"的个人 Harness：三个 Skill 帮你创建、体检、可视化</h3></div>
+      <div class="meta"><span class="tag">干货·工具</span><span class="sep">·</span>空格的键盘<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/1aT2ueDwoH8SoekxTZ_V2A">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>前两期讲了 Harness（模型之外、让模型能干活的整套结构）火了，但官方给的只是<b>内核</b>——"模型能读你哪些文件、用哪些工具"这部分得你自己搭，任何开源项目都替不了。这里具体指<b>你给 AI 准备的那个本地文件夹</b>：放你的工作资料、Skill、记忆、规则，相当于给 AI 塞了个"定制的大脑和双手"。作者做了三个开源 Skill 帮你从零搭一套"懂你的"个人 Harness——<b>star</b>（从零创建目录骨架）、<b>better</b>（给现有配置做"体检"出报告）、<b>view</b>（把文件夹和 Skill 变成可视化工作台）。一句话价值：不管以后换哪个 Agent（Claude Code / Codex / DSH），有一套自己的 Harness，工作就能无缝衔接。</div>
+
+        <div class="detail">
+          <h4 class="blk">三个 Skill 分别干什么</h4>
+          <ul class="points">
+            <li><b>star：从零搭目录骨架。</b><span class="eg">刚装完 Agent，第一件事是选一个"项目文件夹"给 AI 读写，但电脑文件通常很乱、不知道选哪、怎么组织。这个 Skill 先问你四个问题（你干什么的、想让 AI 帮你做什么、资料散在哪、想放哪），再按你的职业生成一套目录骨架（入口文件、"关于我"的上下文层、记忆层+索引、规则层、工具层，还有 gitignore 和钩子），每个目录都标着属于 Harness 哪一层。删文件这类破坏性动作一律先出方案、等你确认。</span></li>
+            <li><b>better：给你的 Harness 做"体检"。</b><span class="eg">已经有一套文件夹了，用它按五方面扫描（安全隐私、上下文质量、工具装备、记忆、学习），生成一份 HTML 报告双击就看。最有价值的一层是"上下文质量"——<b>模型读你本地文件到底要烧多少 token</b>（作者的目录首次加载要 12878 token：Agent 从零理解这个项目、光读入口和各层说明就吃掉这么多）；还查信噪比、目录太深、超大文件、索引死链。报告只报路径和变量名，任何密钥的值都不出现；最后给几条按严重度排序、可一键复制的修复口令，粘给 Claude Code / Codex 就能改，还自带一句"先给我看、不要直接改"的护栏。</span></li>
+            <li><b>view：把文件夹变成个人工作台。</b><span class="eg">前两个回答"哪里有问题"，这个回答"该怎么用"。它起一个本地服务，把你的文件和 Skill 变成一面"卡片墙"：统计文件数量、按文档/代码/数据/图片分类，markdown 能直接预览修改；还有个 Skill 页列出所有 Skill、统计各自被调用了多少次——没用的直接删掉（正好呼应 VOL.25 讲的"工具堆太多反而变差"）。</span></li>
+          </ul>
+
+          <blockquote>DeepSeek Harness 再强，它给的只是内核。模型能调用哪些文件、工具，那部分任何开源项目都给不了你，得自己动手搭。有了一套属于自己的 Harness，不管换什么 Agent，工作都能无缝衔接。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 上手信息</div>
+            <ul>
+              <li><b>安装</b>：三个 Skill 打包在 GitHub 仓库 <code>SpaceZephyr/build-your-harness</code>，装完发一句"帮我搭一个 XX 职位的 harness"即可开始。</li>
+              <li><b>目录分层</b>：入口（CLAUDE.md）→ about-me 上下文层 → 记忆层+索引 → 协议/规则层 → 工具层，每层各司其职，也方便 Agent 按需只读该读的那层。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>别当 AI 的消费者，当它的建造者</h3>
+      <ul class="points">
+        <li>两篇一个讲大厂、一个讲个人，底下是同一句话：当"造东西"越来越容易，价值就从"会不会用"移到"你为它准备了什么、你怎么判断它做得好不好"。Anthropic 的 Dianne 把它落成"<b>评测就是新的 PRD</b>"——把模糊的"感觉不好"拆成能打分的测试题，才驱动得动改进；那位开发者把它落成个人版——<b>自己搭一套懂你的 Harness，还用一个 Skill 给它做"体检评测"</b>（烧多少 token、有没有死链、哪个 Skill 没人用）。合起来，也把这个月几期串了起来（VOL.21 知识质量、VOL.22 什么值得做、VOL.24 不止聊天框）：<b>最不该做的是"打开聊天框问一句就走"的消费者；真正拉开差距的，是愿意亲自动手、为 AI 搭好环境、并用可衡量的方式逼它变好的人。</b></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.25 ==================== -->
-  <section class="issue active" id="v25">
+  <section class="issue" id="v25">
     <div class="issue-head">
       <div class="issue-vol">VOL.25 / 2026·08·21</div>
       <h2 class="issue-theme">灵魂与外壳</h2>
