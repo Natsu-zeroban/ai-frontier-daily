@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v26" data-vol="vol.26"><span class="vv">VOL.26 <span class="new">最新</span></span><span class="dd">2026·08·24 · 当建造者</span></button>
+    <button class="tab active" data-issue="v27" data-vol="vol.27"><span class="vv">VOL.27 <span class="new">最新</span></span><span class="dd">2026·08·25 · 持续运行</span></button>
+    <button class="tab" data-issue="v26" data-vol="vol.26"><span class="vv">VOL.26</span><span class="dd">2026·08·24 · 当建造者</span></button>
     <button class="tab" data-issue="v25" data-vol="vol.25"><span class="vv">VOL.25</span><span class="dd">2026·08·21 · 灵魂与外壳</span></button>
     <button class="tab" data-issue="v24" data-vol="vol.24"><span class="vv">VOL.24</span><span class="dd">2026·08·20 · 不止聊天框</span></button>
     <button class="tab" data-issue="v23" data-vol="vol.23"><span class="vv">VOL.23</span><span class="dd">2026·08·19 · 先走一遍场</span></button>
@@ -293,8 +294,88 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.27 ==================== -->
+  <section class="issue active" id="v27">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.27 / 2026·08·25</div>
+      <h2 class="issue-theme">持续运行</h2>
+      <p class="issue-lead">两篇一个讲战略、一个讲技术，指向同一个转变：AI 正从"你问它答"的工具，变成"始终在运行、有记忆、你的动作有后果"的存在。OpenAI 总裁 Brockman 把底牌全交了——终极产品是一个"持续运行的实体"，而算力永远不够，正因为这种智能体烧的算力是普通对话的好几个量级；PixVerse 的世界模型 R2 则是这种"持续运行"的另一副样子：一个能实时交互、还记得你拿走过哪把钥匙的世界。</p>
+      <div class="issue-toc">
+        <a href="#v27-1"><span class="ix">01</span><span>OpenAI 总裁把底牌全交了：算力永远不够，所以"全买光"</span><span class="cat">干货·观点</span></a>
+        <a href="#v27-2"><span class="ix">02</span><span>PixVerse R2：视频不只是"生成播放看完"，变成能进入、有记忆、有后果的世界</span><span class="cat">干货·技术</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v27-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>OpenAI 总裁把底牌全交了：算力永远不够，所以"全买光"</h3></div>
+      <div class="meta"><span class="tag op">干货·观点</span><span class="sep">·</span>AI 寒武纪（Greg Brockman 访谈整理）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/oESboQJO-HbZg9kfKiwLdQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>OpenAI 总裁 Greg Brockman 一场 45 分钟访谈，反复被拉回一个词：<b>算力</b>。他的核心判断只有一句——<b>这个世界在很长时间内都不会有足够的算力</b>，所有战略都从这里长出来。最该记住的一组数字：现在真正在用 AI 智能体（会规划、调工具、执行任务的那种）的人只有一两千万，而 ChatGPT 用户是十亿，中间隔着一道巨大的峡谷。智能体烧的算力比"问一句答一句"高好几个量级，一旦这个能力推给十亿人，需求会爆炸——所以今天的算力紧张不是临时缺货，是会持续很多年的<b>结构性错配</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">从"算力永远不够"长出来的几个判断</h4>
+          <ul class="points">
+            <li><b>连上一代芯片都在涨价——"折旧曲线反转"。</b><span class="eg">H100（英伟达上一代 GPU）按理新芯片一出就该贬值，可它现在反而在涨。原因：新芯片根本买不到，只能抢旧的，旧的也被哄抢。当一块 GPU 从"贬值资产"变成"升值资产"，信号就是供给紧到连淘汰品都不够用。</span></li>
+            <li><b>"买多少算力？全买光。"</b><span class="eg">有人问他 OpenAI 该买多少算力，他答"全买光"；对方以为开玩笑追问，他还是"全买光"。逻辑：算力从下单到交付要等好几年，今天下的单两三年后才到货；这种情况下，买多了的风险远小于买少了。OpenAI 为此自研芯片、做全产业链垂直整合——供应链本身就是护城河。</span></li>
+            <li><b>一边降价、一边多赚，靠的是"台阶结构"。</b><span class="eg">同等水平的智能，价格确实在持续下降；但"前沿智能"（当下最顶尖那一档）永远最贵。这就是杰文斯悖论：越便宜、用的人和场景越多，总消耗反而涨。今年的顶尖模型明年变成便宜的普通品，但明年又冒出新的顶尖天花板——利润沿着台阶往上迁移，而不是消失。</span></li>
+            <li><b>终极形态不是"超级应用"，是"几乎没有界面"。</b><span class="eg">他不接受"超级应用""操作系统"这些说法（是上个时代的词）。他描述的终极状态：你几乎不需要任何界面，只把目标告诉一个<b>持续运行的实体</b>，它帮你搞定——早上醒来收件箱已整理好，健康问题随时问、它对你了如指掌。现在是人把自己扭曲成文件夹和表格去适应电脑，AI 要把这关系反过来。</span></li>
+            <li><b>信任只能慢慢赚，靠"渐进式授权"。</b><span class="eg">Codex 在 OpenAI 内部的渗透率已接近 Slack（而这家公司几乎全靠 Slack 运转）。例子：活动策划同事让 Codex 连上 Gmail 和日历，自动统计与会者饮食偏好、生成座位表。但能力上来后新问题是信任——先让智能体起草邮件、你确认才发，信任了再让它直接发。（他提 2023 年做插件失败过：当时模型上下文才两三千 token、连三个工具都记不住；现在能处理几百个工具，才真做得成。）</span></li>
+          </ul>
+
+          <blockquote>"现在人类一直在把自己扭曲成文件夹和表格去适应计算机，而 AI 正在把这个关系反过来，让机器去适应人。"——所以真正的产品不是某个界面，而是能力本身。整家公司的赌注押在一件事上：需求会来，而且比所有人想象的都大。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>每周约 2.3 亿人用 ChatGPT 问健康问题</b>（他自己都震惊），他认为医疗是 AI 能带来最大改变的领域之一。两个案例：GitLab 联创把诊断数据喂给 ChatGPT 对抗癌症、澳洲有只狗靠 AlphaFold + mRNA 方案让肿瘤缩小——他判断这些会从个案变常态（他妻子有几种健康状况，"没有 ChatGPT 有些问题我不知道怎么应对"）。</li>
+              <li><b>可追踪的信号</b>：H100 哪天开始正常贬值，说明供给紧张开始松动；医疗案例从个案变常规，是另一个观察窗口。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v27-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>PixVerse R2：视频不只是"生成播放看完"，变成能进入、有记忆、有后果的世界</h3></div>
+      <div class="meta"><span class="tag">干货·技术</span><span class="sep">·</span>卡尔的 AI 沃茨（卡尔 &amp; yc星辰）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/97w6iJD1Xeyk-0LRmsHyQg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>AI 视频有两条路。一条是大家熟的"输入提示语、生成一段固定视频"；另一条是<b>世界模型</b>——生成的画面能一直运行，你随时能说话、能操作，模型实时理解你的输入，让场景、角色、故事跟着变，视频变成一个"能当场进入、不断影响"的世界。PixVerse R2 是这条路的新突破，关键不只是"响应你"，而是<b>记住改变带来的后果</b>：你从桌上拿走钥匙，后面那扇门就得用钥匙才能开；你惹恼一个角色，下次见面他记得你俩闹过。三种玩法：<b>World</b>（WASD 键探索的开放世界）、<b>Story</b>（能做选择、触发 QTE 的互动影游）、<b>Character</b>（能听你说话、被你打断的实时数字人）。</div>
+
+        <div class="detail">
+          <h4 class="blk">它和普通 AI 视频到底差在哪</h4>
+          <ul class="points">
+            <li><b>改变有"后果"，而且会被记住。</b><span class="eg">普通 AI 视频生成完就固定了；世界模型里你的每个动作会持续影响后面——拿走钥匙、惹恼角色、完成任务，世界都得记得并合理延续，不能镜头一切就全刷新。所以评价它不再只看清晰度/时长/运镜，而要看：回应够不够快、刚发生的事记不记得、跑几十分钟后角色和场景还在不在原来的世界里。</span></li>
+            <li><b>三种产品形态。</b><span class="eg">World：WASD 走位 + 方向键控镜头，还能用语音/文字改场景角色风格，地图大、跑得久，你一路做的改变会保留、长出专属自己的世界。Story：像互动影游，做选择、对角色说话、关键时刻触发 QTE（快速反应小游戏），分支有差异但故事仍能合理往下走——以后创作者除了安排镜头台词，还得设计"世界规则"和"每个选择的后果"。Character：偏数字人，语音口型表情动作同步跟上，人设、记忆、关系要在多次交流里保持连贯（带货直播、博物馆文物拟人科普、虚拟陪伴都能用）。作者判断：实时数字人会最先让普通人感受到变化——回应慢三秒、口型对不上、忘了聊过啥，"伪人感"立刻冒出来。</span></li>
+            <li><b>它怎么做到"边生成、边听指挥、还记得住"（技术报告已翻成人话）。</b><span class="eg">① 防"越跑越歪"：模型长时间读自己生成的历史，前面偏一点会一路放大（像传话游戏，五百人传下来面目全非）。R2 训练时故意喂两种历史——干净的（知道啥是对的）和加了噪声带错误的（提前适应运行时的小错），像教练故意让新手在雨天急刹里练车。② 有限记忆窗口：只读最近发生的、不偷看未来（像写连载到第 200 章，不会回头重读前 200 章，只记最近几章 + 主线设定）。③ 三层记忆（几乎照抄人脑）：最长期记角色/场景/世界规则（像你知道自己叫啥、地球有重力）、中期记最近的动作和镜头、选择性记住会影响后续的关键物体（像出门记得炉子上还烧着水）。④ Error Bank：把典型的"已经跑偏"的历史收集起来放回训练，让模型练"从偏掉的状态里怎么继续生成合理的下一步"。</span></li>
+          </ul>
+
+          <blockquote>以后有些 AI 视频产品可能不再把"导出"放在最重要的位置——你直接退出、系统保存进度，第二天回来，角色还记得你烧掉了那座桥；朋友晚一点进同一个世界，会发现河对岸已经换了条路。故事不再按某一份完整剧本播放，而是在你们的行动里一点点长出来。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 更多细节（想深挖可点原文）</div>
+            <ul>
+              <li><b>R1 → R2 的演进</b>：R1（1 月）首个把固定视频改成连续可交互流，4 月加了个性化 Avatar 和 Shared Worlds（多人向同一条公共流输入）；R2 再进一步——能影响后续的场景/故事/角色/关系，且在同一套模型上迭代加玩法，不用每种玩法重做一套。</li>
+              <li><b>两层训练（厨师比喻）</b>：底层学"世界怎样持续往前运行"，上层只把它加速到实时；不像传统流程能力来回搬家（法餐→中餐→快餐，每换一次掉点手感），而是先在一个厨房把菜全学透，再单独训出菜速度。切分上用 Dynamic Chunk：短操作短片段（按 W 立刻走）、完整事件给更长生成时间。</li>
+              <li><b>清醒的边界</b>：严格实时预算下，R2 单次生成质量低于前沿的"离线"视频模型，复杂细节、运动自然度、长时间稳定还要提高——谈"成熟的无限世界"还太早。但它给 AI 视频加了一种新能力：影响是持续存在的。Shared Worlds 再往前甚至是新的社交空间（"刀剑神域"那味儿：几个人共同生活在一条持续生成的世界里，一个人的决定成为别人下次进入时的现实）。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>下一代 AI 不是一问一答，是"持续运行"</h3>
+      <ul class="points">
+        <li>两篇一个讲战略、一个讲技术，却指向同一个形态转变。Brockman 说 OpenAI 的终极产品不是聊天框、是一个"<b>持续运行的实体</b>"——你给它目标，它一直在后台帮你办；而他判断算力永远不够，正因为这种"持续运行的智能体"烧的算力是"问一句答一句"的好几个量级。PixVerse R2 恰好是这种"持续运行"的另一个具体样子：一个一边生成、一边听你指挥、还记得你干过什么的世界。合起来看：<b>AI 正从"你问它答的工具"，变成"始终在运行、有记忆、你的动作有后果的存在"</b>——这既是最诱人的产品形态（它懂你、它长出专属你的世界），也是算力需求爆炸的根源（持续运行 = 持续烧算力）。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.26 ==================== -->
-  <section class="issue active" id="v26">
+  <section class="issue" id="v26">
     <div class="issue-head">
       <div class="issue-vol">VOL.26 / 2026·08·24</div>
       <h2 class="issue-theme">当建造者</h2>
