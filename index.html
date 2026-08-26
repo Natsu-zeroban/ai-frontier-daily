@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v27" data-vol="vol.27"><span class="vv">VOL.27 <span class="new">最新</span></span><span class="dd">2026·08·25 · 持续运行</span></button>
+    <button class="tab active" data-issue="v28" data-vol="vol.28"><span class="vv">VOL.28 <span class="new">最新</span></span><span class="dd">2026·08·26 · 做出来只是开始</span></button>
+    <button class="tab" data-issue="v27" data-vol="vol.27"><span class="vv">VOL.27</span><span class="dd">2026·08·25 · 持续运行</span></button>
     <button class="tab" data-issue="v26" data-vol="vol.26"><span class="vv">VOL.26</span><span class="dd">2026·08·24 · 当建造者</span></button>
     <button class="tab" data-issue="v25" data-vol="vol.25"><span class="vv">VOL.25</span><span class="dd">2026·08·21 · 灵魂与外壳</span></button>
     <button class="tab" data-issue="v24" data-vol="vol.24"><span class="vv">VOL.24</span><span class="dd">2026·08·20 · 不止聊天框</span></button>
@@ -295,7 +296,119 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.27 ==================== -->
-  <section class="issue active" id="v27">
+  <section class="issue active" id="v28">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.28 / 2026·08·26</div>
+      <h2 class="issue-theme">做出来只是开始</h2>
+      <p class="issue-lead">三篇尺度不同，讲的是同一件事：AI 把"做出一个功能/产品"的成本压到几乎为零，于是胜负手全挪到了两头——动手前的判断（要不要做、走哪条路、需求真不真）和做出来之后的活儿（测试、维护，还有你自己到底还用不用）。一篇是 AI 视频赛道的全景扫描，一篇是个人开发流程的真实复盘，一篇是爆红开源项目的翻车教训。</p>
+      <div class="issue-toc">
+        <a href="#v28-1"><span class="ix">01</span><span>扒了 GitHub 上 55 个「AI 自动做视频」项目：竞争在流水线，不在模型</span><span class="cat">干货·观点</span></a>
+        <a href="#v28-2"><span class="ix">02</span><span>AI 原生开发一次真实复盘：流程没变，你从"写代码的人"变成"指挥官"</span><span class="cat">干货·方法</span></a>
+        <a href="#v28-3"><span class="ix">03</span><span>OpenClaw 作者复盘爆红：增长会偷走判断，"好玩就是速度"</span><span class="cat">干货·观点</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v28-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>扒了 GitHub 上 55 个「AI 自动做视频」项目：竞争在流水线，不在模型</h3></div>
+      <div class="meta"><span class="tag op">干货·观点</span><span class="sep">·</span>X @servasyy_ai（huangserva）<span class="sep">·</span><a href="https://x.com/servasyy_ai/status/2092059961656537546">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>一位开发者把 GitHub 上 <b>55 个"让 AI 当导演、自动出片"</b>的项目（口径是"剧本→分镜→调模型→合成"、且近一个月还在更新）全翻了一遍，得出一个判断：这条赛道真正的战场<b>早就不在"画布"或"剪辑器"</b>这种工具本身，而在<b>那条把片子做出来的完整流水线</b>；下一轮拼的大概率也不是谁模型强，而是<b>谁能把这条流水线打包成 AI 编程助手（Claude Code / Codex 这类）随手能调的"技能包"</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">把 55 个仓库放一起看，几个信号</h4>
+          <ul class="points">
+            <li><b>"技能包化"是最活跃的方向</b>：55 个里有 28 个不是独立 App，而是"装进 AI 编程助手里的技能包"——装上后它就照着流程做视频。<span class="eg">比如 video-shotcraft（6.2k⭐，带 152 张镜头卡 + 209 个动效样片）。"技能包/skill"= 给 AI 预置好的一套现成本事，不用你现教。</span></li>
+            <li><b>短剧是最卷的场景</b>：27 个平台型项目里过半在做短剧/漫剧，"一句话→成片"是标配。<span class="eg">如 MoneyPrinterTurbo（115.6k⭐，关键词→短视频）、huobao-drama（14.1k⭐，一句话→成片）。</span></li>
+            <li><b>大家在卷"编排"，不卷模型</b>：几乎没人去卷模型本身，全在卷"剧本→分镜→生成→合成"这条流程怎么串顺（作者叫"产线 &gt; 模型"）。<span class="eg">而且大厂和学界都下场了：阿里 lumenx、小红书 FireRed-OpenStoryline、港大 ViMax。</span></li>
+            <li><b>窗口是真实存在的</b>：一批高星项目最近一个月没跟上更新。<span class="eg">如 browser-use/video-use（21.3k⭐，7 月初停更）——它们停了，需求没消失，位置就空出来了。</span></li>
+          </ul>
+
+          <blockquote>三个总判断：技能包化是最大增量（28/55 都是给 AI 装的技能包，不是独立 App）、短剧最卷、"产线比模型"更是胜负手。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li>完整 55 个清单按"视频技能包 28 / 一站式平台 27 / 分镜画布 3"三类 + 配套底座列出、每个都带链接（配套底座里有 HeyGen 开源的视频合成引擎 hyperframes，42.4k⭐）。</li>
+              <li>这品类在 X 上流量很高，佐证它正处流量热区：video-shotcraft 17.7 万浏览、HyperFrames 开源 15.8 万、video-use 11.5 万。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v28-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>AI 原生开发一次真实复盘：流程没变，你从"写代码的人"变成"指挥官"</h3></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>宝玉AI<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/N2yhtHz6VpUjcXL7VuuCkQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>很多人以为"用 AI 开发 = 让 AI 帮我写代码"。但作者的看法是：<b>写代码恰恰是现在整个流程里最不用操心的一环</b>（模型编码已经很强，一句大白话就够）。他用给自己的字幕转录 App 加一个"远程转录"功能的真实过程复盘，结论是——<b>流程一步没少（可行性→设计→原型→编码→测试），变的是执行主体</b>：以前每步人亲手干，现在<b>人当"指挥官"、只在关键节点确认拍板，分析/设计/写码/调试全交给 AI 智能体（Agent）去干</b>。就像从一线程序员升成技术总监：不写每行代码，但决定做不做、怎么做、做得对不对。</div>
+
+        <div class="detail">
+          <h4 class="blk">三个本质变化</h4>
+          <ul class="points">
+            <li><b>代码不再是瓶颈，瓶颈搬到了代码的两侧</b>：左边"设计 + 确认"、右边"测试 + 验证 + 部署"——这两头还在按人的速度跑，才是现在该优化的地方。<span class="eg">他让 Claude Code 按设计文档自己规划里程碑、自己写、自己跑测试、自己截图验证，人主要就是"等、偶尔看一眼进度"。</span></li>
+            <li><b>确认环节可以合并，但绝不能省</b>：以前需求/原型/UI 是三场评审会，现在能合成一个"高精度原型"（直接做接近成品的高保真、含交互+视觉，不是草图线框）一次性确认；但可行性、方案、原型、测试四道确认一道都不能跳。<span class="eg">他曾图省事跳过判断做了个功能，做完发现效果差、只能砍掉，白费好几天——"先决定要不要做，再去做"。</span></li>
+            <li><b>文档从"负担"变成"核心基础设施"</b>：一是给人审改的载体，二是 AI 换一轮对话（开新会话、上下文清空）时传递上下文的"记忆"。<span class="eg">开新会话不用重讲来龙去脉，一句"按 docs/xxx.md 实现"就行——决策细节文档里都写好了。</span></li>
+            <li><b>反直觉：大部分"开发类技能包"没必要装</b>。模型编码已经够强，普通自然语言指令就出高质量代码；真正该增强的是两侧——左边的原型/设计确认工具、右边的自动部署发布。<span class="eg">他全程就是"帮我分析可行性""按方案 A 写设计文档""按文档实现"这种大白话，没有复杂的提示词工程。</span></li>
+            <li><b>测试要"把自己当小白用户"</b>：凭直觉乱点，而不是像开发者那样下意识避开边界情况。<span class="eg">他甚至不逐行 Review 代码、只当用户从外部试（黑盒测试）——理由是 Agent 开发时已自测过，加上自己一轮用户视角，两层足够（但金融核心逻辑这类还是得逐行审）。</span></li>
+          </ul>
+
+          <blockquote>"开发流程还是老样子，但人的角色变了：你从写代码的人，变成管理 Agent 的人；产出不再是代码，而是一个个判断和决策。"</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li>需求来自一个 GitHub Issue：用户有两台电脑，想在办公机上用 App、把吃算力的转录任务丢给高性能机去跑。</li>
+              <li>原型阶段他反复挪入口（从设置页挪到主界面）才定稿——因为"原型阶段改是一句话的事，做成产品再改成本指数级上升"。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v28-3">
+      <div class="thread-top"><span class="thread-ix">03</span><h3>OpenClaw 作者复盘爆红：增长会偷走判断，"好玩就是速度"</h3></div>
+      <div class="meta"><span class="tag op">干货·观点</span><span class="sep">·</span>晚点再听LaterCast（转 YC，Peter Steinberger 演讲）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/XJYBIOJ7uBzbdLLX0csIQg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>OpenClaw 作者 Peter（外号"ClawFather"）在 YC 复盘一个<b>爆红却差点把自己拖垮</b>的开源项目：2025 年底一个雨天，他随手让模型做了个"用手机连电脑上编程助手"的小工具，8 个月里吸引 <b>1.8 万人贡献、周下载最高 470 万</b>。但他讲的是另一面——项目最热闹时，他被安全报告、兼容性、社区需求拖住，<b>甚至不再用自己做的产品</b>。核心教训一句话：<b>增长会悄悄夺走你的判断力</b>；而"好玩就是速度"——创始人自己高频用、乐在其中的那几周，产品才会真的变好。</div>
+
+        <div class="detail">
+          <h4 class="blk">成功怎样把一个清晰的产品推向失焦</h4>
+          <ul class="points">
+            <li><b>"做出功能只差一个提示词，真正的成本发生在发布之后。"</b><span class="eg">AI 让加功能变得极便宜，却不替你扛测试、升级、文档、长期兼容。8 个月里 11.1 万条反馈与代码提交、近 3000 人的代码被合入，他几乎被注意力压垮，一度想删库。</span></li>
+            <li><b>判断需求看用户"有没有情绪"，不是"听起来不错"</b>。<span class="eg">他把工具拉进朋友群，非技术朋友听说"还不能用"当场就急了、追问为什么不能马上拥有——"用户已经在想象失去它有多难受"，这才接近真需求。找前 10 个用户的顺序：第 1 个必须是你自己，第 2–20 个从朋友来。</span></li>
+            <li><b>"依赖方的商业模式，就是你的商业模式。"</b><span class="eg">OpenClaw 早期重度绑 Anthropic 的 Opus 模型，对方只提前约 24 小时通知就关掉了相关订阅用法，用户随之流失。关键体验押在别人平台的价格/政策上，对方一调整就直接改写你的产品。</span></li>
+            <li><b>成功也会留债：约 9500 个配置项</b>，任何测试都覆盖不全；对手却能"一句话讲清价值 + 一键迁移"。<span class="eg">他后来先写一份 VISION.md（讲清项目要解决什么、往哪走），拿它挡外部贡献——逼自己把"喜欢这个点子"和"愿意长期负责"分开。</span></li>
+            <li><b>最危险的信号：创始人不再用自己的产品</b>。<span class="eg">他为服务所有人去修边角、加配置，却不再做那个自己每天想打开的东西。回看提交记录——他享受工作那几周产品明显变好，疲惫时仓库里往往只多了配置项。</span></li>
+          </ul>
+
+          <blockquote>"你做出来的一切都能被分叉或复制，但你的名字不能。"——技术路线和整个仓库都能被别人搬走，长期公开积累的个人信用和判断却无法一键克隆。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li>下载曲线把"热度≠采用"画得很清楚：3 月约 270 万峰值 → 5 月跌到 83.5 万 → 6 月被外界宣布"已死"后反冲 470 万新高。他说这两个数都是真的，"热度像天气，长期采用更像气候"。</li>
+              <li>如今成立了基金会（10 名领薪成员），他重新"用 OpenClaw 开发 OpenClaw"，把会话放共享服务器、让各 Agent 看见彼此在做什么。原视频：YC《Fun Is Velocity》。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>会做只是起点，胜负在"做之前的判断"和"做之后的经营"</h3>
+      <ul class="points">
+        <li><b>做之前</b>：需求真不真、要不要做、走哪条路——宝玉的可行性/方案确认、Peter 的"看用户有没有情绪"，都是这道 AI 替不了的判断。</li>
+        <li><b>做之后</b>：测试、维护、兼容，还有"你自己到底还用不用"——Peter 9500 个配置项的债、宝玉把自己当小白用户去折腾，都在这一头，这才是真正烧人的地方。</li>
+        <li>而"把整条流程打包成谁都能调的技能包"（55 个视频项目的共识），恰恰是想把"做"这件事的成本再压到最低——于是所有人被迫回到两头，拼判断、拼经营。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="issue" id="v27">
     <div class="issue-head">
       <div class="issue-vol">VOL.27 / 2026·08·25</div>
       <h2 class="issue-theme">持续运行</h2>
