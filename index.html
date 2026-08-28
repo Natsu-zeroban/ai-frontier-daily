@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v28" data-vol="vol.28"><span class="vv">VOL.28 <span class="new">最新</span></span><span class="dd">2026·08·26 · 做出来只是开始</span></button>
+    <button class="tab active" data-issue="v29" data-vol="vol.29"><span class="vv">VOL.29 <span class="new">最新</span></span><span class="dd">2026·08·27 · 装上流水线</span></button>
+    <button class="tab" data-issue="v28" data-vol="vol.28"><span class="vv">VOL.28</span><span class="dd">2026·08·26 · 做出来只是开始</span></button>
     <button class="tab" data-issue="v27" data-vol="vol.27"><span class="vv">VOL.27</span><span class="dd">2026·08·25 · 持续运行</span></button>
     <button class="tab" data-issue="v26" data-vol="vol.26"><span class="vv">VOL.26</span><span class="dd">2026·08·24 · 当建造者</span></button>
     <button class="tab" data-issue="v25" data-vol="vol.25"><span class="vv">VOL.25</span><span class="dd">2026·08·21 · 灵魂与外壳</span></button>
@@ -295,8 +296,91 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
-  <!-- ==================== VOL.27 ==================== -->
-  <section class="issue active" id="v28">
+  <!-- ==================== VOL.29 ==================== -->
+  <section class="issue active" id="v29">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.29 / 2026·08·27</div>
+      <h2 class="issue-theme">装上流水线</h2>
+      <p class="issue-lead">两篇都在回答同一个问题：当 AI 能大量生成（代码、方案、内容），怎么把它套进一个有评测、能留痕、可回滚、还能自我改进的工程闭环——这才是真正的护城河，而不是"能不能生成"。一篇是 Anthropic 官方的 AI 原生开发手册：把软件从想法到上线的六个阶段，重排成一条 AI 驱动的流水线；一篇把 Agent"越用越聪明"拆成评测→记忆→落地→控制的四齿飞轮。</p>
+      <div class="issue-toc">
+        <a href="#v29-1"><span class="ix">01</span><span>Anthropic 官方 AI 原生开发手册：代码不再是瓶颈，该重造的是整条开发流程</span><span class="cat">干货·方法</span></a>
+        <a href="#v29-2"><span class="ix">02</span><span>一篇讲透 Agent 自进化飞轮：评测→记忆→落地→控制，让它越用越聪明</span><span class="cat">干货·方法</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v29-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Anthropic 官方 AI 原生开发手册：代码不再是瓶颈，该重造的是整条开发流程</h3></div>
+      <div class="meta"><span class="tag op">干货·方法</span><span class="sep">·</span>赛博禅心（编译自 Anthropic 官方《The AI-Native SDLC Playbook》）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/3Mh8CNQewKmU2I8nePnxrA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Anthropic 官方发的"AI 原生软件开发手册"，一句话前提：<b>代码不再是瓶颈</b>——AI 写代码快到一年前想不到，但代码周围的流程（审批、评审、交接、合规）还在用人的速度跑，把效率活活卡住。传统流程（产品经理写需求→架构师设计→工程师写码→测试→发布→运维）是为"写代码最耗时"设计的，这前提垮了。所以要把整条流程重排成"AI 原生"：从直线变成循环、AI 嵌进每个节点，瓶颈从"构建"转移到了它的<b>左右两侧</b>（左边规划、右边测试/审查/部署）。最关键的机制是<b>"提交的产物"</b>——每个阶段结束时往版本库写一个文件，下一阶段从读它开始，这条 commit 链本身就是审计链。</div>
+
+        <div class="detail">
+          <h4 class="blk">这套流程到底怎么转</h4>
+          <ul class="points">
+            <li><b>每个阶段产出一个"提交物"，自动触发下一步。</b><span class="eg">一句话想法 → 和 Claude 头脑风暴写成 <code>intent.md</code>（意图）→ 产品负责人批准 → Claude 据此生成 <code>spec.md</code>（需求+设计）→ 工程师在 plan mode 下和 Claude 反复磨出 <code>plan.md</code>（改哪些文件、什么顺序、怎么测）→ 批准后 Claude 才动手写。一句点睛：设计审查发生在<b>任何代码生成之前</b>——改方向还只是改文档的事（plan mode 强制：你没批准计划，Claude 不能碰文件）。</span></li>
+            <li><b>机构知识变成"可执行文件"：CLAUDE.md + Skills + Hooks。</b><span class="eg"><code>CLAUDE.md</code> 是给 Claude 的"新人第一天须知"（代码规范、命令、架构、团队最常犯的错），规则：同一个错犯两次就把纠正写进去、控制在一页内。Skills 把"今天执行不一致的知识"写成可复用指令（如 API 安全规范），策略变了改一处、下次会话自动生效。Hooks 是确定性护栏——Skill 是"建议"（让违规变少见），Hook 是"强制"（让违规几乎不可能）：禁止改受保护文件、把密钥挡在提交之外、生产部署前必须人授权。</span></li>
+            <li><b>测试阶段：Eval 是新的"质检门"。</b><span class="eg">Eval 就是一个测试套件，在 Agent 配置变化（换模型、改 prompt）时跑，告诉你它还达不达标。做法：从近期真实工作收集 20~50 个任务+预期结果，每个写成一个 eval；而且<b>每次线上事故都变成一个 eval，当回归测试永久留在套件里</b>。PR 审查里 Claude 既当审查者也当被审者（按 <code>REVIEW.md</code> 的策略），但"写代码的 Agent 没有途径批准自己的代码"，最终批准来自人。</span></li>
+            <li><b>越往后越自主，但人始终守在"门禁"上。</b><span class="eg">部署阶段用 Hook 当审批门禁（生产部署必须人授权、带时间戳留痕）；运维阶段能闭环——一个确定性脚本盯生产指标，分级响应：1σ 只记日志、2σ 让 Claude 只读诊断、3σ Claude 可以行动（但只能开 PR 走审查门禁、或触发预先批准的回滚）。异常自动写成 <code>intent.md</code> 重新进入流水线，循环自己喂自己。</span></li>
+          </ul>
+
+          <blockquote>人对每一个需要判断力的决策负责——人的注意力，随着"需要审查的产物"一起转移：从"看着 Agent 敲每一行"，变成"审查它跑完一段自主会话后交出的产物"。当代码不再是瓶颈，约束就搬到了构建两侧那些还在以人速运行的环节。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还讲了这些（做类似改造可细读原文）</div>
+            <ul>
+              <li><b>修 bug 先写"会失败的测试"</b>：让 Claude 把 bug 复现成一个测试、确认它因预期原因失败、提交它，然后才让 Claude 在"不许改测试"的前提下修——一个修复前就存在、Agent 不能改写的测试，就是 bug 已消除的铁证（还用 hook 禁止修 bug 期间碰测试文件，防它偷偷削弱检查）。</li>
+              <li><b>并行会话 + 子 Agent</b>：一个工程师同时开几个 Claude 实例、各在自己的 git worktree 里干独立任务（两三个是合理起点）；重复的活（如"跑一遍验证改动 work"）写成子 Agent 定义文件。</li>
+              <li><b>Auto mode</b>：计划批准后 Claude 自动逐个改、不用每次确认；等护栏（CLAUDE.md、Skills、Hooks、测试套件）成熟后，auto-accept 成常态。</li>
+              <li>一个信号：App Store 销售额十年来首次下降——作者说"香草时代结束了"。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v29-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>一篇讲透 Agent 自进化飞轮：评测→记忆→落地→控制，让它越用越聪明</h3></div>
+      <div class="meta"><span class="tag op">干货·方法</span><span class="sep">·</span>腾讯技术工程（yannisyang、ethanytzhou）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/5VDN-T9K8Wr-DaQ15-I6CA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>你的 Agent 上线半年，可能还在犯三个月前的错——流量喂了一堆，一点经验没攒下。问题不在模型不够强，在于<b>没人给它搭一条从"做过"→"记住"→"变好"的路</b>。这篇把"让 Agent 越用越聪明"拆成一个四齿飞轮：<b>评测（信号）→ 记忆（积累）→ 落地（把经验变成改进）→ 控制（人把方向）</b>。三个核心立场：① 瓶颈不是某个技术点，是<b>环节之间的衔接</b>（评测结果得能流进记忆和改进、改完得能被评测验证、验证结果得能反哺下一轮，断一环飞轮就不转）；② <b>评测的可信度 &gt; 系统的复杂度</b>（评测打错分，越自动化越快开往悬崖）；③ 记忆的核心不是"存储"，是"治理"。（这里的"进化"特指改配套系统——记忆/Skill/Prompt，改完即时生效、错了能回滚，不动模型参数就能迭代次数减 70%、Token 降 80%。）</div>
+
+        <div class="detail">
+          <h4 class="blk">四个齿轮各自最要命的那件事</h4>
+          <ul class="points">
+            <li><b>评测不是"打个分"，是飞轮的信号源。</b><span class="eg">传统评测只管"上线前达标放行"；自进化里它多了两个新职责——指方向（往哪改）和筛经验（这次结果是"好经验该存"还是"坏经验该丢"）。最致命的坑是"弱评估器"：用 AI 给 AI 打分会有系统性偏见（偏爱长答案、有编号列表的、引用了数据哪怕数据是编的），于是 Agent 会"学会"把答案越写越长来骗分——<b>错误的正反馈比没有反馈更可怕</b>。</span></li>
+            <li><b>记忆做不好，比没有记忆更差。</b><span class="eg">很多团队给 Agent 加了长期记忆，结果召回一堆噪声、反而干扰它，最后默默关掉。存储是最简单的部分，难在治理：什么该存、什么该忘、怎么保证存的是对的、怎么精准召回。原则——Agent 不是录音机，是策展人：只在明确正信号（用户确认/评测通过/任务成功）时才写；失败也存但标成"反例/陷阱"；坏经验淘汰要远快于好经验强化（一条错记忆的伤害 &gt; 一条对记忆的收益）。</span></li>
+            <li><b>自动化 ≠ 全自动：改进要走一条"Agent 版 CI/CD"。</b><span class="eg">别幻想 Agent 自己发现问题、自己改、自己上线全程无人。正确做法：自动化覆盖"生成候选修复→独立评测→门控筛选"，关键决策人把关。修复用 Diff 模式（只改那几行，别全文重写、否则易覆盖上次人工精心调过的逻辑）；每个候选在隔离环境单独测；过五层门控（语法→回归→统计显著→和已知好方向一致→人工确认）后<b>先灰度 10%、跑 7 天</b>，出 P0 退化一键自动回滚。上线不是终点——灰度期新失败样本自动回流成下一轮种子，这条回流通路是飞轮持续转的关键。</span></li>
+            <li><b>人是教练和裁判，不是操作工；要防"对齐漂移"。</b><span class="eg">完全放手危险：每次小改动看着都合理，累积起来方向偏了（比如评测无意中奖励"详细"，几轮后 Agent 越来越啰嗦，每步分都在涨、整体却偏离了"简洁"）。技术门控只查"这次有没有引入回归"（局部），查不出"方向偏没偏"（全局）。对策：每月花半天做方向性审计（Skill 库在往哪长、输出风格变没变、还符不符合初衷）+ 设方向性指标（平均输出长度、工具调用次数不能持续涨）。五个节点永远要人：规则级记忆写入、改安全边界/拒答逻辑、回归时的回滚决策、新领域冷启动的第一批种子、权限边界的设定。</span></li>
+          </ul>
+
+          <blockquote>自进化不是一个功能，是一种系统设计范式——它的核心不是"让 Agent 自动变聪明"，而是搭一套闭环，让每一次执行都不白费、每一个教训都不白吃、每一次改进都经过验证。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还讲了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>三层进化，为什么改"配套系统"是主战场</b>：改输出（打草稿，任务完就忘）/ 改配套系统（记忆·Skill·Prompt，即时可控，主战场）/ 改模型参数（最根本但最贵最险，仍在研究）。</li>
+              <li><b>审核疲劳是最常见的失败模式</b>：什么都弹审核 → 人三天后不看直接通过 → 比没审核更危险（给了"有人审了"的虚假安全感）。解法：前四层门控自动过滤 95% 低质变体、批量异步审核（让人做批量选择题而非逐条填空）、表现好的场景渐进放权。</li>
+              <li><b>Dreaming（Anthropic 提的"做梦"式进化）</b>：一个异步进程在空闲时回看一批历史会话，找"单次看不出、合起来才是系统性短板"的模式（比如 100 次会话里 30 次都在"时间格式转换"栽小跟头），产出修订建议交给人。</li>
+              <li><b>落地先跑通最小闭环</b>：1~2 周先做"手动能转一圈"的闭环（人工占 80%），别一上来就搭全自动基础设施——"一个能手动转一圈的粗糙飞轮，好过一个精美但静止的蓝图"。最容易跑通的场景：评测信号来自真实业务指标（CTR、工单修复率），且闭环短、反馈快。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>AI 的护城河不是"能生成"，是"装进了闭环"</h3>
+      <ul class="points">
+        <li>两篇一个讲开发流程、一个讲 Agent 自进化，骨架却惊人地一致——都是把"AI 能大量生成"这件事，套进一个<b>有评测、留痕、可回滚、能反哺下一轮</b>的循环。Anthropic 手册用"每阶段提交一个产物（intent→spec→plan→PR）、下一阶段从读它开始"把开发流程闭环化；飞轮那篇用"评测→记忆→落地→控制、灰度回流喂下一轮"把 Agent 的成长闭环化。两边还都反复强调同两件事：<b>评测/测试是整个闭环的信号源</b>（信号不准，越自动越快犯错），以及<b>人退到"门禁/教练"的位置、只审需要判断的产物</b>。合起来也接上了这个月的主线（VOL.26 评测即 PRD、VOL.28 做出来只是开始）：<b>当"生成"变得廉价，真正的功夫全在生成的两侧——你怎么验证它、怎么留痕、怎么让这次的教训变成下次的起点。</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== VOL.28 ==================== -->
+  <section class="issue" id="v28">
     <div class="issue-head">
       <div class="issue-vol">VOL.28 / 2026·08·26</div>
       <h2 class="issue-theme">做出来只是开始</h2>
