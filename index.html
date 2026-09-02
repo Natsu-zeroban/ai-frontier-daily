@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v31" data-vol="vol.31"><span class="vv">VOL.31 <span class="new">最新</span></span><span class="dd">2026·08·31 · 难而正确</span></button>
+    <button class="tab active" data-issue="v32" data-vol="vol.32"><span class="vv">VOL.32 <span class="new">最新</span></span><span class="dd">2026·09·01 · 人多不顶用</span></button>
+    <button class="tab" data-issue="v31" data-vol="vol.31"><span class="vv">VOL.31</span><span class="dd">2026·08·31 · 难而正确</span></button>
     <button class="tab" data-issue="v30" data-vol="vol.30"><span class="vv">VOL.30</span><span class="dd">2026·08·28 · 长出手</span></button>
     <button class="tab" data-issue="v29" data-vol="vol.29"><span class="vv">VOL.29</span><span class="dd">2026·08·27 · 装上流水线</span></button>
     <button class="tab" data-issue="v28" data-vol="vol.28"><span class="vv">VOL.28</span><span class="dd">2026·08·26 · 做出来只是开始</span></button>
@@ -299,7 +300,52 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v31">
+  <section class="issue active" id="v32">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>AI 视频快到能开直播了（MiniMax）</b>｜开源视频模型 H3 的加速版 H3 Max 接入了开放平台，生成一段 5 秒、768p 的有声视频只要不到 3 秒——比播放还快，于是海外开发者拿它搭出了 24 小时"AI 电视台"和 Twitch 直播：观众在聊天室里打字，AI 几秒生成下一段画面接着播，直播可能从动画突然跳到真人访谈、再跳进荒诞广告，你的下一句话就能改剧情。看点是<b>视频生成第一次从"一次性出片的工具"变成了"能实时响应、边播边长的内容系统"</b>。 <a href="https://mp.weixin.qq.com/s/vCjwpMvDZgkHYd3d2A0Vew">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.32 / 2026·09·01</div>
+      <h2 class="issue-theme">人多不顶用</h2>
+      <p class="issue-lead">一个 AI 再强，也只是单打独斗。业界都在琢磨让"一群 AI 组队"干活，但一篇阿里工程师的万字长文戳破了一个反直觉的事实：多个 AI 凑一起，价值几乎全来自它们"怎么协作"，而不是"凑了几个"——有实验实测，不给协作机制，20 个 AI 组队和 1 个 AI 干得一样好。这期就把"怎么让一群 AI 真的像个团队"讲透。</p>
+      <div class="issue-toc">
+        <a href="#v32-1"><span class="ix">01</span><span>从一个 AI 到一群 AI 组队：多智能体协作，加人为什么不等于加价值</span><span class="cat">干货·观点</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v32-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>从一个 AI 到一群 AI 组队：多智能体协作，加人为什么不等于加价值</h3></div>
+      <div class="meta"><span class="tag op">干货·观点</span><span class="sep">·</span>千问 AI 平台（作者个人技术实践与思考）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/T_sYOS11KrOijp_aCEcgnQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>你现在用 AI，多半是"一个 AI 帮你干一件事"。业界都在琢磨让<b>一群 AI 组队</b>干活，可现在的通行做法是：一个"老大"把活切碎、扔给几个"小弟"各干各的，小弟之间互不说话、干完也不复盘。这篇阿里工程师的万字长文戳破一个反直觉的事实——<b>多个 AI 凑一起，价值几乎 100% 来自它们"怎么协作"，而不是"凑了几个"</b>：有论文实测，把协作机制拿掉，20 个 AI 组队和 1 个 AI 干得完全一样、甚至更差。然后他照着人类团队几千年攒下的管理经验（先讨论再动手、横向沟通、定目标、集体复盘），给出了让一群 AI 真正像个团队的一整套设计。</div>
+
+        <div class="detail">
+          <h4 class="blk">读这篇能带走的四件事</h4>
+          <ul class="points">
+            <li><b>AI 干活的内核，就是一个"想→做→看"的小循环。</b>学名叫 ReAct，简单到六百行代码就能实现。<span class="eg">比如你让 AI 查天气：它先想"该调天气接口"（想），真去调用（做），拿到返回的温度（看），再决定下一步。这个"看"——去看外部真实反馈、而不是自己脑补——是关键：它把 AI 的推理拴在事实上，所以比闷头空想少犯错、少胡编。</span></li>
+            <li><b>AI 不会"用着用着自己变强"。</b><span class="eg">人今天学会 Java，睡一觉大脑就改写了，明天照样会写；大模型跑完一个任务，参数一个字节都不变，下次开机还是出厂那个。它"记得"你上句话，只是你把聊天记录又塞回去重讲了一遍——不是记忆，是每次现讲一遍。所以 AI 只在你替它建了"外部记忆"（把经验存下来、下次再喂回去）的那一小块上变强，这也是知识库、外挂记忆这套东西绕不开的原因。</span></li>
+            <li><b>一群 AI 组队，加人 ≠ 加价值。</b><span class="eg">现在主流的多 AI 框架里，"老大"其实只是个调度器：切任务、发下去、收结果，小弟之间完全隔离。有个实验很扎心——把协作机制拿掉，20 个 AI 组成的团队和 1 个 AI 表现完全没区别，多出来的 19 个纯属烧钱。真正让团队产生价值的是"协作机制"本身，不是人头数。</span></li>
+            <li><b>作者从人类团队偷了两招最反直觉的。</b><span class="eg">① <b>"激发式"带队比"命令式"强</b>：同一个 AI，你说"你负责 X，别搞砸了"，它就保守应付、只交最低要求；换成"这块我看好你，放开试几种思路，拿不准咱们一起讨论"，同样的模型同样的活，产出的深度肉眼可见地变好。这不是玄学——大模型本来就是拿"鼓励、探索、开放"这类语气对应的好回答训出来的，你用什么语气，就激活它哪套行为。② <b>先讨论再动手</b>：别老大切完活小弟就埋头干，得让小弟先说一句"这个我做不到，因为……"，把执行层的坑提前暴露到规划阶段，免得干到一半发现方向错了、大规模返工。人类团队最贵的"开会沟通"，在 AI 这儿几秒就能异步跑完。</span></li>
+          </ul>
+
+          <blockquote>多个 AI 的价值 100% 来自协作机制本身，堆数量本身不产生任何价值。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>AI 自主程度分五级</b>：从"打字助手"(L1)、"给一步做一步"(L2)、"给个意图自己干完"(L3)，到"一群 AI 有内部协调地协作"(L4)、"自己发现问题、自己组队、自己进化"(L5)。作者判断现在卡在 L3 往 L4 过渡。</li>
+              <li><b>七个具体机制</b>：重新定义"老大"（得是能兜底的资深专家，而不是能力弱化版的小弟）、Worker 之间横向沟通、用 OKR（先定目标、再拆出几个可量化的验收标准）管进度、给团队定共同使命和做事原则当方向锚、任务完了集体复盘把经验沉淀成"团队资产"等。</li>
+              <li><b>有学术背书</b>：文章把 2024–2025 年一批多智能体论文（MetaGPT、OKR-Agent、Meta-Team、EvoChamber 等）串成"分类→分工→定目标→攒经验→团队进化"一条链，说明这些工程直觉不是拍脑袋。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v31">
     <div class="issue-head">
       <div class="issue-vol">VOL.31 / 2026·08·31</div>
       <h2 class="issue-theme">难而正确</h2>
