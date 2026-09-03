@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v33" data-vol="vol.33"><span class="vv">VOL.33 <span class="new">最新</span></span><span class="dd">2026·09·02 · 养起来才费劲</span></button>
+    <button class="tab active" data-issue="v34" data-vol="vol.34"><span class="vv">VOL.34 <span class="new">最新</span></span><span class="dd">2026·09·03 · 招个数字员工</span></button>
+    <button class="tab" data-issue="v33" data-vol="vol.33"><span class="vv">VOL.33</span><span class="dd">2026·09·02 · 养起来才费劲</span></button>
     <button class="tab" data-issue="v32" data-vol="vol.32"><span class="vv">VOL.32</span><span class="dd">2026·09·01 · 人多不顶用</span></button>
     <button class="tab" data-issue="v31" data-vol="vol.31"><span class="vv">VOL.31</span><span class="dd">2026·08·31 · 难而正确</span></button>
     <button class="tab" data-issue="v30" data-vol="vol.30"><span class="vv">VOL.30</span><span class="dd">2026·08·28 · 长出手</span></button>
@@ -301,7 +302,80 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v33">
+  <section class="issue active" id="v34">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.34 / 2026·09·03</div>
+      <h2 class="issue-theme">招个数字员工</h2>
+      <p class="issue-lead">接着这几天"让 AI 长期在岗"的话题：第一篇手把手教你用 xAI 新出的 Grok Bot，把 AI 当成"有名字、长期负责一摊活"的数字员工来招和带，几个"员工"之间还能交接、拉群分工。第二篇换个口味补一发硬核又好懂的科普——把当今所有大模型的大脑 Transformer，一个问题接一个问题给你讲透。</p>
+      <div class="issue-toc">
+        <a href="#v34-1"><span class="ix">01</span><span>Grok Bot 从入门到精通：把 AI 当"长期在岗的数字员工"来招和带</span><span class="cat">干货·教程</span></a>
+        <a href="#v34-2"><span class="ix">02</span><span>一口气搞懂 Transformer：注意力、QKV、残差连接全讲透</span><span class="cat">干货·科普</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v34-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Grok Bot 从入门到精通：把 AI 当"长期在岗的数字员工"来招和带</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>金尘马（@jinchenma_ai）<span class="sep">·</span><a href="https://x.com/jinchenma_ai/status/2094984812251746424">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Grok Bot 是 xAI 8 月 11 日推出的新产品（还在 Beta）。它跟你平时用的 AI 最大的不同：普通 AI 是你每次临时叫来、问一句、用完就散；<b>Grok Bot 把每个 AI 包装成一名"有名字、长期在岗的数字员工"</b>——你给它一个岗位（比如"情报总监"），写清它长期负责什么、常用哪些来源、交付什么格式，它干得越多越懂你的要求，还配了台云电脑能自己开浏览器干活。需要多人协作时，几个"员工"之间还能直接交接任务、拉群分工。这篇万字实操把从"招聘第一名数字员工"到"搭一支电商团队"整套流程跑了一遍。</div>
+
+        <div class="detail">
+          <h4 class="blk">把 AI 当员工带，关键是这四步</h4>
+          <ul class="points">
+            <li><b>核心转变：从"每次叫 AI 干一件事"改成"给 AI 定个岗位、长期负责一类结果"。</b><span class="eg">岗位要写得具体。比如别写"营销总监"——名字太大、职责模糊，最后得到一个不知道每天该干嘛的"数字高管"；改成"每周筛选 10 个值得研究的 AI 选题，附来源、数据和判断理由"，活儿就落地了。长期规矩写进"岗位说明"，当天的临时活直接写在对话里，不用来回改说明。</span></li>
+            <li><b>派活一次讲清 5 件事，否则结果就是一堆泛泛的资料。</b><span class="eg">① 最终要什么结果 ② 去哪些地方找资料 ③ 有哪些限制 ④ 用什么格式交付 ⑤ 做到哪一步回来找你确认。只发一句"帮我研究下 Grok Bot"基本必翻车；把交付格式和边界写死，它才交得准。</span></li>
+            <li><b>跑通的活能存成"技能"，下次不用重教。</b><span class="eg">同一类活连续跑通两次后，让它把方法存成一个 Skill（技能），写清什么时候用、要哪些输入和权限、按什么步骤、怎么算合格、失败和缺数据怎么办、哪些动作要审批；之后聊天框里打一个 <code>/技能名</code> 就能复用。还能挂成定时任务——"每个工作日早上 8:10 用这个技能，整理过去 24 小时的 AI 新闻发我"，关掉客户端云端照跑。</span></li>
+            <li><b>多个"员工"怎么协作，高风险动作怎么拦。</b><span class="eg">一对一直接发消息交接；要让所有人看见就拉个群（2–6 个 bot），第一条消息写清共同目标、当前负责人、交接顺序、最后停在谁那里，用 @某某 点名下一棒。<b>发邮件、发帖、付款、删文件、改线上内容这类高风险动作，一律停下等你人工点头</b>（在 Auto-review 里加"必须审批"规则，密码/验证码也由你亲自输）。</span></li>
+          </ul>
+
+          <blockquote>未来和 AI 打交道，可能会从"我一句一句指挥它干什么"，转向"我直接交代数字员工要负责哪些结果"，然后让它像真员工一样自己运转起来。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>和 Codex / Claude Code 的分工</b>：后者默认从"项目/代码库"出发（围着文件、终端、测试、Git 转），适合写代码；Grok Bot 默认从"岗位"出发（围着跨软件的长期活和同事交接转），适合当长期打杂的数字员工。选谁，先看你主要对着什么干活。</li>
+              <li><b>云电脑</b>：平台给的一台 Linux 虚拟机，带桌面、浏览器、文件系统和终端；遇到要登录、过验证码时你再进去接管一下。多个 bot 共用这台机器和登录状态，靠 <code>/workspace</code> 下的共享目录交接文件。</li>
+              <li><b>无人值守定时任务的坑</b>：最容易"用了旧数据"或"只干了一半却显示已完成"。得补规则：每次写明数据来源和时间、没新数据直接报错、别重复发送、发布/付款继续等审批、人定期抽查别把连续成功当永久可靠。</li>
+              <li><b>电商团队示范</b>：先只建一个"店铺经营值班员"（每天出经营晨报、只读不改），稳定后再拆成内容增长、库存分析、订单售后三个专员 + 一个运营主管汇总——分工是"活儿稳定出现了"才拆，不是一上来照搬公司架构。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v34-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>一口气搞懂 Transformer：注意力、QKV、残差连接全讲透</h3></div>
+      <div class="meta"><span class="tag">干货·科普</span><span class="sep">·</span>轩辕之风（@xuanyuanzhifeng）<span class="sep">·</span><a href="https://x.com/xuanyuanzhifeng/status/2095044737531306357">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>你有没有好奇过，ChatGPT 这类大模型到底怎么读懂你的问题、再一个字一个字蹦出答案？背后的核心引擎叫 <b>Transformer</b>（2017 年论文《Attention is all you need》提出，是当今几乎所有大模型的祖师爷）。这篇科普最好的地方是：<b>它不让你背名词，而是一个问题接一个问题往下推</b>——每多一个零件，都是因为上一个结构又暴露了新毛病。读完你能用大白话讲清"注意力、QKV、多头、位置编码、残差连接"这堆唬人术语到底在干嘛。</div>
+
+        <div class="detail">
+          <h4 class="blk">从一个问题一路推出整个 Transformer</h4>
+          <ul class="points">
+            <li><b>注意力（Attention）：让句子里每个词直接去看其他所有词，而不是一路传话。</b><span class="eg">比如"轩辕养了只虎皮鹦鹉，它有绿羽毛"里的"它"，模型让它把全句扫一遍、算出跟"虎皮鹦鹉"关系最强（权重 70%），就把那个词的信息大量吸过来——于是"它"的含义里就融进了"虎皮鹦鹉"。老办法（RNN/LSTM）得让信息经过中间几十个词一步步传，离得远就丢了；注意力让隔多远的两个词都能直接搭上线。</span></li>
+            <li><b>QKV 三剑客：模型怎么知道该关注谁。</b><span class="eg">拿上网搜索打比方：每个词发一个"我想找什么"的查询（Q），每个词也挂一块"我这有什么"的招牌（K），Q 和谁的 K 越配就越该关注谁；真正要被读走的信息存在第三份向量（V）里。比如"它"的 Q 跟"虎皮鹦鹉"的 K 算出来 6.8（远高于跟"绿色"的 0.8），模型就知道重点看虎皮鹦鹉。这套匹配规则不是人写死的，是训练自己学出来的。</span></li>
+            <li><b>多头 + 位置编码，补两个窟窿。</b><span class="eg">一句话里同时有指代、修饰、语法好几种关系，一套 QKV 顾不过来，那就同时开好几组、各看各的角度再拼起来，这就是"多头注意力"（原始论文开了 8 个头）。另外，所有词并行一起算会把先后顺序丢掉（"轩辕养了鹦鹉"和"鹦鹉养了轩辕"用词一样、意思反了），于是再给每个词加一份"位置信息"（位置编码）。</span></li>
+            <li><b>残差连接：给深层网络修一条高速公路。</b><span class="eg">模型要摞几十上百层才够聪明，但层一深，训练信号（梯度）一层层往前传会越来越弱、传到最前面几乎没了（叫"梯度消失"）。办法很反直觉：把每一层的输入直接加到它的输出上（y = f(x) + x）——等于旁边修了条捷径，信息和训练信号都能顺着它直达，不必每层重新加工一遍。这才让 Transformer 能稳定堆到上百层。</span></li>
+          </ul>
+
+          <blockquote>Transformer 结构图里一堆唬人的名词，其实没一个是凭空冒出来的——每加一个，都是为了补上一个结构暴露出的新问题。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>前馈网络（FFN）</b>：注意力负责"把散落在别处的线索搜集到一个词身上"，FFN 负责"消化"。比如"苹果"从"黑色""一万多块钱"那儿拿回线索后，FFN 判断这么贵又黑的不像水果、像苹果公司的产品，于是把"科技"含义拉高、"水果"压低。一个管交流，一个管思考。</li>
+              <li><b>编码器 / 解码器</b>：原始 Transformer 为翻译而生，编码器负责"读懂原文"（能看全句），解码器负责"写译文"（一个词一个词生成，只能看自己前面写的、后面的用 Mask 遮住防止抄答案），写的时候还回头用"交叉注意力"去查原文。GPT 这类现在的大模型跟最早的又有不同，是后话。</li>
+              <li><b>作者留的思考题</b>：现在动辄 100 万 token 的上下文，两两算注意力计算量会爆炸，怎么优化？（说是下期揭晓）</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v33">
     <div class="issue-head">
       <div class="issue-vol">VOL.33 / 2026·09·02</div>
       <h2 class="issue-theme">养起来才费劲</h2>
