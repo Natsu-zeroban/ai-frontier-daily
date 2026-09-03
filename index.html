@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v32" data-vol="vol.32"><span class="vv">VOL.32 <span class="new">最新</span></span><span class="dd">2026·09·01 · 人多不顶用</span></button>
+    <button class="tab active" data-issue="v33" data-vol="vol.33"><span class="vv">VOL.33 <span class="new">最新</span></span><span class="dd">2026·09·02 · 养起来才费劲</span></button>
+    <button class="tab" data-issue="v32" data-vol="vol.32"><span class="vv">VOL.32</span><span class="dd">2026·09·01 · 人多不顶用</span></button>
     <button class="tab" data-issue="v31" data-vol="vol.31"><span class="vv">VOL.31</span><span class="dd">2026·08·31 · 难而正确</span></button>
     <button class="tab" data-issue="v30" data-vol="vol.30"><span class="vv">VOL.30</span><span class="dd">2026·08·28 · 长出手</span></button>
     <button class="tab" data-issue="v29" data-vol="vol.29"><span class="vv">VOL.29</span><span class="dd">2026·08·27 · 装上流水线</span></button>
@@ -300,7 +301,48 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v32">
+  <section class="issue active" id="v33">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.33 / 2026·09·02</div>
+      <h2 class="issue-theme">养起来才费劲</h2>
+      <p class="issue-lead">接着上一期"一群 AI 怎么组队"的话题，这期看一个产品侧的落地：能挂在自己电脑上、通过飞书/微信发消息就干活的开源 AI 助手 OpenClaw（吉祥物是只小龙虾）发了 2.0 大版本。一篇独立实测说透一个判断——它真正的升级不是界面变漂亮，而是把"从装好、开始干活、到能长期养着"这整条链路补顺了，还开始从"各自养的个人小龙虾"长成"多人能接手、换设备能继续"的工作系统。但作者也直说：装上不算难，养起来才费劲。</p>
+      <div class="issue-toc">
+        <a href="#v33-1"><span class="ix">01</span><span>OpenClaw 2.0 实测：AI 助手真正的坎不是"装得上"，是"养得住"</span><span class="cat">干货·观点</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v33-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>OpenClaw 2.0 实测：AI 助手真正的坎不是"装得上"，是"养得住"</h3></div>
+      <div class="meta"><span class="tag op">干货·观点</span><span class="sep">·</span>职场 AI 新视界（WaytoAGI 二师兄）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/4LDsae1AY_mJwt09LOeq1g">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>OpenClaw（官方吉祥物是只小龙虾）是个能挂在你自己电脑上、通过飞书/微信发消息就使唤的<b>开源 AI 助手</b>——能查资料、管 GitHub、画图做 PPT，还能读你电脑里的文件、调工具、装插件。它 8 月 30 日发了 2.0 大版本（933 人贡献、合并超 1.6 万个改动）。这篇独立实测点透一个判断：<b>2.0 真正的升级不是界面变漂亮，而是把 AI 助手"从装好、开始干活、到能长期养着"这整条链路补顺了</b>，还开始从"各自养的一只个人小龙虾"，长成"多人能接手、换设备能继续"的工作系统。但作者也直说——<b>装上不算难，养起来才费劲</b>，多数人用网页版/桌面版 AI 反而更省事。</div>
+
+        <div class="detail">
+          <h4 class="blk">2.0 到底解决了什么</h4>
+          <ul class="points">
+            <li><b>最大的坎不是"能不能装"，是"能不能养"。</b><span class="eg">比如它经常突然"失忆"、莫名罢工，消息半天没回时你都不知道该继续等还是重启；头一次装还得配命令行、API Key、飞书机器人权限……很多人兴冲冲装上、玩几天就卸了，甚至催生出"代装代维"的生意。2.0 就是冲这些养护痛点去的。</span></li>
+            <li><b>它学会了"借现成的路"。</b><span class="eg">以前第一道坎是配模型（选哪家、去哪申请密钥、地址怎么填），错一步就跑不起来。2.0 会先扫你电脑里已经装好、登录过的 AI（比如 Claude Code、Codex），直接借它们配好的通道跑起来，少绕一大段弯路。背后有个信号：<b>底层模型正在变成可随时替换的"地基"</b>——今天用这家、明天换那家，只要接入方式支持，你原来的工作入口和流程还能留着。（注：通过第三方中转接入的暂时还不能直接复用）</span></li>
+            <li><b>"失忆"开始有了管理办法。</b><span class="eg">它把记忆拆成阶段：正在做的任务留住近期上下文，后台再从历史会话里筛出值得留的、整理成以后能调用的长期记忆，你还能搜索、检查、删除这些记忆。就像把每天随手记的材料整理成目录——全塞进去会越来越乱，完全不整理又得每次从头解释。作者也坦白：还没彻底治好，长期记忆是整个行业都没解决的难题。</span></li>
+            <li><b>做过一次的活，方法能留下来。</b><span class="eg">新增的 Self-learning（自学）：当它完成一件较复杂的活、或你反复纠正同一个问题，它会把有效做法整理成一条"技能改进建议"，你审核通过，下次同类任务就不用再教一遍。比如每周固定收集 AI 资讯、整理成表格，第一次讲清来源和字段，跑通后就沉淀成一个可复用的"技能"。AI 的价值开始从"这次帮我做完"，走向"下次知道该怎么做"。</span></li>
+          </ul>
+
+          <blockquote>装上不算难，养起来才费劲。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>从"一只龙虾"到"一套工作台"</b>：2.0 重做了浏览器控制台，会话、工作区、日志、记忆、自动化、权限都有了固定位置——一个任务卡在哪、调了什么工具，都看得见（"看得见"是长期建立信任的前提）。还新增了共享云端会话（同事能进入正在进行的任务、上下文保留着接手）和 Agent 之间直接传消息（A2A），开始往"多人多设备协作"长——这正好接上上一期讲的"从单个 AI 到 AI 团队协作"。</li>
+              <li><b>权限收得更细</b>：密码、API Key 用遮罩窗口提交，不进聊天记录和模型上下文；一次授权只对应明确的一个操作，任务变了要重新确认；装插件会展示来源、版本和能力，涉及执行代码的未知插件多一道审批。</li>
+              <li><b>谁值得试</b>：已经在用 Codex/Claude Code、手边又有台能 7×24 小时常开的电脑（Mac mini、树莓派、旧笔记本）的人可以试一轮，从"低风险、重复、结果好检查"的任务起步；只想偶尔问几句、或期待下个安装包就能直接用的人，桌面端/网页端 AI 更省事。老用户注意：2.0 把会话存储迁到了 SQLite，升级前先备份，降级回旧版可能读不出新会话。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v32">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>AI 视频快到能开直播了（MiniMax）</b>｜开源视频模型 H3 的加速版 H3 Max 接入了开放平台，生成一段 5 秒、768p 的有声视频只要不到 3 秒——比播放还快，于是海外开发者拿它搭出了 24 小时"AI 电视台"和 Twitch 直播：观众在聊天室里打字，AI 几秒生成下一段画面接着播，直播可能从动画突然跳到真人访谈、再跳进荒诞广告，你的下一句话就能改剧情。看点是<b>视频生成第一次从"一次性出片的工具"变成了"能实时响应、边播边长的内容系统"</b>。 <a href="https://mp.weixin.qq.com/s/vCjwpMvDZgkHYd3d2A0Vew">原文</a></p>
