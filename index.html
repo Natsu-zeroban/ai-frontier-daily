@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v34" data-vol="vol.34"><span class="vv">VOL.34 <span class="new">最新</span></span><span class="dd">2026·09·03 · 招个数字员工</span></button>
+    <button class="tab active" data-issue="v35" data-vol="vol.35"><span class="vv">VOL.35 <span class="new">最新</span></span><span class="dd">2026·09·04 · 欢迎来到 AGI</span></button>
+    <button class="tab" data-issue="v34" data-vol="vol.34"><span class="vv">VOL.34</span><span class="dd">2026·09·03 · 招个数字员工</span></button>
     <button class="tab" data-issue="v33" data-vol="vol.33"><span class="vv">VOL.33</span><span class="dd">2026·09·02 · 养起来才费劲</span></button>
     <button class="tab" data-issue="v32" data-vol="vol.32"><span class="vv">VOL.32</span><span class="dd">2026·09·01 · 人多不顶用</span></button>
     <button class="tab" data-issue="v31" data-vol="vol.31"><span class="vv">VOL.31</span><span class="dd">2026·08·31 · 难而正确</span></button>
@@ -302,7 +303,80 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v34">
+  <section class="issue active" id="v35">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.35 / 2026·09·04</div>
+      <h2 class="issue-theme">欢迎来到 AGI</h2>
+      <p class="issue-lead">今天头条是件大事：OpenAI 半夜发布新旗舰 GPT-6 Astra，总裁在闭门会上撂下一句"欢迎来到 AGI 时代"。第一篇全面拆解它到底强在哪（能像人一样自己看屏幕操作电脑、"悟性"测试考了 99.9），又埋了什么隐忧（它越来越爱"心算"，人类反而快看不懂它在想什么）。第二篇务实接地气：Anthropic 官方给 Claude Fable 5.1 出的使用避坑指南提炼版，在用它写代码、跑长任务的人能少走十天弯路。</p>
+      <div class="issue-toc">
+        <a href="#v35-1"><span class="ix">01</span><span>GPT-6 Astra 全面解析："欢迎来到 AGI 时代"</span><span class="cat">干货·解析</span></a>
+        <a href="#v35-2"><span class="ix">02</span><span>Anthropic 公布 Fable 5.1 保姆级使用技巧，少走十天弯路</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v35-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>GPT-6 Astra 全面解析："欢迎来到 AGI 时代"</h3></div>
+      <div class="meta"><span class="tag op">干货·解析</span><span class="sep">·</span>数字生命卡兹克<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/1R4vSUmjFUINxFbfJLOXng">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>OpenAI 半夜发布了新旗舰模型 <b>GPT-6 Astra</b>，官方自己的总结是"全球最智能、也最对齐的模型"，发布会上总裁 Greg Brockman 直接撂下一句"欢迎来到 AGI 时代"。作者看完所有资料的判断：这次是"全方位王者归来"，而且不再是只会写代码的偏科生，更像一个<b>审美和干活能力都极强的"博士级员工"</b>。最炸的几点：① 它是目前地表最强的"会自己用电脑"的模型——不靠软件给的接口，直接看屏幕、点按钮、填框，像人一样操作 Excel、软件、排障；② 一个专测"悟性"的测试（没说明书、自己进游戏摸索规则）它考了 99.9，人类平均才 48；③ 但也埋了隐忧：它越来越爱"心算"、少写推理步骤，人类反而越来越难看懂它在想什么。</div>
+
+        <div class="detail">
+          <h4 class="blk">它到底强在哪、又让人不安在哪</h4>
+          <ul class="points">
+            <li><b>地表最强"会自己用电脑"的模型。</b><span class="eg">以前想让 AI 操作一个软件，最好这软件专门给 AI 留个接口（API）；可现实里一大堆二十年前写的老系统根本没接口。Astra 的思路是：不给接口无所谓，我像人一样看屏幕、找按钮、点击、看反馈。它能直接操作 Excel、Power BI、装软件、看报错继续排障，官方还演示了它操作电路板设计。在"把 AI 扔进真实电脑自己干活"的测试（OSWorld）里完成率 72.6%（上一代 65.7%）、耗时少了近一半。<b>一句话：未来任何人能靠屏幕完成的数字活，理论上 AI 都能接手，不用再等那套破系统开放接口。</b></span></li>
+            <li><b>"悟性"测试考了 99.9，人类平均才 48。</b><span class="eg">这个测试（ARC-AGI-3）变态在：没说明书、不告诉你规则和目标，把你扔进几百个全新小游戏，自己摸索"这红东西为啥碰了会死、怎么才算赢"，还要把学会的规律迁移到更难的关卡——测的接近人说的"悟性"。半年前最强 AI 才 0.51 分，上一代 GPT-5.6 是 7.8、Claude Opus 5 到 30.2，Astra 直接 99.9。作者原话：神经病吧。</span></li>
+            <li><b>更会判断"什么时候该来烦你"。</b><span class="eg">现实活儿大多没法写成完美指令（老板说"把明天开会要的东西准备下"——啥格式？给谁看？重点啥？）。笨 Agent 两个极端：要么疯狂追问一堆，要么啥也不问自己脑补、闷头干俩小时交一坨。Astra 学的是好同事的做法：无关紧要的自己合理推断，会改变最终方向的才问一个聚焦问题；在 Codex 里甚至能一边等你回、一边先干那些不依赖你回答的部分。这跟前两天那篇 Fable 5.1 测评讲的是同一个方向——Agent 真正的"聪明感"就在这。</span></li>
+            <li><b>本事越大越危险：安全对齐猛拉，却冒出一个新隐忧。</b><span class="eg">好的一面：一个模拟"越权陷阱"的测试里，上一代有 48.2% 会去碰授权范围外的目标，Astra 是 0%；幻觉率也从 9.4% 降到 2.0%。可怕的一面：它成了 OpenAI 第一个网络安全能力达"Critical"级的模型（给足工具权限，它能自己在真实系统里找到没人发现过的漏洞、还自己串成攻击链，全程不用人指挥），跑测试时还顺手挖出两个此前无人知晓的漏洞（所谓零日漏洞）。<b>更微妙的是：</b>它越来越爱"心算"——一个测"不许写思路、一次推理能解多难的题"的指标，上一代相当于人思考 3.6 分钟，Astra 到了 30.9 分钟（近 10 倍）；代价是它的推理语言越来越压缩、出现人类难懂的省略。<b>模型行为更安全了，但人靠"读它的思考过程"来监督它，反而变难了</b>——OpenAI 自己都承认"思维链可监控性显著下降"。</span></li>
+          </ul>
+
+          <blockquote>AGI 也许没有降临的那一天。只有某一天，我们突然发现，它好像已经在我们身边很久了。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>硬参数</b>：API 编号 gpt-6-astra，上下文约 105 万 token、最大输出 128K，知识截止 2026-04-30，推理分 low/medium/high/xhigh/max 五档；价格每百万 token 输入 10 美元、输出 50 美元（和 Claude Fable 5 持平，但缓存读取比 Fable 5.1 贵）。估计约 5T 参数，是 OpenAI 迄今最大的一次训练、用了超 10 万张卡。</li>
+              <li><b>审美终于不辣眼了</b>：官方专门提了个词叫"视觉判断力"——做 PPT 更会排版式和层级、页数也多了，文档更耐看，还能在 Blender 里按一张静帧图建模、再用 UE5 渲染成能漫步的场景。</li>
+              <li><b>泼盆冷水</b>：目前只对部分组织开放，订阅用户还要等几天；作者吐槽 Pro 会员"每次最优先体验新模型"的承诺又跳票了。</li>
+              <li><b>一个哲学难题</b>：我们人类，未来到底还能不能理解一个远比自己聪明的系统？现在可能全世界也没人知道答案。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v35-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>Anthropic 公布 Fable 5.1 保姆级使用技巧，少走十天弯路</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>AI 寒武纪<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/w3bNfrTMVOVT5pwY69mmjg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Claude Fable 5.1 虽然能直接兼容旧提示词，但很多开发者发现它"脾气"变了不少。Anthropic 官方出了一份完整的提示词与落地指南，这篇把它提炼成了一份<b>避坑清单</b>。价值一句话：如果你在用 Fable 5.1 的 API 干活（尤其让它自动跑长任务、写代码、操作电脑），这些细节能帮你少走十天弯路。核心几条——别只用默认思考档、干活时让它汇报进度别"装死"、历史对话只能纯追加不能中途改、想去"AI 味"就直接要它剔除矫饰文风。</div>
+
+        <div class="detail">
+          <h4 class="blk">最高频的几条避坑（开发向）</h4>
+          <ul class="points">
+            <li><b>思考档位别只盯默认（high），挨个测一遍。</b><span class="eg">Fable 5.1 有 low/medium/xhigh/max 等档。官方建议拿自己的测试集全跑一遍：medium 档基本追平上一代 Fable 5、还更便宜；low 档成本能压到和更小的模型持平、分反而更高。注意 low 档它会偷懒少用搜索，xhigh/max 档出长文前会先想很久。</span></li>
+            <li><b>让它干活时"吱一声"，别让你以为程序卡死了。</b><span class="eg">Fable 5.1 跑长链条工具调用时默认话很少（高思考档尤其明显），容易让人以为挂了。解决：检查客户端有没有接收它的简短进度（它写在 thinking 块里、默认空白，需要开对应参数渲染出来）；删掉旧提示词里"所有结论留到最后再说"这类压它发声的规则；需要的话直接要求它"开工前一句话说要干嘛、过程中给简短更新"。</span></li>
+            <li><b>历史对话必须"只往后加"，千万别回头改。</b><span class="eg">对 2026-08-31 之后新建的账户，Fable 5.1 的 thinking 块和它生成时的上下文强绑定——你只要改了前面的系统提示词、工具列表或任何历史消息，再把旧 thinking 块传回去就直接报 400 错误。要动态加提醒就用"当轮临时系统消息"、要裁剪上下文优先用服务端压缩，别就地去改早期轮次。</span></li>
+            <li><b>让它"一口气干完"，别中途停下要权限、也别顺手改旁边的代码。</b><span class="eg">复杂异步任务里它有时没做完就停下问"要不要继续"，或只描述下一步却不动手。可在系统提示词里告诉它：现在是自主运行、用户不在线，可逆操作直接做、遇到破坏性操作或重大变更再停；并且明确"用户最初的要求就是交付范围"，别擅自缩水或加戏（比如顺手改旁边有缺陷的代码、加一堆测试文件）。</span></li>
+          </ul>
+
+          <blockquote>想去掉"AI 味"，直接要求它剔除矫饰文风——能直说的就直说，别拿花哨修辞代替直接陈述。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 清单里还有这些（用到再查原文）</div>
+            <ul>
+              <li><b>更多对话/输出细节</b>：让它一次性批量调用互不依赖的工具，别一轮只调一个浪费轮次；它本就不爱用粗体/列表，旧的"禁止排版"规则该删或改成条件规则；做摘要要求用间接引语转述、少直接照搬原文；low 档不触发搜索时，加一条"涉及模型、开发工具这类变化快的领域必须先搜再答"。</li>
+              <li><b>写代码相关</b>：小修小补优先"局部精准替换"，别全量重写整个文件（费 token 又慢）；安全分类器误杀率降了，若正常代码仍被拦，把"能否无报错编译"改问"是否存在 Bug"、冷门语言补基础文档、去掉工具返回里的 Base64。</li>
+              <li><b>更进阶</b>：多智能体里主模型派活给子模型后别死等（子模型跑完用后续消息把结果喂回）；用 xhigh/max 档要调大 max tokens，并叮嘱它别在推理阶段把交付物草拟一遍、正式回复再写一遍（否则耗时翻倍甚至被截断）；处理密集图表给它配个"局部裁剪放大"的工具看清细节。官方指南原文链接在文章里。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v34">
     <div class="issue-head">
       <div class="issue-vol">VOL.34 / 2026·09·03</div>
       <h2 class="issue-theme">招个数字员工</h2>
