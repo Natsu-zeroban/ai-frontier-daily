@@ -306,10 +306,11 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <div class="issue-head">
       <div class="issue-vol">VOL.34 / 2026·09·03</div>
       <h2 class="issue-theme">招个数字员工</h2>
-      <p class="issue-lead">接着这几天"让 AI 长期在岗"的话题：第一篇手把手教你用 xAI 新出的 Grok Bot，把 AI 当成"有名字、长期负责一摊活"的数字员工来招和带，几个"员工"之间还能交接、拉群分工。第二篇换个口味补一发硬核又好懂的科普——把当今所有大模型的大脑 Transformer，一个问题接一个问题给你讲透。</p>
+      <p class="issue-lead">今天三篇口味都不一样。第一篇手把手教你用 xAI 新出的 Grok Bot，把 AI 当成"长期在岗的数字员工"来招和带——接着这几天"让 AI 长期在岗"的主线；第二篇是硬核又好懂的科普，把当今所有大模型的大脑 Transformer 一个问题接一个问题讲透；第三篇是一位重度用户实测刚发布的 Claude Fable 5.1，看它在长任务和浏览器自动化上到底强在哪、又在哪退了步。</p>
       <div class="issue-toc">
         <a href="#v34-1"><span class="ix">01</span><span>Grok Bot 从入门到精通：把 AI 当"长期在岗的数字员工"来招和带</span><span class="cat">干货·教程</span></a>
         <a href="#v34-2"><span class="ix">02</span><span>一口气搞懂 Transformer：注意力、QKV、残差连接全讲透</span><span class="cat">干货·科普</span></a>
+        <a href="#v34-3"><span class="ix">03</span><span>实测 Claude Fable 5.1：跑长任务、点浏览器更强了，写作却退步了</span><span class="cat">干货·测评</span></a>
       </div>
     </div>
 
@@ -367,6 +368,36 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
               <li><b>前馈网络（FFN）</b>：注意力负责"把散落在别处的线索搜集到一个词身上"，FFN 负责"消化"。比如"苹果"从"黑色""一万多块钱"那儿拿回线索后，FFN 判断这么贵又黑的不像水果、像苹果公司的产品，于是把"科技"含义拉高、"水果"压低。一个管交流，一个管思考。</li>
               <li><b>编码器 / 解码器</b>：原始 Transformer 为翻译而生，编码器负责"读懂原文"（能看全句），解码器负责"写译文"（一个词一个词生成，只能看自己前面写的、后面的用 Mask 遮住防止抄答案），写的时候还回头用"交叉注意力"去查原文。GPT 这类现在的大模型跟最早的又有不同，是后话。</li>
               <li><b>作者留的思考题</b>：现在动辄 100 万 token 的上下文，两两算注意力计算量会爆炸，怎么优化？（说是下期揭晓）</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v34-3">
+      <div class="thread-top"><span class="thread-ix">03</span><h3>实测 Claude Fable 5.1：跑长任务、点浏览器更强了，写作却退步了</h3></div>
+      <div class="meta"><span class="tag">干货·测评</span><span class="sep">·</span>卡尔的 AI 沃茨（卡尔）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/LGpV-caPV-xDjaE6VtMJ-g">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Anthropic 发布了 Claude Fable 5.1（还有个只对部分人开放的 Mythos 5.1）。一位重度用户拿自己的真实项目实测，结论很具体：<b>Fable 5.1 最大的进步在"自己动手干活"</b>——以前你哪怕给它开全权限，让它去点浏览器、在后台数据库跑条 SQL 改设置，它也常常反复失败、最后还得你亲自上命令行（这毛病连更贵的 Opus 5 都有）；这一版终于追上了 Codex（GPT 5.6）的水准，还会更主动地翻你前几天聊过的文件来复用。代价是——<b>写作能力这次是"负优化"（比老版还差）</b>。价格上，官方说缓存读取便宜了 75%、普通任务成本降约 25%、重度 Agent 任务降约 45%，但作者吐槽订阅套餐的"20 倍额度"是文字游戏、实际只有基础版的 6–8 倍。</div>
+
+        <div class="detail">
+          <h4 class="blk">重度用户拿真项目测出来的几件事</h4>
+          <ul class="points">
+            <li><b>浏览器/电脑自动化，是这版最实在的进步。</b><span class="eg">他只用一句话"找一个 goodcase 项目的 UI 优化点"，Fable 5.1 就自己用浏览器扫遍网站每个页面、出了 PC 和手机端的差异对比、还留了截图，然后动手修：比如首页缩略图老是只露主体一半，它按"图片和展示框的偏移度"来处理——偏移小就裁剪铺满、偏移大就完整展示留白、遇到多张方图就拼成九宫格。这类活以前它干不利索、得人接管。</span></li>
+            <li><b>更主动地"翻旧账"复用你的历史文件。</b><span class="eg">以前它偏被动，你得主动说"这事在哪个对话聊过它才去找"；这次他新开一个对话让它总结近期做的东西，它会自己翻出前几天聊过的相关文件拿来复用，稳定性明显更高。</span></li>
+            <li><b>他顺手做了个"文件整理"技能，思路值得抄。</b><span class="eg">起因是低配 Mac mini 长期跑 Claude Code / Codex / Grok 内存老爆、缓存三四天就得清一次。他让 Fable 5.1 倒推历史上有名的文件整理方法论（从 1876 年杜威的"十进分类"、到给文件打标签的"分面分类"、到卢曼的"卡片盒笔记法"——每张卡片值不值钱取决于它跟多少张别的卡片有连接，也就是今天"第二大脑"的前身），做成一个叫 carl-file-organizer 的技能：先揪出可删的重复文件、按混乱度重新设计目录、最后用知识图谱把整理后的结构画给你看。本体就是一段提示语，Win/Mac/Linux 都能装。</span></li>
+            <li><b>压轴老规矩：让它做个 3D 版愤怒的小鸟，跟 GPT 5.6 对打。</b><span class="eg">同一句提示语（"做一个 3D 版愤怒的小鸟，要有关卡和物理反馈"），GPT 5.6 做了 3 关、带弹跳和碰撞音效；Fable 5.1 完成度更夸张：一个网页里塞进黄红蓝黑 4 种鸟、8 个关卡，每种材质有独立的密度和耐久（难到作者自己玩 10 次才通关 1 次），还有跟随镜头和无边界滚动，执行到一半甚至主动问要不要扩展到手机端。</span></li>
+          </ul>
+
+          <blockquote>长时间 Agent 任务和浏览器自动化上，Fable 5.1 稳压 GPT 5.6；但写作能力这次是负优化。（作者实测结论）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>价格与吐槽</b>：输入/输出仍是每百万 token 10 美元 / 50 美元，但缓存读取降到 0.25 美元（比上一版低 75%）；作者吐槽所谓"20 倍额度"实际只有 Pro 版的 6–8 倍、还只在 5 小时窗口内生效，是发新模型顺手转移注意力的"文字游戏"。</li>
+              <li><b>写作退步</b>：让 Fable 5.1 和 Opus 4.6 各写一段产品介绍词对比，作者直言 Fable 5.1 这次写作是负优化、不如老版。</li>
+              <li><b>两个成品都开源了</b>：文件整理技能 github.com/LearnPrompt/carl-skills、3D 愤怒的小鸟 github.com/LearnPrompt/fowl-fortress，可自取试玩。</li>
             </ul>
           </div>
         </div>
