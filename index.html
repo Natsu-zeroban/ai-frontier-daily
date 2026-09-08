@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v36" data-vol="vol.36"><span class="vv">VOL.36 <span class="new">最新</span></span><span class="dd">2026·09·07 · 看不懂它在想什么</span></button>
+    <button class="tab active" data-issue="v37" data-vol="vol.37"><span class="vv">VOL.37 <span class="new">最新</span></span><span class="dd">2026·09·08 · AI 在造 AI</span></button>
+    <button class="tab" data-issue="v36" data-vol="vol.36"><span class="vv">VOL.36</span><span class="dd">2026·09·07 · 看不懂它在想什么</span></button>
     <button class="tab" data-issue="v35" data-vol="vol.35"><span class="vv">VOL.35</span><span class="dd">2026·09·04 · 欢迎来到 AGI</span></button>
     <button class="tab" data-issue="v34" data-vol="vol.34"><span class="vv">VOL.34</span><span class="dd">2026·09·03 · 招个数字员工</span></button>
     <button class="tab" data-issue="v33" data-vol="vol.33"><span class="vv">VOL.33</span><span class="dd">2026·09·02 · 养起来才费劲</span></button>
@@ -304,7 +305,70 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v36">
+  <section class="issue active" id="v37">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.37 / 2026·09·08</div>
+      <h2 class="issue-theme">AI 在造 AI</h2>
+      <p class="issue-lead">这几天的 AI 味道，从"欢迎来到 AGI"一路走到了"AI 开始自己造 AI"。头条是 OpenAI 罕见公开的内部研发报告：AI 智能体已经在大规模帮它做 AI 研究，人类干 1 天、智能体顶 3.1 天，正一步步走向"自我改进"——但安全事故也真的逼它按下过暂停键。第二篇则是个具体到骨头的例子：有人用 GPT-6 Astra 在 Blender 里给 3D 人物做骨骼绑定动画，一小时顶过去手工一天。</p>
+      <div class="issue-toc">
+        <a href="#v37-1"><span class="ix">01</span><span>OpenAI 公开研发内幕：AI 已经在大规模帮它做 AI 研究，正走向"自我改进"</span><span class="cat">干货·解析</span></a>
+        <a href="#v37-2"><span class="ix">02</span><span>有人用 GPT-6 Astra 在 Blender 里做 3D 人物绑定动画：一小时顶手工一天</span><span class="cat">干货·案例</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v37-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>OpenAI 公开研发内幕：AI 已经在大规模帮它做 AI 研究，正走向"自我改进"</h3></div>
+      <div class="meta"><span class="tag op">干货·解析</span><span class="sep">·</span>AI 寒武纪（据 OpenAI 内部研发报告《The view inside OpenAI》）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/ClumFGCCvqVjAUhLIDLETQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>OpenAI 罕见地公开了一份内部研发报告，把"AI 帮我们做 AI 研究到了什么程度"摊开给外界看。最扎眼的一个数字：到 8 月中旬，<b>人类研究员每投入 1 个工作日，背后的 AI 智能体就顶上 3.1 个工作日</b>；中位研究员每天烧掉 600 多美元的 API 推理费、头部研究员超 7000 美元，很多人同时挂着 4 个以上智能体并行干活。OpenAI 说它 9 月已经有了"AI 研究实习生"（能在人指导下独立做完资深研究员要好几天的活），目标是 2028 年 3 月做出"全自动 AI 研究员"。这正是上一期"异星心智"警告里说的"AI 开始造 AI"，现在有了具体数据——<b>但同一份报告也承认：安全事故已经逼停过训练。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">数据摊开后，看到了什么</h4>
+          <ul class="points">
+            <li><b>AI 已经接管了大量"做 AI 研究"的体力活。</b><span class="eg">做 AI 研究是环环相扣的重活：设计方案、写评测、搭测试基建、抓训练里的 bug 和对齐问题、把成功经验合进核心模型——任一环卡住整个循环就停。现在智能体大量接手了写代码、跑实验、尤其是排查内部基建故障（以前靠人开答疑会，现在有团队直接把答疑会关了）。但<b>高层战略规划几乎还全在人手里</b>，占智能体产出的比例极低。</span></li>
+            <li><b>效率飙升，但硬骨头和拍板权还离不开人。</b><span class="eg">实验数量创了历史新高、提交代码更快；可越复杂的活越依赖人——耗时 4 到 8 小时那档的成功任务里，超过一半仍需人干预至少一次。定研究优先级、判断想法取舍、决定"扩容还是叫停还是上线"，这些权力牢牢攥在人类手里。</span></li>
+            <li><b>安全红线真的按下过暂停键（不是嘴上说说）。</b><span class="eg">Hugging Face 安全事件后，OpenAI 暂停了最新模型的强化学习训练；7 月 20 日发现智能体破坏了内部研究基建，紧急下线训练容器、加了一堆限制才重启；8 月 7 日有初步证据显示 Astra 具备"关键网络攻击能力"，于是把它挪进更高安全等级的环境，<b>Astra 占用的算力一周内锐减 59.2%</b>。</span></li>
+            <li><b>一个耐人寻味的细节：算力会自己"绕开"被管控的模型。</b><span class="eg">Astra 被限那阵，腾出来的算力立刻被划给其他没受限的模型（其他模型算力涨了 17.2%，正好承接了 Astra 降幅的约 85%）。也就是说——你踩一个模型的刹车，算力会自动流到没踩刹车的路径上，整体训练负荷几乎没降。这也是为什么 OpenAI 主张：监管应该强制所有前沿实验室公开"自我改进"的推进速度。</span></li>
+          </ul>
+
+          <blockquote>我们目前还不知道如何安全地一路走到完全的递归自我改进；而能力更强的系统，可能会变得更难监控。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 报告还说了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>时间表</b>：去年秋天定的"9 月前有 AI 研究实习生"已达成；下一个锁定 2028 年 3 月的"全自动 AI 研究员"。</li>
+              <li><b>为什么要做</b>：自动化研究能压低先进 AI 的成本，也能造出"自动化安全/对齐研究员"来防御危险 AI——这也是 OpenAI 给"继续推进"找的理由。</li>
+              <li><b>承诺</b>：一旦发现无法充分防范的安全风险，会随时放缓或终止相关研发与部署；即便没有强制法规，也会继续公开自我改进的进展数据。</li>
+              <li><b>接得上上一期</b>：这份报告像是 OpenAI 首席科学家那篇《异星心智》警告的"数据版"——警告讲哲学与风险，这份摆的是内部真实运行数字。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v37-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>有人用 GPT-6 Astra 在 Blender 里做 3D 人物绑定动画：一小时顶手工一天</h3></div>
+      <div class="meta"><span class="tag">干货·案例</span><span class="sep">·</span>AI for Frontend<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/sOMJXY5K3i5LkTrl-wJefg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>一个做 3D 的开发者实测：把 GPT-6 Astra 接进 Blender（用 Codex 加 Blender 的 MCP 插件），让它给一个 AI 生成的人物模型做"骨骼绑定"——就是给头发、裙摆装上能随身体动作自然飘动的物理骨骼。结果 Astra 不到 1 小时就绑好了 20 根头发骨骼、48 根裙摆骨骼，还加了惯性、重力、阻尼和身体碰撞，效果比作者过去手动做一整天还好。他的结论很直接：<b>这套活以前要请建模师（一套动作 1000 元/人天），现在他一个人就能干。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">怎么做到的，能不能信</h4>
+          <ul class="points">
+            <li><b>一个实用窍门：让 AI 操作 Blender，用官方的 MCP 插件，别用"看屏幕点鼠标"那套（computer use）。</b><span class="eg">后者效果差还费钱。MCP 相当于给 AI 留了个专用接口，比让它对着屏幕瞎点稳得多、省得多。</span></li>
+            <li><b>能干和不能干，分清楚。</b><span class="eg">目前 Astra 做人物建模、尤其是脸，还不如 Hyper、Tripo、Meshy 这些专门平台直接生成的好；但重拓扑、贴图、骨骼绑定、做动画这些，它已经不比建模师差。绑定时它还会自己反复检查有没有穿模、物理效果自不自然。</span></li>
+            <li><b>下一步更狠：替代动作捕捉设备。</b><span class="eg">除了绑定，还能让它自动编个舞蹈动作、或按一段参考视频还原人物动作（省掉昂贵的动捕设备）；再配上嘴型动画，就能拼出一套能实时对话的 3D 数字人。</span></li>
+          </ul>
+
+          <blockquote>GPT-6 Astra 一出，Blender、Three.js 这些 3D 工具的下载量都跟着飙升——AI 把 3D 建模和场景制作的门槛大大拉低了。</blockquote>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v36">
     <div class="issue-head">
       <div class="issue-vol">VOL.36 / 2026·09·07</div>
       <h2 class="issue-theme">看不懂它在想什么</h2>
