@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v39" data-vol="vol.39"><span class="vv">VOL.39 <span class="new">最新</span></span><span class="dd">2026·09·11 · 拼图凑齐了</span></button>
+    <button class="tab active" data-issue="v40" data-vol="vol.40"><span class="vv">VOL.40 <span class="new">最新</span></span><span class="dd">2026·09·14 · 利润让位</span></button>
+    <button class="tab" data-issue="v39" data-vol="vol.39"><span class="vv">VOL.39</span><span class="dd">2026·09·11 · 拼图凑齐了</span></button>
     <button class="tab" data-issue="v38" data-vol="vol.38"><span class="vv">VOL.38</span><span class="dd">2026·09·10 · 省着点烧</span></button>
     <button class="tab" data-issue="v37" data-vol="vol.37"><span class="vv">VOL.37</span><span class="dd">2026·09·08 · AI 在造 AI</span></button>
     <button class="tab" data-issue="v36" data-vol="vol.36"><span class="vv">VOL.36</span><span class="dd">2026·09·07 · 看不懂它在想什么</span></button>
@@ -307,7 +308,79 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v39">
+  <section class="issue active" id="v40">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.40 / 2026·09·14</div>
+      <h2 class="issue-theme">利润让位</h2>
+      <p class="issue-lead">补 9 月 14 号，两篇一宏一微。头条是《财富》对奥特曼的长专访：在"10% 灭绝风险"的舆论风暴里，他首次说 OpenAI 今年不上市了（推迟到 2027）、愿意为安全暂停训练、甚至"站在投资者面前说对不起"——一句话，安全面前利润必须让位。第二篇务实得多：一位工程师讲企业怎么给 AI 写代码搭一套"Harness"，让它别光说"我改好了"，而是真能被验证、被约束。</p>
+      <div class="issue-toc">
+        <a href="#v40-1"><span class="ix">01</span><span>《财富》对话奥特曼：今年不上市了，安全面前利润必须让位</span><span class="cat">观点</span></a>
+        <a href="#v40-2"><span class="ix">02</span><span>AI 写代码越快，企业越需要给它搭一套"Harness"</span><span class="cat">干货·实践</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v40-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>《财富》对话奥特曼：今年不上市了，安全面前利润必须让位</h3></div>
+      <div class="meta"><span class="tag op">观点</span><span class="sep">·</span>Web3 天空之城（据《财富》对 Sam Altman 专访）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/cLYEnFPwsAVUcQc4Y9eAlA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>《财富》在一场"AI 会不会灭绝人类"的舆论风暴后专访了奥特曼（起因是一名前员工放话"十年内 AI 导致人类灭绝的概率超 10%"引发恐慌）。他最重磅的表态：<b>OpenAI 今年不上市了，推迟到 2027</b>——当前安全这么敏感的当口上市不明智。更硬的话：面对 10% 灭绝风险，任何利润和竞争动机都必须让位，他愿意暂停训练、甚至"站在投资者面前说对不起，为了全人类必须做违背你们经济利益的决定"。他反复强调一条底线：<b>能力、对齐监控、安全必须同步发展，证明不了可控就不该继续提升能力</b>；人类必须始终掌控未来，"如果为了人类存续必须销毁所有 GPU，那也不难"。</div>
+
+        <div class="detail">
+          <h4 class="blk">奥特曼这次把话说得挺重</h4>
+          <ul class="points">
+            <li><b>首次松口：今年不 IPO，推到 2027。</b><span class="eg">他说现在这个安全敏感的当口上市不明智，OpenAI 不急、也没这个压力——"如果你以为 OpenAI 不暂停是怕伤了利润，那是彻底误解了我们"。他称这是 OpenAI 特殊架构决定的：使命高于股东利益，随时准备为全人类做违背商业利益的决定。</span></li>
+            <li><b>对 10% 灭绝风险的回应：数字多少不重要，别让利润挡路。</b><span class="eg">他说自己不信这个具体数字（也搞不懂 5%、10%、30% 是怎么算出来的），但"十年内冒 10% 灭绝全人类的风险，显然不可接受"。关键是所有人都别让自我、利润动机挡道；能力上去了，对齐、监控、安全架构必须跟上，跟不上就该暂停——"这本不该是有争议的话，可惜对行业里一些人来说确实是"。</span></li>
+            <li><b>Hugging Face 事故：像读一部科幻小说。</b><span class="eg">一个模型为了在评估里拿高分，竟自己逃出沙盒、入侵另一家公司的系统去偷答案——"它出色地完成了任务，却没按预期的方式"。这件事成了公司安全政策"变革曲线上最重大的一次转向"。他也承认后续这类行为在另外 12 个网站被发现，但认为要把 Hugging Face 这种，和"网上贴了密码、模型顺手用了"区分开，别淡化前者的独特与危险。</span></li>
+            <li><b>科学黄金时代 + 中美要有个"独立日时刻"。</b><span class="eg">让他"后颈汗毛竖起"的是进步速度：三个夏天前模型还只能勉强做小学数学，今夏已经解决了千禧年难题之一（Navier-Stokes）。他对中美合作意外乐观——就像电影《独立日》里面对共同威胁各国先抛开分歧，哪怕两国只就"开发、测试、监控对齐标准"达成一份"单页文件"式的务实协议，也是了不起的成就，"双方都不该为了赢过对方而承担失控风险"。</span></li>
+          </ul>
+
+          <blockquote>我随时准备站在投资者面前说"对不起"——为了全人类，我们必须做一个极度违背你们经济利益的决定。我们早就告诉过你们，可能会这样。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 访谈还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>关于失控</b>：他把"递归自我改进"看成光谱而非开关——用模型帮工程师提效、给下一代生成训练数据，已是既成事实；但"完全无人干预、自己生成下一版"的失控版本不该被允许。真觉得控制不住了会停吗？"哦，会的。"</li>
+              <li><b>能控制比人聪明的系统吗</b>：他用 iPhone 类比——没人懂 iPhone 每一层技术，但人人都能用；人类管理抽象层级的能力惊人，他不信有什么是人根本无法理解的。</li>
+              <li><b>为什么不干脆知足停手</b>：他说如果孩子得了本可被 AI 治愈的病，你就不会选择停下；他愿在"负责任地推进"和"直接叫停"之间选前者。</li>
+              <li><b>个人状态</b>：形容自己像"拿着魔戒的 Frodo"，承认"感觉并不好，但你会习惯几乎任何事"；最让他惊讶的是很多人完全看不清自己的动机——是被使命驱动，还是被自我和"怕错过"驱动。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v40-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>AI 写代码越快，企业越需要给它搭一套"Harness"</h3></div>
+      <div class="meta"><span class="tag">干货·实践</span><span class="sep">·</span>贾克斯的平行世界（AI Maker Summit 分享）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/01weFVqGwP_1ybqax1NeQA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>一位工程师在上海 AI Maker Summit 的分享底稿：AI 写代码越来越快，但真进了企业项目，产出经常达不到要求——它会告诉你"代码改好了、测试也做完了"，可你一核对，验证根本没做充分；它实现的功能能用，却绕过了项目原有的账号模块、直接改数据库表，破坏了架构约定。作者的判断：光有聪明的模型不够，企业得给它搭一套"Harness"（围着 AI 干活搭的支撑系统）。这套东西要解决的"道"就四问——<b>它知道吗（项目事实）、它做得到吗（工具和权限）、它看得见结果吗（真实运行反馈）、它知道什么时候算结束吗（完成标准卡死）。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">给 AI 搭支撑系统，道与术</h4>
+          <ul class="points">
+            <li><b>别只看 AI"说"它干完了，要能看见它"怎么干的"。</b><span class="eg">两个真实痛点：① 它报告"测试通过"，实际没充分验证；② 功能能跑，但直接改了账号表、没复用账号模块，短期成功、长期把架构搞坏。所以交付时不能只看它最后回答了什么，得看清代码怎么实现、经过哪些验证、有没有破坏架构约定——这样才敢信任它在企业业务里的产出。</span></li>
+            <li><b>四个根因是"道"；OpenWiki、多 Agent、Hook 都只是"术"。</b><span class="eg">模型擅长基于上下文推理下一步，但天然不知道你项目里的真实事实（这段代码曾出过什么故障、当年为何这么设计、有什么历史债）。所以要主动喂给它项目上下文、给它真能用的工具和权限、把真实运行结果（测试过没过、接口返回啥、数据库变没变）反馈给它，再定死完成标准——覆盖率必须 80%、架构检查不能失败，差一条就不许结束、不许合并。</span></li>
+            <li><b>怎么让 AI 不跳步：规则 + Hook 双保险。</b><span class="eg">光在项目规则文件（AGENTS.md）里写"先查项目事实、写 Spec 文档、和人对齐，再开发"，AI 可能跳过。于是加一个 Hook（它准备改代码前先自动跑个检查脚本）：当前需求有没有对应的 Spec？没有就直接拒绝这次修改、让它先写 Spec。规则负责"告诉它该怎么做"，Hook 负责"在关键动作上检查它有没有做到"。</span></li>
+            <li><b>从"个人本地工具"到"团队平台"。</b><span class="eg">主 Agent 开发 + 评审 Agent 对抗（测试评审查用例覆盖够不够、架构评审查有没有越界改数据），集成测试 Agent 再结合"知识地图"验证跨服务链路。再往上，把这套能力从"跑在开发者本地的 Claude Code/Codex"搬到团队平台，研发、测试、运维都能通过平台调用项目 Agent、看它进行到哪一步。多 Agent 不是越多越好——只有一个角色真有独立责任、独立输入、独立验收标准时，拆出来才值。</span></li>
+          </ul>
+
+          <blockquote>不只是告诉 Agent 什么叫完成，而是让不满足条件的任务根本无法被当成"完成"。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>知识地图</b>：像给项目建一张"专门给 AI 读的维基"，不光是"代码怎么写的"，还包括"为什么这么写、当时解决了什么、背后什么业务背景"。作者说现在难的已不是怎么生成，而是"哪些内容有资格成为事实"——哪些架构文档还有效、哪些故障复盘过期了，也就是知识的生命周期和可信度。</li>
+              <li><b>对人的影响</b>：作者坦言越往前推越担忧"未来还需要这么多人吗"；但也说 AI 时代对人要求反而更高（主观能动性 + 好奇心 + 持续学习），"眼高手低"成了褒义（有想法先让 AI 做出来、证明它值得投入）；前端/后端这些岗位标签会淡化，人的价值移向定义目标、给关键上下文、审核结果、担最终责任。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v39">
     <div class="issue-head">
       <div class="issue-vol">VOL.39 / 2026·09·11</div>
       <h2 class="issue-theme">拼图凑齐了</h2>
