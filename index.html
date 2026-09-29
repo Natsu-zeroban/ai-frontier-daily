@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v38" data-vol="vol.38"><span class="vv">VOL.38 <span class="new">最新</span></span><span class="dd">2026·09·10 · 省着点烧</span></button>
+    <button class="tab active" data-issue="v39" data-vol="vol.39"><span class="vv">VOL.39 <span class="new">最新</span></span><span class="dd">2026·09·11 · 拼图凑齐了</span></button>
+    <button class="tab" data-issue="v38" data-vol="vol.38"><span class="vv">VOL.38</span><span class="dd">2026·09·10 · 省着点烧</span></button>
     <button class="tab" data-issue="v37" data-vol="vol.37"><span class="vv">VOL.37</span><span class="dd">2026·09·08 · AI 在造 AI</span></button>
     <button class="tab" data-issue="v36" data-vol="vol.36"><span class="vv">VOL.36</span><span class="dd">2026·09·07 · 看不懂它在想什么</span></button>
     <button class="tab" data-issue="v35" data-vol="vol.35"><span class="vv">VOL.35</span><span class="dd">2026·09·04 · 欢迎来到 AGI</span></button>
@@ -306,7 +307,48 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v38">
+  <section class="issue active" id="v39">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.39 / 2026·09·11</div>
+      <h2 class="issue-theme">拼图凑齐了</h2>
+      <p class="issue-lead">补 9 月 11 号。这是篇难得的深度行业观察：短短一周，大语言（GPT-6 Astra）、图片（GPT-image-2.5）、视频（开源模型 H3 的加速版）三类模型集体升级，做一款 AI 游戏需要的几块拼图——写玩法、造美术、实时生成画面——第一次在同一个时间窗口凑齐了。文章顺着讲清了这套东西怎么搭，还抛出一个反转：当制作成本集体崩塌，真正变稀缺的是什么。</p>
+      <div class="issue-toc">
+        <a href="#v39-1"><span class="ix">01</span><span>GPT-6 遇上实时视频：做 AI 游戏的几块拼图，一周内凑齐了</span><span class="cat">干货·观点</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v39-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>GPT-6 遇上实时视频：做 AI 游戏的几块拼图，一周内凑齐了</h3></div>
+      <div class="meta"><span class="tag op">干货·观点</span><span class="sep">·</span>Z Potentials<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/adglkUpKOu98VwOd4kCFLg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>一篇深度行业观察。核心判断：就在一周内，三类 AI 模型集体升级——文字（GPT-6 Astra 能自己操作游戏引擎和 Blender 搭场景）、图片（GPT-image-2.5 更快、多轮编辑还能保持一致）、视频（基于开源模型 H3 的加速版，5 秒视频 3 秒生成、便宜到别家的十分之一）。这意味着做一款 AI 游戏需要的几块拼图——<b>写玩法的代码、造美术资产、实时生成回应玩家的画面</b>——第一次在同一个时间窗口凑齐了。于是"AI 互动内容"迎来新赛季：观众投票决定下一幕、AI 当场生成的直播和小游戏开始涌现。文章还点出一个反转：<b>当这些制作成本集体崩塌，真正稀缺的东西反而浮现出来。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">新赛季的门道，和一个反转</h4>
+          <ul class="points">
+            <li><b>一套"AI 游戏"怎么分工，文章讲清了。</b><span class="eg">头部大语言模型写玩法和系统代码，图片和 3D 模型出美术资产，头部视频模型做能看的剧情，实时交互视频模型负责"玩家临场输入 → 现场生成画面"的高自由度互动。比如有人用 GPT-6 Astra 加开源引擎、两段提示词就复刻了网页版《英雄联盟》，还有人用 Blender 画出了 3D 精细版颐和园。</span></li>
+            <li><b>"实时生成"第一次被当成玩法核心，而不是宣传噱头。</b><span class="eg">比如产品 YoLive：观众看着一个持续播放的 AI 剧情频道，谁都能提"下一幕该发生什么"（让机器人跳舞、来场天台追逐），大家投票，得票最高的方向由模型结合已发生的剧情当场生成新画面。还有约会模拟器、假新闻模拟器、按你选择实时生成的《GTA》。一个 74 万粉的主播甚至用 AI 分身开了场"永不结束"的直播，上线近 2 万人同时在线。</span></li>
+            <li><b>光有模型不够，得有一套"Harness"兜住。</b><span class="eg">Harness 就是围着模型搭的一套支撑系统：模型负责"看起来对"，它负责"确实发生了"。预生成的主线剧情打磨故事，状态系统记住道具、血量、任务进度、人物关系，规则系统判断玩家行动能产生什么结果，视觉模型检查画面有没有前后矛盾——校验通过的事件再写回状态，后面剧情才有据可依。缺了这层，就会"道具前后消失、角色没执行动作、画面接不上"。</span></li>
+            <li><b>最反直觉的一条：什么变便宜，什么就变稀缺。</b><span class="eg">代码、美术、视频素材的制作成本都在崩塌（两段提示词出个网页游戏、H3 把剧情画面做到别家的十分之一），供给要爆炸。正因如此，稀缺的变成三样：<b>① 运行时算力</b>——线性视频生成一次给一亿人看，实时生成是每个玩家每次选择都得现场算一次（一个 24 小时实时频道一天烧约 3456 美元，而广告小游戏单次收入以分计，所以"生成速度就是毛利"）；<b>② 真实产品里的玩家行为数据</b>——玩家想要什么、系统给了什么、留没留下，这种完整轨迹买不到爬不到，只有既做模型又做 C 端产品的公司拿得到，还是越滚越大的复利；<b>③ 流量和 IP</b>——Steam 日均近 70 款新游上线，头部 1% 却拿走约 94% 的收入，生产越便宜，渠道和题材越贵。</span></li>
+          </ul>
+
+          <blockquote>工具越强，"我也能做一个"的保质期就越短。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>应用层"反攻模型"</b>：开源拉平了模型起跑线，但没拉平推理栈、数据、产品三样。fal 靠推理基础设施把 H3 做快做便宜；Yoroll 靠自己积累的游戏内视频和玩家行为数据做后训练（拿自有数据在开源模型上再调一遍）。红杉和 Fireworks 的判断：后训练不是起点，而是产品找到市场之后的下一步，"拥有自己的智能"成了应用公司的新壁垒。</li>
+              <li><b>字节也入场</b>：据彭博社，字节在做实时交互视频/世界模型（基于 Seedance、接收语音和动作输入、目标每秒 20 帧、延迟约 0.05 秒，最快 10 月发布），出口接自家 PICO 头显。</li>
+              <li><b>大厂抢入口</b>：B 站、快手、抖音、小红书都在开互动内容与 vibe coding 的发布和分发通道——互动内容是最近的行业风口。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v38">
     <div class="issue-head">
       <div class="issue-vol">VOL.38 / 2026·09·10</div>
       <h2 class="issue-theme">省着点烧</h2>
