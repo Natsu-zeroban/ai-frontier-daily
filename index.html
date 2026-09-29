@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v40" data-vol="vol.40"><span class="vv">VOL.40 <span class="new">最新</span></span><span class="dd">2026·09·14 · 利润让位</span></button>
+    <button class="tab active" data-issue="v41" data-vol="vol.41"><span class="vv">VOL.41 <span class="new">最新</span></span><span class="dd">2026·09·15 · 学霸少打草稿</span></button>
+    <button class="tab" data-issue="v40" data-vol="vol.40"><span class="vv">VOL.40</span><span class="dd">2026·09·14 · 利润让位</span></button>
     <button class="tab" data-issue="v39" data-vol="vol.39"><span class="vv">VOL.39</span><span class="dd">2026·09·11 · 拼图凑齐了</span></button>
     <button class="tab" data-issue="v38" data-vol="vol.38"><span class="vv">VOL.38</span><span class="dd">2026·09·10 · 省着点烧</span></button>
     <button class="tab" data-issue="v37" data-vol="vol.37"><span class="vv">VOL.37</span><span class="dd">2026·09·08 · AI 在造 AI</span></button>
@@ -308,7 +309,48 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v40">
+  <section class="issue active" id="v41">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.41 / 2026·09·15</div>
+      <h2 class="issue-theme">学霸少打草稿</h2>
+      <p class="issue-lead">补 9 月 15 号。前几期一直在聊"看不懂 AI 在想什么"的隐忧，这篇从技术原理泼了盆冷静水。起因是有爆料说 GPT-6 Astra 用了种叫"循环 Transformer"的设计、会把推理过程藏起来，引发安全恐慌。《从零构建大模型》的作者 Raschka 写万字长文把技术摊开讲，结论是：别慌——Astra 思维链变短，更可能只是因为它更聪明、犯错少，像学霸考试不怎么打草稿，而不是这个架构在刻意隐藏。</p>
+      <div class="issue-toc">
+        <a href="#v41-1"><span class="ix">01</span><span>万字详解 GPT-6 Astra：思维链变短，不是它在"藏"，是它更聪明了</span><span class="cat">干货·科普</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v41-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>万字详解 GPT-6 Astra：思维链变短，不是它在"藏"，是它更聪明了</h3></div>
+      <div class="meta"><span class="tag">干货·科普</span><span class="sep">·</span>机器之心（编译 Sebastian Raschka 长文）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/yGW1TTsDs2XXjbSGk25Hlw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>前几期一直在聊"看不懂 AI 在想什么"的隐忧，这篇从技术原理给出了冷静的一面。起因：GPT-6 Astra 发布前有爆料说它用了种叫"循环 Transformer"的设计，会让推理过程变得不可见，一时间"Astra 在隐藏思维链"的说法引发安全恐慌。《从零构建大模型》的作者 Sebastian Raschka 写了篇万字长文把技术摊开讲，给出一个反直觉但更靠谱的结论：<b>Astra 的思维链确实变短了，但这更可能是因为它更聪明、犯错更少，而不是那个架构在刻意隐藏</b>——就像一个学霸考试时不怎么需要打草稿。</div>
+
+        <div class="detail">
+          <h4 class="blk">把这场恐慌的技术底摊开看</h4>
+          <ul class="points">
+            <li><b>"循环 Transformer"到底是啥，一句话：让数据在同一批网络层里多绕几圈。</b><span class="eg">普通模型是数据从头到尾把网络层过一遍；循环 Transformer 是让它在同一批层里来回过好几遍（每遍用的还是那套权重）。好处是用更少的参数换来更多的"思考深度"——相当于把网络"加深"了，却不用多存一份参数、省内存。这思路 2018 年就有了，今年字节的 Ouro、谷歌的一项研究都在用。</span></li>
+            <li><b>思维链变短 ≠ 在藏，更可能是"变聪明"的副产品。</b><span class="eg">推理模型答题前会先生成一串中间步骤（思维链），相当于草稿纸，还会"回溯"（发现算错了就退回去换个思路）。能力越强的模型，一次做对的概率越高、回溯越少，自然就不需要那么长的草稿。作者举了个现成例子：同门的 Luna 要达到和 Sol 相近的成绩，得多烧 80% 的 token——但没人因此说 Sol 的"可解释性"更差。用的 token 少，通常只说明它更强，不代表它在遮掩。</span></li>
+            <li><b>那"可监控性下降"是真的吗？是，但别赖在架构上。</b><span class="eg">Astra 的官方系统卡确实承认推理轨迹的可监控性有所退步（主要因为轨迹更短、信息更少）。但作者强调：没有证据能把这笔账记到"循环架构"头上。OpenAI 首席科学家也亲自澄清：思维链的这个变化"和架构变动无关"，他会另写文章说明；他想避免"因为混乱报道而引发一场奔向不可监控的竞赛"。</span></li>
+            <li><b>顺带两个有意思的点。</b><span class="eg">① Astra 最出彩的其实是"计算机操作"（直接用你电脑上的鼠标去操作软件）：OpenAI 为此采购了数万台 Mac——不是拿来训练模型，而是给模型提供一个 macOS 环境练习"看截图 → 点鼠标 → 看新截图"。② 作者转述一条反直觉建议：新模型更聪明了，可以考虑删掉或归档一部分你写给 AI 的手把手指导文件（AGENTS.md / SKILL.md）——过多的旧指导反而可能束缚新模型、让它给出更差的方案。</span></li>
+          </ul>
+
+          <blockquote>更短的推理轨迹，是更聪明、能力更强的模型带来的副产品——就像现场数学考试里，一个准备充分的学霸更少用到草稿纸，也更少回头重来。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还讲了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>循环不是没代价</b>：虽然省了参数（存权重的内存少一半），但计算量省不了——数据绕两遍，前向、反向都要走完整两遍；存历史注意力的 KV 缓存也省不下。所以它的好处主要是"同样算力预算下模型能更好一点"，而且要模型够大才划算（小模型上普通 Transformer 反而更好）。</li>
+              <li><b>计算机操作会是下一个主战场</b>：作者预计接下来几个月到几年，"让模型会用图形界面软件"会成为开源和闭源框架共同发力的方向，就像人形机器人——在有专用机器的流水线上不是最高效，但胜在通用。他也提醒：把主力电脑的操作权交出去之前，最好能先审计这个框架（所以开源在这件事上尤其重要）。</li>
+              <li><b>还梳理了几篇新论文</b>（潜在推理、记忆 vs 推理、算力对齐下的循环等），结论都指向：循环这套东西在"够大的模型 + 固定算力预算"下，确实能换来一点性能提升。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v40">
     <div class="issue-head">
       <div class="issue-vol">VOL.40 / 2026·09·14</div>
       <h2 class="issue-theme">利润让位</h2>
