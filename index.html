@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v41" data-vol="vol.41"><span class="vv">VOL.41 <span class="new">最新</span></span><span class="dd">2026·09·15 · 学霸少打草稿</span></button>
+    <button class="tab active" data-issue="v42" data-vol="vol.42"><span class="vv">VOL.42 <span class="new">最新</span></span><span class="dd">2026·09·16 · 还在第二级</span></button>
+    <button class="tab" data-issue="v41" data-vol="vol.41"><span class="vv">VOL.41</span><span class="dd">2026·09·15 · 学霸少打草稿</span></button>
     <button class="tab" data-issue="v40" data-vol="vol.40"><span class="vv">VOL.40</span><span class="dd">2026·09·14 · 利润让位</span></button>
     <button class="tab" data-issue="v39" data-vol="vol.39"><span class="vv">VOL.39</span><span class="dd">2026·09·11 · 拼图凑齐了</span></button>
     <button class="tab" data-issue="v38" data-vol="vol.38"><span class="vv">VOL.38</span><span class="dd">2026·09·10 · 省着点烧</span></button>
@@ -309,7 +310,48 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v41">
+  <section class="issue active" id="v42">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.42 / 2026·09·16</div>
+      <h2 class="issue-theme">还在第二级</h2>
+      <p class="issue-lead">补 9 月 16 号。这几期 RSI（AI 递归自我改进，也就是"AI 自己改进自己"）这个词越传越玄。一家中国实验室 Theseus Labs 扒了 72 家公司的公开材料，给它装了把尺子：把"自我改进"拆成 L1 到 L5 五级，还发现——尽管大厂天天喊 RSI，目前基本都还挤在最初级的 L1–L2，离"AI 连改进方法本身都自己重造"的完全体 L5 还很远。给前几期的恐慌又添了一份冷静。</p>
+      <div class="issue-toc">
+        <a href="#v42-1"><span class="ix">01</span><span>一张图看懂大厂的 RSI 进度：喊得凶，其实还在"第二级"</span><span class="cat">干货·解读</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v42-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>一张图看懂大厂的 RSI 进度：喊得凶，其实还在"第二级"</h3></div>
+      <div class="meta"><span class="tag">干货·解读</span><span class="sep">·</span>机器之心（据 Theseus Labs 报告《The Last AI Built by Humans》）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/6AqnNxiUt9-YC6a_ilLz8w">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>RSI（递归自我改进，通俗说就是"AI 自己改进自己、越改越强"）是今年最火也最玄的词——前几期我们聊过它引发的恐慌（异星心智、AI 造 AI）。一家中国前沿实验室 Theseus Labs 做了件务实的事：不谈哲学畅想，而是扒了 OpenAI、Anthropic、谷歌、字节、腾讯等 72 家公司的公开材料，给 RSI 装了把尺子——把"自我改进"按 AI 承担多少责任拆成 L1 到 L5 五级。结论挺清醒：<b>大厂虽然天天喊 RSI，目前基本都还挤在最初级的 L1–L2</b>，离"AI 连'怎么改进'这套方法本身都自己重造"的完全体 L5 还很远。</div>
+
+        <div class="detail">
+          <h4 class="blk">给玄词装上尺子之后</h4>
+          <ul class="points">
+            <li><b>RSI 五级，一句话看懂每级 AI 有多自主。</b><span class="eg">L1 执行（人把任务、环境、改进策略都设计好，AI 只管执行和更新）→ L2 策略（AI 开始自己设计改进策略）→ L3 经验（AI 自己规划该去积累什么经验）→ L4 适应（AI 自己和环境打交道、把部署里的失败转成下一轮改进）→ L5 递归继承（AI 开始改进"改进系统"本身，把验证过的新方法传给下一代）。现状：OpenAI、Anthropic 这些主要在 L1–L2，腾讯 R-Zero（自己出题自己解）在往 L3 走，L5 目前全是候选和愿景。</span></li>
+            <li><b>别把"跑分变高"当成 RSI 成了。</b><span class="eg">报告特意泼冷水：L1–L4 都只是"在既定的改进方法下把任务能力做强"，只有 L5 那种"改进'改进机制'本身"才算真正的递归。打个比方：L4 是用现成的登山方法爬到山顶，L5 是去琢磨"登山方法本身"怎么能更好、再把新方法传给下一个人。而且能不能算真改进，必须在同等算力下由独立评估确认，不能靠 AI 自我打分。</span></li>
+            <li><b>一把新尺子 HCI：模型考试快满分，干活才刚起步。</b><span class="eg">他们造了个指标 HCI（衡量模型把"通往满分的差距"填补了多少）。数据很割裂：前沿数学 86.4、研究生级科学 85.8（快摸顶了），但软件工程只有 52.6、工具调用类 Agent 更是低到 39.9。模型在"标准化考试"上接近天花板，在"真实干活"上才刚起步。</span></li>
+            <li><b>最反直觉的破局点：AI 最不擅长的"干活"，恰恰是 RSI 最该发力处。</b><span class="eg">因为"干活"要长程交互、反复试错、回归测试——这正是 RSI"积累经验 + 验证更新"的强项。缺口越大、红利越高：报告测算工具 Agent 能从 39.9 拉到 86.8。产业界也有初步信号，比如有团队用这套思路把关键缺陷率从 9% 降到 3.7%、把工程实现提速近一倍。</span></li>
+          </ul>
+
+          <blockquote>也许人类造的最后一个 AI，不是某个瞬间诞生的超级智能，而是一粒学会自己添柴、自己校准、自己记住来路的火种。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 报告还讲了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>L5 光成功一次不算数</b>，报告给了"四问"：可衡量（改进真实、能独立复现吗）、可保持（能持久不退化吗）、可迁移（能跨任务复用吗）、可回滚（失效了能安全撤回吗）。过不了这四关，就只是"一次性刷榜"。</li>
+              <li><b>不同领域走向 RSI 的速度不一样</b>：软件工程最快，科学、机器人、医疗更慢——因为它们的反馈更难拿到、验证起来更贵或更冒险。决定速度的是"反馈成本、可验证性、部署约束"三样。</li>
+              <li><b>这份报告本身在海外挺火</b>（发布 10 小时百万浏览），是一份少见的、由中国实验室主导的 RSI 全景梳理。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v41">
     <div class="issue-head">
       <div class="issue-vol">VOL.41 / 2026·09·15</div>
       <h2 class="issue-theme">学霸少打草稿</h2>
