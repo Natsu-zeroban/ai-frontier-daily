@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v37" data-vol="vol.37"><span class="vv">VOL.37 <span class="new">最新</span></span><span class="dd">2026·09·08 · AI 在造 AI</span></button>
+    <button class="tab active" data-issue="v38" data-vol="vol.38"><span class="vv">VOL.38 <span class="new">最新</span></span><span class="dd">2026·09·10 · 省着点烧</span></button>
+    <button class="tab" data-issue="v37" data-vol="vol.37"><span class="vv">VOL.37</span><span class="dd">2026·09·08 · AI 在造 AI</span></button>
     <button class="tab" data-issue="v36" data-vol="vol.36"><span class="vv">VOL.36</span><span class="dd">2026·09·07 · 看不懂它在想什么</span></button>
     <button class="tab" data-issue="v35" data-vol="vol.35"><span class="vv">VOL.35</span><span class="dd">2026·09·04 · 欢迎来到 AGI</span></button>
     <button class="tab" data-issue="v34" data-vol="vol.34"><span class="vv">VOL.34</span><span class="dd">2026·09·03 · 招个数字员工</span></button>
@@ -305,7 +306,48 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </nav>
 
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v37">
+  <section class="issue active" id="v38">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.38 / 2026·09·10</div>
+      <h2 class="issue-theme">省着点烧</h2>
+      <p class="issue-lead">补 9 月 10 号这天。这几天被 GPT-6 Astra 的各种炫案例刷屏，可没人聊怎么省钱——Astra 单价不便宜，前面那些案例通关个游戏就烧掉五百多美元。这篇把 OpenAI 官方的省 token 指南整理成了 7 条能直接抄的做法，做 Agent / API 的人尤其该收着。</p>
+      <div class="issue-toc">
+        <a href="#v38-1"><span class="ix">01</span><span>GPT-6 Astra 省 token 官方指南：7 招把烧钱速度降下来</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v38-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>GPT-6 Astra 省 token 官方指南：7 招把烧钱速度降下来</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>RaDesign（据 OpenAI 官方指南整理）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/K7VTj8-RsM-jWmg0btuhjQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>GPT-6 Astra 强是强，但单价不便宜——前几天那些炫案例，通关个游戏就烧掉五百多美元。这篇把 OpenAI 官方的省 token 指南整理成了 <b>7 条能直接抄的做法</b>。一句话总结：低推理起步 + 缓存稳住 + 工具按需加载 + 长对话压缩 + 让它少说 + 别反复自测 + 多轮别从头讲。还有个反直觉的重点：<b>省 token 最容易踩的坑，恰恰是"为了省而拼命删系统提示词"——那反而可能更贵。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">最该记住的四条</h4>
+          <ul class="points">
+            <li><b>默认用"低推理"，别动不动开高强度。</b><span class="eg">Astra 的推理强度分档，简单活（问答、改文案、翻译、总结、普通改代码）先用 low，只有难题、架构设计、疑难排错才临时切到高档。它还支持中途动态调档，不用每次重写整段提示词、还能保住缓存。</span></li>
+            <li><b>别为了省钱瞎删系统提示词——这是最常见的坑。</b><span class="eg">一段 5000 token 的规则，只要每次完全一样、能稳定命中缓存，就比你每轮重新总结、重新组织提示词更省钱。诀窍是<b>固定的放前面、动态的放后面</b>：身份、规范、工具说明、长期资料这些别老改、放前半段命中缓存；用户本轮的新需求和变量放后面。官方专门提醒：为缩短提示词而破坏了缓存前缀，总成本反而会上升。</span></li>
+            <li><b>工具别一次全塞给它，按需加载。</b><span class="eg">如果你的 Agent 挂了浏览器、搜索、Figma、Gmail、数据库、GitHub……几十个工具，光是这些工具的"说明书"（schema）每次就吃掉几千甚至几万 token。开 defer_loading（延迟加载）：当前只需要查网页，就只加载浏览器和搜索；真要用 Figma 时再加载。做 Agent / Skill / MCP 的，这条最值得优化。</span></li>
+            <li><b>让它"少说话"，长对话记得压缩。</b><span class="eg">GPT 默认爱长篇解释，你只要结果就明确写死："只输出重点""每项最多 2 句""别复述我的问题""别解释思考过程"——直接砍输出 token。另外长对话别每轮把几十万 token 的完整历史重发，用上下文压缩（Compaction）把前面压成一小段状态再往下聊；多轮任务用 previous_response_id 接着上一轮，别每步都从头讲一遍背景。</span></li>
+          </ul>
+
+          <blockquote>省 token 最简单有效的办法，往往不是换模型，而是明确让它"少说一点"。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 剩下几条与现成模板（感兴趣可点原文）</div>
+            <ul>
+              <li><b>第 6 招专治编程智能体</b>：Astra 谨慎，代码改完会自动反复跑测试、扩大验证范围。可以直接叫停——"只跑和这次改动直接相关的测试""必要测试过了就停，别为完整性重复跑"，省推理、省工具调用、省时间。</li>
+              <li><b>一套现成模板</b>：固定区（系统提示词/角色/技能/规范/工具定义）→ 动态区（本轮需求/变量）→ 执行策略（low 起步，复杂切中/高档，完成恢复 low）→ 工具默认延迟加载、需要时才加载 → 长会话触发压缩 → 输出默认简洁。</li>
+              <li><b>作者的毒舌提醒</b>：别"许愿式使用大模型"（自己都不知道要啥就瞎问），先想清楚方向再问，才最省 token。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
+  <section class="issue" id="v37">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>网友把电脑丢给 GPT-6 Astra 玩出七种花样（夕小瑶科技说）</b>｜最有代表性的一个：开发者让它自己看屏幕、自己规划操作，把第一人称解谜游戏《传送门》从头打到通关（公开运行记录 23 小时 43 分、烧了约 571 美元）。其余还有人用它加 Codex 在虚幻引擎里花一周搭出曼哈顿街景、通关把验证码做成关卡的《我不是机器人》48 关拿到"真人认证"、在 Blender 里按图纸搭出 3295 个部件的可编辑蒸汽火车、把特斯拉做成能拆开查看的 3D 网页。一句话看点：<b>操作专业软件的门槛正在松动，你说得出"想要什么"，它就能上手一步步做出来。</b> <a href="https://mp.weixin.qq.com/s/fMgiuZmjxAe0Lg-dEiwEug">原文</a></p>
