@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v55" data-vol="vol.55"><span class="vv">VOL.55 <span class="new">最新</span></span><span class="dd">2026·10·13 · 拆开看看</span></button>
+    <button class="tab active" data-issue="v56" data-vol="vol.56"><span class="vv">VOL.56 <span class="new">最新</span></span><span class="dd">2026·10·15 · 留下来的</span></button>
+    <button class="tab" data-issue="v55" data-vol="vol.55"><span class="vv">VOL.55</span><span class="dd">2026·10·13 · 拆开看看</span></button>
     <button class="tab" data-issue="v54" data-vol="vol.54"><span class="vv">VOL.54</span><span class="dd">2026·10·12 · 眉头一皱</span></button>
     <button class="tab" data-issue="v53" data-vol="vol.53"><span class="vv">VOL.53</span><span class="dd">2026·10·10 · 墙在变矮</span></button>
     <button class="tab" data-issue="v52" data-vol="vol.52"><span class="vv">VOL.52</span><span class="dd">2026·10·08 · 第二道鸿沟</span></button>
@@ -322,8 +323,97 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.56 ==================== -->
+  <section class="issue active" id="v56">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>用 Opus 5.5 把《小王子》做成 3D 游戏（Sac，X）</b>｜作者花了 16 天，用 Anthropic 的编程模型 Claude Opus 5.5，加上生成 3D 模型的平台 Tripo 和建模软件 Blender，把小王子故事里的每个星球都做成了能走进去探索的 3D 场景。网页版已经能玩（littleprince.dev），作者说之后会开源整个游戏和制作流程。 <a href="https://x.com/Saccc_c/status/2109962425512734739">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.56 / 2026·10·15</div>
+      <h2 class="issue-theme">留下来的</h2>
+      <p class="issue-lead">一个 AI 聊天平台被用户每天用上一个多小时，破产时能卖钱的只剩一份许可；一个新模型能连着干一整夜，第二天被采纳的只有三分之一。看一件事最后留下了什么，比看它热闹了多久更说明问题。</p>
+      <div class="issue-toc">
+        <a href="#v56-1"><span class="ix">01</span><span>每天聊 75 分钟的 Character.AI，为什么走到破产</span><span class="cat">观点·分析</span></a>
+        <a href="#v56-2"><span class="ix">02</span><span>Gemini 4 Argon 案例集：从改代码到桌面赛车</span><span class="cat">干货·案例</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v56-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>每天聊 75 分钟的 Character.AI，为什么走到破产</h3></div>
+      <div class="meta"><span class="tag op">观点·分析</span><span class="sep">·</span>深思SenseAI（整理公开报道和破产文件；数字口径不一，作者只取量级，部分结论是作者的推断）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/FIN3KoYFF1pLxq-cuOsRDg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Character.AI 是一个和 AI 角色聊天的平台，可以挑别人捏好的角色，也可以写几句人设、几段示例对话自己捏一个。10 月 12 日，它的母公司申请破产重整，第一个出价的是迪士尼：2000 万美元，买部分知识产权的使用许可，不包括平台本身。作者把材料捋了一遍，用户一直很爱用，问题出在<b>用户每多聊一分钟，公司就多付一分钟的算力钱，愿意掏钱的却不到百分之一</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">账是怎么算坏的</h4>
+          <ul class="points">
+            <li><b>用得多，赚得少。</b><span class="eg">用户平均每天待 75 分钟，月活两年多一直在 2000 万上下。可 2025 年年中，一年的收入只有 3000 万美元左右，而媒体估算它每个月的运营成本也在 3000 万上下，一个月就花掉一年的收入。订阅每月 9.99 美元，付费用户不到月活的百分之一。</span></li>
+            <li><b>会造模型的人先走了。</b><span class="eg">两位创始人都来自谷歌，其中 Noam Shazeer 是 Transformer 论文的作者之一，今天的大模型都建立在这篇论文的结构上。2024 年 8 月，谷歌花约 27 亿美元拿走了技术许可，把两位创始人和约 30 名研究员带回谷歌。此后公司不再自己训练模型，改用外面的。作者推断，从那以后每条消息的成本都要付给别人，但具体多少没人公开过。</span></li>
+            <li><b>最难定价的是官司。</b><span class="eg">欠的钱并不多，最大的债主反而是谷歌，约 415 万美元。难的是债权人名单最后三行：两个州政府和一名未成年原告，金额全是空的。2024 年起陆续有家长起诉，说孩子的死和这个平台有关，公司之后禁止 18 岁以下用户自由聊天。买家没法给一场还没打完的官司估价。</span></li>
+          </ul>
+
+          <h4 class="blk">用户留下的东西</h4>
+          <ul class="points">
+            <li><b>角色和聊天记录去哪，没人说。</b><span class="eg">用户建的角色从 2023 年的 270 万个涨到如今的 1800 万个以上，每个背后都有人写下的人设和越攒越长的聊天。公告只说平台照常运行、可以导出数据和删号；被卖掉或关停时这些东西归谁、订阅费退不退，都没写。按公司的安排，如果没人出价接手整个平台，平台就关停。</span></li>
+            <li><b>一个产品，三样东西三种下场。</b><span class="eg">作者的总结是：造产品的人和模型，2024 年卖给了谷歌；许可、债权这些写在合同里的东西，正在法院里标价；用户每天的时间和他们建的角色，到现在还没人标价。前两样买家知道怎么估，第三样在账上只记在成本那一栏。</span></li>
+          </ul>
+
+          <blockquote>75 分钟是真的，但在这家公司的账上，它首先是一项成本。（深思SenseAI）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>迪士尼和它的交集</b>：2023 年平台上至少有 20 个版本的米老鼠；2025 年迪士尼发函要求停止侵权；2026 年 9 月，迪士尼请 Character.AI 的前 CEO 去当首位首席技术官，他到任十天后，公司申请了破产。</li>
+              <li><b>接下来看什么</b>：出售预计 11 月底或 12 月初完成，迪士尼的出价可以被更高的报价取代。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v56-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>Gemini 4 Argon 案例集：从改代码到桌面赛车</h3></div>
+      <div class="meta"><span class="tag">干货·案例</span><span class="sep">·</span>小互 AI 解读站（整理 Google 官方博客、演示视频和 X 帖子；案例和评测都是厂商或发布者自报）<span class="sep">·</span><a href="https://best.xiaohu.ai/article/gemini-4-argon-global-release/#reader-section-2">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Gemini 4 Argon 是 Google 的新旗舰模型，现在向 Google 的 Pro、Ultra 付费订阅用户和付费 API 开放，免费账号暂时用不了。小互把官方复盘和十几段演示整理到一起，有改大型代码库的，有用代码做 3D 场景的，还有帮机器人练投沙包的。几个案例有个共同点：<b>人先把规矩和检查方法定好，模型才能长时间自己往前推</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">改代码：差别在有没有立规矩</h4>
+          <ul class="points">
+            <li><b>同一个模型跑两轮，结果差很多。</b><span class="eg">ADK 是 Google 用来搭 AI 助手的开源框架，约 20 万行代码、1.7 万个自动测试。第一轮团队只给了一段目标提示词，没给项目规范，模型跑了 2 小时，确实找到了慢在哪，却顺手改了对外公开的数据格式，测试也只跑了附近 216 个。第二轮，团队先把命名规范、哪些模块要用到时才加载写成规则文件放进项目，提示词里写明：公开接口不许变，每处改动都要配测试，交上来时附前后对比数据，不准自己合并。这一次模型连跑 11 小时，跑通了全部测试。</span></li>
+            <li><b>交上来的六个提案，留下两个。</b><span class="eg">第二天维护者逐个审，收了 2 个，否了 4 个。被否的有的只在测试里变快，日常用起来没区别；有的依赖别人代码里随时可能变的内部细节，对方一升级就会出问题。模型负责大胆去试，哪些能留下，还是维护者说了算。</span></li>
+          </ul>
+
+          <h4 class="blk">做 3D：写代码，再看截图修改</h4>
+          <ul class="points">
+            <li><b>一张书桌照片变成赛车游戏。</b><span class="eg">Google 工程师 Geneviève Huskens 拍了自己的书桌，做成网页赛车游戏 Desk Racer。她先让模型反过来向她提问，把玩法、光照、桌上的东西怎么处理问清楚；再用 Google 的生图模型 Nano Banana 出几张概念图挑风格；然后几个 AI 分头做灯光、桌面物品和贴图，在 Blender（3D 建模软件）里建模，最后用 Three.js（做网页 3D 的工具库）装成能玩的游戏。</span></li>
+            <li><b>每轮从四个角度截图检查。</b><span class="eg">总览看构图，特写看材质，贴近地面的低角度看东西有没有悬空，只显示线条的线框模式看模型有没有互相穿插。这样"再精细一点"就成了模型能找到具体位置的修改要求。模型也自己查过，确保赛道的 68 根支柱都落在桌面或摆件上。</span></li>
+            <li><b>手感还是人在调。</b><span class="eg">第一版车的比例是 1:87，路显得挤。她改成 1:150，同时把跟车镜头拉近：车在屏幕上一样大，路却像宽了一倍，桌上的东西也显得更巨大。</span></li>
+          </ul>
+
+          <h4 class="blk">强在哪、弱在哪</h4>
+          <ul class="points">
+            <li><b>不是样样第一。</b><span class="eg">按 Google 自己公布的评测，它在办公类知识工作、金融和法律任务、从超长资料里找信息上领先；但在两项写代码的评测上，输给了 OpenAI 的 GPT-6 Astra 和 Anthropic 的 Claude Opus 5.5。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>想自己试</b>：Desk Racer 可以在 Google AI Studio 里直接试玩、改编，作者的英文 3D 制作指南也公开了。长时间、多个 AI 分工的玩法在 Google 的编程工具 Antigravity 里，需要 Ultra 订阅。</li>
+              <li><b>机器人投沙包</b>：人形机器人先看人投沙包的视频学动作，在模拟环境里练，再到真机上把出手位置微调几厘米，最后连中 7 次。</li>
+              <li><b>价格</b>：API 现在是推广价，推广期结束后翻倍。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.55 ==================== -->
-  <section class="issue active" id="v55">
+  <section class="issue" id="v55">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>REA 再串两个工具：从看懂到上线前体检（Researcher_王十三）</b>｜REA 能让 AI 编程助手看懂别人软件里的某个功能。作者觉得看懂不等于复刻，就把它和另外两个开源项目串在一起用：Reverse-skill 负责判断这次该用哪些分析工具、缺了现装，还会记下踩过的坑；PentAGI 是几个分工合作的 AI，专门对你自己的网站做攻击测试，交一份漏洞报告。文中给了从接入工具到上线前体检的五段提示词，可以直接复制。 <a href="https://x.com/ResearchWang/status/2109812002076143824">原文</a></p>
