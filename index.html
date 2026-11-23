@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v44" data-vol="vol.44"><span class="vv">VOL.44 <span class="new">最新</span></span><span class="dd">2026·09·18 · 模型外面那层</span></button>
+    <button class="tab active" data-issue="v45" data-vol="vol.45"><span class="vv">VOL.45 <span class="new">最新</span></span><span class="dd">2026·09·20 · 各干各的长处</span></button>
+    <button class="tab" data-issue="v44" data-vol="vol.44"><span class="vv">VOL.44</span><span class="dd">2026·09·18 · 模型外面那层</span></button>
     <button class="tab" data-issue="v43" data-vol="vol.43"><span class="vv">VOL.43</span><span class="dd">2026·09·17 · 自己跑一个</span></button>
     <button class="tab" data-issue="v42" data-vol="vol.42"><span class="vv">VOL.42</span><span class="dd">2026·09·16 · 还在第二级</span></button>
     <button class="tab" data-issue="v41" data-vol="vol.41"><span class="vv">VOL.41</span><span class="dd">2026·09·15 · 学霸少打草稿</span></button>
@@ -311,8 +312,101 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.45 ==================== -->
+  <section class="issue active" id="v45">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.45 / 2026·09·20</div>
+      <h2 class="issue-theme">各干各的长处</h2>
+      <p class="issue-lead">补 9 月 20 号。两篇都在说"分工"。第一篇和游戏直接相关：有人让 GPT-6 Astra 把 1977 年的文字冒险游戏《Zork》改成了能玩通的 3D 动作游戏——原作出剧情和谜题，AI 出代码和 3D，各补对方的短板。第二篇给最近爆火的"只做选择题的 AI" Jev 挤了挤水分：它取代不了大模型，最值钱的用法是给大模型当"门卫"，有把握的小判断自己放行，没把握的再交上去。</p>
+      <div class="issue-toc">
+        <a href="#v45-1"><span class="ix">01</span><span>GPT-6 Astra 把 1977 年的文字冒险《Zork》改成能通关的 3D 动作游戏：经典底子 + AI 写代码</span><span class="cat">干货·案例</span></a>
+        <a href="#v45-2"><span class="ix">02</span><span>爆火的"只做选择题的 AI" Jev：剔掉虚火之后，它真正能干什么</span><span class="cat">干货·测评</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v45-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>GPT-6 Astra 把 1977 年的文字冒险《Zork》改成能通关的 3D 动作游戏：经典底子 + AI 写代码</h3></div>
+      <div class="meta"><span class="tag">干货·案例</span><span class="sep">·</span>AI for Frontend（介绍 Ethan Mollick 的个人项目）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/lPK9t2SSz9hn5oA6v71M3w">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>《Zork》是 1977 年的经典文字冒险游戏：没有画面，玩家读一段文字描述，再敲"向北走""捡起灯笼"这样的指令来玩。沃顿商学院教授 Ethan Mollick（长期研究"AI 怎么用到工作里"的知名学者）让 GPT-6 Astra 把它改成了浏览器里就能玩的<b>第一人称 3D 动作冒险游戏</b>：原版的剧情、谜题和文案都保留，加上了实时战斗，所有场景和角色都是 AI 直接写代码"搭"出来的（用的是做网页 3D 的工具库 Three.js，没有导入现成的模型）。人只给了最初的指令、中途少量提示和纠正，再负责试玩测试。<b>能做成，关键是分工对了：原作提供已经打磨好的剧情、谜题和文字——这恰好是 AI 目前的短板；AI 负责写代码、搭 3D、扩展系统——这是它的强项。</b>对策划的启发：让 AI 帮你做游戏时，先给它一个扎实的内容底子，比让它从零编靠谱得多。</div>
+
+        <div class="detail">
+          <h4 class="blk">从文字到 3D：AI 做了什么、人做了什么</h4>
+          <ul class="points">
+            <li><b>敲指令变成了走路和按键。</b><span class="eg">原版靠打字，比如敲"向北走""点亮灯笼"。改编后：WASD 走路、鼠标转视角、按 E 和物体互动（检查、捡起、使用），替代了打字；黑的地方要按 L 开灯笼，不然会被原作里著名的黑暗怪物 Grue 吃掉；原版的房间描述会在你探索时弹出来。整张地图被压缩成约 30 个区域（含一个迷宫），目标和原作一样：收集 19 件宝物，抵达最终结局。</span></li>
+            <li><b>AI 自己做了很多"好不好玩"的判断。</b><span class="eg">Mollick 特别强调这一点：怎么把一段文字描述变成连贯的 3D 空间、怎么让战斗有意思，都得 AI 自己拿主意。战斗：左键攻击，按住右键在对的时机格挡，Q 加方向键闪避，对手是原作里的巨魔和盗贼。谜题：走到障碍物前检查，再从背包里挑一件物品使用，选错了不会丢东西、可以走开再试；有些谜题还要你输入答案。他也公开了部分提示词和纠正记录的截图。</span></li>
+            <li><b>不是演示品，是能通关的完整游戏。</b><span class="eg">三档难度、三级提示（从轻微暗示到直接给答案，玩家自己选要不要看）、自动记线索的日记、地图和指南针、在壁炉边休息回血并解锁快速旅行、浏览器自动存档（还能导出导入换设备接着玩）、手机触屏操作（左边虚拟摇杆、右边滑动转视角）。代码里还带了自动化测试——让程序自己检查剧情流程、谜题、存档、战斗、触屏这些功能有没有坏。Mollick 自己玩通了约 80% 的内容，确认房间和谜题基本齐全、都解得开。</span></li>
+            <li><b>美术也基本是代码"画"的。</b><span class="eg">只有封面插画和少量贴图（比如树叶）是 AI 生成的图片，其余的 3D 环境、角色、道具、界面和合成音效都是这个项目里新做的。整个游戏是纯网页，不需要账号、不需要服务器，打开链接就能玩。</span></li>
+          </ul>
+
+          <blockquote>这让我印象深刻：我让 GPT-6 Astra 把 Zork（1977 年的经典文字冒险）变成一个完整的 3D 动作冒险游戏。它保留了原版的剧情和谜题，加入了战斗场景，并直接用 Three.js 搭出了所有角色和环境。（Ethan Mollick）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>试玩和源码</b>：在线试玩 zork-underground-empire.netlify.app；代码开源在 github.com/emollick/zork-underground-empire，还有 Windows 离线包。</li>
+              <li><b>文案从哪来</b>：房间、物品、对话的文字大量直接取自微软 2025 年开源的 Zork I 源码。项目是个人独立改编，没有微软、动视或原开发商 Infocom 的官方背书；只做了一代，Zork II、III 不在范围内。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v45-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>爆火的"只做选择题的 AI" Jev：剔掉虚火之后，它真正能干什么</h3></div>
+      <div class="meta"><span class="tag">干货·测评</span><span class="sep">·</span>huangserva（X 长文；个人实测、主观，引用的案例数字多为各项目自报）<span class="sep">·</span><a href="https://x.com/servasyy_ai/status/2101132667056185544">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Jev 是 TypeSafe AI 公司 9 月 15 日发布的新模型，不到一周就被传成"快 200 倍""永不出错""大模型要被取代"。作者翻了大量帖子、自己测了两轮，给出一份冷静清单。一句话理解：ChatGPT、Claude 是"会写作文的 AI"，<b>Jev 是"只会做选择题的 AI"</b>——你给它一段信息和几道选项事先定好的题，它一次性交回答案，每个答案还附一句"我有几成把握"；它不能聊天、不能写代码和文案、也看不了图。作者的结论：<b>它不是更便宜的大模型，而是另一种零件；真正值钱的用法只有一个——按"把握"分流：有把握的小判断自己直接放行，没把握的再交给大模型</b>，像在大模型门口安了个又快又稳的门卫。另外，它是给做产品的人当零件用的；想直接塞进自己的日常工具里提效，作者试了四次全失败了。</div>
+
+        <div class="detail">
+          <h4 class="blk">它是什么、该打多少折</h4>
+          <ul class="points">
+            <li><b>为什么它又快又便宜。</b><span class="eg">普通大模型是一个字一个字往外写；Jev 的答案范围事先定好，只有三种题型——单选（最多 255 个选项里挑一个）、打分、是/否——它只要把每个选项的可能性算一遍就完事。官方数据：0.07 到 0.5 秒出结果，读入每百万 token（AI 处理文字的计量单位）收 0.042 美元，输出不收钱。它的训练目标也不一样：不求答得漂亮，求"把握要准"——它说七成把握的时候，就该真的大约七成是对的。</span></li>
+            <li><b>官方宣传要打的折扣。</b><span class="eg">程序员论坛 Hacker News 上有三条质疑值得记住：① "永不幻觉"（幻觉＝AI 一本正经地编造）只是说它不会答出选项以外的东西，选错照样可能，公司 CEO 自己也承认；② 速度对比不公平——拿它和大模型"写完一整段答案"比，而不是让大模型也只答一个字母；③ 刷屏的"Jev 玩《毁灭战士》"演示，喂给它的是敌人坐标，不是游戏画面，相当于开了透视，只能说明反应快，不能说明会玩游戏。官方在自建的测试里报的准确率约 68%，接近中等水平的大模型，但便宜 40 到 400 倍、快 20 到 200 倍——全是自报。</span></li>
+          </ul>
+
+          <h4 class="blk">真跑通了的用法</h4>
+          <ul class="points">
+            <li><b>给 AI 助手当"决策器"。</b><span class="eg">能自己操作电脑的 AI 助手，每一步都要在有限的动作里选一个——这正好是选择题，还要求快。证据最完整的例子是 Browser Use（一个让 AI 自动操作网页的开源项目）做的 Jev Ultrafast：不再每一步都截图给"看图模型"看，而是把网页拆成一份带编号的按钮清单，让 Jev 选"做什么、点哪个"。实测搜一张机票的全程从 9.5 秒缩到 7.1 秒。</span></li>
+            <li><b>海量数据逐条分类。</b><span class="eg">这是它最省钱的地方：输出免费、读入极便宜，所以对几百万条数据逐条问"这条要不要报警""这封邮件是不是诈骗"，账才算得过来——以前用大模型干这个又贵又慢。套到游戏里，比如把几万条玩家反馈逐条判断"是不是 bug 报告"，就是这一类。</span></li>
+            <li><b>"有把握就自动过，没把握再问大模型"——作者最看好的用法。</b><span class="eg">它用上了 Jev 独有的那个"几成把握"：比如定一条线，八成以上把握的直接放行，低于八成的再交给贵的大模型细看。前提是它的"把握"得准——要是它说九成把握其实只对了七成，整套流程就漏了。作者第二轮实测专门验了这一点（见下）。</span></li>
+          </ul>
+
+          <h4 class="blk">作者自己测：四次失败，两轮跑通</h4>
+          <ul class="points">
+            <li><b>往自己的工具里塞，四次全失败，根子有三条。</b><span class="eg">① 看不到内容：它一次能读的内容有上限（32K，大约一两万个汉字），要塞进去就得先砍，砍完就判断不了了。② 包月订阅让它省不了钱：作者日常用的 Codex、Claude Code（两款 AI 编程助手）都是包月的，"做判断"本来就包在月费里，再插一层 Jev 只会多一道环节、多一秒、多出毛病。③ 它只会判断、不会干活：要接进真实流程，得靠别人两三天写出来的插件去搬数据，坏往往坏在这层壳上，而不是 Jev 本身。</span></li>
+            <li><b>第一轮：今天真能拿来用的很少。</b><span class="eg">他把 217 个 Jev 相关项目的公开介绍喂给 Jev，让它逐条判断"今天能不能拿到、能不能用"。证据充分、现在就能用的只有 15 个，其中 14 个是主流开发框架里接入 Jev 的"插口"（给程序员调用的接口，不是现成软件），唯一的现成应用就是上面那个 Jev Ultrafast。X 上的炫酷演示，大多是"作者跑通了，但你拿不到"。</span></li>
+            <li><b>第二轮："几成把握"在简单任务上是准的。</b><span class="eg">他造了 100 条中文科技资讯、每条三道题，共 300 个判断，答案事先标好，再拉便宜的大模型 Qwen 3.8 Flash 做对照。结果：Jev 说"九成以上把握"的 255 个判断全对；把八成设为自动放行线，能放走 89% 的请求、只错 1 个。从上海调用约 0.7 秒、最慢 1.5 秒，而对照模型最慢一次 32 秒——Jev 赢的不是快，是稳，没有偶尔卡很久的情况。准确率 94.7% 对 93.0%、费用都约 0.003 美元，和便宜大模型基本打平。局限：题目偏简单，八到九成把握那一档只有 11 个样本，说明不了太多。</span></li>
+            <li><b>作者给的三步建议。</b><span class="eg">① 先把自己业务里"用了大模型、但其实只让它回一个选项"的地方列出来，一个都没有就别追这个热点；② 有的话挑一个，拿真实的历史数据、人工先标好答案，测一次，重点看七到九成把握那一档实际对了多少；③ 测过了，再在大模型前面加这道"门卫"，先从九成把握才放行起步，看着数据慢慢往下调。他也提醒今天先别上正式环境：样本太简单，官方账号要排队，能立刻用的 OpenRouter 是第三方中转平台，不是官方渠道。</span></li>
+          </ul>
+
+          <blockquote>它不是更聪明，是把"判断"这一种活从"写作文"变成了"涂答题卡"——代价是它只会涂卡。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>怎么拿到</b>：一是去 TypeSafe 官网排队申请，作者等了几天；二是走 OpenRouter（一个汇集多家模型、按用量付费的中转平台），不用排队，但不是官方的服务承诺。</li>
+              <li><b>已经接进产品的</b>：作者最看重"有人在真金白银的产品里承担 Jev 判错的后果"这个信号，但 Jev 自己判断时比作者更保守，只认 SPIRITT 和 ReqLLM 两个是今天能直接用上的。OpenJev 这类模仿 Jev 的替代模型不算它的应用，没计入。</li>
+              <li><b>Jev 的背景</b>：创始人 Diogo Almeida 出身 OpenAI。作者的整体看法是"Jev 取代大模型"是个伪命题：大模型帮你想清楚判断规则，Jev 在实际运行中高频、低价地执行——它抢的是那些以前"不值得上 AI"的小判断。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>别指望一个 AI 全能，把活拆开、各给擅长的</h3>
+      <ul class="points">
+        <li>《Zork》能做成，是因为"讲故事、设计谜题"交给了打磨了几十年的原作，"写代码、搭 3D"交给了 AI；Jev 值钱，是因为"想清楚判断规则"交给大模型，"每天几百万次的小判断"交给它。和上期（VOL.44）说的"模型外面那层"是一个道理：<b>好结果往往来自把活拆开、各自交给最擅长的那一方，而不是找一个什么都会的 AI</b>。用在策划工作里：让 AI 做东西前，先想清楚哪部分你（或现成的好内容）来定，哪部分才交给它。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.44 ==================== -->
-  <section class="issue active" id="v44">
+  <section class="issue" id="v44">
     <div class="issue-head">
       <div class="issue-vol">VOL.44 / 2026·09·18</div>
       <h2 class="issue-theme">模型外面那层</h2>
