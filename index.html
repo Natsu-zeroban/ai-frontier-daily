@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v46" data-vol="vol.46"><span class="vv">VOL.46 <span class="new">最新</span></span><span class="dd">2026·09·21 · 一万个 AI 自己组队</span></button>
+    <button class="tab active" data-issue="v47" data-vol="vol.47"><span class="vv">VOL.47 <span class="new">最新</span></span><span class="dd">2026·09·22 · 先把话说清楚</span></button>
+    <button class="tab" data-issue="v46" data-vol="vol.46"><span class="vv">VOL.46</span><span class="dd">2026·09·21 · 一万个 AI 自己组队</span></button>
     <button class="tab" data-issue="v45" data-vol="vol.45"><span class="vv">VOL.45</span><span class="dd">2026·09·20 · 各干各的长处</span></button>
     <button class="tab" data-issue="v44" data-vol="vol.44"><span class="vv">VOL.44</span><span class="dd">2026·09·18 · 模型外面那层</span></button>
     <button class="tab" data-issue="v43" data-vol="vol.43"><span class="vv">VOL.43</span><span class="dd">2026·09·17 · 自己跑一个</span></button>
@@ -313,8 +314,100 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.47 ==================== -->
+  <section class="issue active" id="v47">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.47 / 2026·09·22</div>
+      <h2 class="issue-theme">先把话说清楚</h2>
+      <p class="issue-lead">两篇都是"用不好，是因为没交代清楚"。一篇是有人照着 OpenAI 官方文档，把 GPT-6 Astra 的几个恼人习惯一一调了过来；另一篇是开发者现场演示只做选择题的 Jev 怎么用在邮箱、客户询盘和视频剪辑上。</p>
+      <div class="issue-toc">
+        <a href="#v47-1"><span class="ix">01</span><span>GPT-6 Astra 用着别扭？官方文档里有现成的提示词</span><span class="cat">干货·教程</span></a>
+        <a href="#v47-2"><span class="ix">02</span><span>拿 Jev 给 1700 封邮件排轻重，花了 18 美分</span><span class="cat">干货·访谈</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v47-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>GPT-6 Astra 用着别扭？官方文档里有现成的提示词</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>蓝衣剑客AI（据 OpenAI 官方模型使用指南整理，附作者自己的试用体会）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/xjbWcc4NCfqS8kkmWy5d-g">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>作者把主力模型换成 GPT-6 Astra，第一天就想换回去：改一个变量名，它跑了 20 分钟全套测试；让它写文案，通篇"值得注意的是"；还动不动反过来问他问题。翻完 OpenAI 官方的使用指南才发现，这些毛病官方都写了，也给了能直接复制的提示词。其中最常用的是四段：去掉 AI 腔、少问多做、按改动大小决定测多少、能分头干就分头干。另外要记住一点：<b>Astra 记性比前代好，开头定下的规矩它会一直守着，定错了也会一直错下去</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">写东西：去 AI 腔要"禁止"和"示范"一起给</h4>
+          <ul class="points">
+            <li><b>官方的禁用清单。</b><span class="eg">官方承认 Astra 会在互不相关的对话里重复同样的套话，还爱滥用格式。清单里点名的有：delve（深入探讨）、leverage（利用）、"it's worth noting（值得注意的是）"、结尾的"In short（简而言之）"、没人问却硬加的"不是 X，而是 Y"，以及自己编出来的复合名词。</span></li>
+            <li><b>官方的正面写法。</b><span class="eg">默认写成段落，一段讲一个意思；只有内容真的并列、有先后或需要对比时才用列表；用常见的词、具体的例子、准确的动词；先把主要观点说出来，再补读者需要的解释。作者的提醒是两段要一起放进"自定义指令"（ChatGPT 设置里每次对话都会自动带上的那段话），只放禁用清单，效果差很多。</span></li>
+            <li><b>开头那句要求要写具体。</b><span class="eg">以前的模型聊久了会忘掉开头的要求，得一节一节提醒；Astra 能一直守着。作者吃过亏：他开头只写了"用口语化风格"，Astra 理解的口语化和他想要的不是一回事，结果越写越偏。他现在把风格、角色、输出格式写成一份固定说明，每次开新对话第一句先让它读这份说明。</span></li>
+          </ul>
+
+          <h4 class="blk">干活：它为什么爱问、爱测、不爱分工</h4>
+          <ul class="points">
+            <li><b>它反问是故意的。</b><span class="eg">旧模型缺信息时会按自己的猜测往下做，猜错了也不说；Astra 遇到"缺了会让结果完全不同"的信息，会停下来问你。所以需求可以写短一点，比如"在这个接口上做限流，用滑动窗口方案"，具体阈值它自己会来问。但它不会问你的个人偏好，比如你想用哪种编程语言，这类得你自己说。嫌它问得多，官方也有一段提示词，让它倾向于直接动手、一路做到完成，只有操作具有破坏性或无法撤回时才停。</span></li>
+            <li><b>测多少，由你来定。</b><span class="eg">官方说它写代码时倾向于在交差前彻底测试，大改动时这是严谨，小改动时就是浪费。官方提示词的意思是：可以轻松撤回、影响不大的改动，不必写重复的测试；跑和改动规模相称的测试，过了就继续，只有出现新改动、新失败或没解决的疑点时才扩大测试。作者说这是整份文档里最省事的一条，加上后小修改不再跑全套。</span></li>
+            <li><b>能分头干，要明说。</b><span class="eg">Astra 能把任务拆给几个同时运行的"子代理"（相当于它派出去的分身），但官方说它默认分派得比你期望的少，明明能拆的活也一块一块顺着做。官方给的那句提示词让它"只要能省时间或提高质量，就分出去"。适合拆的：从几个不相干的来源查资料、同时做几个不相干的功能；本来就有先后顺序的活，别为了并行硬拆。</span></li>
+          </ul>
+
+          <blockquote>翻完那份官方文档，我最大的感受是：我们以前学的那些提示词技巧，有很多在 Astra 上已经过时了。（蓝衣剑客）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>中途补充需求直接说</b>：它写到一半你想起还要处理"输入为空"的情况，直接发消息，并注明"其他部分照原计划"，它会把这条并进正在做的工作，不用等写完再开一轮。</li>
+              <li><b>中途调高推理强度</b>：开发者可以在对话中途把推理强度调高、解决完再降回来，而不会让之前的缓存作废。作者说这对普通用户效果如何还有待观察。</li>
+              <li><b>官方文档</b>：developers.openai.com/api/docs/guides/latest-model，四段提示词的英文原文和中文翻译原文里都有，可以直接复制。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v47-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>拿 Jev 给 1700 封邮件排轻重，花了 18 美分</h3></div>
+      <div class="meta"><span class="tag">干货·访谈</span><span class="sep">·</span>晚点再听LaterCast（整理 Greg Isenberg 的播客，嘉宾 Ryan Vogel 现场演示）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/cC5NaqdjddTIDZLVfFx-gQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Jev 是 9 月刚发布的一种新模型，不会聊天写文章，只会做选择题：你先定好选项，它很快挑出答案，并告诉你每个选项有几成可能。这期播客里，开发者 Ryan Vogel 现场演示了它的几种真实用法：给邮件分类打分、给客户询盘排优先级、从长视频里挑片段。主持人 Greg Isenberg 管它叫"AI 交警"：信息一进门，先判断是什么、有多重要、该交给谁，后面的活再交给人或别的 AI。<b>用它之前，最要紧的是想清楚你要它回答什么问题、有哪些选项。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">几个真跑起来的例子</h4>
+          <ul class="points">
+            <li><b>一封邮件，同时拿到四个答案。</b><span class="eg">Ryan 把每封邮件的主题、正文和发件人交给 Jev，让它返回类别（购物、工作、营销、财务、安全，事先列好）、优先级、垃圾邮件分、值得回复分。一封他两年前订阅过、至今还在推广的 Kickstarter 邮件，垃圾分很高；一封用户账号出了异常的来信，回复分 90%。约 1700 封邮件，总共花了 18 美分。</span></li>
+            <li><b>小生意的客户询盘先排个队。</b><span class="eg">Ryan 的女朋友开平面设计公司，网站联系表单里潜在客户、推销和垃圾消息混在一起。现在先让 Jev 打分：一条线索打到 98%，就该尽快联系；另一位只说"可能需要设计"、还没想好做什么，就得多花时间聊需求。分数只决定先看谁，谈需求、成交还得靠人。他还建议把旧邮件重新过一遍，找出当初漏掉的客户。</span></li>
+            <li><b>大任务里拆出"挑一个"的那一步。</b><span class="eg">剪视频要解决的问题很多，但挑片段可以单独拿出来：先把长视频转成带逐词时间戳的字幕，再让 Jev 给候选片段打分，17 个片段约 3 秒评完。这个原型他只花了大约十分钟。客服工单也一样：先认出属于哪条产品线，再分给对应团队，单次判断约 0.2 秒，用户一提交就能得到反馈。</span></li>
+          </ul>
+
+          <h4 class="blk">用之前要想清楚的事</h4>
+          <ul class="points">
+            <li><b>选项得你来定，它不会自己发明分类。</b><span class="eg">Ryan 用手机颜色解释：给它一段手机描述和"蓝、橙、红"三个选项，它返回橙 80%、红 10%、蓝 10%。换成邮件，选项就是"工作、营销、财务"。"客服工单该分给哪个组"和"这条询盘值不值得先回"是两个不同的问题，要分别列清楚。它返回的是固定格式的标签和数字，不附推理过程，程序可以直接拿去排序、分流。</span></li>
+            <li><b>选项少，不等于问题简单。</b><span class="eg">Ryan 试过把它接到比特币行情上，每分钟在"买入、持有、卖出"里选一个，效果不好。给邮件贴标签和判断该不该交易，对模型的要求差得很远。</span></li>
+            <li><b>从自己每天重复做的判断开始。</b><span class="eg">Ryan 的建议是先列出自己每天在重复做哪些判断，甚至可以把业务情况讲给现有的 AI 助手，让它帮你找哪些活适合交给 Jev。Greg 则从中看到了创业机会：本地服务平台让用户填完需求就立刻匹配附近商家，而不是网页上写着"立即报价"，实际却是"今天下班前给你发邮件"。</span></li>
+          </ul>
+
+          <blockquote>Jev 基本上就是一个 AI 交警。（Greg Isenberg）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>从哪试起</b>：Ryan 推荐通过 Vercel AI Gateway（一个汇集多家模型的接入平台）开始测试，它的模型目录里已经有 Jev。</li>
+              <li><b>一个好玩的失败</b>：他把 A 到 Z 设成选项，让 Jev 一个字母一个字母地拼出"猫和大象哪个大"的回答，字母出得很快，答案却不理想。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>AI 表现不如预期，先看自己交代清楚没有</h3>
+      <ul class="points">
+        <li>Jev 要你先把选项列好，否则它无从选起；Astra 会一直守着你开头的那句要求，写得含糊它就一路偏下去，测多少、要不要分头干也得你说。两篇说的是同一件事：<b>AI 越来越听话，你交代的质量就越直接决定结果</b>。下次觉得 AI 不好用，先回头检查要什么、不要什么、做到什么程度，这三样有没有写明白。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.46 ==================== -->
-  <section class="issue active" id="v46">
+  <section class="issue" id="v46">
     <div class="issue-head">
       <div class="issue-vol">VOL.46 / 2026·09·21</div>
       <h2 class="issue-theme">一万个 AI 自己组队</h2>
