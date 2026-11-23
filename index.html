@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v62" data-vol="vol.62"><span class="vv">VOL.62 <span class="new">最新</span></span><span class="dd">2026·10·23 · 记得在干什么</span></button>
+    <button class="tab active" data-issue="v63" data-vol="vol.63"><span class="vv">VOL.63 <span class="new">最新</span></span><span class="dd">2026·10·26 · 说完整</span></button>
+    <button class="tab" data-issue="v62" data-vol="vol.62"><span class="vv">VOL.62</span><span class="dd">2026·10·23 · 记得在干什么</span></button>
     <button class="tab" data-issue="v61" data-vol="vol.61"><span class="vv">VOL.61</span><span class="dd">2026·10·22 · 上岗培训</span></button>
     <button class="tab" data-issue="v60" data-vol="vol.60"><span class="vv">VOL.60</span><span class="dd">2026·10·21 · 玩过才算</span></button>
     <button class="tab" data-issue="v59" data-vol="vol.59"><span class="vv">VOL.59</span><span class="dd">2026·10·20 · 记住你的口味</span></button>
@@ -329,8 +330,94 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.63 ==================== -->
+  <section class="issue active" id="v63">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>Lemo-Opuscar 能改出你自己的风格了（Lemomo，X）</b>｜Lemo-Opuscar 是一套让 Claude 用代码做视频的开源风格库，下面那篇教程里的样片大多出自它。这次新增 8 种用真实影像、照片、文件剪出来的风格，比如字幕新闻、体育战术板、电视新闻包装，总数到了 59 种。更大的变化是能把库里任一风格改成自己的，或者从空白做起：Claude 一次问一个问题，先出一张和原风格并排对比的风格图，再做一支 15 到 30 秒的样片，你满意了才存成"我的风格"。 <a href="https://x.com/lemomo_ai/status/2113195080517562646">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.63 / 2026·10·26</div>
+      <h2 class="issue-theme">说完整</h2>
+      <p class="issue-lead">一篇是 Anthropic 劝大家别急着给 AI 拆一堆分身，一篇拆解用 Claude 写代码做视频要用到的技术。模型自己能扛的活越来越多，人要补上的，是把要什么说完整。</p>
+      <div class="issue-toc">
+        <a href="#v63-1"><span class="ix">01</span><span>Anthropic：别急着给 AI 拆一堆分身</span><span class="cat">干货·方法</span></a>
+        <a href="#v63-2"><span class="ix">02</span><span>用 Claude 写代码做视频，提示词里要写清用什么画</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v63-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Anthropic：别急着给 AI 拆一堆分身</h3></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>PaperAgent（转述 Anthropic 官网文章；厂商经验，带产品立场）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/5ej9Jipiibz107qRzfrOZw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>企业搭 AI 助手，常见做法是按业务拆出一堆"子代理"，也就是主 AI 派出去专门干某件事的分身，上面再放一个总调度。做 Claude 的 Anthropic 在官网发文说，几家企业的对比里，<b>一个 AI 从头干到尾、用到哪块再加载哪块的说明和工具</b>，效果比拆分身好，往往还更便宜、更快。对已经拆了一堆的团队，它也给了一步步合回去的办法。</div>
+
+        <div class="detail">
+          <h4 class="blk">拆多了出什么事</h4>
+          <ul class="points">
+            <li><b>AI 的结构长成了公司的组织架构图。</b><span class="eg">大公司常走的路：每个团队各做一个 AI，平台团队再在上面盖一个总调度。结果分身之间来回传话，细节在交接里丢掉；各团队往同一份系统提示词（给 AI 的总说明书）里各加一句，规则打架、语气不一；每个团队只优化自己那块，没人对整体负责。有家公司的客服 AI 下面挂了十几个专员分身，统一的品牌口吻几乎维持不住，回复还慢。</span></li>
+          </ul>
+
+          <h4 class="blk">换成什么</h4>
+          <ul class="points">
+            <li><b>一个 AI，用到再加载。</b><span class="eg">同一个模型、同一段上下文（它这次能看到的全部内容），一轮轮调用工具，自己决定下一步：再查一批、问用户，还是直接给答案。计划也由它自己写、自己改。平时它只看到每套做法（skill）和每个工具的一句简介，真要用时才载入全文。外面的程序只管预算：最多几轮、最多花多少钱、要写入数据时拦不拦一下。有客户实测，这样比多分身的方案快一倍左右。</span></li>
+            <li><b>为什么现在行得通。</b><span class="eg">一个 AI 能看到每一步的原始结果，能把它们串起来，比读几份分身交回来的摘要强得多。模型也变强了，会边做边汇报进度、边自查。Anthropic 说，自家编程助手 Claude Code 给新模型用的系统提示词砍掉了八成以上。</span></li>
+            <li><b>分身也不是全不要。</b><span class="eg">三种情况可以留：一个 AI 装的东西太多，表现能测出来变差了；几件事要同时做，各自需要一个干净、用完就扔的环境；一个 AI 总选错工具，或者说明里的指令互相冲突。</span></li>
+          </ul>
+
+          <h4 class="blk">已经拆了，怎么合回去</h4>
+          <ul class="points">
+            <li><b>先有考题，一次只合一个。</b><span class="eg">第一步是准备一套评估题，哪怕只有 10 道标准题也能起步。先合并那些总被一起调用、碰同一份数据的分身；再把留下的分身当工具来调，和用户说话的始终是主 AI；最后把各团队的说明改成 skill。每合一个就对比一次分数，变差了就让它继续当分身。</span></li>
+            <li><b>合完要多跑几遍。</b><span class="eg">一个客服 AI 合并后确实快了，却搞坏了一个原本能过的流程：主 AI 拿着订单查询工具，自己编出了送达日期，没去问物流专员。这个问题跑两次才出现一次，所以每道题都要多跑几遍。</span></li>
+            <li><b>工具别太碎。</b><span class="eg">说明里的工具超过 30 到 50 个，AI 就开始选错，所以工具要按用户想办的事分组，而不是一个接口配一个工具。</span></li>
+          </ul>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v63-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>用 Claude 写代码做视频，提示词里要写清用什么画</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>风骨（作者罗佳；样片多来自开源项目 lemo-opuscar）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/kaZCk5qg0bWvn31xcAb37Q">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Anthropic 的旗舰模型 Claude Opus 5.5 不会直接生成视频，它写一个网页让画面随时间变化，再一帧帧截图、拼成视频。网页里用什么技术画，决定了出来是手绘、水墨还是 3D。作者把视频分成 16 类，各拆一个样片，结论是<b>提示词里除了写风格，还要写用什么技术画</b>，不然 Claude 会退回它最熟的那套：深色背景、居中大字、所有东西一起淡入淡出。</div>
+
+        <div class="detail">
+          <h4 class="blk">原理和零件</h4>
+          <ul class="points">
+            <li><b>画面只看时间。</b><span class="eg">网页里每一帧画什么，只取决于"现在是第几秒"。浏览器每 1/30 秒截一张图，最后用免费工具 ffmpeg 把几千张图拼成视频。</span></li>
+            <li><b>几种常用画法。</b><span class="eg">Canvas 是网页里的一块画布，代码一笔一笔画，像素风、手绘、水墨、白板讲解大多靠它，Claude 网页版的聊天窗口就能做。Three.js 是网页 3D 引擎，摆好物体、材质和灯光，让相机去拍，写实质感的样片都靠它。着色器是直接计算每个像素颜色的小程序，叠在上面加质感，代价是慢：同样 3 秒的像素画面，只用画布渲染要 7 秒，加上着色器要 48 秒。</span></li>
+            <li><b>现成的视频框架。</b><span class="eg">HyperFrames 是数字人公司 HeyGen 开源的，用普通网页写，给每个元素标上第几秒出现、持续几秒、放在第几条轨道，用过剪映会觉得眼熟；Remotion 按帧精确控制，适合几分钟的长片和反复用同一风格的系列。框架要先装环境，适合在 Claude Code（Anthropic 在电脑上干活的编程助手）里用。</span></li>
+          </ul>
+
+          <h4 class="blk">照着样片写提示词</h4>
+          <ul class="points">
+            <li><b>拆出风格和技术两样。</b><span class="eg">比如水墨，只写"水墨风"不够。风格要写宣纸、墨分五色、只有印章一处红、大面积留白；技术要写用画布做一个笔刷引擎，笔毛、墨量递减、飞白都算出来，再用着色器做晕染。两样都写上，出来才对味。</span></li>
+            <li><b>游戏预告，用像素 RPG。</b><span class="eg">样片是勇士在最终 Boss 门前存档，存档画面闪回一路冒险。画面先画在 320×180 的小画布上，再整数倍放大，颜色只用约 32 色，渐变用点阵代替，对话框逐字打出，配芯片音乐。作者说像素风门槛最低，最适合新手练手。</span></li>
+            <li><b>门槛差得很远。</b><span class="eg">白板讲解、像素风在网页版就能做，花费低；产品拆解、点云测绘这类 3D 风格需要独立显卡，渲染也慢得多。作者建议开工前先让 Claude 给分镜表和 3 张关键帧，确认了再渲整片。</span></li>
+          </ul>
+
+          <h4 class="blk">想省事，装现成的</h4>
+          <ul class="points">
+            <li><b>八个 Skill 按难度排好了。</b><span class="eg">Skill 是装给 Claude 的一套现成做法。最入门的 xilo-opus-video 先给三个风格差别大的方案，各出一张预览图让你挑；覆盖最全的是 lemo-opuscar，几十种风格各带提示词和样片，一条片大约做 30 到 60 分钟，耗的 token 不少，Windows 上要在 WSL（Windows 里自带的 Linux 环境）里跑。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>Claude 听不见</b>：它只能报音量数字、画波形图检查，好不好听得你戴上耳机自己听。</li>
+              <li><b>不只靠 Claude</b>：作者说很多视频里 Claude 只是辅助，主力是 MiniMax、Seedance 这类视频生成模型。</li>
+              <li><b>16 类还有哪些</b>：知识科普、新闻解读、软件教程、硬件发布、数据报告、国风民俗、儿童绘本、MV、片头、数学推导等，每类都附了可以直接复制的提示词。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.62 ==================== -->
-  <section class="issue active" id="v62">
+  <section class="issue" id="v62">
     <div class="issue-head">
       <div class="issue-vol">VOL.62 / 2026·10·23</div>
       <h2 class="issue-theme">记得在干什么</h2>
