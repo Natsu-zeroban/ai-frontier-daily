@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v81" data-vol="vol.81"><span class="vv">VOL.81 <span class="new">最新</span></span><span class="dd">2026·11·19 · 先拍草稿</span></button>
+    <button class="tab active" data-issue="v82" data-vol="vol.82"><span class="vv">VOL.82 <span class="new">最新</span></span><span class="dd">2026·11·20 · 方块地球</span></button>
+    <button class="tab" data-issue="v81" data-vol="vol.81"><span class="vv">VOL.81</span><span class="dd">2026·11·19 · 先拍草稿</span></button>
     <button class="tab" data-issue="v80" data-vol="vol.80"><span class="vv">VOL.80</span><span class="dd">2026·11·18 · 原型之后</span></button>
     <button class="tab" data-issue="v79" data-vol="vol.79"><span class="vv">VOL.79</span><span class="dd">2026·11·17 · 菜谱不是菜</span></button>
     <button class="tab" data-issue="v78" data-vol="vol.78"><span class="vv">VOL.78</span><span class="dd">2026·11·16 · 退到幕后</span></button>
@@ -348,8 +349,88 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.82 ==================== -->
+  <section class="issue active" id="v82">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>斯坦福公开了一门教搭 AI 助手的课（夕小瑶科技说）</b>｜课程叫 CS329Z：Engineering AI Agents，今年 9 月开课，讲义和部分录像放在官网 cs329z.stanford.edu。内容从让模型查资料、调用工具讲起，到怎么管理任务流程和记忆、多个 AI 怎么分工，最后讲怎么评测和防范安全风险。两份作业很有代表性：第一份不许用现成框架，从零写一个能读企业邮件和内部文档的助手，还要自己控制花费；第二份不写助手，专门给一个现成的助手出考题、分析它错在哪。课程默认学生有编程基础。 <a href="https://mp.weixin.qq.com/s/bQ6xEgRT90RjaEmlUHErpA">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.82 / 2026·11·20</div>
+      <h2 class="issue-theme">方块地球</h2>
+      <p class="issue-lead">一个 20 岁的开发者让 250 多个 AI 反复修改同一套规则，把整个地球按 1:1 搬进了《我的世界》。另一篇用一条 48 秒的动画短片，讲怎样把要求写到视频模型拍得出来。</p>
+      <div class="issue-toc">
+        <a href="#v82-1"><span class="ix">01</span><span>输入地址，在《我的世界》里走回自己家</span><span class="cat">干货·案例</span></a>
+        <a href="#v82-2"><span class="ix">02</span><span>一条 48 秒动画，从分镜到成片</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v82-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>输入地址，在《我的世界》里走回自己家</h3></div>
+      <div class="meta"><span class="tag">干货·案例</span><span class="sep">·</span>APPSO（媒体报道，技术细节来自开发者自述）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/PKC4KnU25le9e13luR4Sqw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>20 岁的开发者 Thijs Simonian 做了一个叫 WorldCraft 的《我的世界》服务器：输入一个现实地址，它就把那一片按 1:1 生成出来，再把你传送过去，道路、建筑轮廓、地形都对得上，有些房子还能走进去看家具。整个地球事先全建好要约 2PB（2000TB）的存储，所以他改成玩家去哪儿就现生成哪儿。<b>这套生成规则是 250 多个 AI 反复修改、互相打分磨出来的，最后复杂到人几乎读不懂。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">一片街区怎么生成</h4>
+          <ul class="points">
+            <li><b>三层数据叠起来。</b><span class="eg">先用地面高度的数据定出山坡、河谷和平原；再读以 OpenStreetMap（一份开放的世界地图数据）为主的地图数据，定道路走向和建筑的平面轮廓；最后让 AI 参照三维航拍影像，给建筑补上屋顶造型、颜色和局部结构，再换成方块。室内是根据房子的外形编出一套看起来合理的布置，不是真实的屋里。</span></li>
+            <li><b>数据不够，就会走样。</b><span class="eg">有人发现自己住过的活动板房社区，被生成成了一排三层住宅；也有人进了熟悉的社区，只加载出附近一小片，再往前就是空白。服务器原本按 100 人同时在线设计，结果数万人涌进来，一度频繁崩溃，现在还在重写系统、限制人数。</span></li>
+          </ul>
+
+          <h4 class="blk">250 个 AI 怎么磨规则</h4>
+          <ul class="points">
+            <li><b>不是训练一个大模型。</b><span class="eg">如果让一个大型生成模型直接把三维地图转成方块，每次生成都要大量算力，全球这个规模撑不住。他准备了世界各地的大量地点，让 250 多个 AI 分工：有的看某地的生成结果，找出和参考数据的差别；有的去改脚本和规则；有的专门当评审打分。改得更好的就留下，作为下一轮的起点。他管这叫"爬山"：每一步只往分数更高的方向挪。</span></li>
+            <li><b>换来一套人读不懂的规则。</b><span class="eg">最后的成品是小型分类模型加规则算法的混合程序：小模型负责局部判断，规则负责把判断变成具体的方块排列。比每次调用大模型便宜得多，适合大量反复运行。代价是规则多到一定程度，人已经几乎看不懂。他把这比作深度学习流行之前、靠人手写规则的老路：那条路走不下去，是因为人写不完也维护不动；现在写规则、改规则、评规则的都可以是 AI。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>怎么进去</b>：用《我的世界》Java 版 26.2，在多人游戏里连服务器 worldcraft.gg，输入"/go"加真实地址。项目最早只做了旧金山，是一份约 6GB 的地图文件，后来才扩到全球，部分国家和地区仍可能缺图或建筑过于简单。</li>
+              <li><b>另一条路</b>：2020 年起，玩家志愿者在 Build the Earth 项目里手工 1:1 重建地球，1.77 万名注册建造者盖了约 107 万栋建筑，细到在阳台上摆花盆，但完成面积远不到地表的 1%，估计还要约 100 年。普通住宅和小镇长期没人去盖，WorldCraft 想补的正是这些地方。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v82-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>一条 48 秒动画，从分镜到成片</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>govin.eth｜G哥（X 长文，个人教程）<span class="sep">·</span><a href="https://x.com/goan999999/status/2122559931341832593">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>作者拿一条约 48 秒的二维动画短片，把 AI 做视频从分镜到成片走了一遍：三个人物、一个场景，成年战士受伤，反派逼近，少年反击。Claude 或 Codex（OpenAI 的编程助手）写分镜和提示词，字节的视频模型 Seedance 生成画面。全篇反复在讲一件事：<b>写给模型的东西要能直接画出来、拍出来；出了错，先找是哪一步的问题，再决定重做什么。</b></div>
+
+        <div class="detail">
+          <h4 class="blk">分镜和首帧</h4>
+          <ul class="points">
+            <li><b>"觉醒"拍不出来，"抬眼、握拳"可以。</b><span class="eg">分镜表要写清镜头编号、时长、这一镜交代什么，以及人物的起始状态、主要动作和结束状态。"少年觉醒"没法拍，"少年低头站立，抬眼、握拳，气流刚刚升起"才拍得出来。写完遮住对白只看画面：谁受伤、谁在威胁、谁决定出手，还看得懂吗？看不懂就补镜头，别指望字幕去解释整场战斗。</span></li>
+            <li><b>首帧要给动作留位置。</b><span class="eg">每个人物先定一张看得清脸、服装和四肢的参考图，之后补正面、背影都沿用它。每个镜头的第一帧单独画，人站哪、手放哪、往哪动都得先摆好：双手藏在身后，模型还得先把手补出来；人贴着画面右边又要向右发招，画面就放不下。生成视频前，放大检查有没有多出的肢体、粘在一起的手。</span></li>
+            <li><b>力量要一层层上来。</b><span class="eg">觉醒那段，表情先变，空气和尘土开始动，大石块最后才升起；第一秒就全飞起来，后面就没有加强的余地了。决战那段先交代双手怎么推出、往哪打，再上强光，不然观众还没看清动作，画面就白了。</span></li>
+          </ul>
+
+          <h4 class="blk">出了错怎么查</h4>
+          <ul class="points">
+            <li><b>对症去改。</b><span class="eg">外形变了查参考图，动作接不上查首帧姿态，方向反了改动作描述，画面没错只是拖沓就在剪辑里剪短。三个人同场时别写"他冲过去"，写"紫衣少年""橙衣成年战士"，再交代画面位置，免得动作安到别人身上。改要求也要具体，把"朝敌人"改成"朝画面右侧，双手从腰侧向右推出"。</span></li>
+            <li><b>声音分开做。</b><span class="eg">对白逐句录，和动作音效、音乐、环境声分开整理：先保证对白听得清，音效对准动作，配乐最后铺。释放前让音乐短暂减弱，推出时再加强，冲击才明显。成片看三遍，每遍查不同的问题：静音看人物关系和切镜，正常播放听声音，缩小画面看表情和字幕。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>文件怎么存</b>：人物图放进"角色参考"，镜头图叫"镜头编号_首帧"，视频叫"镜头编号_版本"，旧版留着方便对比。最后留一份带字幕的成片、一份无字幕的画面，配音、音乐、字幕分开存，以后改一句台词只动对应的文件。</li>
+              <li><b>提示词</b>：人物定妆、首帧和三段导演提示词，原文都附了可以直接复制的版本。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.81 ==================== -->
-  <section class="issue active" id="v81">
+  <section class="issue" id="v81">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>可灵的图像模型更新到 Kling Image 4.0（官方使用指南，厂商自述）</b>｜官方列的几处升级：能原生出 8K 图；一张图里能放 2000 字，小字也清楚，自带 70 多款可商用字体，也能上传字体参考图；一次描述最多出 10 张主体和风格统一的组图，还能出电商详情页、网页设计这类长图，长图拆成图层后能单独改某个元素；最多可以传 10 张参考图。 <a href="https://docs.qingque.cn/d/home/eZQDsQeh8FByxBZbkC6EPOt6v?identityId=2P9WShJ6IS3">原文</a></p>
