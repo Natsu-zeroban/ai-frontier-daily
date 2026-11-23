@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v76" data-vol="vol.76"><span class="vv">VOL.76 <span class="new">最新</span></span><span class="dd">2026·11·12 · 让它自己检查</span></button>
+    <button class="tab active" data-issue="v77" data-vol="vol.77"><span class="vv">VOL.77 <span class="new">最新</span></span><span class="dd">2026·11·13 · 当出品人</span></button>
+    <button class="tab" data-issue="v76" data-vol="vol.76"><span class="vv">VOL.76</span><span class="dd">2026·11·12 · 让它自己检查</span></button>
     <button class="tab" data-issue="v75" data-vol="vol.75"><span class="vv">VOL.75</span><span class="dd">2026·11·11 · 能跑不等于懂了</span></button>
     <button class="tab" data-issue="v74" data-vol="vol.74"><span class="vv">VOL.74</span><span class="dd">2026·11·10 · 不太听话的那张</span></button>
     <button class="tab" data-issue="v73" data-vol="vol.73"><span class="vv">VOL.73</span><span class="dd">2026·11·09 · 尴尬的第一版</span></button>
@@ -343,8 +344,89 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.77 ==================== -->
+  <section class="issue active" id="v77">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.77 / 2026·11·13</div>
+      <h2 class="issue-theme">当出品人</h2>
+      <p class="issue-lead">一个人用 AI 做出了一款能玩的仙侠动作游戏，另一个人做出了一支西游记喜剧短片。两人都很少亲自动手，主要是看成果、提意见，管住 AI 别乱来。</p>
+      <div class="issue-toc">
+        <a href="#v77-1"><span class="ix">01</span><span>一下午，一个单网页仙侠动作游戏</span><span class="cat">干货·案例</span></a>
+        <a href="#v77-2"><span class="ix">02</span><span>AI 短片的配音和字幕，交给别的工具</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v77-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>一下午，一个单网页仙侠动作游戏</h3></div>
+      <div class="meta"><span class="tag">干货·案例</span><span class="sep">·</span>歸藏的AI工具箱（个人作品，文末推荐自己的 Skill）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/BpuAG6na26V3F7eaF8hQAg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>歸藏不懂做游戏，只跟 AI 说了一句"做个国风仙侠游戏"，用 Anthropic 新出的旗舰模型 Fable 5.2 花了 6 个小时，做出一款俯视角 3D 动作游戏：有小怪、两阶段 Boss、剧情和配音，整个游戏是一个约 30MB 的网页文件，手机电脑打开就能玩。但这不是一句话出来的，他试玩了 7 轮，每轮挑出 5 到 10 个问题。<b>起作用的是他管住了 AI 的几个坏习惯，并且逼它先去查"打击感从哪来"</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">做出了什么</h4>
+          <ul class="points">
+            <li><b>离完整游戏只差内容量。</b><span class="eg">5 个带 3D 模型的角色、2 把武器、11 个香炉石碑之类的道具。主角有三段连招、闪避、格挡、弹反、处决，还能喝药、御剑、放大招"万剑归宗"；Boss 有起身过场和台词。场景有随风起伏的草、分层的雾和远山，Boss 战的石台上覆着一层能反光的水。为了让手机上也能跑，用的是兼容性最好的网页 3D 技术。</span></li>
+          </ul>
+
+          <h4 class="blk">他做的几件关键的事</h4>
+          <ul class="points">
+            <li><b>别让它自己造轮子。</b><span class="eg">AI 很想什么都自己从头写。一开始它直接用文字生成 3D 模型，质量很差；后来改成先用即梦（字节的 AI 绘图工具）画角色设定图，再用 Tripo（把图片转成 3D 模型的平台）转成模型，效果上了一个大台阶。提示词都是它自己写的，作者没插手。</span></li>
+            <li><b>先调研，再动手。</b><span class="eg">他明确要求 AI 先去查行业里是怎么做的，还给了参考视频。他的反馈很模糊，比如"动作很僵""打击感很差""特效太拉胯"，AI 会把这些话翻成专业问题，查好做法、写成文档再改。</span></li>
+            <li><b>打击感是查出来的。</b><span class="eg">一开始画面漂亮，一打起来就很别扭。他让 AI 去查俯视角动作游戏的打击感从哪来，查到的几条：出招前有蓄力，打中那一瞬间画面顿一下，怪物轮流上而不是一拥而上，闪避能打断当前动作。Tripo 自带的动作不多，每个动作里胳膊和脚该怎么动，都是它用程序算出来的。</span></li>
+            <li><b>声音也让它自己找路。</b><span class="eg">8 条台词用的是即梦的配音模型，是 AI 自己找到的；原本想用视频模型生成再只留音频，要贵 20 倍。配乐的提示词它来写，作者拿去 Suno（AI 作曲工具）生成。最后把近 100MB 的素材压进了约 30MB 的单个网页文件。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>试玩和 Skill</b>：游戏可在线试玩（op7418.github.io/guizang-game-skill）。他把这套流程整理成了 guizang-game-skill，会先问清参考、视角、氛围和你手头有哪些工具，写进了动作游戏的打击感做法、AI 做游戏最容易出问题的清单和压缩打包的办法。他说最大的用处是少返工、省 token。</li>
+              <li><b>网页游戏会回来</b>：作者觉得网页是最方便的游戏分发方式，打开就玩、不用注册，大家对画质没那么挑，需要一个像当年 4399 那样的网页游戏平台。门槛降下来以后，游戏会像网文一样，谁脑子里有好东西谁就能做出来。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v77-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>AI 短片的配音和字幕，交给别的工具</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>刘老板（X 长文，个人经验；文末有作者自己的付费服务链接）<span class="sep">·</span><a href="https://x.com/leo_xiaolei/status/2120353779455512776">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>作者用谷歌的 Gemini 4 当总导演，让它在谷歌的视频创作平台 Flow 里调用视频模型 Omni 1.2 来拍，做了一组监控录像视角的西游记喜剧，比如《西梁国留婚 · 监控实录》。剧本、分镜、提示词这些步骤，和别的 AI 短片流程大同小异；这篇最有用的是视频模型做不好的两件事：<b>中文台词用本地语音模型重新配一遍，屏幕上的字和框全部用代码画</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">怎么让镜头好笑</h4>
+          <ul class="points">
+            <li><b>嘴上一套，手上一套。</b><span class="eg">每个 12 秒的镜头都按"正经场面、动作穿帮、旁人点破"来写。比如唐僧嘴上念着"贫僧一心向佛，绝不留恋红尘"，右手却死死按住桌上的婚书不撒手，孙悟空凑过来："师父，那你先把婚书松开呀！"</span></li>
+            <li><b>机位锁死在墙角。</b><span class="eg">全程用固定的高角度监控机位，模型不用管运镜，力气都花在表情和手部小动作上。每个角色写一段 30 字左右的外貌描述，每个镜头原封不动粘进去，人物就不会串戏。五个镜头里专门安排一镜黑白红外夜视画面，拉开节奏。</span></li>
+          </ul>
+
+          <h4 class="blk">重新配音</h4>
+          <ul class="points">
+            <li><b>视频模型说中文的三个毛病。</b><span class="eg">咬字发飘；多音字和专有名词读错，比如把"为师"读成"喂师"；句尾最后一个字说一半就断了。监控远景里人脸本来就小，所以干脆保留原视频的动作和环境声，人声用本地语音模型 VoxCPM2 全部重配。它能直接用文字描述每个角色的音色和情绪，不需要找声音样本。</span></li>
+            <li><b>几个小技巧。</b><span class="eg">台词末尾加一个省略号，模型读完最后一个字会自然留一点气声，不再吞字。每条配音生成后，用语音转文字工具 Whisper 听写一遍，漏字、读错就换一次重来。录出来的声音太"干"，像画外音，就加一点大殿里的回声，再垫上原视频的环境声。嘴型对不上时，把句子之间过长的停顿压短，再整体微微加速。</span></li>
+          </ul>
+
+          <h4 class="blk">字和框用代码画</h4>
+          <ul class="points">
+            <li><b>别让视频模型写字。</b><span class="eg">让模型直接生成监控界面，字是歪的，框是乱跳的。凡是字幕、边框、时间码，都让 Gemini 写 Python 代码画上去，不到 200 行就做完了：左上角闪烁的 REC 红点和机位名，右上角跳动的时间码，底部带角色名的字幕，还有给唐僧头顶加的识别框"目标：御弟哥哥 ｜ 心率：148 ｜ 状态：嘴硬手诚实"。两个镜头切换时，再合成一声老式监控的静电咔哒声。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>让 AI 自己去网页上点生成</b>：给 Chrome 开远程调试，Gemini 就能自己操作 Flow 网页，一条条粘提示词、等生成、下载，不用人守着。</li>
+              <li><b>提示词</b>：从写剧本、审剧本到全片复核，原文每一步都附了可以直接复制的提示词。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.76 ==================== -->
-  <section class="issue active" id="v76">
+  <section class="issue" id="v76">
     <div class="issue-head">
       <div class="issue-vol">VOL.76 / 2026·11·12</div>
       <h2 class="issue-theme">让它自己检查</h2>
