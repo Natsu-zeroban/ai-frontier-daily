@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v71" data-vol="vol.71"><span class="vv">VOL.71 <span class="new">最新</span></span><span class="dd">2026·11·05 · 团队没快</span></button>
+    <button class="tab active" data-issue="v72" data-vol="vol.72"><span class="vv">VOL.72 <span class="new">最新</span></span><span class="dd">2026·11·06 · 错在便宜的地方</span></button>
+    <button class="tab" data-issue="v71" data-vol="vol.71"><span class="vv">VOL.71</span><span class="dd">2026·11·05 · 团队没快</span></button>
     <button class="tab" data-issue="v70" data-vol="vol.70"><span class="vv">VOL.70</span><span class="dd">2026·11·04 · 奇观之后</span></button>
     <button class="tab" data-issue="v69" data-vol="vol.69"><span class="vv">VOL.69</span><span class="dd">2026·11·03 · 进了引擎</span></button>
     <button class="tab" data-issue="v68" data-vol="vol.68"><span class="vv">VOL.68</span><span class="dd">2026·11·02 · 模型之外</span></button>
@@ -338,8 +339,91 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.72 ==================== -->
+  <section class="issue active" id="v72">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.72 / 2026·11·06</div>
+      <h2 class="issue-theme">错在便宜的地方</h2>
+      <p class="issue-lead">一篇把 AI 短片从一个想法到成片拆成八步，用意是在花钱最多的那一步之前把错误挡下来；另一篇试了新出的生图模型做动图和矢量图，哪些已经能用，哪些还不稳。</p>
+      <div class="issue-toc">
+        <a href="#v72-1"><span class="ix">01</span><span>一条 AI 短片怎么少抽卡</span><span class="cat">干货·教程</span></a>
+        <a href="#v72-2"><span class="ix">02</span><span>GPT Image 2.6 能直接出动图和矢量图了</span><span class="cat">干货·测评</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v72-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>一条 AI 短片怎么少抽卡</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>Eian（X 长文；个人经验）<span class="sep">·</span><a href="https://x.com/EianLu/status/2118317430665613741">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Eian 做 AI 短片时只跟一个 AI 对话：Claude Code（Anthropic 能在电脑上自己干活的编程助手）当总导演，由它去调 Codex 画图、调 Seedance（字节的视频模型）生成视频。整套流程围着一个算账的原则转：<b>改提示词、重画一张图都不额外花钱，重拍视频却按秒收费</b>，所以能在文字里发现的错别留到图上，能在图上发现的错别留到视频上。几乎每一步，他都另开一个什么都不知道的 AI 来挑毛病。</div>
+
+        <div class="detail">
+          <h4 class="blk">剧本</h4>
+          <ul class="points">
+            <li><b>好故事的几条标准。</b><span class="eg">每个转折都按现实追问一遍：东西从哪来，够得着吗；能一句话说清这支片子想说什么；最抓眼球的画面放在开头；旁人的反应要像真人，每个包袱按"问题、主角怎么解决、旁人什么反应"来写，反应要有先后，几个人同一秒举手，一看就是 AI 做的。</span></li>
+            <li><b>写故事时就避开 AI 拍不好的。</b><span class="eg">人物交叉、手拿小东西、文字、镜子和倒影、左右不对称的特征、一个镜头里换光、一个人连做三个动作、俯拍看不到脸、配角太多，这些都难一次拍对。结构首选片段式，镜头之间不用接戏，最稳。</span></li>
+            <li><b>新开一个 AI 来审。</b><span class="eg">主对话已经跟你聊了很久，知道你想表达什么，看故事会自动脑补。新开的 AI 像第一次看片的观众，它看不懂的地方，就是真没讲清楚的地方。只给它故事，不给任何结论。</span></li>
+          </ul>
+
+          <h4 class="blk">分镜</h4>
+          <ul class="points">
+            <li><b>有参考片就让 Claude 逐帧量。</b><span class="eg">镜头语言很难用话说清，最省事的是找参考片，让 Claude 一帧帧看，把机位、人物进出画面的比例量出来照着学。没有参考片就按几条要求构思：全片平视正面最多两次，其余用俯拍、仰拍、过肩、从背后拍；画面里一直要有东西在动，人坐着不动，就让一张纸飘过或者路人从身后走过；全身、半身、特写换着来；摄影机动一下必须有理由，比如跟着一封飞走的信，或者慢慢推近给特写。</span></li>
+            <li><b>配色先定好。</b><span class="eg">画第一张图之前，让 Claude 把每一场用什么颜色列成一张色表。再把画面转成黑白看一遍，人和背景分不开，就说明明暗对比不够，要重调。</span></li>
+          </ul>
+
+          <h4 class="blk">图和视频</h4>
+          <ul class="points">
+            <li><b>每个镜头先画首尾帧。</b><span class="eg">首尾帧就是这个镜头的第一张和最后一张画面，这是降低抽卡最关键的一步。雨、帽子、纹身这种只写在文字里的东西，拍着拍着就没了，必须画进首帧和尾帧。先画内容最多的尾帧，再在它上面改出首帧，保证两张的机位一样；要慢慢推近的镜头，尾帧直接从首帧裁一块放大。画之前先给每个角色画一张设定图，固定的东西写清位置，比如纹身在左手臂。</span></li>
+            <li><b>提交前再核对一遍。</b><span class="eg">每条视频提交给 Seedance 之前，另开一个 AI 把提示词和首尾帧逐项对一遍，通过了才提交。他靠这一步查出过两张图里杯子大小差了 13%、帽檐一张有一张没有、左右写反了。</span></li>
+            <li><b>省钱的几招。</b><span class="eg">用 720p 生成，后期再放大到 1080p；新做法先拿一两个最难的镜头试；不太复杂的镜头用便宜的 Seedance 2.0 mini，2.5 的价格差不多是它的 3 倍。出了问题先看能不能剪掉、能不能让 Claude 写代码修；非重拍不可，先改提示词或首尾帧，旧片段也别删，最后放在一起挑。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>收尾</b>：拼接、转场、调色、放大都让 Claude 写代码做。成片再交给一个新开的 AI 像观众一样从头看一遍，最后让 AI 写一份总结，把画风、提示词和犯过的错存下来，下次接着用。</li>
+              <li><b>提示词</b>：原文每一步都附了整理好的提示词，还有一套让 Claude 同时开四个 AI 分工配合的做法。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v72-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>GPT Image 2.6 能直接出动图和矢量图了</h3></div>
+      <div class="meta"><span class="tag">干货·测评</span><span class="sep">·</span>阿真Irene（个人实测，主观）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/I0YaEYsvs8V4BDL9jZLjZA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>OpenAI 的生图模型 GPT Image 2.6 上线，分快的 Flare 和细的 Sunburst 两个版本，新增直接生成 GIF 动图；通过 API 调用时，还能输出 SVG 矢量图，也就是每个元素都能拆开单独改的图。作者实测下来，<b>表情包这类简单动图已经好用，循环动画和复杂的矢量插画还不稳</b>；官方说的提速和排版改进，她没明显感觉到。</div>
+
+        <div class="detail">
+          <h4 class="blk">动图</h4>
+          <ul class="points">
+            <li><b>先做静图，再转动图。</b><span class="eg">给一张静态图，说想让它怎么动就行。批量做表情包时，先把静态图都做好，放进一个文件夹让它批量转，动起来以后的一致性更好。抠图也能交给它，直接出透明底的 GIF，只是原图背景色要和角色的颜色拉得足够开。</span></li>
+            <li><b>循环动画还不行。</b><span class="eg">她让它做一段角色从白天到晚上的循环动画，直接出 GIF 会跑偏；先用视频模型生成视频再转成 GIF，顺滑得多。内容简单、前后逻辑连贯的动图它能做好，画面一多就容易走样。</span></li>
+          </ul>
+
+          <h4 class="blk">矢量图</h4>
+          <ul class="points">
+            <li><b>图标没问题，插画还看运气。</b><span class="eg">图标类导进 Illustrator，每个元素、每道描边都能单独改。带人和动物的复杂插画，走 API 出的明显比在 Codex（OpenAI 的编程助手，也能调它出图）里好，但生成很慢，她试了 10 次失败 7 次。</span></li>
+            <li><b>想要分层的矢量插画，多走两步。</b><span class="eg">先出一张扁平风格的插画，把里面的元素拆开分别转成 SVG，再让它拼回原样。直接把整张图转成 SVG，图上的摩尔纹（细密的波纹瑕疵）也会被带进去。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>Codex 里出图更差</b>：同样的提示词，Codex 里出的图比 API 质感差不少、伪影多，她猜 Codex 的自动模式用的是便宜的 Flare。</li>
+              <li><b>现成提示词</b>：原文附了花卉摄影拼图、猫粮品牌快闪、矢量图标展板等几组完整提示词，可以直接拿去试。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.71 ==================== -->
-  <section class="issue active" id="v71">
+  <section class="issue" id="v71">
     <div class="issue-head">
       <div class="issue-vol">VOL.71 / 2026·11·05</div>
       <h2 class="issue-theme">团队没快</h2>
