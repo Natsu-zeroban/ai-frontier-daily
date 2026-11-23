@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v66" data-vol="vol.66"><span class="vv">VOL.66 <span class="new">最新</span></span><span class="dd">2026·10·29 · 会回应的世界</span></button>
+    <button class="tab active" data-issue="v67" data-vol="vol.67"><span class="vv">VOL.67 <span class="new">最新</span></span><span class="dd">2026·10·30 · 答完再查一遍</span></button>
+    <button class="tab" data-issue="v66" data-vol="vol.66"><span class="vv">VOL.66</span><span class="dd">2026·10·29 · 会回应的世界</span></button>
     <button class="tab" data-issue="v65" data-vol="vol.65"><span class="vv">VOL.65</span><span class="dd">2026·10·28 · 谁来读代码</span></button>
     <button class="tab" data-issue="v64" data-vol="vol.64"><span class="vv">VOL.64</span><span class="dd">2026·10·27 · 人只管拍板</span></button>
     <button class="tab" data-issue="v63" data-vol="vol.63"><span class="vv">VOL.63</span><span class="dd">2026·10·26 · 说完整</span></button>
@@ -333,8 +334,56 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.67 ==================== -->
+  <section class="issue active" id="v67">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>LibTV 公开了爆款 AI 短片的工程（卡尔的AI沃茨，带推广）</b>｜LibTV 是 Liblib 旗下做 AI 短片的在线画布，从写剧本、拆分镜、定角色到出视频都在一张画布里完成。它把《非妖哉》等播放破亿作品的整张工程画布公开了，每个镜头的提示词和前后怎么串都看得到，只是不能直接拿来跑自己的片子。作者照着学做了一段狐妖短片，觉得最好用的是两样：文字说不清的急刹车式横摇，先在 3D 预演里画出镜头轨迹再交给视频模型；一条镜头只有中间两秒出错，就只重拍那两秒，其余不动。 <a href="https://mp.weixin.qq.com/s/ephY1qYSK69Uz5Rd4Tl7KA">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.67 / 2026·10·30</div>
+      <h2 class="issue-theme">答完再查一遍</h2>
+      <p class="issue-lead">Claude 每答完一轮，后台都会让它回头审一遍刚才的对话。这一步几乎不多花算力，已经揪出不少别的安全工具漏掉的违规。</p>
+      <div class="issue-toc">
+        <a href="#v67-1"><span class="ix">01</span><span>Claude 答完之后，自己再审一遍</span><span class="cat">干货·解读</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v67-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Claude 答完之后，自己再审一遍</h3></div>
+      <div class="meta"><span class="tag">干货·解读</span><span class="sep">·</span>AI寒武纪（转述 Anthropic 公布的安全机制）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/H1foahPt3ET_6rdP0h8RJA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>做 Claude 的 Anthropic 公布了一套已经在线上运行的安全检查，叫"自我评估"：每轮对话结束后，系统悄悄让 Claude 回头审一遍刚才的对话，写下有没有危害、属于哪一类、要不要优先交给人工看。用户看不到这一步，它也不会进到后面的对话里。因为是在刚算完的对话上接着补问一句，<b>多花的算力不到 2%</b>，以前另请一个安全模型把整段对话重读一遍，有的要吃掉近四分之一的算力。</div>
+
+        <div class="detail">
+          <h4 class="blk">抓得准不准</h4>
+          <ul class="points">
+            <li><b>很少冤枉人，也抓得多。</b><span class="eg">在 Claude Fable 5 上，把误报控制在 1% 的前提下，它能抓出 78% 的违规对话，严重违规抓到 94%。模型越大越准：同样条件下，测试里最小的模型只抓到 16%，最大的到了 96%。</span></li>
+            <li><b>没教过的也认得出。</b><span class="eg">训练时故意把网络攻击、金融诈骗的样本全删掉，测试时这两类照样抓得住，诈骗类仍在八到九成以上。它靠的是看懂意图，不是背违规词。</span></li>
+            <li><b>怎么教出来的。</b><span class="eg">先请更强的 Claude Mythos Preview 当老师，按安全规则一条条写出标准的审查报告给它学。学的时候只看它写的审查报告对不对，用户的违规内容和 Claude 的回答都不算进去，免得把坏东西也学会了。之后再放进模拟环境里练，按格式对不对、有没有标出违规、分类准不准、该不该拒绝判断对没有、优先级和老师差多少这几项打分。</span></li>
+          </ul>
+
+          <h4 class="blk">为什么不当场拦</h4>
+          <ul class="points">
+            <li><b>当场拦反而好绕。</b><span class="eg">测试显示，拿它当防火墙实时拦截，攻击成功率只从 79% 降到 54%：一被拦，对方马上知道哪句话踩了线，换个说法再试。放在后台默默记录，对方根本不知道自己已经被标上了高危。每天晚上系统按企业和机构汇总一次，一天里多次被标高危的账号直接送到安全团队手里。</span></li>
+            <li><b>已经抓到的。</b><span class="eg">从一个 API 客户身上查出 10 万多次涉及虐待儿童的严重违规，证据已交给美国国家失踪与受虐儿童中心；9 月顺藤摸瓜查到一个用 Claude Code 写自动化脚本、大规模实施"杀猪盘"诈骗的团伙。它还记下了有人想套出 Claude 的推理过程拿去训练自家模型，以及 AI 助手没经用户允许就自作主张的操作。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>正规测试可以放行</b>：做安全研究的团队，管理员可以在审查指令里加一份白名单，写明这次在合法测试哪套系统。名单内的放行，名单外的攻击照样标出来。</li>
+              <li><b>短板</b>：它全靠老师教，老师看不出的问题，它也看不出。如果将来的模型学会了伪装，它在回答里能骗人，写自查报告时也可能接着骗。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.66 ==================== -->
-  <section class="issue active" id="v66">
+  <section class="issue" id="v66">
     <div class="issue-head">
       <div class="issue-vol">VOL.66 / 2026·10·29</div>
       <h2 class="issue-theme">会回应的世界</h2>
