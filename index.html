@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v64" data-vol="vol.64"><span class="vv">VOL.64 <span class="new">最新</span></span><span class="dd">2026·10·27 · 人只管拍板</span></button>
+    <button class="tab active" data-issue="v65" data-vol="vol.65"><span class="vv">VOL.65 <span class="new">最新</span></span><span class="dd">2026·10·28 · 谁来读代码</span></button>
+    <button class="tab" data-issue="v64" data-vol="vol.64"><span class="vv">VOL.64</span><span class="dd">2026·10·27 · 人只管拍板</span></button>
     <button class="tab" data-issue="v63" data-vol="vol.63"><span class="vv">VOL.63</span><span class="dd">2026·10·26 · 说完整</span></button>
     <button class="tab" data-issue="v62" data-vol="vol.62"><span class="vv">VOL.62</span><span class="dd">2026·10·23 · 记得在干什么</span></button>
     <button class="tab" data-issue="v61" data-vol="vol.61"><span class="vv">VOL.61</span><span class="dd">2026·10·22 · 上岗培训</span></button>
@@ -331,8 +332,61 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.65 ==================== -->
+  <section class="issue active" id="v65">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.65 / 2026·10·28</div>
+      <h2 class="issue-theme">谁来读代码</h2>
+      <p class="issue-lead">代码多到人读不过来，检查只能交给 AI。人还要守住哪几处？</p>
+      <div class="issue-toc">
+        <a href="#v65-1"><span class="ix">01</span><span>Claude Code 团队的代码，谁在审</span><span class="cat">干货·实践</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v65-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Claude Code 团队的代码，谁在审</h3></div>
+      <div class="meta"><span class="tag">干货·实践</span><span class="sep">·</span>Roger.ai（转译 Anthropic 的 Addy Osmani 原文；文中推荐的审查产品是 Anthropic 自家的）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Z-S8bV_mIoUpTCWeYxmWvw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Claude Code 是 Anthropic 的编程助手，它自己约九成的代码是 Claude 写的。改动多到人看不过来，团队没有取消审查，而是把大部分"读代码"交给 AI，<b>人只盯有风险的地方，同时让出了错能在几分钟内撤回</b>。6 月到 9 月，合并进来的改动翻了一倍多，事后被撤回的比例反而降了四成以上。</div>
+
+        <div class="detail">
+          <h4 class="blk">一次改动要过几道关</h4>
+          <ul class="points">
+            <li><b>交之前，先让 AI 拿出证据。</b><span class="eg">不许 Claude 只说一句"做完了"，要它跑测试、跑构建，或者把截图和设计稿对比，把结果摆出来。再派一个没参与写代码的 AI，在全新的对话里把改动审一遍。Claude Code 的创造者 Boris Cherny 估计，给 Claude 配一套验证流程，产出质量能提高两到三倍。</span></li>
+            <li><b>AI 先审，人后看。</b><span class="eg">每个改动先过 AI 审查和自动安全审查，还有没处理的问题就合并不了：要么改掉，要么写一句理由关掉。AI 审查同一类问题反复报，就从源头治，比如写进给 AI 看的项目说明文件 CLAUDE.md。</span></li>
+            <li><b>按风险决定要几个人看。</b><span class="eg">风险等级看改了什么，不看谁写的：改文档和改自动更新程序不是一个级别。计费、自动更新、构建流程这些敏感地方，永远要人额外批准。AI 的批准不算人的批准；AI 提交的改动，操作它的那个人必须是审查人之一。</span></li>
+            <li><b>出了错，几分钟撤回。</b><span class="eg">新功能先藏在开关后面，公司员工先用，再分批放给用户。出问题关掉开关就行，不用重新发布。</span></li>
+          </ul>
+
+          <h4 class="blk">让审查本身变好</h4>
+          <ul class="points">
+            <li><b>拿真实事故当考题。</b><span class="eg">把引发过事故的改动收集起来，请熟悉代码的工程师确认 bug 到底在哪，审查系统每天拿这份清单考一遍；改了审查用的提示词、工具或模型，都重新打分。他们也统计人怎么回应每条审查意见：改了、拒绝、说明是故意的，还是认为无所谓，借此衡量 AI 报了多少废话。</span></li>
+            <li><b>审查得有个头。</b><span class="eg">写代码的 AI 和审代码的 AI 可能来回拉扯没完。有一个改动一夜之间来回了五十多轮，最后是人叫停的。一查，审查反复标出的问题里约六成是第一轮就在的代码，每一轮只是多翻出几个老问题。现在三轮以后会要求作者重新考虑方案，之后只审新改的部分，而且一次说清是哪一类问题，让作者一口气改完。</span></li>
+          </ul>
+
+          <h4 class="blk">人还得做的事</h4>
+          <ul class="points">
+            <li><b>该不该做，谁来负责。</b><span class="eg">要不要做这个功能，架构怎么定，危险代码的审计，核对测试结果这些证据，都还得人来。每个上线的改动都要有一个人负责，一般是谁合并谁修，因为他最了解情况；事故复盘不追究个人，看的是哪一道关本该拦住。</span></li>
+            <li><b>不读改动，怎么懂代码。</b><span class="eg">团队里没人脑子里装着 Claude Code 的全貌，他们也觉得不需要。想了解哪一块，就让 Claude 当场写一份讲解，几分钟就有，而且永远是最新的。</span></li>
+          </ul>
+
+          <blockquote>如果你无法说出"这些检查会漏掉什么"，那就别只求一个 👍，你需要一次真正的审查！（Addy Osmani）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>可以先抄的几步</b>：给 AI 一份能自己跑的检查清单，写进 CLAUDE.md；改动模板里加上"怎么测的、有什么风险、怎么撤回"三项；限制审查轮数；把事故和撤回记下来，当审查系统的考题。</li>
+              <li><b>早拐弯不心疼</b>：开一项新工作很便宜，所以讨论早期有人指出方向不对，作者直接关掉改动也不觉得可惜。要紧的是早说，别等改动都写完了才拦。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.64 ==================== -->
-  <section class="issue active" id="v64">
+  <section class="issue" id="v64">
     <div class="issue-head">
       <div class="issue-vol">VOL.64 / 2026·10·27</div>
       <h2 class="issue-theme">人只管拍板</h2>
