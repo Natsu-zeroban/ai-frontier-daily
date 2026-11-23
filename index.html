@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v82" data-vol="vol.82"><span class="vv">VOL.82 <span class="new">最新</span></span><span class="dd">2026·11·20 · 方块地球</span></button>
+    <button class="tab active" data-issue="v83" data-vol="vol.83"><span class="vv">VOL.83 <span class="new">最新</span></span><span class="dd">2026·11·23 · 各放各的位置</span></button>
+    <button class="tab" data-issue="v82" data-vol="vol.82"><span class="vv">VOL.82</span><span class="dd">2026·11·20 · 方块地球</span></button>
     <button class="tab" data-issue="v81" data-vol="vol.81"><span class="vv">VOL.81</span><span class="dd">2026·11·19 · 先拍草稿</span></button>
     <button class="tab" data-issue="v80" data-vol="vol.80"><span class="vv">VOL.80</span><span class="dd">2026·11·18 · 原型之后</span></button>
     <button class="tab" data-issue="v79" data-vol="vol.79"><span class="vv">VOL.79</span><span class="dd">2026·11·17 · 菜谱不是菜</span></button>
@@ -349,8 +350,59 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.83 ==================== -->
+  <section class="issue active" id="v83">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.83 / 2026·11·23</div>
+      <h2 class="issue-theme">各放各的位置</h2>
+      <p class="issue-lead">几家的新模型接连发布，卡兹克觉得以后也不会有一个样样都最好的模型，于是按性格给三家分了工。</p>
+      <div class="issue-toc">
+        <a href="#v83-1"><span class="ix">01</span><span>Claude、GPT、Gemini 一起用，谁干什么</span><span class="cat">干货·方法</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v83-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Claude、GPT、Gemini 一起用，谁干什么</h3></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>数字生命卡兹克（个人重度使用经验，对三家的评价偏主观）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/gwj0xLNHPfToQnQJN7IkMA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>卡兹克每天同时用三家的模型：Anthropic 的 Claude、OpenAI 的 GPT、谷歌的 Gemini。在他看来三家各有长短，像一个团队里性格不同的同事，用好它们就成了带团队的问题。<b>他的分工是：Claude 当总指挥，Gemini 坐在旁边出主意、改文案，GPT 写成块的后端代码、把最后一道审查关。</b>这套分工他写进了给 Claude 的规则文件，原文全文附上了。</div>
+
+        <div class="detail">
+          <h4 class="blk">三家的性格</h4>
+          <ul class="points">
+            <li><b>Gemini：最好聊，也最粗心。</b><span class="eg">他用的是谷歌上周刚发布的 Gemini 4 Neon，写出来的东西读着最舒服，还会给人情绪价值；产品文案、小说、剧本、头脑风暴，他觉得三家里它最好。毛病是瞎编最多，让它分析代码库，几十条判断里常错不少；谷歌配套的编程工具 Antigravity 体验也很差。</span></li>
+            <li><b>Claude：审美最好，干活不够仔细。</b><span class="eg">前端、视觉、动效他基本都交给 Claude，主视觉和剪辑里的大段特效几乎都是它用代码直接做出来的；配套的 Claude Code（Anthropic 能在电脑上自己读文件、跑命令的编程助手）也是他用过最顺手的。毛病是改不全、漏细节、没看到结果就说做完了，他专门在规则文件里写了约束。另外，不是谁都能用上。</span></li>
+            <li><b>GPT：最严谨，最难沟通。</b><span class="eg">他写代码用的是 OpenAI 上周刚发布的 GPT-6.2 Astra。汇报信息密度极高，但他几乎读不下去；而且太听话，你把一个事实写错了，它会照着错的执行，不会反过来提醒你。审美也很差。但只要目标明确，它是最让人放心的，后端、算法、查修 bug、代码审查，还有操控浏览器和应用，他都交给 GPT。</span></li>
+          </ul>
+
+          <h4 class="blk">为什么让 Claude 站中间</h4>
+          <ul class="points">
+            <li><b>中间这个位置，要求最全面。</b><span class="eg">对上，要听懂他说得乱七八糟、经常只说一半的需求；对下，要把需求翻成 GPT 能精确执行的任务，读懂、验收 GPT 交回来的一大坨东西，还得分清 Gemini 那堆自信满满的建议里，哪些是真知灼见、哪些是看错了。这些都要靠模型外面那层查代码、跑命令、调用别的模型的工具。Gemini 最粗心，配套工具又最弱；GPT 说话太累；所以选 Claude。用不了 Claude 的话，他建议让 Gemini 4 Neon 顶上，效果差一点，但差距没那么大。整个流程里，他自己只出现两次：提需求，拍板。</span></li>
+          </ul>
+
+          <h4 class="blk">一件事怎么流转</h4>
+          <ul class="points">
+            <li><b>大方案出两份。</b><span class="eg">架构怎么定、数据怎么存这类大方案，Claude 出一份，同时让 Gemini 独立出一份。给 Gemini 的只有他的原话和必要背景，不给 Claude 的草稿和倾向，免得它跟着走。Claude 再核对 Gemini 哪些说对了，合并成一份给他。他说两份放在一起，几乎每次都有对方没想到的地方。小事 Claude 自己想清楚就做。</span></li>
+            <li><b>界面文案请 Gemini 改。</b><span class="eg">Claude 写界面文案，爱写一堆解释性的话。比如他在做的一个产品，空白页上 Claude 写的是"选中对话里的一段话，点「侧边问」，就能在这儿顺便问一句，不打断它正在做的事"，他说以前做交互设计敢这么写，会被 leader 按在地上锤。现在文案和交互由 Claude 先做一版，再请 Gemini 当顾问改，Claude 对照功能实际怎么用，核实后再采纳。</span></li>
+            <li><b>成块的活才派给 GPT。</b><span class="eg">只有接口已经定死、和页面无关的整块后端、算法、数据处理，才交给 GPT 写。几十行的小改动 Claude 自己做：派一次活，Claude 要写清任务，GPT 要读懂，交回来还要读改动、再跑测试，活太小，沟通成本比活本身还大。就像带团队，不会为一个五分钟能改完的错别字专门开会派人。</span></li>
+            <li><b>审查分轻重。</b><span class="eg">每次合并上线前都要过一遍 GPT 的审查。有一次同一份改动被连退三轮，12 条、10 条、8 条，他一看后两轮基本是第一轮的延伸，很多要几件事凑巧同时发生才会出现。后来改成：只有会算错钱、丢数据、越权、发错消息、让发布出事故，而且说得出怎么发生的，才挡住上线，其他的记下来当建议；最多审两轮，还过不去就弹给他决定。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>错一次，拦住一类</b>：他的规则里写着，被纠正一次、审查退回一条，就把这一类错写成自动检查拦住；能改结构让错的写法写不出来，就改结构；都做不到，才写成文字规则。</li>
+              <li><b>规则文件全文</b>：原文附了他完整的 CLAUDE.md（Claude Code 每次都会先读的规则文件），包括什么事必须先问他、怎么跟他汇报、什么活派给谁，可以复制过去改着用。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.82 ==================== -->
-  <section class="issue active" id="v82">
+  <section class="issue" id="v82">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>斯坦福公开了一门教搭 AI 助手的课（夕小瑶科技说）</b>｜课程叫 CS329Z：Engineering AI Agents，今年 9 月开课，讲义和部分录像放在官网 cs329z.stanford.edu。内容从让模型查资料、调用工具讲起，到怎么管理任务流程和记忆、多个 AI 怎么分工，最后讲怎么评测和防范安全风险。两份作业很有代表性：第一份不许用现成框架，从零写一个能读企业邮件和内部文档的助手，还要自己控制花费；第二份不写助手，专门给一个现成的助手出考题、分析它错在哪。课程默认学生有编程基础。 <a href="https://mp.weixin.qq.com/s/bQ6xEgRT90RjaEmlUHErpA">原文</a></p>
