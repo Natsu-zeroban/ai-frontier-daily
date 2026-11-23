@@ -360,7 +360,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">01</span><h3>一下午，一个单网页仙侠动作游戏</h3></div>
       <div class="meta"><span class="tag">干货·案例</span><span class="sep">·</span>歸藏的AI工具箱（个人作品，文末推荐自己的 Skill）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/BpuAG6na26V3F7eaF8hQAg">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>歸藏不懂做游戏，只跟 AI 说了一句"做个国风仙侠游戏"，用 Anthropic 新出的旗舰模型 Fable 5.2 花了 6 个小时，做出一款俯视角 3D 动作游戏：有小怪、两阶段 Boss、剧情和配音，整个游戏是一个约 30MB 的网页文件，手机电脑打开就能玩。但这不是一句话出来的，他试玩了 7 轮，每轮挑出 5 到 10 个问题。<b>起作用的是他管住了 AI 的几个坏习惯，并且逼它先去查"打击感从哪来"</b>。</div>
+        <div class="core"><b>核心：</b>歸藏不懂做游戏，只跟 AI 说了一句"做个国风仙侠游戏"，用 Anthropic 刚发布的新模型 Fable 5.2 花了 6 个小时，做出一款俯视角 3D 动作游戏：有小怪、两阶段 Boss、剧情和配音，整个游戏是一个约 30MB 的网页文件，手机电脑打开就能玩。但这不是一句话出来的，他试玩了 7 轮，每轮挑出 5 到 10 个问题。<b>起作用的是他管住了 AI 的几个坏习惯，并且逼它先去查"打击感从哪来"</b>。</div>
 
         <div class="detail">
           <h4 class="blk">做出了什么</h4>
@@ -404,7 +404,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
           <h4 class="blk">重新配音</h4>
           <ul class="points">
             <li><b>视频模型说中文的三个毛病。</b><span class="eg">咬字发飘；多音字和专有名词读错，比如把"为师"读成"喂师"；句尾最后一个字说一半就断了。监控远景里人脸本来就小，所以干脆保留原视频的动作和环境声，人声用本地语音模型 VoxCPM2 全部重配。它能直接用文字描述每个角色的音色和情绪，不需要找声音样本。</span></li>
-            <li><b>几个小技巧。</b><span class="eg">台词末尾加一个省略号，模型读完最后一个字会自然留一点气声，不再吞字。每条配音生成后，用语音转文字工具 Whisper 听写一遍，漏字、读错就换一次重来。录出来的声音太"干"，像画外音，就加一点大殿里的回声，再垫上原视频的环境声。嘴型对不上时，把句子之间过长的停顿压短，再整体微微加速。</span></li>
+            <li><b>让它读准、读全。</b><span class="eg">台词末尾加一个省略号，模型读完最后一个字会自然留一点气声，不再吞字。每条配音生成后，用语音转文字工具 Whisper 听写一遍，漏字、读错就换一次重来。</span></li>
+            <li><b>让声音像在现场。</b><span class="eg">录出来的声音太"干"，像画外音，就加一点大殿里的回声，再垫上原视频的环境声。嘴型对不上时，把句子之间过长的停顿压短，再整体微微加速。</span></li>
           </ul>
 
           <h4 class="blk">字和框用代码画</h4>
@@ -446,7 +447,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         <div class="detail">
           <h4 class="blk">流程变成什么样</h4>
           <ul class="points">
-            <li><b>从逐条看，到只看分歧。</b><span class="eg">以前：她发起任务，AI 执行，她逐条检查、纠错，再重跑。现在：AI 批量执行，判官先评一遍，她只看有问题和有分歧的，把经验写成规则，再验证一轮。启发她的是 Lauren Tan，曾在 Meta、Netflix、Cursor 工作，现在是 SpaceX 的首席工程师，她一个月交付两千多次代码修改，靠的是一套多个 AI 分工的系统：有的收集用户反馈，有的拆任务，有的去做，做完自己检查、自己修，她本人主要定规则、抽查、拍关键的板。</span></li>
+            <li><b>从逐条看，到只看分歧。</b><span class="eg">以前：她发起任务，AI 执行，她逐条检查、纠错，再重跑。现在：AI 批量执行，判官先评一遍，她只看有问题和有分歧的，把经验写成规则，再验证一轮。启发她的是 SpaceX 的首席工程师 Lauren Tan，她一个月交付两千多次代码修改，靠的是一套多个 AI 分工的系统：有的收集用户反馈，有的拆任务，有的去做，做完自己检查、自己修，她本人主要定规则、抽查、拍关键的板。</span></li>
           </ul>
 
           <h4 class="blk">踩的三个坑</h4>
@@ -477,7 +478,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">02</span><h3>一句话、四十分钟、一个射击游戏</h3></div>
       <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>WquGuru（X 长文，个人复现）<span class="sep">·</span><a href="https://x.com/wquguru/status/2120382704030261437">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>Fable 5.2 是 Anthropic 新出的旗舰模型，发布时流传最广的演示，是有人只用一句话就让它做出了一个第一人称射击游戏，模型、贴图、音效全靠代码生成，不用一张外部图片。作者照着复现，并把过程拆成音效、材质、建模、整个游戏四步，每步都给了提示词、耗时和花费。关键在于<b>开工前就让 AI 学会自己检查：自己打开网页截图看画面，自己把声音算出来查有没有爆音</b>，中途不用人插话。完整游戏跑了 40 分钟，折合约 16 美元。</div>
+        <div class="core"><b>核心：</b>Anthropic 刚发布新模型 Fable 5.2，就有人只用一句话让它做出了一个第一人称射击游戏，模型、贴图、音效全靠代码生成，不用一张外部素材。作者照着复现，把过程拆成音效、材质、建模、整个游戏四步，每步都给了提示词、耗时和花费。能做到中途不用人插话，关键是<b>开工前就让 AI 自己检查：打开网页截图看画面，把声音算成数据查有没有爆音</b>。完整游戏跑了 40 分钟，花了约 16 美元。</div>
 
         <div class="detail">
           <h4 class="blk">怎么让它不用人盯</h4>
@@ -510,7 +511,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   <section class="issue" id="v75">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
-      <p><b>GPT-6.2 Sol 的审美追上来了（卡尔的AI沃茨，个人实测）</b>｜GPT-6.2 Sol 是 OpenAI 还在灰度测试的新模型，作者在编程助手 Codex 里抽到后，拿它和公认审美最好的 Claude Opus 5.5（Anthropic 的旗舰模型）比了代码动画、网页 3D、界面设计和自动剪辑。他的结论是：提示词写得详细，两者效果不相上下；代码动画还差一点，Opus 5.5 做的 8 秒里每一秒都在动，Sol 要两三秒画面才动起来；剪辑反而更好，什么时候人物缩成小窗、素材放哪个位置，不装任何 Skill 也安排得当，前后两句话是排比时还会让画面保持一致，方便观众看懂。 <a href="https://mp.weixin.qq.com/s/pZlYI3miB-x-9R-MmvwFSQ">原文</a></p>
+      <p><b>GPT-6.2 Sol 的审美追上来了（卡尔的AI沃茨，个人实测）</b>｜GPT-6.2 Sol 是 OpenAI 还在灰度测试的新模型，作者在编程助手 Codex 里抽到后，拿它和公认审美最好的 Anthropic 模型 Claude Opus 5.5 比了代码动画、网页 3D、界面设计和自动剪辑。他的结论是：提示词写得详细，两者效果不相上下；代码动画还差一点，Opus 5.5 做的 8 秒里每一秒都在动，Sol 要两三秒画面才动起来；剪辑反而更好，什么时候人物缩成小窗、素材放哪个位置，不装任何 Skill 也安排得当，前后两句话是排比时还会让画面保持一致，方便观众看懂。 <a href="https://mp.weixin.qq.com/s/pZlYI3miB-x-9R-MmvwFSQ">原文</a></p>
     </div>
     <div class="issue-head">
       <div class="issue-vol">VOL.75 / 2026·11·11</div>
@@ -569,7 +570,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">01</span><h3>Seedream 5.5：不照字面画，改十轮不走样</h3></div>
       <div class="meta"><span class="tag">干货·测评</span><span class="sep">·</span>海辛和阿文（个人实测，主观；两人发布前受邀参加了盲测）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/4qPC_ebfni3MLzEINVB1pg">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>Seedream 5.5 是字节的图像模型，已在豆包里灰度上线。两位作者在发布前的盲测里做了 150 道对比题，没看模型名，结果它在两人的选择里胜率 81%。对手是 OpenAI 的 GPT Image 2.6 和谷歌的 Nano Banana Pro（圈里叫"香蕉"）。他们的结论：<b>写实画面和一轮轮改图，Seedream 5.5 最好；要严格照要求画，GPT Image 2.6 更听话</b>。价格也最便宜，2K 一张大约 0.23 元，约为 GPT Image 2.6 的一半。</div>
+        <div class="core"><b>核心：</b>Seedream 5.5 是字节的图像模型，已在豆包里灰度上线。两位作者在发布前的盲测里做了 150 道对比题，没看模型名，结果它在两人的选择里胜率 81%。对手是 OpenAI 的 GPT Image 2.6 和谷歌的 Nano Banana Pro。他们的结论：<b>写实画面和一轮轮改图，Seedream 5.5 最好；要严格照要求画，GPT Image 2.6 更听话</b>。价格也最便宜，约为 GPT Image 2.6 的一半。</div>
 
         <div class="detail">
           <h4 class="blk">听话和懂你不是一回事</h4>
@@ -612,7 +613,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <div class="issue-head">
       <div class="issue-vol">VOL.73 / 2026·11·09</div>
       <h2 class="issue-theme">尴尬的第一版</h2>
-      <p class="issue-lead">OpenAI 的 CEO 奥特曼在一档播客里讲了几个关键决定是怎么拍板的，最实在的一条是：ChatGPT 上线前，内部版本只留住了大约 5% 的人。</p>
+      <p class="issue-lead">OpenAI 的 CEO 奥特曼在一档播客里几乎没聊技术，聊的是他怎么做判断：什么时候该把不够好的东西发出去，怎么确认自己不是在瞎想。</p>
       <div class="issue-toc">
         <a href="#v73-1"><span class="ix">01</span><span>留存 5% 的 ChatGPT 为什么还是发了</span><span class="cat">观点·访谈</span></a>
       </div>
@@ -622,7 +623,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">01</span><h3>留存 5% 的 ChatGPT 为什么还是发了</h3></div>
       <div class="meta"><span class="tag op">观点·访谈</span><span class="sep">·</span>Web3天空之城（整理翻译 Sam Altman 在印度播客 Figuring Out 的访谈）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/qRCbskxZqPR5XxWnrjJMWw">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>Sam Altman 是 OpenAI（做 ChatGPT 的公司）的 CEO。这期访谈很少聊技术，主要聊他怎么做判断：ChatGPT 发布前，内部原型只有 5% 左右的人会接着用，管理层大多觉得还没准备好，他坚持发了，因为那 5% 的人是真喜欢。<b>一小群人非常喜欢，比一大群人有点喜欢更值钱</b>。他还讲了怎么分辨"被误解"和"真的错了"，以及怎么不被身边只会点头的人包围。</div>
+        <div class="core"><b>核心：</b>Sam Altman 是 OpenAI（做 ChatGPT 的公司）的 CEO。最实在的一个例子：ChatGPT 发布前，内部原型只有 5% 左右的人会接着用，管理层大多觉得还没准备好，他坚持发了，因为那 5% 的人是真喜欢。<b>一小群人非常喜欢，比一大群人有点喜欢更值钱</b>。他还讲了怎么分辨"被误解"和"真的错了"，以及怎么不被身边只会点头的人包围。</div>
 
         <div class="detail">
           <h4 class="blk">先发出去，看谁真喜欢</h4>
