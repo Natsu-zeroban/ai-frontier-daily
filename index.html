@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v70" data-vol="vol.70"><span class="vv">VOL.70 <span class="new">最新</span></span><span class="dd">2026·11·04 · 奇观之后</span></button>
+    <button class="tab active" data-issue="v71" data-vol="vol.71"><span class="vv">VOL.71 <span class="new">最新</span></span><span class="dd">2026·11·05 · 团队没快</span></button>
+    <button class="tab" data-issue="v70" data-vol="vol.70"><span class="vv">VOL.70</span><span class="dd">2026·11·04 · 奇观之后</span></button>
     <button class="tab" data-issue="v69" data-vol="vol.69"><span class="vv">VOL.69</span><span class="dd">2026·11·03 · 进了引擎</span></button>
     <button class="tab" data-issue="v68" data-vol="vol.68"><span class="vv">VOL.68</span><span class="dd">2026·11·02 · 模型之外</span></button>
     <button class="tab" data-issue="v67" data-vol="vol.67"><span class="vv">VOL.67</span><span class="dd">2026·10·30 · 答完再查一遍</span></button>
@@ -337,8 +338,61 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.71 ==================== -->
+  <section class="issue active" id="v71">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.71 / 2026·11·05</div>
+      <h2 class="issue-theme">团队没快</h2>
+      <p class="issue-lead">人人都用上了 AI，团队交付却没快多少。快手在一场分享里讲了原因，以及他们改了哪几处协作方式。</p>
+      <div class="issue-toc">
+        <a href="#v71-1"><span class="ix">01</span><span>写代码快了十倍，交付只快两成</span><span class="cat">观点·实践</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v71-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>写代码快了十倍，交付只快两成</h3></div>
+      <div class="meta"><span class="tag op">观点·实践</span><span class="sep">·</span>AI产品阿颖（听快手企业 AI 生产力沙龙的笔记，夹着作者自己小团队的体会）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/QbtWTr7acjDTULCOvA77aA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>很多公司人人都在用 AI，使用数据很漂亮，整体效率却没怎么变。快手在一场技术沙龙上给了解释：写代码只是交付中的一段，这段快了十倍，整个需求交付也只快两成多，<b>要提速，得改团队怎么协作，而不只是给每个人发工具</b>。他们的做法是先把少数高手的经验做成全团队能用的能力，再合并岗位、按风险决定怎么测试。</div>
+
+        <div class="detail">
+          <h4 class="blk">为什么个人快了，团队没快</h4>
+          <ul class="points">
+            <li><b>两种常见的卡法。</b><span class="eg">一种是"孤岛"：团队里有几个 AI 高手，攒了一堆 Skill（装给 AI 的现成做法）、知识和方法，别人没法直接用，于是少数人越来越强，团队整体没变。另一种是"空转"：部署了很多个 AI 助手，它们之间不停交接、同步信息，效果还不如一个通用助手调用 Skill，还白烧 token。</span></li>
+            <li><b>算一笔账。</b><span class="eg">假设编码占整个交付流程的 20%，AI 让编码快了 10 倍，整个流程也只快大约 22%，因为剩下八成没变快。产品提需求、研发排期、测试验收，每个环节之间的沟通、交接和等待，不会因为每个人都用上 AI 就自己消失。</span></li>
+          </ul>
+
+          <h4 class="blk">先沉淀，再合岗</h4>
+          <ul class="points">
+            <li><b>先把经验变成公共能力。</b><span class="eg">设计师把设计规范和判断标准写成 Skill，产品经理借着 AI 就能完成一部分基础设计；研发把常用的工程方法沉淀下来，其他岗位在划定的范围里也能交付简单、低风险的需求。顺序很要紧：不是先让产品学前端、先砍岗位，而是先有大家都能调用的能力，再看哪些交接和等待可以省掉。</span></li>
+            <li><b>小组坐到一起。</b><span class="eg">快手磁力引擎（快手的广告营销平台）的风控技术团队有一百多人，涵盖前后端、算法、数据。他们把一部分人拆成围绕具体目标的小组，产品、研发、算法、测试的工位搬到一起，有事当面商量，大部分事不用再跨部门排期。简单、低风险的需求产品经理自己就做了，研发负责把关。调整后需求吞吐量提升了 130%，交付周期缩短了 80%。复杂的核心系统、涉及资金安全或出过大事故的业务，不适合这么干。</span></li>
+          </ul>
+
+          <h4 class="blk">测试成了新瓶颈</h4>
+          <ul class="points">
+            <li><b>按风险分三档。</b><span class="eg">需求多起来，测试工程师根本测不过来，跳过测试又太危险。他们让 AI 结合需求文档、代码改动、历史故障和业务知识先判断风险：核心业务、资金、权限这类高风险的，人主导测试；中风险的人和 AI 一起；改页面、调交互这类低风险的主要交给 AI 验证，人来抽检。他们的业务里大约六成需求属于低风险。</span></li>
+            <li><b>防 AI 自己出题自己判卷。</b><span class="eg">风险判错就会漏测，所以请熟悉业务的专家给真实需求标好风险等级，做成一套考题，每次换模型、改提示词都重考一遍，判错的案例进知识库。写代码和测代码用不同的模型，免得两边有同样的盲区。高风险需求能不能上线，最后仍由人决定。</span></li>
+          </ul>
+
+          <h4 class="blk">公司层面</h4>
+          <ul class="points">
+            <li><b>预算变积分。</b><span class="eg">AI 预算先分给各业务线，再换成员工能用的积分，员工按任务自己选模型，消耗多少一目了然。各部门各搭各的 AI 助手会重复建设，快手成立了一个公司级组织 iWork，统一做模型调用、知识管理、权限、安全这些底座，把内部系统改成 AI 能调用的工具。先由基层试出有效的路，再由公司把局部经验变成大家的公共能力。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>作者自己的打算</b>：团队要小，创业公司甚至可以两人一组；尽快管起共享的 Skill；给需求做风险评级，再定验证方式。衡量 AI 带来的变化，要看公司整体的经营效率，不能只看每个人用了多少 AI。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.70 ==================== -->
-  <section class="issue active" id="v70">
+  <section class="issue" id="v70">
     <div class="issue-head">
       <div class="issue-vol">VOL.70 / 2026·11·04</div>
       <h2 class="issue-theme">奇观之后</h2>
