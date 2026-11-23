@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v65" data-vol="vol.65"><span class="vv">VOL.65 <span class="new">最新</span></span><span class="dd">2026·10·28 · 谁来读代码</span></button>
+    <button class="tab active" data-issue="v66" data-vol="vol.66"><span class="vv">VOL.66 <span class="new">最新</span></span><span class="dd">2026·10·29 · 会回应的世界</span></button>
+    <button class="tab" data-issue="v65" data-vol="vol.65"><span class="vv">VOL.65</span><span class="dd">2026·10·28 · 谁来读代码</span></button>
     <button class="tab" data-issue="v64" data-vol="vol.64"><span class="vv">VOL.64</span><span class="dd">2026·10·27 · 人只管拍板</span></button>
     <button class="tab" data-issue="v63" data-vol="vol.63"><span class="vv">VOL.63</span><span class="dd">2026·10·26 · 说完整</span></button>
     <button class="tab" data-issue="v62" data-vol="vol.62"><span class="vv">VOL.62</span><span class="dd">2026·10·23 · 记得在干什么</span></button>
@@ -332,8 +333,57 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.66 ==================== -->
+  <section class="issue active" id="v66">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.66 / 2026·10·29</div>
+      <h2 class="issue-theme">会回应的世界</h2>
+      <p class="issue-lead">谷歌的 Genie 4 让 AI 生成的画面可以拿手柄操控，还会出声、会说话。写这篇的是个玩了快二十年游戏的人，他最关心的是开放世界和互动剧会被改成什么样。</p>
+      <div class="issue-toc">
+        <a href="#v66-1"><span class="ix">01</span><span>谷歌 Genie 4，一个边玩边生成的世界</span><span class="cat">观点·分析</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v66-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>谷歌 Genie 4，一个边玩边生成的世界</h3></div>
+      <div class="meta"><span class="tag op">观点·分析</span><span class="sep">·</span>数字生命卡兹克（作者卡兹克；根据官方演示解读，不是上手实测）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/f9NSNDchorq7YgSdx9_TqA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>世界模型是这样一种 AI：你做什么操作，它就实时生成你接下来该看到的画面，像一个没有提前做好任何内容的游戏。谷歌新发布的 Genie 4 能用 WASD 加方向键操控，跑着跑着还能用一句话改天气、加东西，同时生成环境音和人物对话。作者认为，这条路走通以后，<b>游戏不必把每个任务和互动都提前做好，设计的重心会转到定规则上</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">和 AI 视频差在哪</h4>
+          <ul class="points">
+            <li><b>视频是定死的，世界要接住你的操作。</b><span class="eg">AI 视频生成完，你只能沿着它的时间线往下看。世界模型要随着你的每个动作变化：你推开一扇门，门后得有合理的空间；你踢翻一把椅子，它得倒下；你出门转一圈再回来，椅子还该在原地。</span></li>
+          </ul>
+
+          <h4 class="blk">这一代进步在哪</h4>
+          <ul class="points">
+            <li><b>画面和手感。</b><span class="eg">官方演示是第一人称骑着黑龙在山谷和城堡之间穿行，画面变化基本靠双摇杆实时操控，速度感很足。人物动作更自然，碰撞、气流这些物理效果也更可信。</span></li>
+            <li><b>跑着就能改。</b><span class="eg">可以用键盘操控角色或镜头，也可以在世界运行中直接用文字改天气、放进新物体、触发事件，它会顺着当前场景接着生成，延迟很低。</span></li>
+            <li><b>有了声音和对话。</b><span class="eg">画面生成的同时，环境音和带音乐感的声音也一起出来，里面的人物还能实时说话、对你和周围的事作出反应。作者拿《荒野大镖客2》举例：马蹄踩在不同地面上的声音、酒馆里的人声、林子里的风声，撑起了一大半沉浸感。</span></li>
+          </ul>
+
+          <h4 class="blk">两条路线，开始靠拢</h4>
+          <ul class="points">
+            <li><b>边走边画，还是先建好再逛。</b><span class="eg">Genie 走的是视频路线：根据之前的画面和你的操作，一帧帧预测接下来的画面，所以什么都能变。难处是记性：转身再转回来，白背带裤可能变成了蓝的；而且一直在耗算力，公开演示很少连续跑过 10 分钟。另一条是李飞飞创办的 World Labs 走的 3D 路线，一次生成一个实打实的 3D 场景，回头一百次都一样，还能导进 Unity、虚幻、Blender，戴头显进去逛；短处是场景是静止的，角色不会动，动画和特效得进引擎自己加。</span></li>
+            <li><b>各自补短板。</b><span class="eg">World Labs 9 月发了新模型 Atlas，用三台架在三脚架上的手机拍一段画面，就能做出《黑客帝国》那种定格转圈的子弹时间。谷歌的办法是给 Genie 配一个 Gemini（谷歌的大模型）当向导，补上视频路线的另一个弱项：前因后果一拉长就接不上。Gemini 一直盯着画面，把目标拆成一小步一小步，检查每步做到没有；你中途插手或者世界自己变了，它就当场改计划。Genie 只管把画面、声音和变化生成出来。</span></li>
+          </ul>
+
+          <h4 class="blk">对游戏意味着什么</h4>
+          <ul class="points">
+            <li><b>任务可以现生成。</b><span class="eg">作者设想：在《上古卷轴》里遇到一个 NPC，说家人失踪了，你接下任务，接下来的线索、场景和事件按世界观和任务规则现场生成，你的每个选择又改写后面的故事，开发者不用把所有可能都提前做出来。互动影游也一样，现在每条分支都得提前拍，选项越多成本越高。</span></li>
+            <li><b>但随机不等于好玩。</b><span class="eg">作者也说，纯随机生成的内容大概率不好玩。《博德之门3》《塞尔达传说》伟大，靠的是一套精妙的规则和规则组合出来的复杂互动。所以他觉得以后更要花力气设计世界的规则，细节交给 AI 填。</span></li>
+          </ul>
+
+          <blockquote>规则才是王道，这也是为什么任天堂一直以来都是游戏之神的原因。（卡兹克）</blockquote>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.65 ==================== -->
-  <section class="issue active" id="v65">
+  <section class="issue" id="v65">
     <div class="issue-head">
       <div class="issue-vol">VOL.65 / 2026·10·28</div>
       <h2 class="issue-theme">谁来读代码</h2>
