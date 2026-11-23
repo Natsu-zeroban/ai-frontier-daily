@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v67" data-vol="vol.67"><span class="vv">VOL.67 <span class="new">最新</span></span><span class="dd">2026·10·30 · 答完再查一遍</span></button>
+    <button class="tab active" data-issue="v68" data-vol="vol.68"><span class="vv">VOL.68 <span class="new">最新</span></span><span class="dd">2026·11·02 · 模型之外</span></button>
+    <button class="tab" data-issue="v67" data-vol="vol.67"><span class="vv">VOL.67</span><span class="dd">2026·10·30 · 答完再查一遍</span></button>
     <button class="tab" data-issue="v66" data-vol="vol.66"><span class="vv">VOL.66</span><span class="dd">2026·10·29 · 会回应的世界</span></button>
     <button class="tab" data-issue="v65" data-vol="vol.65"><span class="vv">VOL.65</span><span class="dd">2026·10·28 · 谁来读代码</span></button>
     <button class="tab" data-issue="v64" data-vol="vol.64"><span class="vv">VOL.64</span><span class="dd">2026·10·27 · 人只管拍板</span></button>
@@ -334,8 +335,94 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.68 ==================== -->
+  <section class="issue active" id="v68">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.68 / 2026·11·02</div>
+      <h2 class="issue-theme">模型之外</h2>
+      <p class="issue-lead">两篇都觉得模型本身已经够用，卡住人的是外面那一层。DeepSeek 想让 AI 助手不再需要人一个窗口一个窗口地盯；一位做过视频生成和机器人模型的研究员说，AI 视频接下来比的是谁更顺手。</p>
+      <div class="issue-toc">
+        <a href="#v68-1"><span class="ix">01</span><span>DeepSeek 把 AI 助手做成群里的常驻同事</span><span class="cat">干货·方法</span></a>
+        <a href="#v68-2"><span class="ix">02</span><span>AI 视频还在半山腰</span><span class="cat">观点·访谈</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v68-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>DeepSeek 把 AI 助手做成群里的常驻同事</h3></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>赛博禅心（图解 DeepSeek Harness 团队的设计文章；讲自家实践）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/lcIkBMOKHSvkRYELgkduMg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>现在用 AI 助手干活，一件事开一个对话窗口，DeepSeek 观察到一个人同时只盯得住三到五个，再多就顾不过来。DeepSeek Harness（DeepSeek 出的、能在电脑上自己读文件跑命令的 AI 助手）团队于是做了一个叫 Super-agent 的形态：它常驻在公司群聊和 GitHub（存放和讨论代码的平台）里，<b>人不用再管开了哪些窗口，只管提要求和验收</b>。有一次群里有人随口抱怨一个 bug，没人叫它，它自己在后台复现、找到原因，把修复交了上来。</div>
+
+        <div class="detail">
+          <h4 class="blk">一个前台，几个后台</h4>
+          <ul class="points">
+            <li><b>人只跟前台说话。</b><span class="eg">前台（Router）常驻，接住所有消息，只负责回话和派活，用一个轻量模型就够；后台每件事派一个"干活的"（Worker），用最强的模型，彼此互不干扰，做完向前台汇报。所以不管你在群里说还是在代码评论里说，面对的都是同一个它：先在群里定了方案 A，后来在评论里改成 B，它接得上。放到个人助手上也一样，你在一个聊天框里让它改会议、报销发票、订周六的餐，后台各有一个在办。</span></li>
+            <li><b>越忙越划算。</b><span class="eg">前台在思考时进来的消息先排队，下一轮一起看。测试里消息从每分钟 1 条涨到 40 条，摊到每条消息上的处理时间反而从 6.4 秒降到 1.6 秒。</span></li>
+            <li><b>后续消息直接给经手的人。</b><span class="eg">同一个群聊话题、同一个代码改动下的消息归成一串。第一条由前台派出去以后，这一串的后续消息直接送到负责它的后台，不再经过前台。去掉这一招，前台要多做约三成的决定。</span></li>
+          </ul>
+
+          <h4 class="blk">不是每条消息都要 AI 想一遍</h4>
+          <ul class="points">
+            <li><b>先用规则筛。</b><span class="eg">群里大多是闲聊。先按来源、群、白名单这些固定规则筛掉一大半，剩下的才交给模型判断要不要管。"中午去食堂还是点外卖"直接忽略，"切换会话时偶发白屏"才会进入判断。</span></li>
+            <li><b>资料按需取。</b><span class="eg">先只给编号和开头 50 个字，要看全文再去读。每样东西都附着相关东西的编号，有人突然提起一个老任务，它能顺着编号一步步把前因后果找回来。</span></li>
+            <li><b>先动手，有把握再说话。</b><span class="eg">群里还在讨论模型输出的波浪号该怎么显示，它已经在后台复现了问题、交了修改方案。只有确认了问题、也找到了简单修法，它才出声，否则保持安静。</span></li>
+          </ul>
+
+          <h4 class="blk">像同事一样说话，一直在线</h4>
+          <ul class="points">
+            <li><b>看场合说话。</b><span class="eg">群里每次回复不超过 100 词，只在需要你决定或验收时出声；在代码平台上就写完整：问题背景、改了什么、怎么验证的。跑耗时任务时先回一句"已开始"，照样能接着聊，结果出来再作为新消息送回。</span></li>
+            <li><b>大脑在云上，手在你电脑上。</b><span class="eg">AI 的思考放在云端，对话记录存进数据库，跑它的机器坏了换一台接着跑。你的电脑上只装一个小程序负责执行命令，没提交的改动、本地密钥都不用搬。笔记本重新联网后，等着在它上面做的任务会自动派过来。</span></li>
+            <li><b>另设一个巡查员。</b><span class="eg">进程活着不代表活在推进，模型可能原地打转或跑偏。所以主系统外面还有一个定时巡查的 AI（Watchdog），检查每个后台任务有没有实际进展，发现不对就介入。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>实验</b>：约 300 条消息里混着 20 个工作请求，完成 95% 的任务 Super-agent 用了 15.7 分钟，只开一个对话、让它自己决定要不要分派的做法要 29 分钟左右，代价是 Super-agent 消耗的 token 更多。一个对话的做法很看提示词：提示写得中性时，它 5 次里一次都没把活分出去。</li>
+              <li><b>还没解决的</b>：规模再大，前台怎么拆；跨月的长期记忆；云端一旦被攻破，连着的电脑都有风险，得让 AI 用得上密钥却看不到密钥。</li>
+              <li>部分设计已经做成了原型插件 dsh-superagent-prototype。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v68-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>AI 视频还在半山腰</h3></div>
+      <div class="meta"><span class="tag op">观点·访谈</span><span class="sep">·</span>42章经（曲凯对谈淏楠；个人判断）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/hHkX52WU2gAowvdSnZ7ukw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>淏楠先做 AI 助手的训练数据，后来在腾讯的大模型团队混元做多模态，最近去了一家做机器人的公司。他给 AI 视频打 60 分：拍出接近电影的片段没问题，可真自己做一条短剧会很痛苦。他觉得接下来半年到一年，<b>机会在更顺手的创作工具上，而不是更大的模型</b>；"抽卡"也会从挑能用的，变成挑自己想要的。</div>
+
+        <div class="detail">
+          <h4 class="blk">AI 视频</h4>
+          <ul class="points">
+            <li><b>为什么小团队难追。</b><span class="eg">视频模型变强主要靠预训练，吃钱、吃算力，更吃数据。数据没人开源，要么花钱买，要么自己有产品、能从用户那里攒。字节的视频模型 Seedance 做得好，和数据质量、和有产品都有关系。他们年初也想靠后训练（模型训完后再专门调教）让视频模型突然变强，做了半年没跑出来。</span></li>
+            <li><b>机会在工具和平台。</b><span class="eg">代码好不好有公认标准，视频还掺着每个人的口味。现在写一大段描述也能控制镜头，但每次都写太累。更好的方式可能是模型看了前面的片段，提几种镜头方案让你选，你选哪种就代表你的口味。另一个机会是平台：做的门槛和成本降下来以后，看视频的人也会顺手做视频。</span></li>
+            <li><b>实时互动还早。</b><span class="eg">让视频边看边生成，一提速就丢细节：镜头转回来东西变了，人换了一张脸。他宁可先保质量。能在地图上跑来跑去的视频世界模型也有演示，但画质还不行，这个圈子有点冷下来了，有人改用白模（只有形状、没有贴图的 3D 场景）加小模型来渲染，看上去反而更有希望。</span></li>
+          </ul>
+
+          <h4 class="blk">机器人</h4>
+          <ul class="points">
+            <li><b>为什么 GPT-6 Astra 让行业震动。</b><span class="eg">机器人需要的模型，要先看懂环境，再输出一串精确的指令，告诉每个电机转多少度。以前让语言模型输出一串数字再解析，不好使。OpenAI 的 Astra 理解力强，能直接给出一段有意义的动作，动完还会看画面再调整。</span></li>
+            <li><b>小公司的路。</b><span class="eg">"大脑"交给大模型，自己做好硬件和控制硬件的小模型。小模型搞不定时让 Astra 接管，接管的过程正好拿来训练自家小模型，比如把成功率从 50% 拉到 80%。这样原来一个人盯一台机器，以后能盯十台。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>游戏 AI 助手没人做</b>：他说 AI 助手方向工作机会多，但做游戏方向的人很少，值得做的事还很多。</li>
+              <li><b>图片没什么可做了</b>：他认为多模态里图片基本做到头了，主要战场是视频，而视频模型本身是大厂之间的竞争。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.67 ==================== -->
-  <section class="issue active" id="v67">
+  <section class="issue" id="v67">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>LibTV 公开了爆款 AI 短片的工程（卡尔的AI沃茨，带推广）</b>｜LibTV 是 Liblib 旗下做 AI 短片的在线画布，从写剧本、拆分镜、定角色到出视频都在一张画布里完成。它把《非妖哉》等播放破亿作品的整张工程画布公开了，每个镜头的提示词和前后怎么串都看得到，只是不能直接拿来跑自己的片子。作者照着学做了一段狐妖短片，觉得最好用的是两样：文字说不清的急刹车式横摇，先在 3D 预演里画出镜头轨迹再交给视频模型；一条镜头只有中间两秒出错，就只重拍那两秒，其余不动。 <a href="https://mp.weixin.qq.com/s/ephY1qYSK69Uz5Rd4Tl7KA">原文</a></p>
