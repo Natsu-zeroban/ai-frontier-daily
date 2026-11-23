@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v53" data-vol="vol.53"><span class="vv">VOL.53 <span class="new">最新</span></span><span class="dd">2026·10·10 · 墙在变矮</span></button>
+    <button class="tab active" data-issue="v54" data-vol="vol.54"><span class="vv">VOL.54 <span class="new">最新</span></span><span class="dd">2026·10·12 · 眉头一皱</span></button>
+    <button class="tab" data-issue="v53" data-vol="vol.53"><span class="vv">VOL.53</span><span class="dd">2026·10·10 · 墙在变矮</span></button>
     <button class="tab" data-issue="v52" data-vol="vol.52"><span class="vv">VOL.52</span><span class="dd">2026·10·08 · 第二道鸿沟</span></button>
     <button class="tab" data-issue="v51" data-vol="vol.51"><span class="vv">VOL.51</span><span class="dd">2026·09·30 · 贵的留给判断</span></button>
     <button class="tab" data-issue="v50" data-vol="vol.50"><span class="vv">VOL.50</span><span class="dd">2026·09·29 · 一个镜头做一天</span></button>
@@ -320,8 +321,98 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.54 ==================== -->
+  <section class="issue active" id="v54">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.54 / 2026·10·12</div>
+      <h2 class="issue-theme">眉头一皱</h2>
+      <p class="issue-lead">AI 能接手的活越来越多，要你自己拿主意的部分反而更清楚了。一篇讲怎么把要求交代给 OpenAI 的个人助手 dot，让它少走回头路；一篇是两位 AI 导演讲，素材可以无限生成，挑哪个、拍什么，还得靠人。</p>
+      <div class="issue-toc">
+        <a href="#v54-1"><span class="ix">01</span><span>让 dot 少操心的三个做法：手册、看板、定时检查</span><span class="cat">干货·教程</span></a>
+        <a href="#v54-2"><span class="ix">02</span><span>两位 AI 导演：工具什么都能生成，难的是知道要什么</span><span class="cat">观点·访谈</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v54-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>让 dot 少操心的三个做法：手册、看板、定时检查</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>老金带你玩AI（个人使用心得）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/jvsQKJOi7Saa_NyTA6LMdA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>dot 是 OpenAI 在 ChatGPT 里推出的个人助手，由 GPT-6 Astra 驱动，有自己的云端电脑，能在后台同时做好几件事，还会记住你前后交代过的背景和偏好。作者用了几天，交给它写文章、做工具、改网站，总结出三个让它更省心的做法，最实用的一条是：<b>反复交代的要求写成一份手册，每次让它先读最新版</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">它会主动找问题</h4>
+          <ul class="points">
+            <li><b>一个让作者印象深的例子。</b><span class="eg">一位 OpenAI 员工前一晚准备第二天下午 3 点要用的演示稿，早上 6:56，dot 先来提醒他：第 26 页的金额和第 12、37 页对不上；第 12 页标了数据日期，如果第 26 页是有意沿用旧数字，也该补上日期。他没让 dot 检查过，日历邀请里也没附这份文件，会议和文件标题还不一样，dot 是自己对照资料发现的。</span></li>
+          </ul>
+
+          <h4 class="blk">三个做法</h4>
+          <ul class="points">
+            <li><b>反复交代的要求，存成一份手册。</b><span class="eg">每次改材料都把要求重说一遍，容易漏，也容易把改好的地方又改回去。社区有人把要求写进 ChatGPT 的 Space（存放文档的地方），当成工作手册，每页写清需要什么输入、按什么步骤做、交出什么结果、做到什么程度算完。比如"每天早上怎么排工作"那页写着：对照今天的日程和昨天没做完的事，看实际有多少时间，本人已经定好的优先级不许动。用的时候在输入框打 @ 选中这一页，要求变了就改手册。</span></li>
+            <li><b>任务一多，做一张看板。</b><span class="eg">作者同时让 dot 写文章、做视频、改网站，靠聊天记录根本记不清哪件做到哪了。他让 dot 用 ChatGPT 的 Site 功能（生成网页，只有自己账号能看）做了一张看板：按项目组织，打开一个项目，能看到里面的任务和负责的助手，可以新建需求，也能手动改状态。作者不会写代码，这个看板已经开源在他的 GitHub 上。</span></li>
+            <li><b>每天要盯的事，设好检查时间和通知条件。</b><span class="eg">告诉它查什么、几点查、按哪个时区、查到哪天为止、有变化从哪里通知你，存成排程后可以在 Scheduled 页面核对。有些连上的服务还能按事件触发，比如某个频道里出现新的故障报告，它就开始处理。但你得说清看哪个频道、留意什么问题、什么情况下通知你，光把它拉进频道不够。</span></li>
+          </ul>
+
+          <blockquote>这个条件，现在还算数吗？（老金）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>作者的期待</b>：上面那句是他希望 dot 能主动问的。记住你说过什么有用，知道哪些要求已经改了也一样有用，不然它按早先那套做得再细，也得返工。</li>
+              <li><b>离开电脑接着改</b>：电脑、手机应用和语音通话连的是同一个 dot，它记得之前的讨论；它能读哪些资料，要在连接应用或电脑时单独设置。</li>
+              <li><b>怎么开通</b>：在 ChatGPT 桌面应用或网页里打开 dots 创建。个人 Pro 套餐有每月 100、200、500 美元三档，首个 dot 包含在内，按账号和地区分批开放。和 dot 聊天不占聊天额度，让它真正干活仍会消耗相应额度。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v54-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>两位 AI 导演：工具什么都能生成，难的是知道要什么</h3></div>
+      <div class="meta"><span class="tag op">观点·访谈</span><span class="sep">·</span>十字路口Crossing（Koji 播客对谈 AI 导演 KK、山音；两人对 CapCut 多有推荐）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/1-to3utY22QGm2oi2wZ-bQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>KK 原来在广告公司上班，山音从上海戏剧学院编剧专业毕业后离开了电影行业。两人如今都是 AI 导演，作品入围、获奖过国际电影节。他们讲了用 AI 拍短片的实际流程，也讲了 AI 拿不走的部分：画面可以无限生成，但值得拍的故事来自亲身经历；AI 一口气给你上千字，<b>能看出哪里不对的判断力</b>，决定了作品好坏。</div>
+
+        <div class="detail">
+          <h4 class="blk">现在怎么拍</h4>
+          <ul class="points">
+            <li><b>不先写完剧本，看着画面往下编。</b><span class="eg">山音的《阿明的一天》没有文字剧本，起点只有一句话：如果一个人换一件衣服就换了一种人格，会怎样？他让 AI 先自由发挥出画面，比如披上狼皮就成了满身"狼性文化"的员工，换上白雪公主的衣服就成了温柔耐心的客服。看到画面后，故事走向和台词才在脑子里成形。从那一句话到定剪，一共 3 天。他的说法是，人往往不擅长从 0 到 1，更擅长从 0.5 到 1：AI 给的东西哪怕只有一部分能用，你也能很清楚地把它挑出来。</span></li>
+            <li><b>两年里，工具换了玩法。</b><span class="eg">早先角色每换一个镜头就换一张脸，KK 做短片《南瓜》时，95% 的镜头要靠 Photoshop 一帧帧换头来保持是同一个人。后来先要把整部片的关键画面一张张做出来，再转成视频。到了字节的视频模型 Seedance，人物、场景、道具设定一次就能反复引用，大量镜头直接靠文字描述生成。山音去年做一支 5 分钟的片子花了半个月，现在 3 天能做完。</span></li>
+            <li><b>生成和剪辑放在一起。</b><span class="eg">两人主要用字节的剪辑工具 CapCut（剪映的海外版）里的 Video Studio：在同一块画布上生成美术、角色和场景，再拖进剪辑轨道粗剪。分镜脚本上看着顺，拼起来剧情可能就断了，这时能当场回去重做。商业项目里，客户要求换衣服、换产品甚至换主角，也能在剪辑台上批量改。</span></li>
+          </ul>
+
+          <h4 class="blk">AI 拿不走的部分</h4>
+          <ul class="points">
+            <li><b>故事得来自自己经历过的事。</b><span class="eg">KK 刚用 AI 时一天能出两三条，后来慢了下来：前十几年攒下的生活经历用得差不多了。让 AI 一天编几十个剧本，没有亲身经历的故事连他自己都打动不了，更别说观众。山音的短片《积木》讲阿尔茨海默症，灵感来自外公临终前几个月认不出家人的那段日子。</span></li>
+            <li><b>"眉头一皱"的那一下。</b><span class="eg">山音说，普通人用 AI 能做到什么程度，不取决于学了多久编导，而取决于判断力：AI 吐出上千字的大纲，看到 200 字皱一次眉，看到 500 字又皱一次，皱着皱着，就清楚自己到底想怎么写了。KK 补充，AI 自以为的高光往往是俗套，反倒是开头或结尾一句不经意的话，值得展开。</span></li>
+            <li><b>门槛降了一道，又抬了一道。</b><span class="eg">不用再组织庞大的剧组，但传统导演可以只挑方案、拍板，细节有各个工种兜底；AI 导演得自己懂镜头、打光和构图，不然成片会很粗糙。拍砸了，也没法再怪演员和摄影。</span></li>
+          </ul>
+
+          <blockquote>做 AI 拍得烂纯粹是自己的问题——提示词不行、剪辑粗糙、音乐品味差。（山音）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>没灵感时怎么用 AI</b>：24 小时极限创作比赛只给三个关键词，KK 让 AI 先丢出 20 个一句话故事，看哪个能打动自己。山音则把 AI 当聊剧本的伙伴，省掉寒暄，直接问它哪里不好、换它会怎么改。</li>
+              <li><b>下一站是游戏</b>：山音觉得，实时生成视频的技术离游戏行业的突破时刻不远，他自己也在构思游戏策划案。问他有 100 万美元会投给谁，他说会投给用 AI 做新互动形态的团队，因为做游戏要搭资产、调接口，比做视频烧钱得多。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>AI 能替你做，替不了你定</h3>
+      <ul class="points">
+        <li>老金把要求写成手册，还希望 dot 会问"这个条件还算数吗"；两位导演靠"眉头一皱"从 AI 的上千字里挑出能用的那一点。两篇说的是同一件事：<b>AI 产出越多，"我现在到底要什么"越得自己说清楚，并且随时更新</b>。判断还是当场做，但判断出来的标准值得写下来，变了就改，AI 才跟得上你。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.53 ==================== -->
-  <section class="issue active" id="v53">
+  <section class="issue" id="v53">
     <div class="issue-head">
       <div class="issue-vol">VOL.53 / 2026·10·10</div>
       <h2 class="issue-theme">墙在变矮</h2>
