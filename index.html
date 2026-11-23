@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v73" data-vol="vol.73"><span class="vv">VOL.73 <span class="new">最新</span></span><span class="dd">2026·11·09 · 尴尬的第一版</span></button>
+    <button class="tab active" data-issue="v74" data-vol="vol.74"><span class="vv">VOL.74 <span class="new">最新</span></span><span class="dd">2026·11·10 · 不太听话的那张</span></button>
+    <button class="tab" data-issue="v73" data-vol="vol.73"><span class="vv">VOL.73</span><span class="dd">2026·11·09 · 尴尬的第一版</span></button>
     <button class="tab" data-issue="v72" data-vol="vol.72"><span class="vv">VOL.72</span><span class="dd">2026·11·06 · 错在便宜的地方</span></button>
     <button class="tab" data-issue="v71" data-vol="vol.71"><span class="vv">VOL.71</span><span class="dd">2026·11·05 · 团队没快</span></button>
     <button class="tab" data-issue="v70" data-vol="vol.70"><span class="vv">VOL.70</span><span class="dd">2026·11·04 · 奇观之后</span></button>
@@ -340,8 +341,57 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.74 ==================== -->
+  <section class="issue active" id="v74">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.74 / 2026·11·10</div>
+      <h2 class="issue-theme">不太听话的那张</h2>
+      <p class="issue-lead">字节新出的生图模型 Seedream 5.5，在两位创作者的盲测里赢了 GPT 和谷歌：它没那么听提示词的话，却更常画出他们想要的那张。</p>
+      <div class="issue-toc">
+        <a href="#v74-1"><span class="ix">01</span><span>Seedream 5.5：不照字面画，改十轮不走样</span><span class="cat">干货·测评</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v74-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Seedream 5.5：不照字面画，改十轮不走样</h3></div>
+      <div class="meta"><span class="tag">干货·测评</span><span class="sep">·</span>海辛和阿文（个人实测，主观；两人发布前受邀参加了盲测）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/4qPC_ebfni3MLzEINVB1pg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Seedream 5.5 是字节的图像模型，已在豆包里灰度上线。两位作者在发布前的盲测里做了 150 道对比题，没看模型名，结果它在两人的选择里胜率 81%。对手是 OpenAI 的 GPT Image 2.6 和谷歌的 Nano Banana Pro（圈里叫"香蕉"）。他们的结论：<b>写实画面和一轮轮改图，Seedream 5.5 最好；要严格照要求画，GPT Image 2.6 更听话</b>。价格也最便宜，2K 一张大约 0.23 元，约为 GPT Image 2.6 的一半。</div>
+
+        <div class="detail">
+          <h4 class="blk">听话和懂你不是一回事</h4>
+          <ul class="points">
+            <li><b>写实场景像电影里的一帧。</b><span class="eg">"1996 年上海弄堂里的老杂货店""1987 年的硬板火车票"，两组盲选两人都挑了 Seedream 5.5：光是从环境里来的，东西有用旧的痕迹。</span></li>
+            <li><b>没照做，反而能用。</b><span class="eg">要求鱼摊女摊主"一边嘴角扬起"，GPT Image 2.6 照做了，笑得太用力；Seedream 5.5 只笑得很淡，像干活时被人搭了句话。要求扁平海报"只用 4 种颜色、不要渐变"，另两家守了规矩，Seedream 5.5 用了渐变和纹理，却更像他们会选的那张。</span></li>
+            <li><b>最能看出区别的一题。</b><span class="eg">他们给了三张简笔小人画的角色卡，要求画成水彩绘本风的雨天合影。GPT Image 2.6 照着描出三个简笔小人，Seedream 5.5 画成了真正的绘本角色。所以他们的用法是：要求明确、限制多，用 GPT 或 Nano Banana Pro；要求没那么死，交给 Seedream 5.5，它会自己补上要求以外的审美。</span></li>
+          </ul>
+
+          <h4 class="blk">连续改图</h4>
+          <ul class="points">
+            <li><b>只动你点名的那块。</b><span class="eg">商业项目常常要对一张图改很多轮，AI 生图改着改着就容易崩。他们让三家对同一张老杂货铺图每轮只改一处小细节，再把每轮变动的像素标出来：另两家每轮都在指定区域之外重画一大片，Seedream 5.5 大多只动被点名的那块，只有改光影、改天气这类整体变化时才会大面积动。</span></li>
+            <li><b>大约每 8 轮会"重画"一次。</b><span class="eg">单独让它连改 20 轮，大部分轮次几乎无损，但大约每 8 轮会突然把整张图重画一遍，画面变软，回不去了。</span></li>
+          </ul>
+
+          <h4 class="blk">风格化没那么稳</h4>
+          <ul class="points">
+            <li><b>总分第一，优势不大。</b><span class="eg">各种画风它整体拿了第一，但领先不如写实明显，有些风格明显是 GPT Image 2.6 更好。要求"16-bit 游戏场景、像素块大小统一"那题，它画得不太像像素画，三家里只有 Nano Banana Pro 能用。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>Claude 也参加了盲测</b>：它大多选了 GPT Image 2.6，理由是完全照着提示词画了。</li>
+              <li><b>怎么用上</b>：火山引擎（字节的云服务）的 API 本周上线。两位作者自己是把 API 接进本地画布，让 AI 助手一起帮忙做素材。他们也建议：拿自己最常画的几张图亲手比一比，比看别人测评准。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.73 ==================== -->
-  <section class="issue active" id="v73">
+  <section class="issue" id="v73">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>World Labs 的世界模型能实时逛了（APPSO）</b>｜World Labs 是李飞飞创办的公司，9 月刚宣布被芯片厂商 AMD 以 82 亿美元收购。它的世界模型 Atlas 能从一张图或一段文字"脑补"出一整片可以走进去的 3D 场景，但以前每挪一次镜头都要等几十秒到几分钟。新放出的试玩版 Frameboy 做成了复古掌机的样子，画面在云端算好、以每秒最多 15 帧传到浏览器，你拖着镜头随便走，眼前的场景跟着实时生成，不用再点一次、等一次。官方也说了，现在只能跑在昂贵的云端显卡上，成本不低。 <a href="https://mp.weixin.qq.com/s/hkTnfhmzbYMuUfdo6Gh8nQ">原文</a></p>
