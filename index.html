@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v54" data-vol="vol.54"><span class="vv">VOL.54 <span class="new">最新</span></span><span class="dd">2026·10·12 · 眉头一皱</span></button>
+    <button class="tab active" data-issue="v55" data-vol="vol.55"><span class="vv">VOL.55 <span class="new">最新</span></span><span class="dd">2026·10·13 · 拆开看看</span></button>
+    <button class="tab" data-issue="v54" data-vol="vol.54"><span class="vv">VOL.54</span><span class="dd">2026·10·12 · 眉头一皱</span></button>
     <button class="tab" data-issue="v53" data-vol="vol.53"><span class="vv">VOL.53</span><span class="dd">2026·10·10 · 墙在变矮</span></button>
     <button class="tab" data-issue="v52" data-vol="vol.52"><span class="vv">VOL.52</span><span class="dd">2026·10·08 · 第二道鸿沟</span></button>
     <button class="tab" data-issue="v51" data-vol="vol.51"><span class="vv">VOL.51</span><span class="dd">2026·09·30 · 贵的留给判断</span></button>
@@ -321,8 +322,55 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.55 ==================== -->
+  <section class="issue active" id="v55">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>REA 再串两个工具：从看懂到上线前体检（Researcher_王十三）</b>｜REA 能让 AI 编程助手看懂别人软件里的某个功能。作者觉得看懂不等于复刻，就把它和另外两个开源项目串在一起用：Reverse-skill 负责判断这次该用哪些分析工具、缺了现装，还会记下踩过的坑；PentAGI 是几个分工合作的 AI，专门对你自己的网站做攻击测试，交一份漏洞报告。文中给了从接入工具到上线前体检的五段提示词，可以直接复制。 <a href="https://x.com/ResearchWang/status/2109812002076143824">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.55 / 2026·10·13</div>
+      <h2 class="issue-theme">拆开看看</h2>
+      <p class="issue-lead">看到别人家的功能做得好，想知道它是怎么做的，以前得请专业的逆向工程师。现在有个开源工具能让 AI 编程助手代劳，这期是一份不会写代码也能跟完的练习。</p>
+      <div class="issue-toc">
+        <a href="#v55-1"><span class="ix">01</span><span>跟着 REA 拆一次恐龙小游戏</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v55-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>跟着 REA 拆一次恐龙小游戏</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>蓝哥AI（@0xlangeai，X 长文；只在 Mac 上实测过）<span class="sep">·</span><a href="https://x.com/0xlangeai/status/2109544824135467312">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>REA（Reverse Engineer Anything，"逆向一切"）是一个开源工具，装进 Codex（OpenAI 的编程 AI）、Claude Code 这类 AI 编程助手以后，它就能去读一个现成软件的程序，查清某个功能是怎么做出来的，再照这个思路给你做一个自己的版本。这几天它在 GitHub 上一天就多了两万多个收藏。作者拿 Chrome 断网时那个恐龙小游戏，带不会写代码的人走了一遍：<b>先问清它为什么越玩越快，再做一个能自己调速度的版本</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">五步怎么走</h4>
+          <ul class="points">
+            <li><b>先玩原版，再看目标效果。</b><span class="eg">原游戏里，仙人掌会越来越快。REA 官方另做了一个"恐龙实验室"，多了一个速度滑块，可以在"按原游戏规则自动加速"和"固定速度"之间切换。原游戏用来查规则，官方这版用来对照你最后要做成什么样。</span></li>
+            <li><b>接上工具。</b><span class="eg">在终端（Mac 上输命令的窗口）里跑官方命令，先只预览配置计划，看不懂就整段贴给 Codex，让它用大白话解释会改什么；确认没问题再正式接入，然后重启 Codex。最后再用一段命令单独开一个 Chrome 窗口打开原游戏，普通窗口没有让 REA 连进去的入口。</span></li>
+            <li><b>问清规则，并要求给出处。</b><span class="eg">作者写好了一段提问，整段贴给 Codex 就行。里面最要紧的两句：用不懂编程的人能听懂的话解释；说明是从哪段代码读到的，哪些结论来自代码、哪些是实际跑过验证的。正确答案是初始速度 6，每次游戏更新加 0.001，到 13 就不再加。如果它只说"会越来越快"，就追问，让它分成三条、每条附上出处。</span></li>
+            <li><b>让它做一个你自己的版本。</b><span class="eg">在同一个聊天里，让 Codex 按刚查到的规则写一个网页小游戏：中文按钮，空格能跳，一个 2 到 18 的速度滑块，还能切回自动加速。提示词末尾写一句"不要让我手动修改代码"。做好后用 Chrome 打开，试四件事：开始、跳、拖滑块、撞了以后重开。哪里不对，就照实说你按了什么、看到了什么，让它去改。</span></li>
+            <li><b>最后核对它算得对不对。</b><span class="eg">不用自己玩到很后面，让 Codex 直接算出更新 1000 次、4000 次、10000 次以后的速度，和官方给的参考值逐项对比。最后一个参考值是 13.001 而不是 13：原游戏先判断速度够不够 13，再往上加，所以最后一次会稍微超出一点。这种细节对上了，才能说它真的照原规则做了。</span></li>
+          </ul>
+
+          <blockquote>REA 读取原游戏程序，Codex 解释规则、编写新游戏，你负责提问题、打开结果和亲手试玩。（蓝哥AI）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>卡住了怎么问</b>：作者给了一个求助模板：在哪个窗口做了什么、报错原文是什么，请先解释原因，再告诉我下一步在哪个窗口做、成功后会看到什么，"我不懂编程"。</li>
+              <li><b>接着练什么</b>：官方还有一串例子，比如 Notion 复制内容时数据怎么进剪贴板、验证器为什么每 30 秒换一个验证码、东方系列弹幕游戏怎么让子弹朝玩家方向发射、老打砖块游戏的声音怎么分左右。</li>
+              <li><b>环境</b>：用的是 REA 6.4.0，需要先装 Node.js（运行 REA 的基础软件），Windows 用户要自己改命令。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.54 ==================== -->
-  <section class="issue active" id="v54">
+  <section class="issue" id="v54">
     <div class="issue-head">
       <div class="issue-vol">VOL.54 / 2026·10·12</div>
       <h2 class="issue-theme">眉头一皱</h2>
