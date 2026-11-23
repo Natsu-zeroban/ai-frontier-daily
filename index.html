@@ -360,7 +360,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         <div class="detail">
           <h4 class="blk">剧本</h4>
           <ul class="points">
-            <li><b>好故事的几条标准。</b><span class="eg">每个转折都按现实追问一遍：东西从哪来，够得着吗；能一句话说清这支片子想说什么；最抓眼球的画面放在开头；旁人的反应要像真人，每个包袱按"问题、主角怎么解决、旁人什么反应"来写，反应要有先后，几个人同一秒举手，一看就是 AI 做的。</span></li>
+            <li><b>好故事的几条标准。</b><span class="eg">每个转折都按现实追问一遍：为什么会这样，东西从哪来，人够得着吗。能一句话说清这支片子想说什么。最抓眼球的画面放在开头。每个笑点按"出了什么问题、主角怎么解决、旁人什么反应"来写，旁人的反应要有先后，几个人同一秒举手，一看就是 AI 做的。</span></li>
             <li><b>写故事时就避开 AI 拍不好的。</b><span class="eg">人物交叉、手拿小东西、文字、镜子和倒影、左右不对称的特征、一个镜头里换光、一个人连做三个动作、俯拍看不到脸、配角太多，这些都难一次拍对。结构首选片段式，镜头之间不用接戏，最稳。</span></li>
             <li><b>新开一个 AI 来审。</b><span class="eg">主对话已经跟你聊了很久，知道你想表达什么，看故事会自动脑补。新开的 AI 像第一次看片的观众，它看不懂的地方，就是真没讲清楚的地方。只给它故事，不给任何结论。</span></li>
           </ul>
@@ -373,9 +373,9 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
 
           <h4 class="blk">图和视频</h4>
           <ul class="points">
-            <li><b>每个镜头先画首尾帧。</b><span class="eg">首尾帧就是这个镜头的第一张和最后一张画面，这是降低抽卡最关键的一步。雨、帽子、纹身这种只写在文字里的东西，拍着拍着就没了，必须画进首帧和尾帧。先画内容最多的尾帧，再在它上面改出首帧，保证两张的机位一样；要慢慢推近的镜头，尾帧直接从首帧裁一块放大。画之前先给每个角色画一张设定图，固定的东西写清位置，比如纹身在左手臂。</span></li>
+            <li><b>每个镜头先画首尾帧。</b><span class="eg">首尾帧就是这个镜头的第一张和最后一张画面，先画好再让模型补中间，是少抽卡（少反复重生成碰运气）最关键的一步。雨、帽子、纹身这种只写在文字里的东西，拍着拍着就没了，必须画进首帧和尾帧。先画内容最多的尾帧，再在它上面改出首帧，保证两张的机位一样；要慢慢推近的镜头，尾帧直接从首帧裁一块放大。画之前先给每个角色画一张设定图，固定的东西写清位置，比如纹身在左手臂。</span></li>
             <li><b>提交前再核对一遍。</b><span class="eg">每条视频提交给 Seedance 之前，另开一个 AI 把提示词和首尾帧逐项对一遍，通过了才提交。他靠这一步查出过两张图里杯子大小差了 13%、帽檐一张有一张没有、左右写反了。</span></li>
-            <li><b>省钱的几招。</b><span class="eg">用 720p 生成，后期再放大到 1080p；新做法先拿一两个最难的镜头试；不太复杂的镜头用便宜的 Seedance 2.0 mini，2.5 的价格差不多是它的 3 倍。出了问题先看能不能剪掉、能不能让 Claude 写代码修；非重拍不可，先改提示词或首尾帧，旧片段也别删，最后放在一起挑。</span></li>
+            <li><b>省钱的几招。</b><span class="eg">用 720p 生成，后期再放大到 1080p；新做法先拿一两个最难的镜头试；不太复杂的镜头用便宜的 Seedance 2.0 mini，更强的 Seedance 2.5 价格差不多是它的 3 倍。出了问题先看能不能剪掉、能不能让 Claude 写代码修；非重拍不可，先改提示词或首尾帧，旧片段也别删，最后放在一起挑。</span></li>
           </ul>
 
           <div class="more">
@@ -394,7 +394,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">02</span><h3>GPT Image 2.6 能直接出动图和矢量图了</h3></div>
       <div class="meta"><span class="tag">干货·测评</span><span class="sep">·</span>阿真Irene（个人实测，主观）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/I0YaEYsvs8V4BDL9jZLjZA">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>OpenAI 的生图模型 GPT Image 2.6 上线，分快的 Flare 和细的 Sunburst 两个版本，新增直接生成 GIF 动图；通过 API 调用时，还能输出 SVG 矢量图，也就是每个元素都能拆开单独改的图。作者实测下来，<b>表情包这类简单动图已经好用，循环动画和复杂的矢量插画还不稳</b>；官方说的提速和排版改进，她没明显感觉到。</div>
+        <div class="core"><b>核心：</b>OpenAI 的生图模型 GPT Image 2.6 上线，新增直接生成 GIF 动图；通过 API 调用时，还能输出 SVG 矢量图，也就是每个元素都能拆开单独改的图。作者实测下来，<b>表情包这类简单动图已经好用，循环动画和复杂的矢量插画还不稳</b>；官方说的提速和排版改进，她没明显感觉到。</div>
 
         <div class="detail">
           <h4 class="blk">动图</h4>
@@ -412,7 +412,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
           <div class="more">
             <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
             <ul>
-              <li><b>Codex 里出图更差</b>：同样的提示词，Codex 里出的图比 API 质感差不少、伪影多，她猜 Codex 的自动模式用的是便宜的 Flare。</li>
+              <li><b>Codex 里出图更差</b>：同样的提示词，Codex 里出的图比 API 质感差不少、伪影多，这次模型分两个版本，快而便宜的 Flare 和更重细节的 Sunburst，她在 API 里用的是 Sunburst，猜 Codex 的自动模式用的是 Flare。</li>
               <li><b>现成提示词</b>：原文附了花卉摄影拼图、猫粮品牌快闪、矢量图标展板等几组完整提示词，可以直接拿去试。</li>
             </ul>
           </div>
@@ -443,13 +443,13 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
           <h4 class="blk">为什么个人快了，团队没快</h4>
           <ul class="points">
             <li><b>两种常见的卡法。</b><span class="eg">一种是"孤岛"：团队里有几个 AI 高手，攒了一堆 Skill（装给 AI 的现成做法）、知识和方法，别人没法直接用，于是少数人越来越强，团队整体没变。另一种是"空转"：部署了很多个 AI 助手，它们之间不停交接、同步信息，效果还不如一个通用助手调用 Skill，还白烧 token。</span></li>
-            <li><b>算一笔账。</b><span class="eg">假设编码占整个交付流程的 20%，AI 让编码快了 10 倍，整个流程也只快大约 22%，因为剩下八成没变快。产品提需求、研发排期、测试验收，每个环节之间的沟通、交接和等待，不会因为每个人都用上 AI 就自己消失。</span></li>
+            <li><b>算一笔账。</b><span class="eg">假设编码占整个交付流程的 20%，AI 让编码快了 10 倍，整个流程也只快大约 22%，因为剩下八成没变快。产品提需求、研发排期、测试验收，环节之间的沟通、交接和等待，不会因为每个人都用上 AI 就消失。</span></li>
           </ul>
 
           <h4 class="blk">先沉淀，再合岗</h4>
           <ul class="points">
             <li><b>先把经验变成公共能力。</b><span class="eg">设计师把设计规范和判断标准写成 Skill，产品经理借着 AI 就能完成一部分基础设计；研发把常用的工程方法沉淀下来，其他岗位在划定的范围里也能交付简单、低风险的需求。顺序很要紧：不是先让产品学前端、先砍岗位，而是先有大家都能调用的能力，再看哪些交接和等待可以省掉。</span></li>
-            <li><b>小组坐到一起。</b><span class="eg">快手磁力引擎（快手的广告营销平台）的风控技术团队有一百多人，涵盖前后端、算法、数据。他们把一部分人拆成围绕具体目标的小组，产品、研发、算法、测试的工位搬到一起，有事当面商量，大部分事不用再跨部门排期。简单、低风险的需求产品经理自己就做了，研发负责把关。调整后需求吞吐量提升了 130%，交付周期缩短了 80%。复杂的核心系统、涉及资金安全或出过大事故的业务，不适合这么干。</span></li>
+            <li><b>小组坐到一起。</b><span class="eg">快手磁力引擎（快手的广告营销平台）的风控技术团队有一百多人。他们把一部分人拆成围绕具体目标的小组，产品、研发、算法、测试的工位搬到一起，有事当面商量，大部分事不用再跨部门排期。简单、低风险的需求产品经理自己就做了，研发负责把关。调整后需求吞吐量提升了 130%，交付周期缩短了 80%。不过复杂的核心系统、涉及资金安全或出过大事故的业务，不适合这么干。</span></li>
           </ul>
 
           <h4 class="blk">测试成了新瓶颈</h4>
@@ -460,7 +460,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
 
           <h4 class="blk">公司层面</h4>
           <ul class="points">
-            <li><b>预算变积分。</b><span class="eg">AI 预算先分给各业务线，再换成员工能用的积分，员工按任务自己选模型，消耗多少一目了然。各部门各搭各的 AI 助手会重复建设，快手成立了一个公司级组织 iWork，统一做模型调用、知识管理、权限、安全这些底座，把内部系统改成 AI 能调用的工具。先由基层试出有效的路，再由公司把局部经验变成大家的公共能力。</span></li>
+            <li><b>预算变积分，底座统一建。</b><span class="eg">AI 预算先分给各业务线，再换成员工能用的积分，员工按任务自己选模型，消耗多少一目了然。各部门各搭各的 AI 助手会重复建设，快手成立了一个公司级组织 iWork，统一做模型调用、知识管理、权限、安全这些底座，把内部系统改成 AI 能调用的工具。先由基层试出有效的路，再由公司把局部经验变成大家的公共能力。</span></li>
           </ul>
 
           <div class="more">
@@ -490,7 +490,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">01</span><h3>庄明浩的 2026，十个 AI 瞬间</h3></div>
       <div class="meta"><span class="tag op">观点·访谈</span><span class="sep">·</span>十字路口Crossing（Koji 对谈播客《屠龙之术》主播庄明浩；个人观察）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/zezawvTW-ML-rKNyveYMhw">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>播客《十字路口》做年终复盘，请庄明浩说说今年触动他的十个 AI 瞬间。挑几条和普通用户、做游戏的人关系最近的：AI 公司开始让 AI 参与造下一代 AI；比模型不再只比分数，而是比同样的分花多少钱；人人能让 AI 做个小软件，苹果 App Store 的收入十几年来第一次下降。最后他推荐了一款画面全是汉字的微信小游戏，在他看来，<b>人看多了精致的 AI 奇观，粗糙反而成了卖点</b>。</div>
+        <div class="core"><b>核心：</b>播客《十字路口》做年终复盘，请庄明浩说说今年触动他的十个 AI 瞬间。其中几条和普通用户、做游戏的人关系很近：AI 公司开始让 AI 参与造下一代 AI；比模型不再只比分数，而是比同样的分花多少钱；人人能让 AI 做个小软件，苹果 App Store 的收入十几年来第一次下降。最后他推荐了一款画面全是汉字的微信小游戏，在他看来，<b>人看多了精致的 AI 奇观，粗糙反而成了卖点</b>。</div>
 
         <div class="detail">
           <h4 class="blk">AI 开始造 AI</h4>
@@ -539,7 +539,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">01</span><h3>Kimi 开进了 Unity、虚幻和 Blender</h3></div>
       <div class="meta"><span class="tag">干货·解读</span><span class="sep">·</span>赛博禅心（转述月之暗面的官方发布；演示和客户评价均来自厂商）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/zEda9S4XIDm0KYHzJxHeTg">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>做 Kimi 的月之暗面发布了一套游戏开发方案：它的 K3.1 Pro 模型通过插件直接在 Unity、虚幻、Blender、Godot 这些引擎和建模软件里干活，选物体、改参数、点运行，改动存进工程文件，团队打开就能接着改。官方说一个可试玩的原型能压到一两天，<b>策划、开发、美术围着一个能玩的版本边玩边改</b>。网易游戏、三七互娱、点点互动、FunPlus、凉屋游戏都在拿它做开发和测试。</div>
+        <div class="core"><b>核心：</b>做 Kimi 的月之暗面发布了一套游戏开发方案：它的 K3.1 Pro 模型通过插件直接在 Unity、虚幻、Blender、Godot 这些引擎和建模软件里干活，选物体、改参数、点运行，改动存进工程文件，团队打开就能接着改。官方说一个可试玩的原型能压到一两天，<b>策划、开发、美术围着一个能玩的版本边玩边改</b>。官方列出的用户里有网易游戏、三七互娱等几家游戏公司。</div>
 
         <div class="detail">
           <h4 class="blk">做原型</h4>
@@ -589,13 +589,13 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">01</span><h3>DeepSeek 把 AI 助手做成群里的常驻同事</h3></div>
       <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>赛博禅心（图解 DeepSeek Harness 团队的设计文章；讲自家实践）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/lcIkBMOKHSvkRYELgkduMg">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>现在用 AI 助手干活，一件事开一个对话窗口，DeepSeek 观察到一个人同时只盯得住三到五个，再多就顾不过来。DeepSeek Harness（DeepSeek 出的、能在电脑上自己读文件跑命令的 AI 助手）团队于是做了一个叫 Super-agent 的形态：它常驻在公司群聊和 GitHub（存放和讨论代码的平台）里，<b>人不用再管开了哪些窗口，只管提要求和验收</b>。有一次群里有人随口抱怨一个 bug，没人叫它，它自己在后台复现、找到原因，把修复交了上来。</div>
+        <div class="core"><b>核心：</b>现在用 AI 助手干活，一件事开一个对话窗口，DeepSeek 观察到一个人同时只盯得住三到五个，再多就顾不过来。DeepSeek 做 AI 助手 Harness 的团队于是设计了 Super-agent：它常驻在公司群聊和代码平台 GitHub 里，<b>人不用再管开了哪些窗口，只管提要求和验收</b>。有一次群里有人随口抱怨一个 bug，没人叫它，它自己在后台复现、找到原因，把修复交了上来。</div>
 
         <div class="detail">
           <h4 class="blk">一个前台，几个后台</h4>
           <ul class="points">
             <li><b>人只跟前台说话。</b><span class="eg">前台（Router）常驻，接住所有消息，只负责回话和派活，用一个轻量模型就够；后台每件事派一个"干活的"（Worker），用最强的模型，彼此互不干扰，做完向前台汇报。所以不管你在群里说还是在代码评论里说，面对的都是同一个它：先在群里定了方案 A，后来在评论里改成 B，它接得上。放到个人助手上也一样，你在一个聊天框里让它改会议、报销发票、订周六的餐，后台各有一个在办。</span></li>
-            <li><b>越忙越划算。</b><span class="eg">前台在思考时进来的消息先排队，下一轮一起看。测试里消息从每分钟 1 条涨到 40 条，摊到每条消息上的处理时间反而从 6.4 秒降到 1.6 秒。</span></li>
+            <li><b>越忙越划算。</b><span class="eg">前台在思考时进来的消息先排队，下一轮一起看。测试里消息从每分钟 1 条涨到 40 条，平均每条的处理时间反而降到原来的四分之一。</span></li>
             <li><b>后续消息直接给经手的人。</b><span class="eg">同一个群聊话题、同一个代码改动下的消息归成一串。第一条由前台派出去以后，这一串的后续消息直接送到负责它的后台，不再经过前台。去掉这一招，前台要多做约三成的决定。</span></li>
           </ul>
 
@@ -630,12 +630,12 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">02</span><h3>AI 视频还在半山腰</h3></div>
       <div class="meta"><span class="tag op">观点·访谈</span><span class="sep">·</span>42章经（曲凯对谈淏楠；个人判断）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/hHkX52WU2gAowvdSnZ7ukw">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>淏楠先做 AI 助手的训练数据，后来在腾讯的大模型团队混元做多模态，最近去了一家做机器人的公司。他给 AI 视频打 60 分：拍出接近电影的片段没问题，可真自己做一条短剧会很痛苦。他觉得接下来半年到一年，<b>机会在更顺手的创作工具上，而不是更大的模型</b>；"抽卡"也会从挑能用的，变成挑自己想要的。</div>
+        <div class="core"><b>核心：</b>淏楠做过 AI 助手的训练数据，又在腾讯混元做过多模态，最近去了一家机器人公司。他给 AI 视频打 60 分：拍出接近电影的片段没问题，可真自己做一条短剧会很痛苦。他觉得接下来半年到一年，<b>机会在更顺手的创作工具上，而不是更大的模型</b>；"抽卡"也会从挑能用的，变成挑自己想要的。</div>
 
         <div class="detail">
           <h4 class="blk">AI 视频</h4>
           <ul class="points">
-            <li><b>为什么小团队难追。</b><span class="eg">视频模型变强主要靠预训练，吃钱、吃算力，更吃数据。数据没人开源，要么花钱买，要么自己有产品、能从用户那里攒。字节的视频模型 Seedance 做得好，和数据质量、和有产品都有关系。他们年初也想靠后训练（模型训完后再专门调教）让视频模型突然变强，做了半年没跑出来。</span></li>
+            <li><b>为什么小团队难追。</b><span class="eg">视频模型变强主要靠预训练，吃钱、吃算力，更吃数据。数据没人开源，要么花钱买，要么自己有产品、能从用户那里攒。字节的视频模型 Seedance 做得好，和数据质量、和有产品都有关系。他所在的团队年初也想靠后训练（模型训完后再专门调教）让视频模型突然变强，做了半年没跑出来。</span></li>
             <li><b>机会在工具和平台。</b><span class="eg">代码好不好有公认标准，视频还掺着每个人的口味。现在写一大段描述也能控制镜头，但每次都写太累。更好的方式可能是模型看了前面的片段，提几种镜头方案让你选，你选哪种就代表你的口味。另一个机会是平台：做的门槛和成本降下来以后，看视频的人也会顺手做视频。</span></li>
             <li><b>实时互动还早。</b><span class="eg">让视频边看边生成，一提速就丢细节：镜头转回来东西变了，人换了一张脸。他宁可先保质量。能在地图上跑来跑去的视频世界模型也有演示，但画质还不行，这个圈子有点冷下来了，有人改用白模（只有形状、没有贴图的 3D 场景）加小模型来渲染，看上去反而更有希望。</span></li>
           </ul>
@@ -663,7 +663,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   <section class="issue" id="v67">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
-      <p><b>LibTV 公开了爆款 AI 短片的工程（卡尔的AI沃茨，带推广）</b>｜LibTV 是 Liblib 旗下做 AI 短片的在线画布，从写剧本、拆分镜、定角色到出视频都在一张画布里完成。它把《非妖哉》等播放破亿作品的整张工程画布公开了，每个镜头的提示词和前后怎么串都看得到，只是不能直接拿来跑自己的片子。作者照着学做了一段狐妖短片，觉得最好用的是两样：文字说不清的急刹车式横摇，先在 3D 预演里画出镜头轨迹再交给视频模型；一条镜头只有中间两秒出错，就只重拍那两秒，其余不动。 <a href="https://mp.weixin.qq.com/s/ephY1qYSK69Uz5Rd4Tl7KA">原文</a></p>
+      <p><b>LibTV 公开了爆款 AI 短片的工程（卡尔的AI沃茨，带推广）</b>｜LibTV 是 Liblib 旗下做 AI 短片的在线画布，从写剧本、拆分镜、定角色到出视频都在一张画布里完成。它把《非妖哉》等播放破亿作品的整张工程画布公开了，每个镜头的提示词和前后怎么串都看得到，只是不能直接拿来跑自己的片子。作者照着学做了一段短片，最有用的两招：文字说不清的运镜，先在 3D 预演里画出镜头轨迹再交给视频模型；一条镜头只有中间两秒出错，就只重拍那两秒。 <a href="https://mp.weixin.qq.com/s/ephY1qYSK69Uz5Rd4Tl7KA">原文</a></p>
     </div>
     <div class="issue-head">
       <div class="issue-vol">VOL.67 / 2026·10·30</div>
@@ -683,9 +683,9 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         <div class="detail">
           <h4 class="blk">抓得准不准</h4>
           <ul class="points">
-            <li><b>很少冤枉人，也抓得多。</b><span class="eg">在 Claude Fable 5 上，把误报控制在 1% 的前提下，它能抓出 78% 的违规对话，严重违规抓到 94%。模型越大越准：同样条件下，测试里最小的模型只抓到 16%，最大的到了 96%。</span></li>
+            <li><b>很少冤枉人，也抓得多。</b><span class="eg">在 Claude Fable 5 上，把误报控制在 1% 的前提下，它能抓出 78% 的违规对话，严重违规抓到 94%。模型越大越准，测试里最小的模型和最大的模型差了好几倍。</span></li>
             <li><b>没教过的也认得出。</b><span class="eg">训练时故意把网络攻击、金融诈骗的样本全删掉，测试时这两类照样抓得住，诈骗类仍在八到九成以上。它靠的是看懂意图，不是背违规词。</span></li>
-            <li><b>怎么教出来的。</b><span class="eg">先请更强的 Claude Mythos Preview 当老师，按安全规则一条条写出标准的审查报告给它学。学的时候只看它写的审查报告对不对，用户的违规内容和 Claude 的回答都不算进去，免得把坏东西也学会了。之后再放进模拟环境里练，按格式对不对、有没有标出违规、分类准不准、该不该拒绝判断对没有、优先级和老师差多少这几项打分。</span></li>
+            <li><b>怎么教出来的。</b><span class="eg">先请更强的 Claude Mythos Preview 当老师，按安全规则一条条写出标准的审查报告给它学。学的时候只看它写的审查报告对不对，用户的违规内容和 Claude 的回答都不算进去，免得把坏东西也学会了。之后再放进模拟环境里练，按格式、有没有标出违规、分类和优先级准不准等几项打分。</span></li>
           </ul>
 
           <h4 class="blk">为什么不当场拦</h4>
@@ -739,7 +739,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
 
           <h4 class="blk">两条路线，开始靠拢</h4>
           <ul class="points">
-            <li><b>边走边画，还是先建好再逛。</b><span class="eg">Genie 走的是视频路线：根据之前的画面和你的操作，一帧帧预测接下来的画面，所以什么都能变。难处是记性：转身再转回来，白背带裤可能变成了蓝的；而且一直在耗算力，公开演示很少连续跑过 10 分钟。另一条是李飞飞创办的 World Labs 走的 3D 路线，一次生成一个实打实的 3D 场景，回头一百次都一样，还能导进 Unity、虚幻、Blender，戴头显进去逛；短处是场景是静止的，角色不会动，动画和特效得进引擎自己加。</span></li>
+            <li><b>边走边画，还是先建好再逛。</b><span class="eg">Genie 走的是视频路线：根据之前的画面和你的操作，一帧帧预测接下来的画面，所以什么都能变。难处是记性：转身再转回来，人物的白背带裤可能变成了蓝的；而且一直在耗算力，公开演示很少连续跑过 10 分钟。另一条是李飞飞创办的 World Labs 走的 3D 路线，一次生成一个实打实的 3D 场景，回头一百次都一样，还能导进 Unity、虚幻、Blender，戴头显进去逛；短处是场景是静止的，角色不会动，动画和特效得进引擎自己加。</span></li>
             <li><b>各自补短板。</b><span class="eg">World Labs 9 月发了新模型 Atlas，用三台架在三脚架上的手机拍一段画面，就能做出《黑客帝国》那种定格转圈的子弹时间。谷歌的办法是给 Genie 配一个 Gemini（谷歌的大模型）当向导，补上视频路线的另一个弱项：前因后果一拉长就接不上。Gemini 一直盯着画面，把目标拆成一小步一小步，检查每步做到没有；你中途插手或者世界自己变了，它就当场改计划。Genie 只管把画面、声音和变化生成出来。</span></li>
           </ul>
 
