@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v52" data-vol="vol.52"><span class="vv">VOL.52 <span class="new">最新</span></span><span class="dd">2026·10·08 · 第二道鸿沟</span></button>
+    <button class="tab active" data-issue="v53" data-vol="vol.53"><span class="vv">VOL.53 <span class="new">最新</span></span><span class="dd">2026·10·10 · 墙在变矮</span></button>
+    <button class="tab" data-issue="v52" data-vol="vol.52"><span class="vv">VOL.52</span><span class="dd">2026·10·08 · 第二道鸿沟</span></button>
     <button class="tab" data-issue="v51" data-vol="vol.51"><span class="vv">VOL.51</span><span class="dd">2026·09·30 · 贵的留给判断</span></button>
     <button class="tab" data-issue="v50" data-vol="vol.50"><span class="vv">VOL.50</span><span class="dd">2026·09·29 · 一个镜头做一天</span></button>
     <button class="tab" data-issue="v49" data-vol="vol.49"><span class="vv">VOL.49</span><span class="dd">2026·09·28 · 没有职级的公司</span></button>
@@ -319,8 +320,108 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.53 ==================== -->
+  <section class="issue active" id="v53">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.53 / 2026·10·10</div>
+      <h2 class="issue-theme">墙在变矮</h2>
+      <p class="issue-lead">AI 能做的事越多，原来护住一样东西的墙就越矮。游戏和软件的代码挡不住复刻；个人 AI 助手要碰你的邮箱和钱包，能守住的只剩权限怎么设计。</p>
+      <div class="issue-toc">
+        <a href="#v53-1"><span class="ix">01</span><span>代码挡不住复刻以后，游戏还剩什么</span><span class="cat">观点·访谈</span></a>
+        <a href="#v53-2"><span class="ix">02</span><span>五家个人 AI 助手，差在哪三件事</span><span class="cat">干货·选型</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v53-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>代码挡不住复刻以后，游戏还剩什么</h3></div>
+      <div class="meta"><span class="tag op">观点·访谈</span><span class="sep">·</span>橘AI（Next Token 播客第五期整理，嘉宾杨攀等人的见闻和判断，不少是圈内案例、未经核实）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/AF3k21nSQzowbUOKWz7x0A">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>这期播客聊的是：Anthropic（做 Claude 的公司）的 Opus 5.5 写代码强到一定程度以后，复刻和改造现成的产品变得非常便宜。嘉宾杨攀把一年前写的游戏剧本和设定丢给它，写出来马上能玩；有人用它把老游戏的程序反编译，也就是把只有机器读得懂的程序还原成人能读的代码，再整个重写。他们的判断是，游戏、软件、硬件靠代码和法律筑起的墙都在变矮，<b>最后剩下的是玩家对一个角色、一个 IP 的认同</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">游戏</h4>
+          <ul class="points">
+            <li><b>老游戏的民间复刻突然提速。</b><span class="eg">塞尔达的民间复刻一直进展缓慢，最近两周进展飞快，原因就是 Opus 5.5 能直接反编译程序。有人拿《金庸群侠传》试：把程序还原成 C 语言，再转成别的语言，素材用原游戏的，整个重写一遍，他管这叫"二创"。</span></li>
+            <li><b>玩家不从零做游戏了，让 AI 做 Mod。</b><span class="eg">Mod 是玩家给现成游戏做的改造包。现在大家拿一个现成游戏，让 AI 帮忙写 Mod，比如把马里奥放进《艾尔登法环》，或者在《艾尔登法环》里做出一个《我的世界》，交互、地图、奖励都照搬，还能分发出去。当年 Dota 那样从别的游戏里长出来的玩法，现在官方不支持也能做。</span></li>
+            <li><b>抽卡游戏的壁垒也在变薄。</b><span class="eg">嘉宾认为国内的二次元抽卡游戏暂时不用太慌，靠的是卖角色、卖皮肤，以及账号归玩家所有。但再往下一步，数值没有壁垒，形象设计也没有，真正剩下的是玩家对一个角色的共识：大家都认这个角色，它才值钱。</span></li>
+          </ul>
+
+          <h4 class="blk">软件和硬件</h4>
+          <ul class="points">
+            <li><b>法律挡不住"长得一样"。</b><span class="eg">播客里说，有人当着 Adobe CEO 的面用 AI 做了一个 Photoshop，没用 Adobe 的代码，只是长得一样，Adobe 也没法起诉。还有人复制了一个别人的开源电子书阅读器来改，想上架时 AI 提醒他，没经原作者允许不能上架。他就让 AI 先把架构和核心思路导出成文档，换一种语言从头写，直到 AI 判断和原代码的相似度低到不构成侵权。嘉宾也承认，这事放到现实里说不清楚。</span></li>
+            <li><b>硬件创业者改做大厂 AI 助手的外设。</b><span class="eg">Meta 的个人 AI 助手 Muse 给常见的 ESP32 小板子（一种便宜的联网芯片）提供了通用固件，刷进去就能用。界面是英文、没有语音，就用 Codex（OpenAI 的编程 AI）自己改。几位硬件创业者已经认了：不再自己做 AI 助手，只给大厂的助手做一个入口、一个出口，挣份小钱。</span></li>
+          </ul>
+
+          <h4 class="blk">还剩什么机会</h4>
+          <ul class="points">
+            <li><b>把自己做成 AI 能调用的插件。</b><span class="eg">把 AI 关在自家产品里的做法正在失效。嘉宾举的例子：剪辑软件 Descript 不支持 Codex，流量掉得很厉害；剪映自己做了 AI 助手，却不对外开放，杨攀剪播客视频干脆不用剪映，直接用 Codex。很多软件开始不做自己的助手，而是让自己变成别人家 AI 能调用的工具。</span></li>
+          </ul>
+
+          <blockquote>所以还是做好自己的 IP 吧。（Next Token 播客嘉宾）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>Opus 5.5 写代码有多快</b>：嘉宾的说法是，给它一个想法，半小时出试玩版。一种语言写完以后，只要有足够的测试把逻辑锁住，让它换成另一种语言也很轻松。</li>
+              <li><b>收听</b>：音频版在小宇宙，视频版在 B 站，搜 Next Token。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v53-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>五家个人 AI 助手，差在哪三件事</h3></div>
+      <div class="meta"><span class="tag">干货·选型</span><span class="sep">·</span>空格的键盘（作者用过其中四款，加上官方文档和用户案例的调研）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/CVVcgn4dj9KBg5Begpc8yw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>最近 Google、SpaceXAI、Meta、Manus、OpenAI 先后推出了"个人 Agent"，也就是个人 AI 助手。普通 AI 助手是你打开它、交个任务、做完就散；个人助手一直在线，有自己的云端电脑，记得你的偏好和你提过的事，还会主动来找你。作者用过其中四款，又翻了五家的官方文档和用户案例。他发现五家的宣传语几乎一样，<b>真正的区别在三件事：在哪干活、用谁的身份、谁来拍板</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">大家拿它干什么</h4>
+          <ul class="points">
+            <li><b>砍价、打电话。</b><span class="eg">这是 Meta 的 Muse 案例里最多的一类。有人只说了一句：在 50 英里内找一台全新的 M5 Pro MacBook，给每个卖家发消息，最多出 2500 美元。Muse 挨个给 50 个卖家压价，最后用 2500 美元买到高配版，还顺手查了卖家靠不靠谱。</span></li>
+            <li><b>把攒了好几年的数据过一遍。</b><span class="eg">作者觉得这类最实用。有人让 SpaceXAI 的 Grok Bot 翻自己过去十年的日历，把开过的会、见过的人都整理进一张 Notion 表格，附上对方近况、打好标签。人自己做要好几个周末，它一个下午就跑完了。数据都在自己的账号里，出错的代价也低。</span></li>
+            <li><b>填表办事，甚至赚回自己的工资。</b><span class="eg">有人让 OpenAI 的 dot 把州政府雇主网站上的表格从头填到尾，省了 200 美元代办费。还有人只给 Grok Bot 派了一个活：把流失的客户找回来。它找出半年内离开的人，挨个发邮件，挽回了几个，又连夜写了一份改进计划。</span></li>
+          </ul>
+
+          <h4 class="blk">三处真正的区别</h4>
+          <ul class="points">
+            <li><b>在哪干活。</b><span class="eg">五家都给了一台云端电脑，用来一直在线，以及操作那些不开放接口、只能像人一样点网页的网站。Grok Bot 每个助手一台带桌面的云电脑，遇到验证码就把桌面交还给你；dot 还能连上你自己的电脑；Google 的 Gemini Spark 最轻，主要靠云端浏览器，也能接管你已经登录好的 Chrome。</span></li>
+            <li><b>用谁的身份。</b><span class="eg">这是分歧最大的地方。Spark 和 Grok Bot 用你的账号。Manus 的 Cue 反过来，每个助手有自己的邮箱、电话号码和钱包，以自己的名义和外界打交道。Muse 介于两者之间，平时用你的身份，付款时每次单独发一张一次性虚拟卡，限定商家、金额和有效期。</span></li>
+            <li><b>谁来拍板。</b><span class="eg">Muse 用写死的规则：一个叫 Sentinel 的组件是唯一能放行的角色，AI 模型永远拿不到你真实的登录凭证；读过你私人数据的程序，之后想往外发东西就要你审批。Grok Bot 和 dot 交给另一个 AI 审查：你用大白话写规则，由独立的审查助手判断放行、拦下还是问你。Grok Bot 的文档也坦白，规则能不能执行，要看模型听不听话。Spark 最朴素，高风险操作先问你。</span></li>
+          </ul>
+
+          <h4 class="blk">各家擅长什么、多少钱</h4>
+          <ul class="points">
+            <li><b>五家押的重点不同。</b><span class="eg">Grok Bot 擅长多个助手协作，你带它做一遍，它就把流程存下来以后自己跑，每月 20 美元。Muse 擅长打理身边的人和事，比如记得朋友对贝类过敏，免费。Cue 胜在独立身份，目前要邀请码，美国号码实测还发不了短信。dot 主动性最强，自己决定什么时候醒来干活，每月 100 美元起。Spark 的底气是 Gmail、日历、相册这些 Google 全家桶里的数据。</span></li>
+          </ul>
+
+          <blockquote>谁能跑出来，我觉得要看谁先让普通人放心把邮箱、账号和钱包交出去。（空格）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>用法在变</b>：作者用 Grok Bot 一个月，开始把它当成一直在线的同事，想到什么在手机上丢一句，卡住了它再来找你。你和它打交道，更多是在批它发来的通知和审批卡片，很少再从头教它怎么做。</li>
+              <li><b>完整调研</b>：五家的架构细节和每个案例的原帖链接，作者整理成了文档，在他的公众号回复"个人 Agent"获取。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>越来越多的事，会经过别人家的 AI 助手</h3>
+      <ul class="points">
+        <li>播客里，软件开始把自己做成 AI 助手能调用的工具；调研里，五家助手的能力越来越像，作者判断竞争会转向谁握着用户的数据和入口。两篇合起来看，<b>用户越来越多地通过一个 AI 助手去用别的东西</b>。做产品时值得问一句：如果用户是让 AI 助手替他来用你的东西，还剩什么是 AI 绕不过去的？播客给游戏的答案是角色和 IP。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.52 ==================== -->
-  <section class="issue active" id="v52">
+  <section class="issue" id="v52">
     <div class="issue-head">
       <div class="issue-vol">VOL.52 / 2026·10·08</div>
       <h2 class="issue-theme">第二道鸿沟</h2>
