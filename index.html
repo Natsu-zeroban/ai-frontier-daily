@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v56" data-vol="vol.56"><span class="vv">VOL.56 <span class="new">最新</span></span><span class="dd">2026·10·15 · 留下来的</span></button>
+    <button class="tab active" data-issue="v57" data-vol="vol.57"><span class="vv">VOL.57 <span class="new">最新</span></span><span class="dd">2026·10·16 · 接管老工具</span></button>
+    <button class="tab" data-issue="v56" data-vol="vol.56"><span class="vv">VOL.56</span><span class="dd">2026·10·15 · 留下来的</span></button>
     <button class="tab" data-issue="v55" data-vol="vol.55"><span class="vv">VOL.55</span><span class="dd">2026·10·13 · 拆开看看</span></button>
     <button class="tab" data-issue="v54" data-vol="vol.54"><span class="vv">VOL.54</span><span class="dd">2026·10·12 · 眉头一皱</span></button>
     <button class="tab" data-issue="v53" data-vol="vol.53"><span class="vv">VOL.53</span><span class="dd">2026·10·10 · 墙在变矮</span></button>
@@ -323,8 +324,109 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.57 ==================== -->
+  <section class="issue active" id="v57">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.57 / 2026·10·16</div>
+      <h2 class="issue-theme">接管老工具</h2>
+      <p class="issue-lead">AI 不光自己写东西了，也开始直接操作行业里用了几十年的专业软件。一篇讲开源工具 REA 怎么让 AI 学会拆软件，一篇是一位开发者用 AI 操作 Blender 和 Unity 做 3D 游戏的完整流程。</p>
+      <div class="issue-toc">
+        <a href="#v57-1"><span class="ix">01</span><span>REA 怎么让 AI 学会拆软件</span><span class="cat">干货·原理</span></a>
+        <a href="#v57-2"><span class="ix">02</span><span>用 AI 做 3D 游戏：《小王子》的场景和角色怎么来的</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v57-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>REA 怎么让 AI 学会拆软件</h3></div>
+      <div class="meta"><span class="tag">干货·原理</span><span class="sep">·</span>腾讯技术工程（作者 stevenzuo）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/IGu2tfumq3rbnra9yfgAQw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>REA 是一个开源工具，让 Codex、Claude Code 这类 AI 编程助手能去拆现成的软件，查清某个功能是怎么实现的。10 月上旬一周内，它在 GitHub 上的收藏从 1.5 万涨到 23 万多。这篇讲它为什么做得成：<b>它没有自己造分析引擎，而是把逆向工程师用了几十年的专业软件交到 AI 手里，并要求每个结论都附上出处</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">以前难在哪</h4>
+          <ul class="points">
+            <li><b>逆向是门手艺活。</b><span class="eg">逆向工程，就是拿不到源代码的时候，从已经做好的程序里反推出它的逻辑，正经用途包括分析病毒、找安全漏洞、让老系统继续兼容。过去全靠人：Ghidra、IDA 这些专业软件各有各的操作方式，入门要学几个月；先查什么、追到哪一步算完，全装在老师傅脑子里，换个人就得从头来。</span></li>
+          </ul>
+
+          <h4 class="blk">它做了三件事</h4>
+          <ul class="points">
+            <li><b>把专业软件接成 AI 能调用的接口。</b><span class="eg">这些逆向软件是给人点鼠标用的，AI 没法直接操作。REA 用 MCP（一种让 AI 调用外部工具的通用标准）把它们包装起来，以后要多支持一个引擎，加一层接口就行，上面不用改。网页、桌面程序、安卓应用、硬件固件都能分析。</span></li>
+            <li><b>每个结论都要带证据。</b><span class="eg">AI 交回来的不是一句"这个函数负责什么"，而是这个函数在程序的哪个位置、被谁调用、还原出来的代码长什么样、结论的把握到哪为止。别人可以照着复核，不用凭空相信 AI。</span></li>
+            <li><b>安装时顺便教方法。</b><span class="eg">一条安装命令同时做三件事：接上工具，装上一份"逆向该按什么顺序查"的操作手册（skill），再备份你原来的配置。重启 AI 助手以后，它就知道该先搜什么、再追哪里。老师傅的套路变成了能复制的文件。</span></li>
+          </ul>
+
+          <h4 class="blk">社区已经拆出了什么</h4>
+          <ul class="points">
+            <li><b>大多是老游戏和自家设备。</b><span class="eg">1996 年的打砖块游戏 DX-Ball，被找回了声音分左右声道的计算方法，用 C 语言重写后，3205 个原始测试全部通过。东方系列的一款 16 位老游戏，被还原出两套弹幕角度的算法，对做 Mod 和保存老游戏的人很有用。有人分析索尼耳机的官方 App，把降噪开关单独做成了一个应用。发布这些案例的大多不是专业逆向工程师。</span></li>
+          </ul>
+
+          <h4 class="blk">做不了什么</h4>
+          <ul class="points">
+            <li><b>碰到专门的防护照样卡住。</b><span class="eg">商业软件常见的代码混淆、防调试、加壳保护，AI 一样过不去，这是底下那些引擎本身的极限；驱动这类系统底层的东西也覆盖不全。项目声明只用于分析你拥有或获准检查的软件，社区案例拆的也多是自家电视、自家体脂秤。</span></li>
+          </ul>
+
+          <blockquote>逆向工程的门槛，从"会用工具"降到了"会提问"。（stevenzuo）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>同一波浪潮里的另一个案例</b>：有团队让十几个 AI 并行，把一款商业射击游戏 99% 的函数还原成了 C++，用的是逆向软件 IDA 官方的接口，不是 REA。</li>
+              <li><b>支持哪些助手</b>：官方支持 Claude Code、Codex、Cursor、Gemini CLI 等，其他支持 MCP 的 AI 助手可以手动接入。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v57-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>用 AI 做 3D 游戏：《小王子》的场景和角色怎么来的</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>Sac（@Saccc_c，X 长文；文末附 Tripo 的推广注册链接）<span class="sep">·</span><a href="https://x.com/Saccc_c/status/2110694725640474759">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>作者 Sac 用 Anthropic 的编程模型 Claude Opus 5.5 等几个 AI，把《小王子》里的星际旅行做成了能走进去探索的 3D 游戏，发布后累计近 300 万浏览。这篇公开了做法，讲的是场景和角色两条线：<b>先用生图模型把画面定下来，再生成 3D 模型，最后让 AI 直接操作 Blender 和 Unity，把东西摆好、让角色动起来</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">谁负责什么</h4>
+          <ul class="points">
+            <li><b>每个 AI 管一段。</b><span class="eg">Claude Fable 5.1 写策划文档，理清场景、人物和故事线；GPT Image 2.5 出场景图和人物图；Tripo（专门生成 3D 模型的平台）把图变成 3D 模型；Opus 5.5 写核心代码；OpenAI 的 GPT-6 Astra 负责后期改 bug、做优化。软件这边，Blender（3D 建模软件）用来修模型、搭整体场景，Unity（游戏引擎）把场景、人物和交互打包成游戏。Unity 还接上了官方的 MCP 接口，Claude 才能直接操作 Unity 项目。</span></li>
+          </ul>
+
+          <h4 class="blk">场景：先定图，再拆，再搭</h4>
+          <ul class="points">
+            <li><b>先出一张满意的效果图。</b><span class="eg">定下画风、配色和主要物体的位置，再围绕它补别的角度：俯视图看布局，斜侧视图看物体的高度和层次。有室内也有室外的场景尤其要补全。</span></li>
+            <li><b>让 AI 列出哪些东西要单独生成。</b><span class="eg">把参考图交给 AI，让它在图上标出哪些物件适合用 Tripo 单独生成，哪些在 Blender 里直接搭更省事，你看一眼确认就行。</span></li>
+            <li><b>对着参考图摆场景。</b><span class="eg">把生成好的 3D 道具和多角度参考图一起交给 Opus 5.5，让它操作 Blender 和 Unity 搭环境，按图摆放道具、调比例和位置。作者说关键是参考图要给足，并从多个机位反复看、反复改。</span></li>
+          </ul>
+
+          <h4 class="blk">角色：四视图到会动的小王子</h4>
+          <ul class="points">
+            <li><b>四张图生成一个模型。</b><span class="eg">先用生图模型出小王子双臂平伸站立的正、背、两侧四张图，确保每个角度细节一致。在 Tripo 里选"多视图生成 3D"，用面向游戏角色的 Smart Mesh P2.0 模型，它生成的模型结构规整、面数可控，后面好加骨骼、做动画。先看没上色的白模形状对不对，没问题再生成贴图，有问题就局部重新生成。</span></li>
+            <li><b>装骨骼、接动作，交给 AI。</b><span class="eg">绑骨骼和蒙皮，就是给模型装上会弯的关节，让皮肤跟着关节动。作者在 Blender 里装了付费插件 Auto-Rig Pro，把模型交给 Claude，让它绑完后自己测抬手、弯腿、转身，修掉变形和穿模。动作从动作素材网站 Mixamo 下载，再让 Opus 检查是不是匹配小王子的骨骼，然后接进游戏。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>先玩一下</b>：网页版在 littleprince.dev，作者说之后会开源整个游戏。</li>
+              <li><b>提示词</b>：每一步作者都附了可复用的提示词，比如让 AI 判断哪些资产交给 Tripo、哪些在 Blender 里搭，并在图上标出来。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>先给 AI 一个能对照的东西</h3>
+      <ul class="points">
+        <li>两篇里，AI 都在操作人类的专业软件，让结果靠得住的是同一样东西：可以对照的依据。REA 要求每个结论附上代码出处，你能回头核对；Sac 先把参考图定下来，AI 搭场景时对着图摆，摆偏了一眼就看得出。<b>把活交给 AI 去操作软件之前，先想好拿什么来对照它交回来的结果。</b></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.56 ==================== -->
-  <section class="issue active" id="v56">
+  <section class="issue" id="v56">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>用 Opus 5.5 把《小王子》做成 3D 游戏（Sac，X）</b>｜作者花了 16 天，用 Anthropic 的编程模型 Claude Opus 5.5，加上生成 3D 模型的平台 Tripo 和建模软件 Blender，把小王子故事里的每个星球都做成了能走进去探索的 3D 场景。网页版已经能玩（littleprince.dev），作者说之后会开源整个游戏和制作流程。 <a href="https://x.com/Saccc_c/status/2109962425512734739">原文</a></p>
