@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v50" data-vol="vol.50"><span class="vv">VOL.50 <span class="new">最新</span></span><span class="dd">2026·09·29 · 一个镜头做一天</span></button>
+    <button class="tab active" data-issue="v51" data-vol="vol.51"><span class="vv">VOL.51 <span class="new">最新</span></span><span class="dd">2026·09·30 · 贵的留给判断</span></button>
+    <button class="tab" data-issue="v50" data-vol="vol.50"><span class="vv">VOL.50</span><span class="dd">2026·09·29 · 一个镜头做一天</span></button>
     <button class="tab" data-issue="v49" data-vol="vol.49"><span class="vv">VOL.49</span><span class="dd">2026·09·28 · 没有职级的公司</span></button>
     <button class="tab" data-issue="v48" data-vol="vol.48"><span class="vv">VOL.48</span><span class="dd">2026·09·24 · 放手多少</span></button>
     <button class="tab" data-issue="v47" data-vol="vol.47"><span class="vv">VOL.47</span><span class="dd">2026·09·22 · 先把话说清楚</span></button>
@@ -317,8 +318,58 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.51 ==================== -->
+  <section class="issue active" id="v51">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>GPT-6 Astra 官方提示词：你的话优先于 Skill（贾克斯的平行世界）</b>｜GPT-6 Astra 是 OpenAI 目前最强的模型，官方使用指南按五类场景给了能直接复制的提示词。其中两条对装了很多 Skill（存好、让 AI 反复调用的固定指令）的人最有用：一是写明"用户的指令优先于 Skill 里的指导"，因为 Astra 对上下文更敏感，Skill 里含糊或互相打架的要求会让它过早停工；二是它因为某个 Skill 停下来找你确认时，让它说出是哪份 SKILL.md、哪一句。作者还让 Astra 把自己本地的 Skill 全检查了一遍，它建议删掉的第一个，是开发流程很重的 Superpower。 <a href="https://mp.weixin.qq.com/s/7EFs3X2rORIUAY1aZPFk-A">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.51 / 2026·09·30</div>
+      <h2 class="issue-theme">贵的留给判断</h2>
+      <p class="issue-lead">便宜的模型越来越能打，问题就变成了：哪些活还值得交给贵的。</p>
+      <div class="issue-toc">
+        <a href="#v51-1"><span class="ix">01</span><span>Sonnet 5.5 实测：交代什么做什么</span><span class="cat">干货·测评</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v51-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Sonnet 5.5 实测：交代什么做什么</h3></div>
+      <div class="meta"><span class="tag">干货·测评</span><span class="sep">·</span>卡尔的AI沃茨（个人实测，主观）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/uy5B3WhUKD1Bs1NKtz7CsA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Sonnet 5.5 是 Anthropic（做 Claude 的公司）新出的中档模型，价格是旗舰 Opus 5.5 的一半，输出快三成。作者用四个任务对比两者：用代码做宣传片、做网页幻灯片、做 3D 网页、写文学片段。他的感受是，<b>Sonnet 交代什么就做什么，做得干净完整，但很少自己往需求外加点子</b>。所以要创意、要审美判断的活，他继续给 Opus；方案已经定好、只差执行的，交给 Sonnet。</div>
+
+        <div class="detail">
+          <h4 class="blk">四个测试</h4>
+          <ul class="points">
+            <li><b>只用代码做一支宣传片。</b><span class="eg">作者给自己的提示词案例网站 GoodCase 做 30 秒宣传片，不接任何视频、音乐、图片生成模型，让 AI 自己去看网站、截图、写配乐代码、剪辑。他觉得代码做视频的好处是不注水，说 30 秒就有 30 秒的内容，画面的放大缩小也比他自己录屏顺。Opus 版集中展示案例画面，配乐卡点更准；Sonnet 版把案例和对应的提示词放在同一屏，更能看出这是个提示词合集，但音乐没对得那么齐。同样的任务交给 OpenAI 的编程 AI Codex，从头到尾只展示了一个案例，配乐也没卡上点。</span></li>
+            <li><b>网页幻灯片的转场变多了。</b><span class="eg">不用任何排版 Skill，Sonnet 每页的文字密度比上一代合适。作者让它想想怎么翻页更自然，它做出了好几种不同的过渡效果。</span></li>
+            <li><b>3D 不如 Opus，也不会"加戏"。</b><span class="eg">任务是一个卖小笼包的互动网页：首屏是蒸笼，横向滚动时蒸汽、蒸笼、文字三层以不同速度移动，做出纵深感。Sonnet 做得完整，但 3D 建模不如 Opus，大约和 OpenAI 的中档模型 GPT-6 Sol 相当。作者之前让 Opus 做蒸笼包子的 3D 效果时，它自己加了一个没人要求的醋碟，醋会跟着鼠标晃，包子蘸一下还会变色。Sonnet 不会这样往需求外多走一步。</span></li>
+            <li><b>写作反而比 Opus 好。</b><span class="eg">用同一个追求强烈情绪张力的写作 Skill，作者认为 Sonnet 节奏有起伏，不是从头到尾匀速推进的流水账，偶尔还有几句能让人共鸣。</span></li>
+          </ul>
+
+          <h4 class="blk">作者现在怎么分工</h4>
+          <ul class="points">
+            <li><b>判断归 Opus，执行归 Sonnet。</b><span class="eg">他原来的搭配是 Fable 5.1（Anthropic 最强也最贵的模型）出计划、Opus 5.5 执行。现在代码动画的创意方案、需要审美判断的界面决定、探索新的技术方向，他切回 Opus；批量修 bug、整理文档、按格式输出、照已经定好的方案实现，直接交给 Sonnet。</span></li>
+          </ul>
+
+          <blockquote>AI写东西太安全了，它把每句话收得很满，衔接得很顺，比喻都是正面的美好的，反而就很假很假了。（卡尔）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>省多少钱要看用法</b>：如果大量内容重复调用、能按缓存折扣计费，和 Opus 的成本差距会缩小；一次性调用时，便宜一半的优势最明显。</li>
+              <li><b>写作 Skill</b>：文中给出的仓库地址是 github.com/LearnPrompt/afterglow-voice。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.50 ==================== -->
-  <section class="issue active" id="v50">
+  <section class="issue" id="v50">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>Manus 2.0 发布（十字路口Crossing）</b>｜Manus 是一款能自己拆步骤、上网、写代码，把任务替你做完的 AI 助手，去年底宣布加入 Meta，今年 4 月这笔收购被监管部门叫停，9 月恢复独立运营。2.0 版新增了按事件自动触发的任务、可单独购买的云电脑、能手动改时间线再交给 AI 接着剪的视频编辑，还有一个能同时调用视频、图像和编程模型做游戏的环境，做完可以发布成网页，发链接给朋友玩。同时推出生活助理 Cue，每个助理有自己的邮箱、电话号码和钱包。原文还按时间列了它一年半里的 63 次重大更新。 <a href="https://mp.weixin.qq.com/s/KbdQibYa-hMDh5ENHWeqwQ">原文</a></p>
