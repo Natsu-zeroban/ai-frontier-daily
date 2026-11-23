@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v59" data-vol="vol.59"><span class="vv">VOL.59 <span class="new">最新</span></span><span class="dd">2026·10·20 · 记住你的口味</span></button>
+    <button class="tab active" data-issue="v60" data-vol="vol.60"><span class="vv">VOL.60 <span class="new">最新</span></span><span class="dd">2026·10·21 · 玩过才算</span></button>
+    <button class="tab" data-issue="v59" data-vol="vol.59"><span class="vv">VOL.59</span><span class="dd">2026·10·20 · 记住你的口味</span></button>
     <button class="tab" data-issue="v58" data-vol="vol.58"><span class="vv">VOL.58</span><span class="dd">2026·10·19 · 不用找话题</span></button>
     <button class="tab" data-issue="v57" data-vol="vol.57"><span class="vv">VOL.57</span><span class="dd">2026·10·16 · 接管老工具</span></button>
     <button class="tab" data-issue="v56" data-vol="vol.56"><span class="vv">VOL.56</span><span class="dd">2026·10·15 · 留下来的</span></button>
@@ -326,8 +327,61 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.60 ==================== -->
+  <section class="issue active" id="v60">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.60 / 2026·10·21</div>
+      <h2 class="issue-theme">玩过才算</h2>
+      <p class="issue-lead">让 AI 一句话做出一个能跑的游戏已经不难，难的是做完以后：谁来试玩，改到哪算好，什么时候该停手。</p>
+      <div class="issue-toc">
+        <a href="#v60-1"><span class="ix">01</span><span>AI 做完游戏，还能自己试玩、自己改</span><span class="cat">干货·研究</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v60-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>AI 做完游戏，还能自己试玩、自己改</h3></div>
+      <div class="meta"><span class="tag">干货·研究</span><span class="sep">·</span>机器之心（介绍 UC San Diego、字节跳动、卡内基梅隆大学的论文；分数来自自动评测）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/kPASsLuAtoiAR_iBDV05PA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>一个能运行的游戏，可能打怪没有反馈、敌人只会一种动作，甚至通不了关。RSIGame 是一个研究团队做的开发框架，让几个 AI 分工把"试玩、找问题、修改、确认"这一圈自己转起来，还会判断什么时候该停。拿 OpenAI 的 GPT-5.5 一次生成的游戏当起点，自动评测的质量分从 50 提到了 65 左右。团队的结论是，<b>光让 AI 多改几轮没用，得有一层专门盯着整体是不是真的变好了</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">一轮修改怎么走</h4>
+          <ul class="points">
+            <li><b>四个 AI 各管一段。</b><span class="eg">一个决定这一轮先查什么；一个真的去玩，按键盘、点鼠标，把发现的问题记进一张持续更新的开发清单，写明有什么问题、先改哪个、哪些已经解决、哪些可能被改回去了；一个照着清单改代码和素材；最后一个独立的 AI 再上手玩一遍，确认问题真没了，也没弄出新问题。</span></li>
+            <li><b>代码写了不等于修好了。</b><span class="eg">比如发现攻击键能按，敌人却不掉血。系统不会因为代码里加了伤害逻辑就算数，负责验证的 AI 得实际打一下，看到伤害生效才算改好。</span></li>
+            <li><b>不只修 bug。</b><span class="eg">基础玩法跑通以后，它会自己找能加的东西：更多样的敌人行为、更明显的打击反馈、更多关卡内容和新机制。</span></li>
+          </ul>
+
+          <h4 class="blk">什么时候该停</h4>
+          <ul class="points">
+            <li><b>留住最好的那一版。</b><span class="eg">另一层负责看长远：每隔几个阶段比较一次整体质量，把历史上最好的版本存下来。某一轮改坏了，下一轮也不会从坏掉的版本接着改。</span></li>
+            <li><b>改不动就换方向。</b><span class="eg">连续几轮都没有明显提升，它会收手，或者换一个新的开发方向，不再白花算力。对比实验里，普通的"多改几轮"做法很早就到顶，有的还越改越差；加上这一层以后，多给的开发预算才稳定地变成分数。</span></li>
+          </ul>
+
+          <h4 class="blk">改游戏的经验还能拿去训练模型</h4>
+          <ul class="points">
+            <li><b>小模型也能追上来。</b><span class="eg">团队把开发过程存成了训练材料，其中两千多轮修改经过独立验证、确认真的改成了。拿这些去训练开源模型 Qwen3.8-27B（参数比顶级模型小得多），它一次生成游戏的分数从 37 涨到 48；再接上这套框架反复改，到了 61，超过 GPT-5.5 一次生成的 50。作者也提醒，这不说明小模型本身比 GPT-5.5 强。</span></li>
+            <li><b>最值钱的是"怎么改对的"。</b><span class="eg">只学生成游戏的过程，分数在 41 左右；加上那些验证过的修改经历，才涨到 48，涨得最多的是游戏机制和玩法深度。训练后，它一次生成游戏用的 token（模型处理文字的计量单位）也只剩原来的十一分之一。</span></li>
+          </ul>
+
+          <blockquote>修改代码只是开发动作，验证后的行为改善才是有效进展。（机器之心）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>测了什么</b>：140 个任务、15 类游戏，用了 Godot 和 Phaser 两种开源游戏引擎，评分看游戏机制、交互和内容深度。</li>
+              <li><b>还做不到的</b>：作者承认，结果建立在特定的引擎和自动评测上，玩法创意、对玩家体验的理解还差得远。</li>
+              <li><b>能玩的对比</b>：项目主页有格斗、赛车、射击游戏改造前后的试玩，代码已开源。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.59 ==================== -->
-  <section class="issue active" id="v59">
+  <section class="issue" id="v59">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>Jev 的底子和 ChatGPT 一样吗（腾讯技术工程）</b>｜Jev 是 9 月发布的一种只做选择题的模型，会报出每个选项有几成把握。作者推断，它和 ChatGPT 一样先把材料完整读一遍，只是读完不再一个字一个字往外写，而是直接给出每个选项的概率，所以快，也只能做判断。开源社区已经仿出了 Laya，但它读材料用的是一个只有 4 亿参数、只学过做填空的小模型，碰到没专门训练过的题就远不如 Jev：只读不写这一招不难，难的是读懂任意问题。 <a href="https://mp.weixin.qq.com/s/AciT5C6ypT35FaGOoEum5Q">原文</a></p>
