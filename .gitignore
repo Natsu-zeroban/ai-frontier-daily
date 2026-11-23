@@ -1,3 +1,5 @@
 # 抓取脚本的临时产物，不入库
 tmp_*.txt
 *.tmp
+# 飞书收件箱的个人配置(群 chat_id)，不入公开仓库
+.feishu_inbox.json

@@ -41,7 +41,8 @@
     ├── scripts/
     │   ├── fetch_article.py   # 抓文章(处理微信反爬/图片型推文/UTF-8)
     │   ├── validate_site.py   # 发布前结构体检(标签配平/tab↔section/折叠结构…)
-    │   └── check_env.py       # 协作者环境自检
+    │   ├── check_env.py       # 协作者环境自检
+    │   └── feishu_inbox.py    # 可选：从飞书群拉待收链接，按发送日期分组+查重(配置见 SKILL.md)
     └── references/
         ├── STYLE.md           # 写作与呈现铁律(核心资产)
         ├── TEMPLATE.md        # HTML 片段 + 操作 checklist
