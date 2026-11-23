@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v58" data-vol="vol.58"><span class="vv">VOL.58 <span class="new">最新</span></span><span class="dd">2026·10·19 · 不用找话题</span></button>
+    <button class="tab active" data-issue="v59" data-vol="vol.59"><span class="vv">VOL.59 <span class="new">最新</span></span><span class="dd">2026·10·20 · 记住你的口味</span></button>
+    <button class="tab" data-issue="v58" data-vol="vol.58"><span class="vv">VOL.58</span><span class="dd">2026·10·19 · 不用找话题</span></button>
     <button class="tab" data-issue="v57" data-vol="vol.57"><span class="vv">VOL.57</span><span class="dd">2026·10·16 · 接管老工具</span></button>
     <button class="tab" data-issue="v56" data-vol="vol.56"><span class="vv">VOL.56</span><span class="dd">2026·10·15 · 留下来的</span></button>
     <button class="tab" data-issue="v55" data-vol="vol.55"><span class="vv">VOL.55</span><span class="dd">2026·10·13 · 拆开看看</span></button>
@@ -325,8 +326,60 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.59 ==================== -->
+  <section class="issue active" id="v59">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>Jev 和 ChatGPT 用的是同一种网络吗（腾讯技术工程）</b>｜Jev 是 9 月发布的一种只做选择题、会报出每个答案有几成把握的模型。这篇从大模型的结构演变讲起，作者推断：它和 ChatGPT 这类模型一样先把材料完整读一遍，区别在于读完不再一个字一个字往外写，而是直接给出每个选项的概率，所以快，也只能做判断。开源社区已经有了仿制品 Laya，读材料的换成了一个只有 4 亿参数、只学过做填空的小模型，没专门训练过的题就判断得远不如 Jev：只读不写这一招不难，难的是读懂任意问题的理解力。 <a href="https://mp.weixin.qq.com/s/AciT5C6ypT35FaGOoEum5Q">原文</a></p>
+      <p><b>Netflix 技术负责人谈 AI 进片场和设计（BeyondTheContentPodcast · Lenny's Podcast）</b>｜Netflix 首席产品与技术官 Elizabeth Stone 在这期访谈里，除了谈 Netflix 更想招能看清全局的人，还讲了两件事：Netflix 收购了演员本·阿弗莱克创办的 InterPositive，拍完以后还能用 AI 重新打光、重新构图，甚至改对白；越来越多不是设计师的人在直接做产品，所以设计团队要先定好模板和设计规范，免得拼出一个风格各异的"弗兰肯斯坦"。 <a href="https://mp.weixin.qq.com/s/VnunfrT0Z83NnOxT4qXCMQ">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.59 / 2026·10·20</div>
+      <h2 class="issue-theme">记住你的口味</h2>
+      <p class="issue-lead">设计工具 Lovart 的新助手会翻你过去的作品，记住你喜欢什么、讨厌什么，开新项目不用再从头交代。</p>
+      <div class="issue-toc">
+        <a href="#v59-1"><span class="ix">01</span><span>Lovart 2.0 实测：设计助手记住了你的审美</span><span class="cat">干货·测评</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v59-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Lovart 2.0 实测：设计助手记住了你的审美</h3></div>
+      <div class="meta"><span class="tag">干货·测评</span><span class="sep">·</span>卡尔的AI沃茨（个人实测，主观；文末附产品活动入口）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/msDyi8HplPZm3FYbicL43g">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Lovart 是一款 AI 设计工具，在一块画布上让 AI 帮你出海报、做品牌视觉。2.0 版加了一个叫 Arti 的个人设计助手，它会读你以前在 Lovart 里做过的项目，记住你偏好的风格和做事习惯。作者拿两个项目试了试，最有感触的是<b>换一个新项目，它还能接着之前定好的风格往下做</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">记忆怎么用上</h4>
+          <ul class="points">
+            <li><b>开新项目，它先翻旧账。</b><span class="eg">作者在做一个广东文创品牌。Arti 先从他以前的项目里找出他喜欢的杂志式排版、孔版印刷那种颗粒质感，也记得他讨厌霓虹、金属塑料感的"通用 AI 风"，再加上这次说的高饱和、抽象、可爱，还有旧品牌、旧角色都不沿用。出来的品牌形象是一只穿跨栏背心和人字拖、拿着蒲扇在广州街头闲逛的鸽子。</span></li>
+            <li><b>存一份风格，换个产品接着用。</b><span class="eg">作者导入以前做的奶茶海报，让它存成一份"奶茶海报"的偏好。新开项目只给了新品名字，Arti 自己说出了他的习惯：杯子居中、手写大标题、真实原料配手绘小人、画面留白。三张秋季新品海报版式统一，只把原料分别换成了金桂、烤栗和柿子。</span></li>
+            <li><b>记忆能看、能改、能关。</b><span class="eg">主页上有记忆和"进化日志"，能看到它记住了什么、做过什么。不想被记住的项目，跟它说一声就能忘掉；不喜欢它主动做事，相关开关也可以关。</span></li>
+          </ul>
+
+          <h4 class="blk">它会主动做的事</h4>
+          <ul class="points">
+            <li><b>把整张画布查一遍。</b><span class="eg">批量出素材时，一张张用眼睛检查很慢，还容易漏。可以让它巡查画布上的所有图，把不合常理、穿帮的地方列成清单，再修好。</span></li>
+            <li><b>汇总评论再改稿。</b><span class="eg">把链接发给甲方或朋友，对方直接在画布上对应的位置写评论，不用再下载图片、对着图一处处说。Arti 能把所有评论汇总成一份修改方案，你确认后一键改。</span></li>
+            <li><b>定期自己出图。</b><span class="eg">这叫"设计委托"：写清多久做一次、放进哪个项目、每次最多花多少积分。作者先试跑了一次，让它为奶茶品牌找最近的内容节点。它翻出之前三张海报当参考，查了未来七天的节气和节日，发现重阳已经过了、霜降还在，就以霜降为主题出了一张小红书海报，配了一句文案。</span></li>
+          </ul>
+
+          <blockquote>personal agent 不是说接个邮箱，接个 GitHub 就能叫 personal agent 的，更重要的是能够记住我的记忆，记住我的审美。（卡尔）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>存成固定做法</b>：做顺手的流程可以存成 Skill，也就是一套可复用的做法，下次直接调出来用。</li>
+              <li><b>怎么用</b>：Lovart 2.0 中文版已经全面上线。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.58 ==================== -->
-  <section class="issue active" id="v58">
+  <section class="issue" id="v58">
     <div class="issue-head">
       <div class="issue-vol">VOL.58 / 2026·10·19</div>
       <h2 class="issue-theme">不用找话题</h2>
