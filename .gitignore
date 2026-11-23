@@ -3,3 +3,6 @@ tmp_*.txt
 *.tmp
 # 飞书收件箱的个人配置(群 chat_id)，不入公开仓库
 .feishu_inbox.json
+# 定时任务的本地日志和运行锁
+.auto_daily_logs/
+.auto_daily.lock

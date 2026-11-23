@@ -253,11 +253,12 @@ def main():
     if args.from_json:
         raw = json.load(open(args.from_json, encoding="utf-8"))
         msgs = (raw.get("data") or raw).get("messages") or []
-        msgs = [m for m in msgs if (lambda d: d and since <= d.strftime("%Y-%m-%d") <= until)(msg_datetime(m))]
     else:
         if not chat_id:
             die(1, "没配群：用 --chat-id，或在 %s 写 {\"chat_id\": \"oc_xxx\"}。不知道 chat_id 就先跑 --find-chat <群名关键词>" % CONFIG)
         msgs = fetch_messages(chat_id, ident, since, until)
+    # 接口的 --end 边界不精确(会多带出后一天)，按北京时间日期再卡一遍
+    msgs = [m for m in msgs if (lambda d: d and since <= d.strftime("%Y-%m-%d") <= until)(msg_datetime(m))]
 
     days, skipped = extract(msgs, in_site, args.all, senders)
     n_new = sum(1 for d in days for l in d["links"] if not l.get("in_site"))
