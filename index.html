@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v43" data-vol="vol.43"><span class="vv">VOL.43 <span class="new">最新</span></span><span class="dd">2026·09·17 · 自己跑一个</span></button>
+    <button class="tab active" data-issue="v44" data-vol="vol.44"><span class="vv">VOL.44 <span class="new">最新</span></span><span class="dd">2026·09·18 · 模型外面那层</span></button>
+    <button class="tab" data-issue="v43" data-vol="vol.43"><span class="vv">VOL.43</span><span class="dd">2026·09·17 · 自己跑一个</span></button>
     <button class="tab" data-issue="v42" data-vol="vol.42"><span class="vv">VOL.42</span><span class="dd">2026·09·16 · 还在第二级</span></button>
     <button class="tab" data-issue="v41" data-vol="vol.41"><span class="vv">VOL.41</span><span class="dd">2026·09·15 · 学霸少打草稿</span></button>
     <button class="tab" data-issue="v40" data-vol="vol.40"><span class="vv">VOL.40</span><span class="dd">2026·09·14 · 利润让位</span></button>
@@ -310,8 +311,94 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.44 ==================== -->
+  <section class="issue active" id="v44">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.44 / 2026·09·18</div>
+      <h2 class="issue-theme">模型外面那层</h2>
+      <p class="issue-lead">补 9 月 18 号。两篇，一小一大，碰到的是同一组问题。第一篇是 YC 的播客：同一个模型，换个"工作环境"就判若两人——AI 干砸，常常不是因为笨，而是记不住、没工具、太早收工、或者搞错了什么话能说。第二篇是 Anthropic 第一次公开内部账本：约 3 万个 AI 在帮它研发下一代模型，靠两道监控和几条"管人"的规矩管着。说到底，能放心交给 AI 多少活，看的是包在模型外面的那套管理系统。</p>
+      <div class="issue-toc">
+        <a href="#v44-1"><span class="ix">01</span><span>同一个模型，换个"工作环境"就判若两人：YC 聊 Agent 外面那层运行框架</span><span class="cat">干货·访谈</span></a>
+        <a href="#v44-2"><span class="ix">02</span><span>Anthropic 亮出内部账本：3 万个 AI 在帮它做研发，安全研究只分到约 6% 算力</span><span class="cat">干货·解读</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v44-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>同一个模型，换个"工作环境"就判若两人：YC 聊 Agent 外面那层运行框架</h3></div>
+      <div class="meta"><span class="tag">干货·访谈</span><span class="sep">·</span>晚点再听LaterCast（整理 YC Paper Club 播客，嘉宾 Seth Karten、Jon Saad-Falcon、Josh France、Regan Bell）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/8BioVF6EmSi3zV9_Mm6Gnw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>你用的 AI 编程助手会自己读文件、跑代码、隔天还能接着干——这些本事大多不是模型自己的，而是包在模型外面的一层软件给的，叫 <b>Harness（运行框架）</b>：它决定模型能用哪些工具、能记住什么、能不能一直干下去。好比同一个厨师，给他一间设备齐全、贴着备菜记录的厨房，和只给他一把刀，做出来的菜天差地别。YC（美国最有名的创业孵化器）这期播客请了几组一线团队，结论是：<b>模型已有的本事，有很大一部分还没被用出来；AI 助手把活干砸，往往不是模型笨，而是它忘了前面的事、拿不到合适的工具、太早收工，或者搞错了什么信息能在哪说</b>——这几样都得靠框架来补。对我们的用处：下次 AI 把活干砸，可以先按这四样排查，而不是只想着"换个更强的模型"。</div>
+
+        <div class="detail">
+          <h4 class="blk">AI 干砸的四个常见原因，和他们的解法</h4>
+          <ul class="points">
+            <li><b>记不住：记忆不光要会存，还要会删。</b><span class="eg">对话太长时，常见做法是把前面的内容压成一段摘要。研究员 Seth（来自 AI 公司 Prime Intellect）的做法是"分地方放"：眼下要用的留在对话里；大批数据和中间结果放在一个一直开着的编程环境里，让 AI 写段小程序去处理，只把结果拿回对话；长期的经验和技能写进文件，用到时再翻。但东西越攒越多，电脑也吃不消，所以他还让 AI 定期清理——更新过时的、删掉没用的。</span></li>
+            <li><b>记不住（续）：活干完了，别急着把 AI"解散"。</b><span class="eg">Seth 同时开着好几个 AI 助手干不同方向的活，以前得自己在中间来回传话。后来他让这些助手能直接互相发消息；一个"子助手"干完活先汇报，然后带着原来的记忆待机，下次要接着查，主助手发条消息就能把它叫回来，不用重新交代背景。他们在建造类游戏《异星工厂》里让这套系统连续跑了七天，前后调用了 633 个 AI 助手，分头研究、采资源、盖工厂，一路往前推科技树。</span></li>
+            <li><b>缺工具：工具按需给，而且这一层越"薄"越好。</b><span class="eg">YC 内部的 AI 助手系统（他们叫它 QM），核心工具只有几类：在远程电脑上执行任务、读写文件存储、发布公司内部用的小应用。做复杂开发时，AI 可以自己申请一台性能更强的运行环境，简单活就用便宜的。团队有意少写死"第一步做啥、第二步做啥"，尽量把这层软件做薄，给模型留出自己选择的余地。</span></li>
+            <li><b>太早收工：给它定一个"最低投入"。</b><span class="eg">YC 内部发现，工具都配齐了，AI 还是经常没做完就宣布"做好了"。于是他们做了个叫 grind（"死磕"）的工具：给任务设一个时间或 token 预算（token 是 AI 处理文字的计量单位，可以粗略理解成"字数额度"），没花到这个量之前，不让它轻易收工。结果研究和报告的质量都变好了，普通办公任务也能这么用。</span></li>
+            <li><b>搞错分寸：知道一件事，不等于在哪个群里都能说。</b><span class="eg">YC 给每位员工都配了个人 AI 助手（五十多个），接进了公司的聊天软件 Slack（类似飞书）。问题来了：同事私下告诉 AI 的事，能不能在另一个群里说？人凭直觉就懂分寸，AI 却可能把敏感内容带进不该出现的群——即使提示词里写清楚了也会犯。所以<b>敢交给 AI 多少信息，取决于权限系统能把边界管得多细</b>。改数据也一样：AI 对数据库基本只能看不能改，要批量改先出方案、人审过再执行。但工程师也坦白：信任久了，大家开始习惯性点"通过"，审核慢慢变成走过场。</span></li>
+          </ul>
+
+          <h4 class="blk">再加一条提醒：AI 会改自己，但改得对不对得人看</h4>
+          <ul class="points">
+            <li><b>高分先别高兴，翻翻日志。</b><span class="eg">Seth 有次测试第一次跑就拿了 99.9% 的高分，翻日志才发现是测试环境没隔离好，被 AI 钻了空子（相当于考试偷看到了答案），只好重新搭好隔离的试验场再跑。YC 也试过让 AI 照着运行记录自己找 bug、自己修，结果好坏参半：它只看见自己碰到的那一处，修好了眼前，却不理解整个系统。</span></li>
+          </ul>
+
+          <blockquote>在很多情况下，模型所具备的智能，比我们实际用到的更多。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>让大模型先帮小模型"调教"好，再让小模型上岗</b>：斯坦福的 OpenJarvis 项目觉得，个人助理每天写作、查资料、排日程，全靠云端大模型太贵，私人资料还得上传。做法是先让云端大模型诊断、调好本地小模型的整套配置（用哪个模型、记忆怎么存、工具怎么接），之后日常活交给本地跑。8 项测试里平均准确率只比最好的云端模型低 3.2 个百分点，4 项打平或超过，单次成本约为八百分之一——但这只对应他们那套测试，有些活小模型仍然做不了。</li>
+              <li><b>五十多台机器逐台修太累</b>：YC 原来给每人一台虚拟机（云端的一台虚拟电脑）跑 AI 助手，哪台坏了工程师就得登进哪台修。后来把对话和状态集中存进数据库，运行环境要用时再临时申请——像从"每人一间固定办公室"变成"按需租工位"，失败记录也能集中查看。</li>
+              <li><b>比较两个 AI 系统要算上预算</b>：两个系统花的时间和钱不一样，只比最后的分数，会把"预算多少"误当成"能力强弱"。他们用 8 张高端显卡跑了一周，收益波动太大，分不清是框架的功劳还是模型的功劳。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v44-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>Anthropic 亮出内部账本：3 万个 AI 在帮它做研发，安全研究只分到约 6% 算力</h3></div>
+      <div class="meta"><span class="tag">干货·解读</span><span class="sep">·</span>新智元（解读 Anthropic 官方报告；原文标题和措辞偏夸张，数字均为 Anthropic 自报）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/hZ7FGfdPDKT8TZWi1IGDQQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>前几期聊过 OpenAI 公开的研发内幕（VOL.37）和给"AI 自己改进自己"分级的尺子（VOL.42）。这次轮到 Claude 的开发公司 Anthropic，第一次公开了三项内部研发数字（都是它自己统计、自己报的）：① <b>约 26% 的研发任务已经能由 Claude 主导</b>（人给个大方向，剩下从头到尾它自己做），超过 90% 至少是"人和 AI 深度配合"；② 内部同时跑着<b>约 3 万个做研发的 AI 助手</b>，每一步操作都有监控把关；③ 全部研发算力（训练和运行 AI 用的显卡计算资源）里，<b>只有约 6% 明确用在安全研究上</b>。它这么做的用意，是给行业立一本"能互相对照的公开账本"，并喊其他实验室也拿出同样的数字。新智元把这写成"奇点降临""新物种进化"的调子，别被带跑——报告里也说了，目前还没有任何一类研发任务做到完全不需要人。</div>
+
+        <div class="detail">
+          <h4 class="blk">三个数字，各自是怎么来的</h4>
+          <ul class="points">
+            <li><b>26% 是怎么数出来的。</b><span class="eg">2026 年 7 月，他们随机抽了研发部门 20% 的员工，让一个 Claude 去翻这些人的聊天记录和内部文档，整理出约 1.5 万项研发任务（比如"排查评估平台的故障""给训练用的隔离环境定网络规则"），归成 542 类。再按研究机构 Epoch AI 的六级标准给每类打分：0 级是全靠人，5 级是 AI 完全自己闭环。到 8 月的结果：没有一类到 5 级，26% 由 Claude 主导，90% 以上达到人机深度配合。注意，做统计的"调查员"本身也是 Claude。</span></li>
+            <li><b>3 万个 AI 助手，靠两道监控管着。</b><span class="eg">打个游戏策划熟悉的比方：很像反外挂。第一道是实时拦截：每个操作执行前先过一遍扫描。8 月共有 10 亿多次操作，约 0.002% 被叫停（大约每 5 万次拦 1 次，一个月约 2 万次）——新智元说"其中很可能有灾难性尝试"，这是媒体的推测，被拦下的不一定都是危险操作。第二道是事后复查：每周把所有行为记录过一遍筛子，挑出约 10 万份可疑的对话，最后把最要紧的约 50 起交给人类专家逐个看，就像把可疑录像交给人工复核。</span></li>
+            <li><b>两条"管人"的规矩，用在了 AI 身上。</b><span class="eg">① 每个 AI 助手都有独立的身份和自己的工作记录，底层模型升级了它还是"它"——出了事能查到是谁干的；它们也被设计成把别的 AI 给的信息当"待核实的说法"，不盲信。（新智元说这是"自我意识的雏形"，属于过度解读。）② 不许私聊：所有 AI 都在一个公开、留痕的频道里沟通，互相还能纠错。这和上一篇 YC 碰到的"什么话能在哪说"其实是同一个问题。</span></li>
+            <li><b>安全只占 6% 算力，看着难看，为什么还要公开。</b><span class="eg">他们抽了 7 月中旬一周的算力记录，让 Claude 给近 1 万次运行分类、按用量加权：约 6% 明确用于安全研究（比如"对齐"＝让 AI 按人的意图做事，"可解释性"＝看懂模型内部在想什么，"红蓝对抗"＝专门找漏洞攻击自己的模型）；在 AI 主导的那部分研发里约占 12%。解释有两条：训练大模型才是吞算力的大头，安全研究更多耗的是研究员的脑子；而且口径很保守——"既帮安全又帮能力"的一律不算，日常过滤有害内容的分类器也没算进去。之所以公开，是因为算力最容易量化和核实：基线立在这儿，以后同行和监管都能拿同一把尺子比。</span></li>
+          </ul>
+
+          <blockquote>当世界正在考虑如何控制前沿 AI 的发展速度时，我们必须尽一切可能，缩小前沿实验室所知与公众所知之间的信息差。（Anthropic 报告原话）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>新智元的"阳谋"解读</b>：认为这是在向 OpenAI 等公司下公开挑战书——Anthropic 说任何前沿实验室都能发布同样的指标、由第三方验证（比如独立评估机构 METR），跟不跟进就成了一块试金石。这部分是媒体观点。</li>
+              <li><b>怎么读这篇</b>：所有数字都来自 Anthropic 自报，统计工作还是 Claude 做的，目前没有第三方复核；标题"3 万智能体正自我迭代"是夸张说法——实际是 3 万个 AI 在做研发工作，不等于它们在"自我进化"。原始报告：anthropic.com/institute/measuring-pace-of-ai-development。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>能放心交多少活，看的是模型外面那套管理</h3>
+      <ul class="points">
+        <li>一边是 YC 几十个员工的个人 AI 助手，一边是 Anthropic 的 3 万个研发 AI，规模差了上千倍，碰到的却是同一组问题：<b>记得住吗、会互相传话吗、知道什么能说吗、出了错有人看得见吗</b>。两家的解法也很像——给每个 AI 留工作记录、让沟通公开留痕、敏感操作先审再做。对我们挑 AI 工具、搭 AI 流程的启发：别只问"模型强不强"，也要问这套东西能不能记住上下文、会不会越权、出错了你能不能查到。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.43 ==================== -->
-  <section class="issue active" id="v43">
+  <section class="issue" id="v43">
     <div class="issue-head">
       <div class="issue-vol">VOL.43 / 2026·09·17</div>
       <h2 class="issue-theme">自己跑一个</h2>
