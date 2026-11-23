@@ -365,19 +365,20 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">01</span><h3>Claude、GPT、Gemini 一起用，谁干什么</h3></div>
       <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>数字生命卡兹克（个人重度使用经验，对三家的评价偏主观）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/gwj0xLNHPfToQnQJN7IkMA">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>卡兹克每天同时用三家的模型：Anthropic 的 Claude、OpenAI 的 GPT、谷歌的 Gemini。在他看来三家各有长短，像一个团队里性格不同的同事，用好它们就成了带团队的问题。<b>他的分工是：Claude 当总指挥，Gemini 坐在旁边出主意、改文案，GPT 写成块的后端代码、把最后一道审查关。</b>这套分工他写进了给 Claude 的规则文件，原文全文附上了。</div>
+        <div class="core"><b>核心：</b>卡兹克每天同时用三家的模型：Anthropic 的 Claude、OpenAI 的 GPT、谷歌的 Gemini。在他看来三家各有长短，像一个团队里性格不同的同事，用好它们就成了带团队的问题。<b>他的分工是：Claude 当总指挥，Gemini 坐在旁边出主意、改文案，GPT 写成块的后端代码、把最后一道审查关。</b></div>
 
         <div class="detail">
           <h4 class="blk">三家的性格</h4>
           <ul class="points">
             <li><b>Gemini：最好聊，也最粗心。</b><span class="eg">他用的是谷歌上周刚发布的 Gemini 4 Neon，写出来的东西读着最舒服，还会给人情绪价值；产品文案、小说、剧本、头脑风暴，他觉得三家里它最好。毛病是瞎编最多，让它分析代码库，几十条判断里常错不少；谷歌配套的编程工具 Antigravity 体验也很差。</span></li>
-            <li><b>Claude：审美最好，干活不够仔细。</b><span class="eg">前端、视觉、动效他基本都交给 Claude，主视觉和剪辑里的大段特效几乎都是它用代码直接做出来的；配套的 Claude Code（Anthropic 能在电脑上自己读文件、跑命令的编程助手）也是他用过最顺手的。毛病是改不全、漏细节、没看到结果就说做完了，他专门在规则文件里写了约束。另外，不是谁都能用上。</span></li>
+            <li><b>Claude：审美最好，干活不够仔细。</b><span class="eg">前端、视觉、动效他基本都交给 Claude，主视觉和剪辑里的大段特效几乎都是它用代码直接做出来的；配套的 Claude Code（Anthropic 能在电脑上自己读文件、跑命令的编程助手）也是他用过最顺手的。毛病是改不全、漏细节、没看到结果就说做完了，他专门在规则文件里写了约束。最大的毛病是很多人根本用不上。</span></li>
             <li><b>GPT：最严谨，最难沟通。</b><span class="eg">他写代码用的是 OpenAI 上周刚发布的 GPT-6.2 Astra。汇报信息密度极高，但他几乎读不下去；而且太听话，你把一个事实写错了，它会照着错的执行，不会反过来提醒你。审美也很差。但只要目标明确，它是最让人放心的，后端、算法、查修 bug、代码审查，还有操控浏览器和应用，他都交给 GPT。</span></li>
           </ul>
 
           <h4 class="blk">为什么让 Claude 站中间</h4>
           <ul class="points">
-            <li><b>中间这个位置，要求最全面。</b><span class="eg">对上，要听懂他说得乱七八糟、经常只说一半的需求；对下，要把需求翻成 GPT 能精确执行的任务，读懂、验收 GPT 交回来的一大坨东西，还得分清 Gemini 那堆自信满满的建议里，哪些是真知灼见、哪些是看错了。这些都要靠模型外面那层查代码、跑命令、调用别的模型的工具。Gemini 最粗心，配套工具又最弱；GPT 说话太累；所以选 Claude。用不了 Claude 的话，他建议让 Gemini 4 Neon 顶上，效果差一点，但差距没那么大。整个流程里，他自己只出现两次：提需求，拍板。</span></li>
+            <li><b>中间这个位置，要求最全面。</b><span class="eg">对上，要听懂他说得乱七八糟、经常只说一半的需求；对下，要把需求翻成 GPT 能精确执行的任务，读懂、验收 GPT 交回来的一大坨东西，还得分清 Gemini 那堆自信满满的建议里，哪些是真知灼见、哪些是看错了。整个流程里，他自己只出现两次：提需求，拍板。</span></li>
+            <li><b>为什么不是另外两家。</b><span class="eg">站中间的模型要自己查代码、跑命令、叫别的模型干活，很吃配套工具。Gemini 最粗心，配套工具又最弱；GPT 严谨，但跟它说话太累。用不了 Claude 的话，他建议让 Gemini 4 Neon 顶上，效果差一点，但差距没那么大。</span></li>
           </ul>
 
           <h4 class="blk">一件事怎么流转</h4>
@@ -410,7 +411,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <div class="issue-head">
       <div class="issue-vol">VOL.82 / 2026·11·20</div>
       <h2 class="issue-theme">方块地球</h2>
-      <p class="issue-lead">一个 20 岁的开发者让 250 多个 AI 反复修改同一套规则，把整个地球按 1:1 搬进了《我的世界》。另一篇用一条 48 秒的动画短片，讲怎样把要求写到视频模型拍得出来。</p>
+      <p class="issue-lead">一个 20 岁的开发者让 250 多个 AI 反复打磨同一套规则，输入一个真实地址，就能在《我的世界》里按 1:1 走到那里。另一篇用一条 48 秒的动画短片，讲怎样把要求写到视频模型拍得出来。</p>
       <div class="issue-toc">
         <a href="#v82-1"><span class="ix">01</span><span>输入地址，在《我的世界》里走回自己家</span><span class="cat">干货·案例</span></a>
         <a href="#v82-2"><span class="ix">02</span><span>一条 48 秒动画，从分镜到成片</span><span class="cat">干货·教程</span></a>
@@ -421,7 +422,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
       <div class="thread-top"><span class="thread-ix">01</span><h3>输入地址，在《我的世界》里走回自己家</h3></div>
       <div class="meta"><span class="tag">干货·案例</span><span class="sep">·</span>APPSO（媒体报道，技术细节来自开发者自述）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/PKC4KnU25le9e13luR4Sqw">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>20 岁的开发者 Thijs Simonian 做了一个叫 WorldCraft 的《我的世界》服务器：输入一个现实地址，它就把那一片按 1:1 生成出来，再把你传送过去，道路、建筑轮廓、地形都对得上，有些房子还能走进去看家具。整个地球事先全建好要约 2PB（2000TB）的存储，所以他改成玩家去哪儿就现生成哪儿。<b>这套生成规则是 250 多个 AI 反复修改、互相打分磨出来的，最后复杂到人几乎读不懂。</b></div>
+        <div class="core"><b>核心：</b>20 岁的开发者 Thijs Simonian 做了一个叫 WorldCraft 的《我的世界》服务器：输入一个现实地址，它就把那一片按 1:1 生成出来，再把你传送过去，道路、建筑轮廓、地形都对得上，有些房子还能走进去看家具。整个地球全部预先建好要占约 2000TB 的存储，所以他改成玩家去哪儿就现生成哪儿。<b>这套生成规则是 250 多个 AI 反复修改、互相打分磨出来的，最后复杂到人几乎读不懂。</b></div>
 
         <div class="detail">
           <h4 class="blk">一片街区怎么生成</h4>
@@ -485,22 +486,22 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   <section class="issue" id="v81">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
-      <p><b>可灵的图像模型更新到 Kling Image 4.0（官方使用指南，厂商自述）</b>｜官方列的几处升级：能原生出 8K 图；一张图里能放 2000 字，小字也清楚，自带 70 多款可商用字体，也能上传字体参考图；一次描述最多出 10 张主体和风格统一的组图，还能出电商详情页、网页设计这类长图，长图拆成图层后能单独改某个元素；最多可以传 10 张参考图。 <a href="https://docs.qingque.cn/d/home/eZQDsQeh8FByxBZbkC6EPOt6v?identityId=2P9WShJ6IS3">原文</a></p>
+      <p><b>可灵（Kling）的图像模型更新到 4.0 版（官方使用指南，厂商自述）</b>｜官方列的几处升级：能直接出 8K 图；一张图里能放 2000 字，小字也清楚，自带 70 多款可商用字体，也能上传字体参考图。一次描述最多出 10 张主体和风格统一的组图，也能出电商详情页、网页设计这类长图，长图拆成图层后可以单独改某个元素。参考图最多能传 10 张。 <a href="https://docs.qingque.cn/d/home/eZQDsQeh8FByxBZbkC6EPOt6v?identityId=2P9WShJ6IS3">原文</a></p>
     </div>
     <div class="issue-head">
       <div class="issue-vol">VOL.81 / 2026·11·19</div>
       <h2 class="issue-theme">先拍草稿</h2>
-      <p class="issue-lead">用 Meta 的助手 Muse 做短视频，作者踩完坑整理出一套流程：先锁住主角的脸，难拍的镜头先用别的工具打个不会变形的底。</p>
+      <p class="issue-lead">用 AI 拍短视频，最头疼的是换个镜头主角就换了张脸。一位作者把用 Meta 的 Muse 踩过的坑，理成了一套从易到难的跟练流程。</p>
       <div class="issue-toc">
-        <a href="#v81-1"><span class="ix">01</span><span>用 Muse 拍短片：先锁脸，难的镜头先打底</span><span class="cat">干货·教程</span></a>
+        <a href="#v81-1"><span class="ix">01</span><span>用 Muse 拍一条能发出去的短片</span><span class="cat">干货·教程</span></a>
       </div>
     </div>
 
     <article class="thread" id="v81-1">
-      <div class="thread-top"><span class="thread-ix">01</span><h3>用 Muse 拍短片：先锁脸，难的镜头先打底</h3></div>
+      <div class="thread-top"><span class="thread-ix">01</span><h3>用 Muse 拍一条能发出去的短片</h3></div>
       <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>锦鲤同学（@loi_jinli，X 长文，个人经验）<span class="sep">·</span><a href="https://x.com/loi_jinli/status/2122633239181537572">原文</a></div>
       <div class="thread-body">
-        <div class="core"><b>核心：</b>拿 Meta 的个人 AI 助手 Muse 做一条能发出去的短视频，常撞上四个坑：换个镜头主角就换了张脸，动作一大手脚乱飞，让它生成 20 秒结果成了慢动作，试错几次每周的免费额度就见底。作者给了一套从易到难的跟练流程，最值得记的是两个思路：<b>先让它记住主角长相、只拍 6 秒的短镜头试；复杂的运镜和街景，先用别的工具做出不会变形的底子，再让 AI 往上加细节。</b></div>
+        <div class="core"><b>核心：</b>拿 Meta 的个人 AI 助手 Muse 做一条能发出去的短视频，常撞上四个坑：换个镜头主角就换了张脸，动作一大手脚乱飞，让它生成 20 秒结果成了慢动作，试错几次每周的免费额度就见底。作者的办法里最值得记的是两个思路：<b>先让它记住主角长相、只拍 6 秒的短镜头试；复杂的运镜和街景，先用别的工具做出不会变形的底子，再让 AI 往上加细节。</b></div>
 
         <div class="detail">
           <h4 class="blk">先把一条 6 秒拍稳</h4>
@@ -539,12 +540,12 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   <section class="issue" id="v80">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
-      <p><b>两天复刻一个 AI 短剧工作室？作者自己改了口（饼干哥哥AGI，转述朋友的经历）</b>｜文章前半段说，朋友用 DeepSeek 官方开源的桌面 AI 助手 DeepSeek Harness，配上能扒网站前后端逻辑的逆向工具 REA 和 Craft Anything，花两天、一百多块钱，复刻了一个刚上线的 AI 短剧工作室：先照抄页面外观，再分析网页请求反推出后台的 26 个接口，最后把原站写剧本、给剧本打分这些环节的效果整理成提示词模板。文末作者交了底：实际是让 Codex（OpenAI 的编程助手）指挥 DeepSeek Harness 干活；剧本能力是 Claude 设计了一串提问，花掉 1000 多元的积分试出来的；DeepSeek Harness 光配置就很难，一升级插件就常用不了。他也不建议照着这么做。 <a href="https://mp.weixin.qq.com/s/0EZUZApM7eg0ERorul1eBw">原文</a></p>
+      <p><b>两天复刻一个 AI 短剧工作室？作者自己改了口（饼干哥哥AGI，转述朋友的经历）</b>｜文章前半段说，朋友用 DeepSeek 官方开源的桌面 AI 助手 DeepSeek Harness，配上两个专门拆解别人网站的工具，花两天、一百多块钱，复刻了一个刚上线的 AI 短剧工作室：先照抄页面外观，再从网页请求里反推出后台有哪些功能，最后把原站写剧本、给剧本打分的效果整理成提示词模板。文末作者交了底：实际是 Codex（OpenAI 的编程助手）在指挥 DeepSeek Harness 干活；剧本能力是让 Claude 设计一串提问、花掉 1000 多元积分试出来的；DeepSeek Harness 光配置就很难，插件一升级就常用不了。他也不建议照着这么做。 <a href="https://mp.weixin.qq.com/s/0EZUZApM7eg0ERorul1eBw">原文</a></p>
     </div>
     <div class="issue-head">
       <div class="issue-vol">VOL.80 / 2026·11·18</div>
       <h2 class="issue-theme">原型之后</h2>
-      <p class="issue-lead">Meta 的个人助手 Muse，一个周末就做出了能跑的原型，正式上线却用了七个月。负责它的产品副总裁讲了这七个月里，几件团队事先没料到的事。</p>
+      <p class="issue-lead">Meta 的个人助手 Muse，一个周末就做出了能跑的原型，正式上线却用了七个月。</p>
       <div class="issue-toc">
         <a href="#v80-1"><span class="ix">01</span><span>周末就跑通的助手，为什么做了七个月</span><span class="cat">干货·访谈</span></a>
       </div>
@@ -610,13 +611,13 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         <div class="detail">
           <h4 class="blk">为什么这么小</h4>
           <ul class="points">
-            <li><b>一半是 Three.js。</b><span class="eg">约 700KB 是 Three.js，一个做网页 3D 的工具库。浏览器本身就能调用显卡画 3D，但原始的接口要你亲手告诉显卡每个三角形的顶点在哪、每个像素什么颜色、光从哪个角度来，错一步就黑屏，连像样的报错都没有。Three.js 把这些包了起来，可以理解成网页上的轻量游戏引擎。它由西班牙程序员 Mr.doob 在 2010 年发布，十六年下来成了网页 3D 的事实标准。</span></li>
+            <li><b>一半是 Three.js。</b><span class="eg">约 700KB 是 Three.js，一个做网页 3D 的工具库。浏览器本身就能调用显卡画 3D，但原始的接口要你亲手告诉显卡每个三角形的顶点在哪、每个像素什么颜色、光从哪个角度来，错一步就黑屏，连像样的报错都没有。Three.js 把这些包了起来，可以理解成网页上的轻量游戏引擎。它由西班牙程序员 Mr.doob 在 2010 年发布，十六年下来，做网页 3D 基本都绕不开它。</span></li>
             <li><b>另一半是一份菜谱。</b><span class="eg">剩下约 700KB 才是游戏本身。文件里存的不是集装箱长什么样，而是造出集装箱的代码；雨存的是雨点从哪落、落多快的规则；声音也是现场合成的。这种做法叫程序化生成。作者的比喻是：这个 HTML 文件是一份菜谱，不是一盘做好的菜，你打开网页的那几秒，显卡现场把菜炒出来，所以这类页面打开要等几秒，有的电脑风扇还会转一下。更小的也有：一个 97KB 的水世界，连 Three.js 都没用。</span></li>
           </ul>
 
           <h4 class="blk">自己做一个</h4>
           <ul class="points">
-            <li><b>模型和提示词。</b><span class="eg">他首推 Fable 5.2。用不了 Claude 的话，谷歌的 Gemini 4 Carbon、OpenAI 的 GPT-6 Astra 也能跑，DeepSeek V4.1 Flash 效果凑合，只是要多改几轮。提示词说大白话就行，建议老老实实用 Three.js，别学 97KB 那种极限压缩。他的模板大意是：做一个单文件 HTML 网页，用 Three.js 做一个能自由浏览的 3D 场景，场景写得越具体越好（他举的是重庆洪崖洞夜景：层层叠叠亮着暖灯的吊脚楼、江上的游船、旁边的大桥）；所有模型和贴图都用代码生成；能拖动旋转、滚轮缩放；重点处理光照、雾气和色调；普通笔记本也要流畅，加载时显示进度；主要物体做成独立的组件。</span></li>
+            <li><b>模型和提示词。</b><span class="eg">他首推 Claude 的 Fable 5.2。用不了 Claude 的话，谷歌的 Gemini 4 Carbon、OpenAI 的 GPT-6 Astra 也能跑，DeepSeek V4.1 Flash 效果凑合，只是要多改几轮。提示词说大白话就行，建议老老实实用 Three.js，别学 97KB 那种极限压缩。他的模板大意是：做一个单文件 HTML 网页，用 Three.js 做一个能自由浏览的 3D 场景，场景写得越具体越好（他举的是重庆洪崖洞夜景：层层叠叠亮着暖灯的吊脚楼、江上的游船、旁边的大桥）；所有模型和贴图都用代码生成；能拖动旋转、滚轮缩放；重点处理光照、雾气和色调；普通笔记本也要流畅，加载时显示进度；主要物体做成独立的组件。</span></li>
             <li><b>模板里最要紧的两条。</b><span class="eg">"全部用代码生成"决定了体积小、不依赖外部素材。"做成独立组件"是个小技巧：以后想把某栋楼改高一点、把桥换个颜色，不会牵一发而动全身。</span></li>
             <li><b>让它自己当美术指导。</b><span class="eg">AI 的审美不够时，往往要改很多轮。他加一段提示词让它自己迭代：每改完一版就用浏览器打开，从几个固定角度各截一张图，再另开一个 AI 助手，只给它看截图、不给看代码，让它以挑剔的美术指导的眼光，按严重程度列出画面问题；照着改，直到只剩小问题。</span></li>
           </ul>
@@ -655,7 +656,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         <div class="detail">
           <h4 class="blk">游戏为什么输给短剧</h4>
           <ul class="points">
-            <li><b>人太累了，不想再动脑。</b><span class="eg">他把游戏满足的需求分成四类：体验另一种人生、挑战机制、表达身份和社交、被陪伴被安抚。按理说游戏该是娱乐的老大，可碎片时间都被短剧和短视频占了。白天被老板榨干，晚上只想瘫着，游戏却非要你动手动脑；短剧两分钟三个反转，开头一个钩子、结尾一个悬念，一根手指都不用动。他做过一阵影游的剧本工具，发现大多数影游还是"给你一个问题、三个选项挑一个"，这种看似自由的设计在追求爽感的观众面前显得很笨重。</span></li>
+            <li><b>游戏能满足四类需求。</b><span class="eg">在他的分法里是：体验另一种人生、挑战机制、表达身份和社交、被陪伴被安抚。按理说游戏该是娱乐的老大，可碎片时间都被短剧和短视频占了。</span></li>
+            <li><b>人太累了，不想再动脑。</b><span class="eg">白天被老板榨干，晚上只想瘫着，游戏却非要你动手动脑；短剧两分钟三个反转，开头一个钩子、结尾一个悬念，一根手指都不用动。他做过一阵影游的剧本工具，发现大多数影游还是"给你一个问题、三个选项挑一个"，这种看似自由的设计在追求爽感的观众面前显得很笨重。</span></li>
           </ul>
 
           <h4 class="blk">三条走偏的路</h4>
