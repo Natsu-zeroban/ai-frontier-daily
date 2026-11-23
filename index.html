@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v79" data-vol="vol.79"><span class="vv">VOL.79 <span class="new">最新</span></span><span class="dd">2026·11·17 · 菜谱不是菜</span></button>
+    <button class="tab active" data-issue="v80" data-vol="vol.80"><span class="vv">VOL.80 <span class="new">最新</span></span><span class="dd">2026·11·18 · 原型之后</span></button>
+    <button class="tab" data-issue="v79" data-vol="vol.79"><span class="vv">VOL.79</span><span class="dd">2026·11·17 · 菜谱不是菜</span></button>
     <button class="tab" data-issue="v78" data-vol="vol.78"><span class="vv">VOL.78</span><span class="dd">2026·11·16 · 退到幕后</span></button>
     <button class="tab" data-issue="v77" data-vol="vol.77"><span class="vv">VOL.77</span><span class="dd">2026·11·13 · 当出品人</span></button>
     <button class="tab" data-issue="v76" data-vol="vol.76"><span class="vv">VOL.76</span><span class="dd">2026·11·12 · 让它自己检查</span></button>
@@ -346,8 +347,63 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.80 ==================== -->
+  <section class="issue active" id="v80">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>两天复刻一个 AI 短剧工作室？作者自己改了口（饼干哥哥AGI，转述朋友的经历）</b>｜文章前半段说，朋友用 DeepSeek 官方开源的桌面 AI 助手 DeepSeek Harness，配上能扒网站前后端逻辑的逆向工具 REA 和 Craft Anything，花两天、一百多块钱，复刻了一个刚上线的 AI 短剧工作室：先照抄页面外观，再分析网页请求反推出后台的 26 个接口，最后把原站写剧本、给剧本打分这些环节的效果整理成提示词模板。文末作者交了底：实际是让 Codex（OpenAI 的编程助手）指挥 DeepSeek Harness 干活；剧本能力是 Claude 设计了一串提问，花掉 1000 多元的积分试出来的；DeepSeek Harness 光配置就很难，一升级插件就常用不了。他也不建议照着这么做。 <a href="https://mp.weixin.qq.com/s/0EZUZApM7eg0ERorul1eBw">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.80 / 2026·11·18</div>
+      <h2 class="issue-theme">原型之后</h2>
+      <p class="issue-lead">Meta 的个人助手 Muse，一个周末就做出了能跑的原型，正式上线却用了七个月。负责它的产品副总裁讲了这七个月里，几件团队事先没料到的事。</p>
+      <div class="issue-toc">
+        <a href="#v80-1"><span class="ix">01</span><span>周末就跑通的助手，为什么做了七个月</span><span class="cat">干货·访谈</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v80-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>周末就跑通的助手，为什么做了七个月</h3></div>
+      <div class="meta"><span class="tag">干货·访谈</span><span class="sep">·</span>晚点再听LaterCast（整理 Lenny's Podcast 对 Meta 超级智能实验室产品副总裁 Mona Sarantakos 的访谈；产品方自述）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/GRo52dZie07t8hZrNSBZqA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Muse 是 Meta 的个人 AI 助手，能接上你的邮箱、日历，替你跑腿办事，今年 9 月登上美国 App Store 免费榜第一。负责它的 Mona Sarantakos 说，起点是她一个周末在树莓派上装了开源 AI 助手 OpenClaw，周一早上就收到一份它帮忙理好的孩子学校通知。原型很快就有了，<b>真正花时间的，是让它对一大批用户稳定、安全</b>。访谈里更有意思的是几件没料到的事：一只占位用的小玩偶留到了上线，用户最爱让它买东西，很多人下载后不知道第一句该说什么。</div>
+
+        <div class="detail">
+          <h4 class="blk">慢在哪</h4>
+          <ul class="points">
+            <li><b>能做到，不等于能放心交出去。</b><span class="eg">早期 Muse 没有浏览器，后来发现少不了；可每加一项替用户在外部网站办事的能力，安全团队就得检查由此多出来的被攻击方式。内部试验时，两位同事把各自的 Muse 拉进一个群聊，其中一个把主人看医生的事说给了对方，第二天另一位同事跑来问她还好吗。两个助手能互相说话，离它们知道什么能对别人说，还差一段。她宁愿晚点上线：用户第一次交出真实任务就遇到严重问题，以后就不会再试了。</span></li>
+          </ul>
+
+          <h4 class="blk">没料到的几件事</h4>
+          <ul class="points">
+            <li><b>一只差点被换掉的玩偶。</b><span class="eg">设计负责人做原型时随手放了一只小动物，打开时在睡觉，随后醒过来，名字 Jollybot 来自他对女儿的昵称。本来只是占位图，打算最后换成公司标志。用久了觉得它一直盯着人看很怪，就给它戴上耳机、让它在电脑前忙；同事又想换成自己的形象，一套原本没计划的个性化设计就围着它长了出来。上线前一周还准备了备用标志，最后还是留下了它。</span></li>
+            <li><b>用户最爱让它买东西。</b><span class="eg">她原先猜的是个人效率、健康和理财，有同事看好智能家居。试下来智能家居没那么常用，购物却不断冒出来，评测团队只好把购物补成重点。她出差时，丈夫打电话说门口堆了七个包裹；她和同事去看世界杯遇上航班出问题，两人的 Muse 各自找航司办成了退款。</span></li>
+            <li><b>一个聊天窗口还是多个。</b><span class="eg">团队原想只留一个窗口，助手记得之前聊过的事，用户下次接着说就行。内部试用时，有人坚持工作和生活要分开聊，最后加了分支聊天。助手能跨对话记事，用户也可能需要一个地方把事分开放。</span></li>
+          </ul>
+          <blockquote>你在和一个让你感觉这么亲近的东西聊天，最不想面对的就是一个公司标志。——Mona Sarantakos</blockquote>
+
+          <h4 class="blk">评测和新手引导</h4>
+          <ul class="points">
+            <li><b>让 AI 找问题，由人定标准。</b><span class="eg">订一周菜单这类生活任务要来回确认很多轮，测编程助手用的那些长任务样本帮不上忙。团队让一组 AI 去梳理使用数据和反馈，汇总出任务类型、卡住的位置和例子。她的说法是：仪表盘只能告诉你某个数字降了，案例能告诉你有十个人想在同一个网站买东西，都卡在同一步。但什么算做好、哪些错不能犯，由团队来定，系统提示词和产品该怎么表现的规范，特意要求手写。</span></li>
+            <li><b>下载以后，不知道第一句说什么。</b><span class="eg">很多人打开后写的是"你好"或"今天天气怎么样"。她觉得最有效的是两步：先让人看到一个跟自己有关的真实用法，比如一位用了一个月的妈妈把手机递给其他家长，让她们翻自己是怎么用的，两个人当场就下载了；再让他动手做完第一件小事。产品里为此有个 Ideas 页，放着点一下就能开始的任务。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>产品经理的活变了</b>：她现在一天就能自己做出一个原型，不再先写完整的规格文档。招产品经理时，她最看重的是能不能判断什么对用户真的有用，以及一个很酷的点子为什么暂时不该加。</li>
+              <li><b>汇报靠递手机</b>：和高管沟通就是把手机递过去让对方自己试，直到上线前的 8 月她才重新做幻灯片。扎克伯格问的是用户最终想做到什么，这个问题带出了产品里的"目标"页。</li>
+              <li><b>整理者的建议</b>：测个人助手，可以从每周都要做、结果好核对的小事开始，比如把几封学校通知合成一张本周清单，看它有没有漏掉日期、遇到冲突会不会回来问你。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.79 ==================== -->
-  <section class="issue active" id="v79">
+  <section class="issue" id="v79">
     <div class="issue-head">
       <div class="issue-vol">VOL.79 / 2026·11·17</div>
       <h2 class="issue-theme">菜谱不是菜</h2>
