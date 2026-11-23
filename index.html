@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v78" data-vol="vol.78"><span class="vv">VOL.78 <span class="new">最新</span></span><span class="dd">2026·11·16 · 退到幕后</span></button>
+    <button class="tab active" data-issue="v79" data-vol="vol.79"><span class="vv">VOL.79 <span class="new">最新</span></span><span class="dd">2026·11·17 · 菜谱不是菜</span></button>
+    <button class="tab" data-issue="v78" data-vol="vol.78"><span class="vv">VOL.78</span><span class="dd">2026·11·16 · 退到幕后</span></button>
     <button class="tab" data-issue="v77" data-vol="vol.77"><span class="vv">VOL.77</span><span class="dd">2026·11·13 · 当出品人</span></button>
     <button class="tab" data-issue="v76" data-vol="vol.76"><span class="vv">VOL.76</span><span class="dd">2026·11·12 · 让它自己检查</span></button>
     <button class="tab" data-issue="v75" data-vol="vol.75"><span class="vv">VOL.75</span><span class="dd">2026·11·11 · 能跑不等于懂了</span></button>
@@ -345,8 +346,52 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.79 ==================== -->
+  <section class="issue active" id="v79">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.79 / 2026·11·17</div>
+      <h2 class="issue-theme">菜谱不是菜</h2>
+      <p class="issue-lead">一个 1.4MB 的网页文件，打开是集装箱、吊机和雨里的枪声。它能这么小，是因为文件里存的不是画面，而是画出画面的方法。</p>
+      <div class="issue-toc">
+        <a href="#v79-1"><span class="ix">01</span><span>1.4MB 装下一个 3D 游戏，靠的是什么</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v79-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>1.4MB 装下一个 3D 游戏，靠的是什么</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>数字生命卡兹克（作者卡兹克、可达，个人实测）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/ZJddy1ssHBvw_1sm12jrkg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>最近群里疯传一个只有 1.4MB 的网页游戏，打开是集装箱、吊机、下雨和枪声，画面接近大作。它其实是 Anthropic 的工程师 Felix Rieseberg 在自家新模型 Fable 5.2 发布时做的演示，被人汉化后冠上了"国产 3A"的名头。卡兹克拆开文件看了：<b>里面一张图片、一个模型文件、一段录音都没有，存的全是"怎么把它们生成出来"的代码</b>。他还给了一份照着就能做出 3D 场景的提示词模板。</div>
+
+        <div class="detail">
+          <h4 class="blk">为什么这么小</h4>
+          <ul class="points">
+            <li><b>一半是 Three.js。</b><span class="eg">约 700KB 是 Three.js，一个做网页 3D 的工具库。浏览器本身就能调用显卡画 3D，但原始的接口要你亲手告诉显卡每个三角形的顶点在哪、每个像素什么颜色、光从哪个角度来，错一步就黑屏，连像样的报错都没有。Three.js 把这些包了起来，可以理解成网页上的轻量游戏引擎。它由西班牙程序员 Mr.doob 在 2010 年发布，十六年下来成了网页 3D 的事实标准。</span></li>
+            <li><b>另一半是一份菜谱。</b><span class="eg">剩下约 700KB 才是游戏本身。文件里存的不是集装箱长什么样，而是造出集装箱的代码；雨存的是雨点从哪落、落多快的规则；声音也是现场合成的。这种做法叫程序化生成。作者的比喻是：这个 HTML 文件是一份菜谱，不是一盘做好的菜，你打开网页的那几秒，显卡现场把菜炒出来，所以这类页面打开要等几秒，有的电脑风扇还会转一下。更小的也有：一个 97KB 的水世界，连 Three.js 都没用。</span></li>
+          </ul>
+
+          <h4 class="blk">自己做一个</h4>
+          <ul class="points">
+            <li><b>模型和提示词。</b><span class="eg">他首推 Fable 5.2。用不了 Claude 的话，谷歌的 Gemini 4 Carbon、OpenAI 的 GPT-6 Astra 也能跑，DeepSeek V4.1 Flash 效果凑合，只是要多改几轮。提示词说大白话就行，建议老老实实用 Three.js，别学 97KB 那种极限压缩。他的模板大意是：做一个单文件 HTML 网页，用 Three.js 做一个能自由浏览的 3D 场景，场景写得越具体越好（他举的是重庆洪崖洞夜景：层层叠叠亮着暖灯的吊脚楼、江上的游船、旁边的大桥）；所有模型和贴图都用代码生成；能拖动旋转、滚轮缩放；重点处理光照、雾气和色调；普通笔记本也要流畅，加载时显示进度；主要物体做成独立的组件。</span></li>
+            <li><b>模板里最要紧的两条。</b><span class="eg">"全部用代码生成"决定了体积小、不依赖外部素材。"做成独立组件"是个小技巧：以后想把某栋楼改高一点、把桥换个颜色，不会牵一发而动全身。</span></li>
+            <li><b>让它自己当美术指导。</b><span class="eg">AI 的审美不够时，往往要改很多轮。他加一段提示词让它自己迭代：每改完一版就用浏览器打开，从几个固定角度各截一张图，再另开一个 AI 助手，只给它看截图、不给看代码，让它以挑剔的美术指导的眼光，按严重程度列出画面问题；照着改，直到只剩小问题。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>不只是看风景</b>：他用 Three.js 随手做了一个能玩的 3D 魔方；X 上一部爆火的 90 秒短片也是 Three.js 实时渲染的，本质是一个约 2MB 的网页。</li>
+              <li><b>代码做不细的东西</b>：人、动物这类曲线多的，纯代码不够精细，可以先用 Blender（3D 建模软件）或 Tripo（把图片转成 3D 模型的平台）做好模型再放进网页，只是体积会大一些。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.78 ==================== -->
-  <section class="issue active" id="v78">
+  <section class="issue" id="v78">
     <div class="issue-head">
       <div class="issue-vol">VOL.78 / 2026·11·16</div>
       <h2 class="issue-theme">退到幕后</h2>
