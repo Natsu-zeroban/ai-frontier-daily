@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v45" data-vol="vol.45"><span class="vv">VOL.45 <span class="new">最新</span></span><span class="dd">2026·09·20 · 各干各的长处</span></button>
+    <button class="tab active" data-issue="v46" data-vol="vol.46"><span class="vv">VOL.46 <span class="new">最新</span></span><span class="dd">2026·09·21 · 一万个 AI 自己组队</span></button>
+    <button class="tab" data-issue="v45" data-vol="vol.45"><span class="vv">VOL.45</span><span class="dd">2026·09·20 · 各干各的长处</span></button>
     <button class="tab" data-issue="v44" data-vol="vol.44"><span class="vv">VOL.44</span><span class="dd">2026·09·18 · 模型外面那层</span></button>
     <button class="tab" data-issue="v43" data-vol="vol.43"><span class="vv">VOL.43</span><span class="dd">2026·09·17 · 自己跑一个</span></button>
     <button class="tab" data-issue="v42" data-vol="vol.42"><span class="vv">VOL.42</span><span class="dd">2026·09·16 · 还在第二级</span></button>
@@ -312,8 +313,59 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.46 ==================== -->
+  <section class="issue active" id="v46">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.46 / 2026·09·21</div>
+      <h2 class="issue-theme">一万个 AI 自己组队</h2>
+      <p class="issue-lead">OpenAI 用上万个 AI 合力攻下一道数学大奖难题，参与其中的研究员 Noam Brown 讲了幕后：没人给它们分工，它们自己学会了像人类团队一样在群里讨论。</p>
+      <div class="issue-toc">
+        <a href="#v46-1"><span class="ix">01</span><span>一万个 AI 怎么合力解一道数学难题</span><span class="cat">观点·访谈</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v46-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>一万个 AI 怎么合力解一道数学难题</h3></div>
+      <div class="meta"><span class="tag op">观点·访谈</span><span class="sep">·</span>AI寒武纪（转述 OpenAI 研究员 Noam Brown 的 80 分钟访谈，转述时渲染较多）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/fFQzPMghAYTmN0LSNumKcw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Noam Brown 是 OpenAI 推理模型 o1 的主要开创者之一，现在主攻"多智能体"，也就是让很多个 AI 同时干同一件事。OpenAI 前不久让约一万个 AI 协作，用 88 小时攻下了一道千禧年大奖数学难题，他在访谈里讲了其中的门道：<b>研究团队没给这些 AI 指定谁当指挥、谁干活，只给了它们一个"能给任何同伴发消息"的工具</b>，怎么配合全靠它们在训练里自己摸索。但他也强调，这次突破九成以上要归功于底层模型本身够强，人多只是让它算得更快。</div>
+
+        <div class="detail">
+          <h4 class="blk">为什么要让很多个 AI 一起想</h4>
+          <ul class="points">
+            <li><b>一个 AI 想得越久越聪明，可人等不起。</b><span class="eg">o1 那一代的思路是让模型在回答前先长时间"自言自语"，列情况、排除错误、反复核对。但有些题要一个 AI 想上好几年，没人能干等，唯一的办法是拆开给很多个 AI 同时想。代价是每个 AI 只看得到一部分，信息得互相传。OpenAI 之前公布过一组数据：在一些数学题上，4 个 AI 一起做，耗时几乎减半，花的算力约是原来的两倍。</span></li>
+            <li><b>不是什么活都适合人多。</b><span class="eg">数学证明、写代码、搜集整理资料，天生适合分头干。写小说这种需要从头到尾保持一个声音的活，一万个 AI 合写不会比一万个人合写更好。</span></li>
+          </ul>
+
+          <h4 class="blk">不设总指挥，反而配合得更好</h4>
+          <ul class="points">
+            <li><b>过去的做法：一个总指挥 AI，下面挂一串干活的。</b><span class="eg">总指挥拆任务、分下去，下面的 AI 各算各的再交回来。毛病有两个：两个 AI 分到的活明明相关，却没法互相问；对指令有疑问时，要么停下来反复找总指挥确认，要么硬着头皮按自己的理解做，最后做偏。为了补这些洞不断加特殊规则，系统就越来越复杂、越来越脆。</span></li>
+            <li><b>这次只给一个工具：想找谁就给谁发消息。</b><span class="eg">收到的消息会直接插进对方正在看的上下文里。结果它们练出了很像人的配合方式：一个 AI 报出了答案，另一个马上回复"我算的不一样，你第 4 步的依据是什么"，两边来回辩，前一个发现自己漏考虑了一个边界条件，就向全组宣布改正结论、认可对方的证明。看起来就像一群数学家在工作群里讨论。它们还分得清对面是 AI 还是人，换不同的说话节奏。</span></li>
+            <li><b>早期其实很难练成。</b><span class="eg">擅长推理的模型习惯一个人埋头往下想，别人的消息插进来会打断思路，所以早期版本经常各干各的。底层模型变强、更懂自然语言以后，这种配合才在训练中迅速成型。</span></li>
+          </ul>
+
+          <h4 class="blk">他为什么觉得接下来三个月都看不清</h4>
+          <ul class="points">
+            <li><b>数学进步比所有人预期都快。</b><span class="eg">2024 年 AI 还在做小学应用题，2025 年拿下国际数学奥林匹克金牌。照"每年难十倍"推算，千禧年难题本该等到 2028 到 2030 年，结果今年就做到了。成果公布前两周，还有别家实验室的研究员跟 Brown 赌 1000 美元，说 2027 年前不可能。</span></li>
+            <li><b>AI 偏科，但偏得正好适合研发 AI 自己。</b><span class="eg">陶哲轩等数学家指出，现在的 AI 能硬啃定义清楚的难题，却不擅长提出新问题、开创新理论。Brown 认为这在 AI 研发里不是短板，因为那里的目标都能量化，比如"训练误差再降多少"，正好对上 AI 擅长的那种长链推导。真正卡脖子的是实验：训练新模型要等显卡一轮轮跑完，所以不会几天内突然"爆炸"。但他透露，OpenAI 顶尖研究员每天在内部编程工具 Codex 上花 7000 到 8000 美元，研发速度已经快了 3 倍以上。</span></li>
+            <li><b>实验室内外的差距在拉大。</b><span class="eg">内部还没公开的模型比大家能用到的强出一代。为了安全本该放慢发布，可越慢，实验室和外界的能力差距就越大。Brown 最后说，过去一线研究员还敢预测 12 个月后的走向，现在连 OpenAI 核心团队也没人敢说三个月后会怎样。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>没有对照数据</b>：Brown 承认，一万个 AI 比一千个快多少、单个 AI 要跑几个月才能独立解出同一道题，都没有数据。这次是周末跑出来的一个孤例，规模太大，做不了常规的对照实验。</li>
+              <li><b>算力还在涨</b>：按访谈的说法，到明年年底，OpenAI 一家的算力就够成千上万个 AI 每天各自跑一次 GPT-3 规模的完整训练实验。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.45 ==================== -->
-  <section class="issue active" id="v45">
+  <section class="issue" id="v45">
     <div class="issue-head">
       <div class="issue-vol">VOL.45 / 2026·09·20</div>
       <h2 class="issue-theme">各干各的长处</h2>
