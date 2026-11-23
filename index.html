@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v49" data-vol="vol.49"><span class="vv">VOL.49 <span class="new">最新</span></span><span class="dd">2026·09·28 · 没有职级的公司</span></button>
+    <button class="tab active" data-issue="v50" data-vol="vol.50"><span class="vv">VOL.50 <span class="new">最新</span></span><span class="dd">2026·09·29 · 一个镜头做一天</span></button>
+    <button class="tab" data-issue="v49" data-vol="vol.49"><span class="vv">VOL.49</span><span class="dd">2026·09·28 · 没有职级的公司</span></button>
     <button class="tab" data-issue="v48" data-vol="vol.48"><span class="vv">VOL.48</span><span class="dd">2026·09·24 · 放手多少</span></button>
     <button class="tab" data-issue="v47" data-vol="vol.47"><span class="vv">VOL.47</span><span class="dd">2026·09·22 · 先把话说清楚</span></button>
     <button class="tab" data-issue="v46" data-vol="vol.46"><span class="vv">VOL.46</span><span class="dd">2026·09·21 · 一万个 AI 自己组队</span></button>
@@ -316,8 +317,66 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.50 ==================== -->
+  <section class="issue active" id="v50">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>Manus 2.0 发布（十字路口Crossing）</b>｜Manus 是一款能自己拆步骤、上网、写代码，把任务替你做完的 AI 助手，去年底宣布加入 Meta，今年 4 月这笔收购被监管部门叫停，9 月恢复独立运营。2.0 版新增了按事件自动触发的任务、可单独购买的云电脑、能手动改时间线再交给 AI 接着剪的视频编辑，还有一个能同时调用视频、图像和编程模型做游戏的环境，做完可以发布成网页，发链接给朋友玩。同时推出生活助理 Cue，每个助理有自己的邮箱、电话号码和钱包。原文还按时间列了它一年半里的 63 次重大更新。 <a href="https://mp.weixin.qq.com/s/KbdQibYa-hMDh5ENHWeqwQ">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.50 / 2026·09·29</div>
+      <h2 class="issue-theme">一个镜头做一天</h2>
+      <p class="issue-lead">一部 9.1 分的 AI 古装剧，难的不是把画面生成出来，而是让上一个镜头里发生的事，到下一个镜头还算数。</p>
+      <div class="issue-toc">
+        <a href="#v50-1"><span class="ix">01</span><span>AI 古装剧《行镖》怎么做出来的</span><span class="cat">干货·案例</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v50-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>AI 古装剧《行镖》怎么做出来的</h3></div>
+      <div class="meta"><span class="tag">干货·案例</span><span class="sep">·</span>AI街溜子（作者 CY 听 WaytoAGI 社区分享的笔记，导演老神、大地超人讲自家做法）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/eL69VAtqCvYt4qbGDJE31w">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>《行镖》是腾讯视频上一部画面主要由 AI 生成的古装武侠剧，评分 9.1，十位左右"AI 导演"做了八个月。两位导演在分享里拆了自己的做法。视频模型一次只生成十几秒，也不记得上一段发生过什么，所以人物受了什么伤、场景朝哪边、道具多大，都得事先用图和表格钉住。写给模型的提示词则像动作导演讲戏：<b>身体怎么发力、环境怎么回应、镜头怎么拍，分开写清楚</b>。做游戏过场或宣传片的人，可以直接拿来对照。</div>
+
+        <div class="detail">
+          <h4 class="blk">先把不能变的东西钉住</h4>
+          <ul class="points">
+            <li><b>一张表管住十个导演。</b><span class="eg">他们用一套叫"制作台本"的表格，每集一张，把剧本拆成一个个镜头，集号、场次、剧本原文、镜头说明、示意图逐行对上。人物、场景、道具也登记在表里，他们借动画行业的说法叫"资产"。人物受伤、施法这些状态都单独出图固定下来。十个人各做各的镜头，接起来细节、光影和色调还能统一。</span></li>
+            <li><b>一张参考图只交代一件事。</b><span class="eg">他们用的视频模型 Seedance（字节的视频生成模型）当时最多只能放九张参考图，人一多，就得把几张拼成一张。他们还发现，全身图里的脸太小，模型会照着这张小脸画，不管另给的大幅面部特写。于是把全身图的头去掉，让它只管衣服和身材。道具则和人手画在同一张图里，否则一把锤子在不同镜头里会忽大忽小。</span></li>
+            <li><b>站位说不清，就换一种交代方式。</b><span class="eg">一个广场群戏镜头，几拨人的位置和朝向总是不对。先手绘关系图，不行；再让 Codex（OpenAI 的编程 AI）操作三维软件 Blender 搭出站位，截图交给模型，还不够；最后画了一张机位规划图，标出人群、六个机位、运镜路线，以及朝东南西北各该看到什么背景，才稳定下来。这一个镜头做了一天。</span></li>
+          </ul>
+
+          <h4 class="blk">提示词像讲戏</h4>
+          <ul class="points">
+            <li><b>先说每张图是谁，再说整段要干什么。</b><span class="eg">老神的提示词有固定顺序：先说明素材，哪张是哪个角色、哪张是场景、哪张管站位；再用一句话概括整段，比如"一个约 27 秒的古装压制场面"；然后逐个镜头写起止时间、动作、空间方向和容易出错的地方；最后补节奏、光线、声音和"不要出现字幕"这类全局要求。这些不用他逐字手写：他先用几百字大白话讲清意图，再交给自己写的 Skill（一套存好、AI 能反复调用的固定指令），展开成机位和动作描述。</span></li>
+            <li><b>一斧子拆成身体、环境、镜头三层。</b><span class="eg">大地负责打戏。写石甲兵挥斧，他先写身体蓄力：双手攥紧、手肘抬起、上身后仰；力量传到脚下，地面裂开，小碎石被震离地面十厘米左右；镜头穿过几层烟雾冲向他；斧子落下时斧柄被力量压得微微变形；冲击传过来，镜头才跟着震。他的经验是，光写"镜头震一下"没有力道，给震动一个原因，它才和动作接得上。动作完成后再留一两秒，给剪辑留下切走的余地。</span></li>
+            <li><b>用具体的东西代替形容词。</b><span class="eg">"超快速"不如"闪电般""炮弹般"，"空间裂开"不如"像厚重的幕布被刀锋切开"。想要显得远、显得多，他甚至故意把数字写夸张，想要二十米的距离感就写八十到一百米。他也说这是对着当时的模型试出来的，换个版本未必还管用。</span></li>
+          </ul>
+
+          <h4 class="blk">失败的过程也要留下</h4>
+          <ul class="points">
+            <li><b>返工记录比成功的提示词更值钱。</b><span class="eg">每次失败、怎么改的、和 AI 怎么对话，他们都整理进团队的 Wiki，有的记录有几万字。只抄最后成功的那段提示词，换个场景可能就失效了；有了前面的记录，后来的人才知道它在什么条件下管用。做到最后一集时，第一集又被整个重做了一遍。</span></li>
+          </ul>
+
+          <blockquote>法无定法。（老神）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>先实拍动作再转画面</b>：一部分打戏先请武行在横店拍好动作，再转成 AI 画面，男女对打也可以先由两个男演员拍动作参考。老神估计这类内容约占两成，他自己也说这个数不严谨。</li>
+              <li><b>让场景不那么"AI"</b>：先让 AI 逐项描述原图的结构、材质和光线，再据此重新生成，然后用 Photoshop 修细节，最后整体压低饱和度和对比度，让远处更朦胧。每处都又艳又锐，连着看会刺眼，也显得假。</li>
+              <li><b>找色彩参考</b>：大地用电影截图网站 ShowDeck 找氛围相近的画面，把色卡和虚化信息交给 AI 提炼成光影描述，放在提示词靠后的位置，免得抢了动作的注意力。</li>
+              <li><b>能不能拿到他们的 Skill</b>：知识产权在平台一方，暂时没法公开。老神建议去 GitHub、小红书、B 站找分镜类的 Skill，按自己的结果改。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.49 ==================== -->
-  <section class="issue active" id="v49">
+  <section class="issue" id="v49">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>DeepSeek Harness 桌面版抢先流出（贾克斯的平行世界）</b>｜还没官宣的测试版已能安装，第一次打开先问你用来办公科研还是写代码。作者让它读取本机、做一个模拟自己 macOS 桌面的网页，用最便宜的 V4.1 Flash 做得几乎一模一样，代价是硬盘被塞满；同样的任务交给 Codex 加 GPT-6 Luna，反而像凭印象另画了一个。只测了一个任务，作者自己也说说明不了模型强弱。 <a href="https://mp.weixin.qq.com/s/Opwf0uYwYsw8cFbk35O10Q">原文</a></p>
