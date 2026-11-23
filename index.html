@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v42" data-vol="vol.42"><span class="vv">VOL.42 <span class="new">最新</span></span><span class="dd">2026·09·16 · 还在第二级</span></button>
+    <button class="tab active" data-issue="v43" data-vol="vol.43"><span class="vv">VOL.43 <span class="new">最新</span></span><span class="dd">2026·09·17 · 自己跑一个</span></button>
+    <button class="tab" data-issue="v42" data-vol="vol.42"><span class="vv">VOL.42</span><span class="dd">2026·09·16 · 还在第二级</span></button>
     <button class="tab" data-issue="v41" data-vol="vol.41"><span class="vv">VOL.41</span><span class="dd">2026·09·15 · 学霸少打草稿</span></button>
     <button class="tab" data-issue="v40" data-vol="vol.40"><span class="vv">VOL.40</span><span class="dd">2026·09·14 · 利润让位</span></button>
     <button class="tab" data-issue="v39" data-vol="vol.39"><span class="vv">VOL.39</span><span class="dd">2026·09·11 · 拼图凑齐了</span></button>
@@ -309,8 +310,51 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.43 ==================== -->
+  <section class="issue active" id="v43">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.43 / 2026·09·17</div>
+      <h2 class="issue-theme">自己跑一个</h2>
+      <p class="issue-lead">补 9 月 17 号。前几期聊的大多是 GPT-6、Claude 这类"只能在官网用"的模型。这期换个方向：开源模型——模型文件公开、能下载到自己电脑上跑的那一类。一个技术社区联合阿里的模型社区「魔搭」开源了一份 40 万字的实战指南，从"模型去哪下载"一路讲到"用自己的图训一个画风"，每一节都能跟着点着运行。想自己动手试一试的，这是一张现成的路线图。</p>
+      <div class="issue-toc">
+        <a href="#v43-1"><span class="ix">01</span><span>40 万字「魔搭紫皮书」：自己动手跑开源模型的一张路线图</span><span class="cat">干货·指南</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v43-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>40 万字「魔搭紫皮书」：自己动手跑开源模型的一张路线图</h3></div>
+      <div class="meta"><span class="tag">干货·指南</span><span class="sep">·</span>刘聪NLP（作者所在的 AgentWork 社区自家出品，带推荐立场）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/SobOfDzD5LuMTyl-k2Ytkg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>平时用 ChatGPT、豆包，像是去别人店里吃饭——菜怎么做、数据放哪，你都管不着。<b>开源模型</b>则是把"菜谱"公开的模型（比如通义千问 Qwen、DeepSeek），可以下载到自己的电脑或服务器上跑：数据不出门，还能按需要改。只是"自己跑模型"一直被当成工程师的专业活。这篇是一份新开源指南的发布介绍：AgentWork 社区联合阿里的模型社区「魔搭」（ModelScope，可以理解成"模型界的应用商店"，还送免费显卡算力）做了一份 40 万字、8 篇 34 章的<b>开源模型实战指南</b>，<b>从"模型去哪找、怎么下载"讲到"在笔记本电脑上跑起来、用自己的数据再训练一下、做成知识问答或画图应用"，每一部分都配了能一步步点着运行的网页笔记本</b>。对新手的用处是：想自己动手试开源模型时，不用到处拼资料，照着顺序走就行。</div>
+
+        <div class="detail">
+          <h4 class="blk">这份指南讲了什么、按什么顺序</h4>
+          <ul class="points">
+            <li><b>作者为什么觉得"自己跑模型"会变成大众技能。</b><span class="eg">他去了飞书和豆包办的一场展会，发现几乎每个展位上的 <b>Agent</b>（能自己连续干活的 AI 助手）都是业务人员自己搭的，而且已经用在真实工作里。所以他判断：本地跑模型会像现在的 vibe coding（不懂编程、靠跟 AI 聊天把程序写出来）一样普及。这是作者个人的判断，可以当参考，不必当定论。</span></li>
+            <li><b>前半本：先把模型"拿到手、跑起来"。</b><span class="eg">顺序是：去哪找模型、怎么下载 → 把你的业务需求翻译成模型能做的任务（比如"把玩家反馈分成 bug、建议、吐槽三类"，就是一个分类任务）→ 用魔搭的评测工具 EvalScope 给几个候选模型出同一份卷子，挑出最合适的 → 用 <b>Ollama</b>（一个在笔记本上一键运行模型的小软件）在自己电脑上跑，或者在云端网页里跑。这一部分还讲了要什么配置的电脑，以及<b>量化</b>：把模型压缩一下，像把无损音乐转成 MP3，体积小很多、效果只差一点，普通电脑也能跑得动。</span></li>
+            <li><b>中段：用自己的数据再训练一下（微调）。</b><span class="eg"><b>微调</b>就是拿一个现成模型，喂你自己的数据再训练一轮，让它更懂你的业务。指南的步骤是：整理训练数据 → 用魔搭的工具 ms-swift 做"轻量微调"（只改模型的一小部分，省显卡也省时间）→ 了解"偏好对齐"（教模型分辨哪种回答更合人意）→ 对比微调前后的效果，确认真的变好了。</span></li>
+            <li><b>后半本：现成的应用案例，加上画图和 Agent。</b><span class="eg">案例有企业知识问答（把内部文档交给模型，让它回答员工的提问）、语音助手、客服质检（让 AI 抽查客服对话有没有说错话）、AI 健身教练。画图方向讲了图像生成、商品营销图的生成和修改，以及用训练工具 DiffSynth 训练图像 <b>LoRA</b>：LoRA 是给画图模型加的"小外挂"，喂它一批同一风格的图，它就能学会这种画风或某个角色的长相。Agent 部分从"Agent 由哪些部分组成、怎么一步步干活"讲起，再介绍 MCP（让 AI 接上外部工具的统一插口）、Skill（给 AI 装的"技能说明书"），以及 Claude Code、DeepSeek Harness 这类工具（能在你电脑上自己读文件、跑命令、连续干活的 AI 助手）怎么入门。对游戏策划来说，"内部文档问答"和"训一个固定画风的 LoRA"可能最用得上。</span></li>
+            <li><b>没显卡、怕看不懂，也有办法。</b><span class="eg">魔搭平台上有免费的 GPU（显卡算力，跑模型主要靠它）可以用，没有好电脑的人也能做实验；每一部分都提供 Notebook（网页里的"可运行笔记"，代码和说明写在一起，点一下运行一段），照着一步步点就行。指南在魔搭上还有网页版，可以直接留言提问题。</span></li>
+          </ul>
+
+          <blockquote>对于刚入门的朋友，哪怕你先跑通一个最简单的例子，我们这一个多月的努力，就有了很具体的意义。</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>为什么做成网站，不出书</b>：作者早年出过一本大模型实战的书，但 AI 变化太快，书一印出来就落后了；做成开源网站，有新内容随时能更新，也方便更多人一起来写自己擅长的部分。</li>
+              <li><b>开源地址</b>：github.com/modelscope/ms-cookbook。同一个社区之前还出过 WorkBuddy 蓝皮书、豆包工作蓝皮书。</li>
+              <li><b>怎么看这篇</b>：原文是作者团队给自家作品写的推荐，主要介绍目录，没有展示具体章节的质量。值不值得用，建议挑一节自己跑一遍再判断。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.31 ==================== -->
-  <section class="issue active" id="v42">
+  <section class="issue" id="v42">
     <div class="issue-head">
       <div class="issue-vol">VOL.42 / 2026·09·16</div>
       <h2 class="issue-theme">还在第二级</h2>
