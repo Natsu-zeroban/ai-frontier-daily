@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v74" data-vol="vol.74"><span class="vv">VOL.74 <span class="new">最新</span></span><span class="dd">2026·11·10 · 不太听话的那张</span></button>
+    <button class="tab active" data-issue="v75" data-vol="vol.75"><span class="vv">VOL.75 <span class="new">最新</span></span><span class="dd">2026·11·11 · 能跑不等于懂了</span></button>
+    <button class="tab" data-issue="v74" data-vol="vol.74"><span class="vv">VOL.74</span><span class="dd">2026·11·10 · 不太听话的那张</span></button>
     <button class="tab" data-issue="v73" data-vol="vol.73"><span class="vv">VOL.73</span><span class="dd">2026·11·09 · 尴尬的第一版</span></button>
     <button class="tab" data-issue="v72" data-vol="vol.72"><span class="vv">VOL.72</span><span class="dd">2026·11·06 · 错在便宜的地方</span></button>
     <button class="tab" data-issue="v71" data-vol="vol.71"><span class="vv">VOL.71</span><span class="dd">2026·11·05 · 团队没快</span></button>
@@ -341,8 +342,56 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.75 ==================== -->
+  <section class="issue active" id="v75">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>GPT-6.2 Sol 的审美追上来了（卡尔的AI沃茨，个人实测）</b>｜GPT-6.2 Sol 是 OpenAI 还在灰度测试的新模型，作者在编程助手 Codex 里抽到后，拿它和公认审美最好的 Claude Opus 5.5（Anthropic 的旗舰模型）比了代码动画、网页 3D、界面设计和自动剪辑。他的结论是：提示词写得详细，两者效果不相上下；代码动画还差一点，Opus 5.5 做的 8 秒里每一秒都在动，Sol 要两三秒画面才动起来；剪辑反而更好，什么时候人物缩成小窗、素材放哪个位置，不装任何 Skill 也安排得当，前后两句话是排比时还会让画面保持一致，方便观众看懂。 <a href="https://mp.weixin.qq.com/s/pZlYI3miB-x-9R-MmvwFSQ">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.75 / 2026·11·11</div>
+      <h2 class="issue-theme">能跑不等于懂了</h2>
+      <p class="issue-lead">斯坦福一门编程课发现，去年的作业今年交给 AI 一句话就做完了，于是整门课改成考"你能不能对改动负责"。</p>
+      <div class="issue-toc">
+        <a href="#v75-1"><span class="ix">01</span><span>作业 AI 一句话就能做完，斯坦福改考什么</span><span class="cat">观点·访谈</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v75-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>作业 AI 一句话就能做完，斯坦福改考什么</h3></div>
+      <div class="meta"><span class="tag op">观点·访谈</span><span class="sep">·</span>meng shao（X 长文，整理 Latent Space 播客对 Mihail Eric 的访谈，附读后感）<span class="sep">·</span><a href="https://x.com/shao__meng/status/2119583316416610806">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Mihail Eric 在斯坦福教一门课，教已经会编程的学生怎么带着 AI 做真实的软件开发，同时在 Monaco 公司负责 AI。他发现课上的练习很多已经能被编程 AI 一次做完，学生交出能跑的代码，说明不了他真懂了。他的判断是：<b>写代码变容易了，但弄清问题、安排工作、检查结果、为结果负责，并没有跟着变容易</b>。课程和团队培养都要围着后面这几件事重新设计。</div>
+
+        <div class="detail">
+          <h4 class="blk">课怎么改</h4>
+          <ul class="points">
+            <li><b>作业改成给真实项目提改动。</b><span class="eg">学生要给开源项目提交修改，由项目的真实维护者来审。AI 能很快写出补丁，但答不了这些问题：维护者需要这个改动吗？现有代码为什么这样设计？改了会影响哪些别的功能？审查意见来了怎么改？考的东西从"能不能生成代码"变成"能不能提一个合理的改动并为它负责"。</span></li>
+            <li><b>先亲手搭一个最简单的 AI 助手。</b><span class="eg">课程从让学生自己写一个极简的编程 AI 开始，看清它怎么调用工具、读取结果、再决定下一步。懂了这个循环，出问题时才分得清是模型不行、给的资料不对、工具有毛病，还是任务本身没说清，而不是一出错就换模型、加提示词。今天要靠额外提示补上的能力，明天可能模型自己就会了，所以课上练的是做实验、更新判断，不是背一份操作清单。</span></li>
+          </ul>
+
+          <h4 class="blk">在真实团队里学到的</h4>
+          <ul class="points">
+            <li><b>AI 看得到现在，看不到"为什么"。</b><span class="eg">AI 能读当前的代码，但半年前团队为什么否决过类似的改动，它去哪儿找？代码只记录了现在怎么做，不记录当时比较过哪些方案、答应过客户什么、担心过什么风险。少了这些，AI 很可能再提一遍早被否掉的方案。所以重要的决定要明确记下来，还要告诉 AI 哪些资料说了算、哪些约束它不能自己改。</span></li>
+            <li><b>新的瓶颈是审查和理解。</b><span class="eg">访谈引用的研究发现，AI 用得多的团队，合并的代码改动多了，审查时间也明显变长：写得快了，后面的环节就堵住了。一个自测办法：让 AI 解释一遍它的改动，再反过来问自己问题，哪些问题你不重新打开代码就答不上，哪里就是你还没懂的地方。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>先买来用，再决定自己做什么</b>：Monaco 的代码审查直接用现成的 AI 编程产品 Devin，觉得有用就一直用；AI 干活的工作环境要跑产品、复现故障、测补丁，和公司自己的系统绑得太紧，就自己搭了一套。早先他们在本机开多个 AI 并行，端口冲突、磁盘占满、通知乱成一团，靠"多开几个 AI"解决不了。</li>
+              <li><b>同一个机器人，交付给不同的人</b>：他们在工作聊天软件 Slack 里做了个机器人，工程师用它查故障、提改动，销售用它了解产品。给工程师的是能检查的修改，给销售的是讲清楚的解释，把一堆调试日志丢给销售不算完成任务。</li>
+              <li><b>读后感</b>：作者认为这不等于基础编程可以不学了。以前工程师靠大量手写代码慢慢学会判断，现在写代码这段被压缩了，判断力不会自动长出来，得有意识地早点练。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.74 ==================== -->
-  <section class="issue active" id="v74">
+  <section class="issue" id="v74">
     <div class="issue-head">
       <div class="issue-vol">VOL.74 / 2026·11·10</div>
       <h2 class="issue-theme">不太听话的那张</h2>
