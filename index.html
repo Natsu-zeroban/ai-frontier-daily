@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v63" data-vol="vol.63"><span class="vv">VOL.63 <span class="new">最新</span></span><span class="dd">2026·10·26 · 说完整</span></button>
+    <button class="tab active" data-issue="v64" data-vol="vol.64"><span class="vv">VOL.64 <span class="new">最新</span></span><span class="dd">2026·10·27 · 人只管拍板</span></button>
+    <button class="tab" data-issue="v63" data-vol="vol.63"><span class="vv">VOL.63</span><span class="dd">2026·10·26 · 说完整</span></button>
     <button class="tab" data-issue="v62" data-vol="vol.62"><span class="vv">VOL.62</span><span class="dd">2026·10·23 · 记得在干什么</span></button>
     <button class="tab" data-issue="v61" data-vol="vol.61"><span class="vv">VOL.61</span><span class="dd">2026·10·22 · 上岗培训</span></button>
     <button class="tab" data-issue="v60" data-vol="vol.60"><span class="vv">VOL.60</span><span class="dd">2026·10·21 · 玩过才算</span></button>
@@ -330,8 +331,62 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.64 ==================== -->
+  <section class="issue active" id="v64">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.64 / 2026·10·27</div>
+      <h2 class="issue-theme">人只管拍板</h2>
+      <p class="issue-lead">一家做 AI 助手的公司，用自己的产品把研发、产品、市场三个团队的干活方式改了一遍。这是公司里的人写下的记录。</p>
+      <div class="issue-toc">
+        <a href="#v64-1"><span class="ix">01</span><span>Manus 用自己的产品改造了自己</span><span class="cat">观点·实践</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v64-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Manus 用自己的产品改造了自己</h3></div>
+      <div class="meta"><span class="tag op">观点·实践</span><span class="sep">·</span>潜云思绪（Manus 团队成员自述；讲自家实践，带产品立场）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/I_hNNAf7LFBf5nJ0rEJHig">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Manus 是一款替人把任务做完的 AI 助手。作者记录了团队这几个月的变化：工程师把需求原文直接交给 AI，一个人同时推进十几、二十个需求；一半的产品经理能自己把功能做到上线；市场部有了会主动提醒进度的"数字同事"。9 月公司人均 AI 开销超过 1 万美元。作者的体会是，<b>执行大多交给 AI 以后，人的活集中到了定问题、判质量、拍板和担责上</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">研发：一个人写完所有端</h4>
+          <ul class="points">
+            <li><b>给 AI 一本全公司的说明书。</b><span class="eg">以前一个需求要前端、后端分头做，再反复对接口，最大的损耗是人和人对不齐。他们建了一个统一入口 Mono：不合并代码，而是配一本给 AI 看的说明书，写清每个代码仓库做什么、彼此怎么配合、按什么规范干活。之后一步步给 AI 补能力：完整产品能在本地电脑跑起来，验证一次从等 5 到 10 分钟变成几秒；有权限地读线上日志查 bug；走发布流程，但审批仍在人手里；用测试账号在浏览器和手机模拟器里把真实流程走一遍。</span></li>
+            <li><b>一个人省事，全公司都快了。</b><span class="eg">运维同事老被找去帮忙发版，嫌烦，就把发版流程写进了 Mono，从此谁都会，也能交给 AI 做。现在移动端只有 7 个人，负责 2 个产品的 4 个 App，进度和网页版基本同步。</span></li>
+          </ul>
+
+          <h4 class="blk">产品：用视频写需求</h4>
+          <ul class="points">
+            <li><b>从选模型做到上线。</b><span class="eg">一位产品经理做语音转文字功能：先让 Manus 测了十多个模型，挑一个接入；再按现有的设计规范做 Demo，让 Manus 把用户可能遇到的场景逐一出图，她一张张检查。最后用 Manus 把 Demo 做成视频，网页端和桌面端的界面都是她写的。全程人只在三处把关：选模型，评审 Demo，有发布权限的研发审代码。</span></li>
+            <li><b>一段视频代替需求文档。</b><span class="eg">几分钟的视频交代清楚：用户在什么场景下用，界面怎么设计，点了会怎样，各种状态和特殊情况怎么处理。设计、研发、测试看同一段演示，更容易对齐"最后要做成什么样"，不用挨个解释。产品经理敢自己改代码，也因为有规矩兜底：涉及模型调用和成本的改动，要先找负责的同事确认；所有代码都要过一个用最好的模型做的审核机器人。</span></li>
+          </ul>
+
+          <h4 class="blk">市场：会主动提醒的数字同事</h4>
+          <ul class="points">
+            <li><b>从一个小麻烦开始。</b><span class="eg">合作内容发出去了，团队常常最后才知道。他们先让 AI 写脚本自动发现发布时间，接着看数据、复盘历史合作，再把签合同、内部审批这些环节串起来，由 AI 更新进度、找人推进下一步。这些做成一个内部网站：对人是看板和日历，对 AI 是一组能调用的工具。</span></li>
+            <li><b>像同事一样干活。</b><span class="eg">Slack 里消息很多，它不会每条都马上回，先判断和自己有没有关系，再分成"要打断手上的事"和"做完再处理"两类。有一次同事讨论两个项目，记不清其中一个到哪了，没人 @ 它，它主动提醒："B 还在测试阶段，要不要等 A 的结果出来再看 B？"网站不好用时，它还能直接提需求，自动派 Manus 去改网站。</span></li>
+          </ul>
+
+          <h4 class="blk">人均 1 万美元，值不值</h4>
+          <ul class="points">
+            <li><b>作者的三点回答。</b><span class="eg">买的是时间和注意力，不是人力；用最好的模型，是摸清 AI 能做到哪的办法，比如那个代码审核机器人上线后，半年里没听说因为合入问题代码出线上故障；成本会随着产品改进降下来，两年后同样的工作方式可能每月只要几百美元。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>几个小做法</b>：同一项目的成员能看到彼此和 AI 的对话，也能申请进去一起推进；一位同事大家在 Slack 里讨论得热火朝天时可以不打开它，只问 AI"现在有什么需要我决定"；作者把每天二十多个待办交给一个 Manus 项目，它能做的直接做，拿不准的来问背景，再把调研好的方案交给对应的产品经理。</li>
+              <li><b>为什么推得动</b>：作者归结为三点：公司本来就以探索 AI 的边界为追求，团队受不了低效，组织足够扁平。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.63 ==================== -->
-  <section class="issue active" id="v63">
+  <section class="issue" id="v63">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>Lemo-Opuscar 能改出你自己的风格了（Lemomo，X）</b>｜Lemo-Opuscar 是一套让 Claude 用代码做视频的开源风格库，下面那篇教程里的样片大多出自它。这次新增 8 种用真实影像、照片、文件剪出来的风格，比如字幕新闻、体育战术板、电视新闻包装，总数到了 59 种。更大的变化是能把库里任一风格改成自己的，或者从空白做起：Claude 一次问一个问题，先出一张和原风格并排对比的风格图，再做一支 15 到 30 秒的样片，你满意了才存成"我的风格"。 <a href="https://x.com/lemomo_ai/status/2113195080517562646">原文</a></p>
