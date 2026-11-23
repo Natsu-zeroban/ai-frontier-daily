@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v68" data-vol="vol.68"><span class="vv">VOL.68 <span class="new">最新</span></span><span class="dd">2026·11·02 · 模型之外</span></button>
+    <button class="tab active" data-issue="v69" data-vol="vol.69"><span class="vv">VOL.69 <span class="new">最新</span></span><span class="dd">2026·11·03 · 进了引擎</span></button>
+    <button class="tab" data-issue="v68" data-vol="vol.68"><span class="vv">VOL.68</span><span class="dd">2026·11·02 · 模型之外</span></button>
     <button class="tab" data-issue="v67" data-vol="vol.67"><span class="vv">VOL.67</span><span class="dd">2026·10·30 · 答完再查一遍</span></button>
     <button class="tab" data-issue="v66" data-vol="vol.66"><span class="vv">VOL.66</span><span class="dd">2026·10·29 · 会回应的世界</span></button>
     <button class="tab" data-issue="v65" data-vol="vol.65"><span class="vv">VOL.65</span><span class="dd">2026·10·28 · 谁来读代码</span></button>
@@ -335,8 +336,57 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.69 ==================== -->
+  <section class="issue active" id="v69">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.69 / 2026·11·03</div>
+      <h2 class="issue-theme">进了引擎</h2>
+      <p class="issue-lead">Kimi 推出了一套直接在游戏引擎和建模软件里干活的方案，从做原型、查美术资产，一直覆盖到上线后的玩家反馈和内容审核。</p>
+      <div class="issue-toc">
+        <a href="#v69-1"><span class="ix">01</span><span>Kimi 开进了 Unity、虚幻和 Blender</span><span class="cat">干货·解读</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v69-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>Kimi 开进了 Unity、虚幻和 Blender</h3></div>
+      <div class="meta"><span class="tag">干货·解读</span><span class="sep">·</span>赛博禅心（转述月之暗面的官方发布；演示和客户评价均来自厂商）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/zEda9S4XIDm0KYHzJxHeTg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>做 Kimi 的月之暗面发布了一套游戏开发方案：它的 K3.1 Pro 模型通过插件直接在 Unity、虚幻、Blender、Godot 这些引擎和建模软件里干活，选物体、改参数、点运行，改动存进工程文件，团队打开就能接着改。官方说一个可试玩的原型能压到一两天，<b>策划、开发、美术围着一个能玩的版本边玩边改</b>。网易游戏、三七互娱、点点互动、FunPlus、凉屋游戏都在拿它做开发和测试。</div>
+
+        <div class="detail">
+          <h4 class="blk">做原型</h4>
+          <ul class="points">
+            <li><b>每一轮都是能玩的版本。</b><span class="eg">官方举的例子：想验证"三消里加入可以自由组合的规则卡"好不好玩，Kimi 把活拆成交互、数值、界面、视听几块，先做出能玩的第一版。策划说规则卡组合再丰富些，开发说得分结算要算准，美术说规则卡界面要更清楚，它一轮轮改，直到定稿。</span></li>
+            <li><b>交之前自己先玩一遍。</b><span class="eg">它会把游戏跑起来，看画面和试玩录像，对照要求找问题，改完再跑。演示里团队给了参考图和视频，它用 Godot 做出一个 2.5D 的雨夜动作 Demo，能挥剑、闪避、格挡。</span></li>
+            <li><b>两个 AI 接力 20 小时。</b><span class="eg">Kimi 和 Unity 中国的开发助手 Codely 搭档：Kimi 看录屏定方案，比如"缺口太宽，平台 A 往右延长"，Codely 在引擎里改工程、跑验证。两边无人干预连续干了 20 小时，把一个网页 Demo 复刻成了能接着开发的 Unity 工程。</span></li>
+          </ul>
+
+          <h4 class="blk">美术资产和老项目</h4>
+          <ul class="points">
+            <li><b>从多个角度查模型。</b><span class="eg">在 Blender 里，它看正面、侧面、俯视的预览，找出比例、穿插、材质的问题，比如柱子穿出了屋顶，再写成脚本改掉。3D 生成接的是 Tripo（用文字或参考图生成带贴图 3D 模型的工具），Tripo 的市场负责人说，过去一个角色原型的 3D 资产要做好几天，现在策划当天就能拿到能迭代的版本。</span></li>
+            <li><b>接手已有工程。</b><span class="eg">先理清代码结构、场景层级和模块之间的依赖，再动手改，交付时附上改了哪些代码和验证记录。虚幻引擎里一个古风武侠的"处决"连招，角色要拔剑、攻击、收剑再触发剧情，出了动作错位、倒地异常、剧情不触发的问题，它顺着动作绑定、物理效果、剧情逻辑之间的调用关系，找到出错的那一块。</span></li>
+          </ul>
+
+          <h4 class="blk">上线之后</h4>
+          <ul class="points">
+            <li><b>它先起草、初筛，人来确认。</b><span class="eg">投放素材：给一条参考视频，它还原核心玩法做出可玩版本，再录实机画面，试不同的开场和卖点组合。玩家反馈：论坛、社群、评论区的意见按故障、平衡性、付费体验、内容需求分类，保留原帖出处和游戏版本号，再起草答复。本地化：按术语表、角色设定和字数限制出初稿，标出需要人判断的文化表达。内容审核：玩家发的地图、聊天和图片先过一遍，谐音、缩写这类绕审核的写法也认得出，演示里审核员只需复核约 5%。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>入口</b>：研发用 Kimi Code，设计、美术、发行、运营用桌面端的 Kimi Work。Unity、Godot 走 Kimi Code，Maya、Rhino、3ds Max、AutoCAD 走 Kimi Work，Blender、虚幻、Tripo 两边都支持。</li>
+              <li><b>游戏内助手</b>：通过 API 接进游戏或平台，玩家可以用大白话问"有没有能和朋友一起玩的建造游戏"。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.68 ==================== -->
-  <section class="issue active" id="v68">
+  <section class="issue" id="v68">
     <div class="issue-head">
       <div class="issue-vol">VOL.68 / 2026·11·02</div>
       <h2 class="issue-theme">模型之外</h2>
