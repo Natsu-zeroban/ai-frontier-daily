@@ -128,10 +128,15 @@ def index_dirty():
 
 
 def notify(text):
+    """发到自己的飞书私聊。优先用应用机器人发(不需要额外的用户授权)，不行再用本人身份发。"""
     sys.path.insert(0, HERE)
     from feishu_inbox import lark  # 复用同一套 lark-cli 调用方式
     me = lark(["auth", "status", "--json"]).get("identities", {}).get("user", {}).get("openId")
-    if me:
+    if not me:
+        return
+    try:
+        lark(["im", "+messages-send", "--as", "bot", "--user-id", me, "--text", text])
+    except SystemExit:
         lark(["im", "+messages-send", "--as", "user", "--user-id", me, "--text", text])
 
 
