@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v51" data-vol="vol.51"><span class="vv">VOL.51 <span class="new">最新</span></span><span class="dd">2026·09·30 · 贵的留给判断</span></button>
+    <button class="tab active" data-issue="v52" data-vol="vol.52"><span class="vv">VOL.52 <span class="new">最新</span></span><span class="dd">2026·10·08 · 第二道鸿沟</span></button>
+    <button class="tab" data-issue="v51" data-vol="vol.51"><span class="vv">VOL.51</span><span class="dd">2026·09·30 · 贵的留给判断</span></button>
     <button class="tab" data-issue="v50" data-vol="vol.50"><span class="vv">VOL.50</span><span class="dd">2026·09·29 · 一个镜头做一天</span></button>
     <button class="tab" data-issue="v49" data-vol="vol.49"><span class="vv">VOL.49</span><span class="dd">2026·09·28 · 没有职级的公司</span></button>
     <button class="tab" data-issue="v48" data-vol="vol.48"><span class="vv">VOL.48</span><span class="dd">2026·09·24 · 放手多少</span></button>
@@ -318,8 +319,55 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.52 ==================== -->
+  <section class="issue active" id="v52">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.52 / 2026·10·08</div>
+      <h2 class="issue-theme">第二道鸿沟</h2>
+      <p class="issue-lead">AI 已经人人都听说过，真正拿它干活、为它花大钱的，还是很小的一群人。</p>
+      <div class="issue-toc">
+        <a href="#v52-1"><span class="ix">01</span><span>a16z 报告里的 AI 现状：用过的人多，深用的人少</span><span class="cat">观点·数据</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v52-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>a16z 报告里的 AI 现状：用过的人多，深用的人少</h3></div>
+      <div class="meta"><span class="tag op">观点·数据</span><span class="sep">·</span>数字生命卡兹克（解读 a16z 的两份报告；数据来自报告，以美国为主，判断是作者的）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Me1AvtStUdcfmikAGjI4xg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>a16z 是美国知名的风险投资机构，最近发了两份报告：第七版《Top 100 消费级 AI 应用》和 90 多页的《市场状况 II》。作者从里面挑出几组反直觉的数据。近一半美国人用过 AI，每天用的只有四分之一，自己掏钱订阅 ChatGPT、Gemini 或 Claude 的只有 4.5%。钱集中在少数人手里：<b>付费最多的 1% 的人，花的钱比垫底的一半人加起来还多</b>。作者的判断是，"用没用过 AI"已经不算差距，"用得多深"才是。</div>
+
+        <div class="detail">
+          <h4 class="blk">几组数据</h4>
+          <ul class="points">
+            <li><b>用过不等于在用。</b><span class="eg">个人付费订阅 AI 的美国人是 4.5%，作为对照，Netflix 是 76%。企业那边，大部分标普 500 公司都说已经把 AI 用进了真实业务，但会长期盯着一个明确指标、判断 AI 到底有没有产生价值的，只有 2%。作者觉得，"下载 ChatGPT 问了一句周末去哪玩"和"每天让 AI 自动跑几百个任务"被算成同一种用户，这个统计已经没什么意义。</span></li>
+            <li><b>花钱的人只买一家，而且越花越多。</b><span class="eg">已经付费的人里，只有 13% 会再买第二个 AI 产品。付费最多的 1%，平均每月花 903 美元，还在快速上涨；中位数是 25 美元，两年几乎没变。这 1% 除了几家大模型，买的主要是自动化和做产品的工具，比如搭自动化流程的 n8n、设计工具 Figma、替人把任务做完的 AI 助手 Manus。作者的解读是，他们把 AI 当生产工具，花出去的钱能赚回来。</span></li>
+            <li><b>流量榜和收入榜是两张地图。</b><span class="eg">ChatGPT 的网页访问量约是 Claude 的 6 倍，可在付费用户里，买 100 美元起步高级档的比例，Claude 是另外两家的五倍多。消费额最高的 50 个 AI 产品里，有 29 个根本没进流量榜和下载榜。</span></li>
+          </ul>
+
+          <h4 class="blk">作者从数据里读出的三件事</h4>
+          <ul class="points">
+            <li><b>越便宜，用得越多。</b><span class="eg">经济学里有个"杰文斯悖论"：19 世纪蒸汽机越来越省煤，煤反而烧得更多，因为用机器的地方变多了。AI 也一样，一个任务从 10 块钱降到 1 毛，你不会把 9 块 9 省下来，而是把以前不值得自动化的一百件小事都交给它。报告里，今年 2 月起，AI 自己跑任务消耗的 token（AI 处理文字的计量单位）已经超过人直接聊天；AI 模型接入平台 OpenRouter 一周处理的 token 一年涨了 27 倍。作者因此建议别只看每百万 token 多少钱，要看做完一个任务总共花多少：便宜的模型一旦绕圈子、反复返工，总账可能更贵。</span></li>
+            <li><b>收费像卖软件，不像互联网。</b><span class="eg">头部 AI 产品大多靠订阅和按用量卖点数，靠广告的只有 14%，靠交易抽成的只有 2%。上一代互联网正好相反，Meta 九成以上收入来自广告。原因是 AI 每多回答一句都要多烧一份算力，不像多给一个人看网页几乎不花钱。作者认为，替人订票、购物的个人 AI 助手可能把这套反过来：免费给你用，从每笔交易里抽成。</span></li>
+            <li><b>钱流回了实体世界。</b><span class="eg">报告的说法是"Atoms Are So Back"，大意是"实体回来了"。AI 背后需要芯片、电力、电网、散热、铜，甚至建筑工人。微软、谷歌、亚马逊、Meta 为此花到现金流很难看，开始借钱建数据中心。作者认为这不能简单叫泡沫，因为算力还是供不应求，投进去的回报率仍然高于借钱的成本。</span></li>
+          </ul>
+
+          <blockquote>AI的第一阶段，是让每个人都有一个ChatGPT。AI的第二阶段，可能是少数人把ChatGPT用成了一家公司。（卡兹克）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>付费数据从哪来</b>：来自数据公司 YipitData 的美国消费者银行卡和电子收据样本。这是 a16z 第一次按"大家真金白银买了什么"来排榜，以前只看流量。</li>
+              <li><b>找报告原文</b>：作者没放链接，可以拿两份报告的名字让 AI 帮你搜。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.51 ==================== -->
-  <section class="issue active" id="v51">
+  <section class="issue" id="v51">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>GPT-6 Astra 官方提示词：你的话优先于 Skill（贾克斯的平行世界）</b>｜GPT-6 Astra 是 OpenAI 目前最强的模型，官方使用指南按五类场景给了能直接复制的提示词。其中两条对装了很多 Skill（存好、让 AI 反复调用的固定指令）的人最有用：一是写明"用户的指令优先于 Skill 里的指导"，因为 Astra 对上下文更敏感，Skill 里含糊或互相打架的要求会让它过早停工；二是它因为某个 Skill 停下来找你确认时，让它说出是哪份 SKILL.md、哪一句。作者还让 Astra 把自己本地的 Skill 全检查了一遍，它建议删掉的第一个，是开发流程很重的 Superpower。 <a href="https://mp.weixin.qq.com/s/7EFs3X2rORIUAY1aZPFk-A">原文</a></p>
