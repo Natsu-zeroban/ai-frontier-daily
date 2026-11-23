@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v61" data-vol="vol.61"><span class="vv">VOL.61 <span class="new">最新</span></span><span class="dd">2026·10·22 · 上岗培训</span></button>
+    <button class="tab active" data-issue="v62" data-vol="vol.62"><span class="vv">VOL.62 <span class="new">最新</span></span><span class="dd">2026·10·23 · 记得在干什么</span></button>
+    <button class="tab" data-issue="v61" data-vol="vol.61"><span class="vv">VOL.61</span><span class="dd">2026·10·22 · 上岗培训</span></button>
     <button class="tab" data-issue="v60" data-vol="vol.60"><span class="vv">VOL.60</span><span class="dd">2026·10·21 · 玩过才算</span></button>
     <button class="tab" data-issue="v59" data-vol="vol.59"><span class="vv">VOL.59</span><span class="dd">2026·10·20 · 记住你的口味</span></button>
     <button class="tab" data-issue="v58" data-vol="vol.58"><span class="vv">VOL.58</span><span class="dd">2026·10·19 · 不用找话题</span></button>
@@ -328,8 +329,103 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.62 ==================== -->
+  <section class="issue active" id="v62">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.62 / 2026·10·23</div>
+      <h2 class="issue-theme">记得在干什么</h2>
+      <p class="issue-lead">四个 AI 在《我的世界》里连打 27 小时，通关了；一个打销售电话的 AI，被用户一句"背篇课文"带跑了。干得越久、遇到的意外越多，越考验 AI 记不记得自己在干什么。</p>
+      <div class="issue-toc">
+        <a href="#v62-1"><span class="ix">01</span><span>四个 Gemini 在《我的世界》里死了 605 次，打下了末影龙</span><span class="cat">干货·研究</span></a>
+        <a href="#v62-2"><span class="ix">02</span><span>给业务 AI 写清楚什么时候不该照做</span><span class="cat">干货·方法</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v62-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>四个 Gemini 在《我的世界》里死了 605 次，打下了末影龙</h3></div>
+      <div class="meta"><span class="tag">干货·研究</span><span class="sep">·</span>APPSO（介绍 Google DeepMind 论文；只成功跑了一次）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/F5R9ciZKaL_P3F0_550brw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Google DeepMind 把四个由 Gemini 4 Argon（Google 的旗舰模型）驱动的 AI 放进一张随机生成的《我的世界》生存地图，不给攻略，不分工，只给一个目标：打败末影龙。它们靠自己写程序操控角色，27 小时后通关，途中一共死了 605 次。看点在于<b>死了这么多次，任务没断：每次失败都被总结成教训，存进全队共享的记忆</b>。</div>
+
+        <div class="detail">
+          <h4 class="blk">它们怎么玩</h4>
+          <ul class="points">
+            <li><b>不按手柄，写程序。</b><span class="eg">每个 AI 控制一个角色，通过开源工具 Mineflayer 读到角色的位置、背包、血量和周围情况，再写一段 JavaScript 程序指挥角色去砍树、挖矿、打怪。跑完看结果，出错了就查原因、重写。一段程序平均跑 30 多秒，每个 AI 大约四成时间在执行，六成在分析和写下一段，全程写了两千七百多段。</span></li>
+            <li><b>分工是自己商量出来的。</b><span class="eg">开局十分钟左右，一个 AI 在聊天频道里提议分工，很快四个 AI 各管一摊：后勤、做工具和探路、攻克关键难点、找资源和最后的战斗。分工还会随进度调整。以往这类演示，分工多半一开始就写在提示词里。</span></li>
+          </ul>
+
+          <h4 class="blk">死了以后</h4>
+          <ul class="points">
+            <li><b>一个人的损失，全队的经验。</b><span class="eg">有个 AI 带着 12 份烈焰粉死在下界，掉落的东西又被恶魂的火球烧掉，前几个小时的收集全白费。队友提醒运物资的风险，它自己总结事故原因存进共享记忆，再去分析是代码错了、路线错了、资源不够，还是策略本身不对。</span></li>
+            <li><b>记不住，就写下来。</b><span class="eg">Gemini 4 Argon 一次能读进约一百万 token（模型处理文字的计量单位），可 27 小时里四个 AI 一共读了十几亿 token，不可能全塞进去。所以每个 AI 有自己的长期记忆，全队还有一份共享记忆。对话太长时，它会把当前任务、重要进展、没做完的计划和教训写进外部记忆，再把对话压缩掉。</span></li>
+          </ul>
+
+          <h4 class="blk">离代打还远</h4>
+          <ul class="points">
+            <li><b>不稳，也不便宜。</b><span class="eg">约两成程序出过错，服务器重启了 6 次；只成功了这一次，没在多张随机地图上重复验证过。27 小时调用了约 2.4 万次模型，按优惠价算也要 520 美元左右。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>不是第一个通关的</b>：2021 年开源项目 AltoClef 就自动通关过，但靠的是开发者写好的任务逻辑和自动寻路工具；2023 年的研究 Voyager 也在《我的世界》里让 GPT-4 自己攒技能。这次的不同是，没用任何专门为这个游戏写的工具和策略。</li>
+              <li><b>游戏里的 AI 队友</b>：今年 6 月，KRAFTON 和 NVIDIA 在《PUBG》里限时测试过 AI 队友，玩家用语音让它搜武器、捡物资、一起打。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v62-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>给业务 AI 写清楚什么时候不该照做</h3></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>艾笑AI（作者是 AI 落地顾问；文末推广自己的训练营）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/rZ4VI8MUH-GDZCeEBUBYSw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>网上有段视频：一个打销售电话的 AI，被用户要求背文章、算复杂乘法，它马上照做，大家笑它露了馅。作者觉得这不好笑，是没设计完：很多人写 Skill（给 AI 的一套固定做法）、搭 Agent（能自己连续干活的 AI 助手）时，<b>只教了它怎么做，没教它什么时候不该照做</b>。他给了一套做法，让 AI 能认出跑题、把话拉回来、该停就停。</div>
+
+        <div class="detail">
+          <h4 class="blk">哪儿都会被带偏</h4>
+          <ul class="points">
+            <li><b>不同岗位，同一个漏洞。</b><span class="eg">销售 AI 被拉去讲段子，忘了确认客户需求；客服 AI 从退换货被带去评价竞品，工单没办完；研究 AI 资料不够还被催着下结论，就把猜测说成了事实；写代码的 AI 被一句"顺便改一下线上配置"带进高风险操作。它们都知道下一句怎么接，却不判断这一步该不该走。</span></li>
+          </ul>
+
+          <h4 class="blk">把边界做进流程</h4>
+          <ul class="points">
+            <li><b>先写清这次要交付什么。</b><span class="eg">目标要能验收，不能只写"帮用户想清楚"。没有交付条件，AI 分不清该继续追问，还是已经可以收尾。</span></li>
+            <li><b>每句话先分类，再回答。</b><span class="eg">用户的新输入，可能是在补充当前任务、要求进入下一阶段、改了目标、跑了题，或者证据不够却要结论。先分清是哪种，再决定是接着做、请用户确认换阶段、先记下来再拉回原题，还是停在"待验证"。作者的例子是 AI 私董会，几个 AI 扮演顾问帮创业者讨论问题。这一轮要定"要不要先找五个用户验证"，聊到一半，创业者说"顺便把产品架构设计出来吧"。AI 要是马上开始选数据库、拆模块，会就从商业判断滑到了产品设计。合适的做法是先把这个请求记下，问一句要不要换话题；创业者再催着直接下结论时，就停在待验证，列出还要补哪些证据。</span></li>
+            <li><b>拉回来时说明白。</b><span class="eg">不是一句"请回到主题"，而是让用户看到：刚才的请求属于哪类，会不会改变目标，准备先记下还是切换，接着再问一个服务于原目标的问题。</span></li>
+            <li><b>把状态记下来，设好什么时候结束。</b><span class="eg">每轮更新目标、所处阶段、已确认的事实、待验证的点和暂存的请求。达到交付条件就交付结束；证据不够就停在待验证；用户喊停或预算用完，也要结束。</span></li>
+          </ul>
+
+          <h4 class="blk">测试时故意捣乱</h4>
+          <ul class="points">
+            <li><b>只测配合的用户不够。</b><span class="eg">要专门测这几种：突然提无关要求，要求跳过关键步骤，明确改了目标（这时应该跟着更新，而不是死守旧流程），证据不足时催结论，已经能交付了还往里塞问题，预算用完时分不分得清"做完了"和"被迫停下"。</span></li>
+          </ul>
+
+          <blockquote>一个 Agent 会说话，不等于它会工作。会工作，意味着它知道什么时候不能照做。（艾笑）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>落到文件里</b>：作者给了一个 Skill 的目录示意：目标写进主说明文件，边界规则和状态记录各放一个文件，每轮输入的分类判断写成一个小脚本。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>把目标和进度写在对话外面</h3>
+      <ul class="points">
+        <li>打末影龙的 AI，对话太长时会把当前任务、进展、没做完的计划和教训写进外部记忆；作者给业务 AI 设计的状态记录，也是目标、阶段、已确认的事实和暂存的请求。不管是连跑 27 小时，还是被用户一句话带偏，AI 能回到正轨，靠的都是这份写下来的东西。<b>让 AI 干长活时，叫它把这几样写进一个文件，比指望它记住整段对话可靠。</b></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.61 ==================== -->
-  <section class="issue active" id="v61">
+  <section class="issue" id="v61">
     <div class="issue-head">
       <div class="issue-vol">VOL.61 / 2026·10·22</div>
       <h2 class="issue-theme">上岗培训</h2>
