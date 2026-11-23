@@ -6,7 +6,7 @@ auto_daily.py — 定时任务入口：查飞书收件箱群里有没有还没�
 为什么需要它：分享人通常工作日 10:30 后发链接，但有时晚、有时忘。让系统定时器(Windows 任务计划/cron)
 在几个时间点各调一次本脚本即可：
   - 先只跑 feishu_inbox.py(只读、不花模型额度)。今天没有新链接 → 记一行日志直接退出，等下一个时间点。
-  - 有新链接 → 调 `claude -p` 按 SKILL.md「飞书收件箱模式」处理今天的链接(抓取→写摘要→校验→push)。
+  - 有新链接 → 调 `claude -p` 写稿(只 commit 不 push)，再另起一个独立的 `claude -p` 按 EDITOR.md 终审，审完才 push。
   - 同一天后来又发了新链接 → 下一次触发会并进当天那期，已收录的由查重自动剔除，所以重复触发是安全的。
   - 范围 = 网站最新一期的日期 → 今天，所以电脑关机漏掉的日子下次会按日期顺序补上，期号不会乱序；
     但积压超过 MAX_DAYS 天就不自动做(无人值守一口气写太多质量没人把关)，只记日志/通知，留给人工分批处理。
@@ -30,6 +30,7 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 LOG_DIR = os.path.join(ROOT, ".auto_daily_logs")
 LOCK = os.path.join(ROOT, ".auto_daily.lock")
 MAX_DAYS = 3  # 一次最多自动补几天
+SITE_URL = ""
 
 # 无人值守时 Claude 只能用这些工具；没列的(如 rm、任意命令)会被直接拒绝而不是卡住等确认
 ALLOWED_TOOLS = ["Read", "Edit", "Write", "Grep", "Glob", "WebFetch",
@@ -37,19 +38,33 @@ ALLOWED_TOOLS = ["Read", "Edit", "Write", "Grep", "Glob", "WebFetch",
 
 PROMPT = """你在无人值守地维护「AI 前沿日报」(当前目录就是站点仓库)。用户不在，没人能回答问题。
 
-先读 skill/SKILL.md(重点「可选：飞书群收件箱模式」一节)和 skill/references/STYLE.md、TEMPLATE.md、PLAYBOOK.md，再动手。
+先读 skill/SKILL.md(重点「可选：飞书群收件箱模式」一节)和 skill/references/STYLE.md、TEMPLATE.md、PLAYBOOK.md、EDITOR.md，再动手。
 飞书群里新分享、还没收录的链接在：{task}(按日期分组的 days)。这些链接 = 用户明确要收的链接。
 
 要求：
 - 按日期升序，一天一期：index.html 里还没有该日期这期 → 新开一期(期号顺延，日期写链接的发送日期，迁"最新"标记和 active)；
-  已经有该日期这期 → 把新文章并进那一期，不要新开。每期单独 commit。
-- 严格照 SKILL.md 第 2–5 步：抓取(x.com 用 PLAYBOOK 里的 fxtwitter 办法)→分类→写摘要→validate_site.py 0 FAIL→
-  只 `git add index.html` → commit(说明风格参考 git log)→ push origin main。push 后不用轮询线上、不开浏览器。
-- 读者是 AI 新手游戏策划：每个要点带具体"比如"、黑话/缩写/产品名就地翻成大白话、宁可长一点也要讲清；每篇做 STYLE 的冷读者复读。
+  已经有该日期这期 → 把新文章并进那一期，不要新开。
+- 照 SKILL.md 第 2–4 步：抓取(x.com 用 PLAYBOOK 里的 fxtwitter 办法)→分类→写摘要→validate_site.py 0 FAIL→
+  只 `git add index.html` → 每期单独 commit(说明风格参考 git log)。**不要 push**：后面还有独立的终审，审完才发布。
+- 读者是 AI 新手游戏策划：照 STYLE.md 写，并按 EDITOR.md 的标准要求自己(页面上不写"补某日"这类制作信息)。
 - 没人值守：抓不到正文(重试 1–2 次后)、查重命中、分类拿不准 → 跳过该条写进汇报，绝不编造、绝不硬判。
 - 只改 index.html，不动 skill/ 和往期内容(迁"最新"/active 除外)。
 
-最后用不超过 10 行中文汇报：期号与主题、收了哪几篇(标题+精读/茶点)、跳过了哪些及原因、validate 结果、push 是否成功。"""
+最后用不超过 10 行中文汇报：期号与主题、收了哪几篇(标题+精读/茶点)、跳过了哪些及原因、validate 结果。"""
+
+EDIT_PROMPT = """你是「AI 前沿日报」的终审编辑(当前目录就是站点仓库)，用户不在，没人能回答问题。
+写手刚写完新的几期，已经 commit 但还没发布。你没参与写作，这正是你的价值。
+
+先读 skill/references/EDITOR.md(你的全部标准)和 skill/references/STYLE.md。
+要审的是 `git diff {base} HEAD -- index.html` 里新增或改动的那几期 section。
+以读者身份通读每一期，按 EDITOR.md 直接改 index.html：只改表达和取舍，不改事实，拿不准就用
+`python skill/scripts/fetch_article.py <原文链接>` 回查原文。不动 HTML 结构，不动往期内容。
+
+改完跑 `python skill/scripts/validate_site.py` 必须 0 FAIL，然后 `git add index.html`、
+`git commit -m "终审: <一句话说改了什么>"`(没改动就不用 commit)，最后 `git push origin main`。
+push 后不轮询线上、不开浏览器。
+
+最后用不超过 8 行中文汇报：每期最有代表性的 1 处"改前 → 改后"，以及 push 是否成功。"""
 
 
 def log(day, msg):
@@ -83,6 +98,30 @@ def run_inbox(day):
     return json.loads(r.stdout.decode("utf-8")), None
 
 
+def git_head():
+    r = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, cwd=ROOT)
+    return r.stdout.decode().strip()
+
+
+def run_claude(day, stage, cmd):
+    try:
+        r = subprocess.run(cmd, capture_output=True, cwd=ROOT, timeout=2 * 3600)
+    except subprocess.TimeoutExpired:
+        log(day, "%s超过 2 小时被中止" % stage)
+        return False, "%s超时" % stage
+    out = r.stdout.decode("utf-8", "replace").strip()
+    log(day, "%s 退出码 %d，汇报：\n%s" % (stage, r.returncode, out[-3000:]))
+    if r.returncode != 0:
+        log(day, "stderr：" + r.stderr.decode("utf-8", "replace")[-1500:])
+    return r.returncode == 0, out
+
+
+def site_url():
+    r = subprocess.run(["git", "remote", "get-url", "origin"], capture_output=True, cwd=ROOT)
+    m = re.search(r"github\.com[:/]([^/]+)/([^/.]+)", r.stdout.decode())
+    return "https://%s.github.io/%s/" % (m.group(1).lower(), m.group(2)) if m else ""
+
+
 def index_dirty():
     r = subprocess.run(["git", "status", "--porcelain", "index.html"], capture_output=True, cwd=ROOT)
     return bool(r.stdout.strip())
@@ -102,6 +141,8 @@ def main():
     ap.add_argument("--notify", action="store_true")
     args = ap.parse_args()
     day = datetime.now(TZ).strftime("%Y-%m-%d")
+    global SITE_URL
+    SITE_URL = site_url()
 
     if os.path.exists(LOCK):
         age = datetime.now().timestamp() - os.path.getmtime(LOCK)
@@ -143,15 +184,18 @@ def main():
         os.remove(task); return
 
     open(LOCK, "w").close()
+    base = git_head()
+    ok = False
     try:
-        r = subprocess.run(cmd, capture_output=True, cwd=ROOT, timeout=2 * 3600)
-        out = r.stdout.decode("utf-8", "replace").strip()
-        log(day, "Claude 退出码 %d，汇报：\n%s" % (r.returncode, out[-3000:]))
-        if r.returncode != 0:
-            log(day, "stderr：" + r.stderr.decode("utf-8", "replace")[-1500:])
-    except subprocess.TimeoutExpired:
-        out, r = "运行超过 2 小时被中止", None
-        log(day, out)
+        ok, out = run_claude(day, "写稿", cmd)
+        if ok and git_head() != base:
+            # 终审：另起一个独立会话，不带写手的上下文
+            ecmd = [claude, "-p", EDIT_PROMPT.format(base=base), "--permission-mode", "acceptEdits",
+                    "--allowedTools"] + ALLOWED_TOOLS
+            ok, eout = run_claude(day, "终审", ecmd)
+            out = out + "\n— 终审 —\n" + eout
+        elif ok:
+            out += "\n(没有产生新的一期，跳过终审)"
     finally:
         os.remove(LOCK)
         os.remove(task)
@@ -160,9 +204,9 @@ def main():
     n_left = sum(len(d["links"]) for d in left["days"]) if left else -1
     log(day, "处理后还剩 %d 个未收录链接(被跳过的会留在这里)" % n_left)
     if args.notify:
-        try: notify("AI日报 %s 定时更新完成\n%s\n还剩 %d 个未收录" % (day, out[-1500:], n_left))
+        try: notify("AI日报定时更新(%s)\n%s\n还剩 %d 个未收录\n%s" % ("、".join(dates), out[-1500:], n_left, SITE_URL))
         except SystemExit: log(day, "飞书通知发送失败(可能缺 im:message.send_as_user 权限)")
-    if r is None or r.returncode != 0:
+    if not ok:
         sys.exit(2)
 
 

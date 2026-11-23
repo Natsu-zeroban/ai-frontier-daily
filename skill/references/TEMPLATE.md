@@ -21,7 +21,7 @@
   <div class="thread-top"><span class="thread-ix">0N</span><h3>文章标题</h3></div>
   <div class="meta"><span class="tag">干货</span><span class="sep">·</span>来源/作者<span class="sep">·</span><a href="原文URL">原文</a></div>
   <div class="thread-body">
-    <div class="core"><b>核心：</b>一句大白话讲透这篇是啥、对我有啥用。</div>
+    <div class="core"><b>核心：</b>2–4 句大白话：这是什么事、为什么值得知道。</div>
 
     <div class="detail">
       <h4 class="blk">小节标题</h4>
@@ -78,7 +78,7 @@
   <div class="issue-head">
     <div class="issue-vol">VOL.0N / 2026·MM·DD</div>
     <h2 class="issue-theme">本期主题</h2>
-    <p class="issue-lead">本期导语：一句话说清这期几篇讲了什么、串起来是什么意思。</p>
+    <p class="issue-lead">本期导语：说清这期几篇讲了什么、串起来是什么意思。不写"补某日""本期收录 N 篇"这类制作信息。</p>
     <div class="issue-toc">
       <!-- 每篇一行目录，见 A-1 -->
     </div>
