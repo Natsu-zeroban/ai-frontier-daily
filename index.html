@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v60" data-vol="vol.60"><span class="vv">VOL.60 <span class="new">最新</span></span><span class="dd">2026·10·21 · 玩过才算</span></button>
+    <button class="tab active" data-issue="v61" data-vol="vol.61"><span class="vv">VOL.61 <span class="new">最新</span></span><span class="dd">2026·10·22 · 上岗培训</span></button>
+    <button class="tab" data-issue="v60" data-vol="vol.60"><span class="vv">VOL.60</span><span class="dd">2026·10·21 · 玩过才算</span></button>
     <button class="tab" data-issue="v59" data-vol="vol.59"><span class="vv">VOL.59</span><span class="dd">2026·10·20 · 记住你的口味</span></button>
     <button class="tab" data-issue="v58" data-vol="vol.58"><span class="vv">VOL.58</span><span class="dd">2026·10·19 · 不用找话题</span></button>
     <button class="tab" data-issue="v57" data-vol="vol.57"><span class="vv">VOL.57</span><span class="dd">2026·10·16 · 接管老工具</span></button>
@@ -327,8 +328,59 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.61 ==================== -->
+  <section class="issue active" id="v61">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.61 / 2026·10·22</div>
+      <h2 class="issue-theme">上岗培训</h2>
+      <p class="issue-lead">读完整个互联网的模型，为什么还要再练一段，才能当你的助手。</p>
+      <div class="issue-toc">
+        <a href="#v61-1"><span class="ix">01</span><span>大模型读完全网之后，还要再上一轮课</span><span class="cat">干货·科普</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v61-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>大模型读完全网之后，还要再上一轮课</h3></div>
+      <div class="meta"><span class="tag">干货·科普</span><span class="sep">·</span>Dongxi 东锡 NLP（X 长文，后训练系列第一篇）<span class="sep">·</span><a href="https://x.com/dongxi_nlp/status/2112767071926792566">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>大模型的训练分两段。第一段叫预训练，喂给它海量网页，只练一件事：看到一段文字，猜下一个词。这样练出来的模型懂得很多，但只会顺着往下写。第二段叫后训练，把它调成能听指令、不说危险的话、会一步步解题的助手。这篇讲清了两段差在哪，以及后训练最常见的三种教法：<b>看示范、比好坏、对答案</b>。各家发布模型时常提的 SFT、RLHF、DPO，说的就是这几样。</div>
+
+        <div class="detail">
+          <h4 class="blk">只有预训练会怎样</h4>
+          <ul class="points">
+            <li><b>让它讲登月，它接着出题。</b><span class="eg">2022 年 OpenAI 展示过一组对比：请 GPT-3"用几句话给 6 岁的孩子讲讲登月"，它接着写"给 6 岁的孩子讲讲万有引力。给 6 岁的孩子讲讲相对论……"。网页上一道题后面常常跟着另一道题，对"猜下一个词"来说，这是很合理的猜法。同一个请求交给做过后训练的 InstructGPT，它就老老实实讲了登月。</span></li>
+            <li><b>三个短板，一个病根。</b><span class="eg">不太听指令；没人要求它避开危险建议，或者别把错话说得很肯定；不擅长一步步推理。根子都一样：它被训练成把网页上的词猜准，而人要的是一个帮得上忙、又不伤人的助手。</span></li>
+          </ul>
+
+          <h4 class="blk">两段训练差在哪</h4>
+          <ul class="points">
+            <li><b>同一个模型，换了教材。</b><span class="eg">后训练不是新建一个模型，而是接着训练同一个。预训练用万亿级的原始文本，从零学知识和语言，花掉绝大部分算力；后训练的数据少得多，也精心准备得多，最大的指令数据集也就几百万条，只是给一个已经很能干的模型调方向。</span></li>
+            <li><b>数据少，作用不小。</b><span class="eg">有研究在大批指令数据里只混进 500 条安全示例，模型给出有害回答的情况就明显少了。</span></li>
+          </ul>
+
+          <h4 class="blk">三种老师</h4>
+          <ul class="points">
+            <li><b>看示范：指令微调。</b><span class="eg">像新员工上岗先看范例。数据是一条条指令，各配一份好回答，比如一句西班牙语，后面跟着英文译文。模型其实还在猜下一个词，只是只有"回答"那部分算分。它也叫 SFT（监督微调）。练过很多种任务以后，连没见过的任务也做得更好。</span></li>
+            <li><b>比好坏：偏好对齐。</b><span class="eg">写出完美的回答很难，判断两份回答哪份更好就容易得多，就像美食评论家未必会做菜，却说得出哪道更好吃。数据是一个问题、两份回答，再标上人更喜欢哪份。一种做法是先训练一个打分的"裁判"模型，再让模型反复练着拿高分，这就是常听说的 RLHF；另一种叫 DPO，直接从成对的比较里学，省掉裁判。两种做法都给模型拴了一根"牵引绳"，不让它离原来的样子太远，不然它可能只顾追分，把预训练学到的东西忘掉不少。</span></li>
+            <li><b>对答案：RLVR。</b><span class="eg">数学题有最终数值，编程题有能不能跑通的测试，这类任务程序就能判对错。模型对同一道题试几种解法，检查程序逐个判，做对的那些解法以后会更常用。用不着人来打分，回答写得再漂亮、再长，也骗不过检查程序，所以很适合练长链条的推理。但检查程序要是只看最终答案，就说不清中间每一步是不是都对。</span></li>
+          </ul>
+
+          <blockquote>粗略地说：预训练决定模型知道什么，后训练决定它怎样运用这些知识。（Dongxi 东锡 NLP）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>后续</b>：作者接下来会分篇讲每种技术用什么数据训练、具体怎么算，以及可能在哪里出问题。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.60 ==================== -->
-  <section class="issue active" id="v60">
+  <section class="issue" id="v60">
     <div class="issue-head">
       <div class="issue-vol">VOL.60 / 2026·10·21</div>
       <h2 class="issue-theme">玩过才算</h2>
