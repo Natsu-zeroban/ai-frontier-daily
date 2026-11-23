@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v47" data-vol="vol.47"><span class="vv">VOL.47 <span class="new">最新</span></span><span class="dd">2026·09·22 · 先把话说清楚</span></button>
+    <button class="tab active" data-issue="v48" data-vol="vol.48"><span class="vv">VOL.48 <span class="new">最新</span></span><span class="dd">2026·09·24 · 放手多少</span></button>
+    <button class="tab" data-issue="v47" data-vol="vol.47"><span class="vv">VOL.47</span><span class="dd">2026·09·22 · 先把话说清楚</span></button>
     <button class="tab" data-issue="v46" data-vol="vol.46"><span class="vv">VOL.46</span><span class="dd">2026·09·21 · 一万个 AI 自己组队</span></button>
     <button class="tab" data-issue="v45" data-vol="vol.45"><span class="vv">VOL.45</span><span class="dd">2026·09·20 · 各干各的长处</span></button>
     <button class="tab" data-issue="v44" data-vol="vol.44"><span class="vv">VOL.44</span><span class="dd">2026·09·18 · 模型外面那层</span></button>
@@ -314,8 +315,101 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.48 ==================== -->
+  <section class="issue active" id="v48">
+    <div class="newsflash">
+      <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
+      <p><b>Claude Opus 5.5、GPT-6 Sol 和 Luna 同一夜发布（数字生命卡兹克）</b>｜Anthropic 和 OpenAI 同时把各自最强模型的本事下放到更便宜的型号：Opus 5.5 比上一代 Opus 5 干同样的活便宜约四成，写代码类测试拿了多个第一；Sol 和 Luna 比上一代同档便宜一半，作者实测 Sol 在细节上明显不如 Astra。两家给的用法一样：难的规划交给 Fable 5.1、GPT-6 Astra 这类最强模型，日常执行用便宜的。 <a href="https://mp.weixin.qq.com/s/EhyeRMFUv1KekZhzVyRm7g">原文</a></p>
+    </div>
+    <div class="issue-head">
+      <div class="issue-vol">VOL.48 / 2026·09·24</div>
+      <h2 class="issue-theme">放手多少</h2>
+      <p class="issue-lead">AI 已经能替人办事了，难的是敢让它自己拍板多少。扎克伯格讲 Meta 的个人助手 Muse 怎么一步步授权、哪些地方必须停下来问你；只做选择题的 Jev 背后的创始人则认为，AI 离不开人盯着，是训练方式造成的。</p>
+      <div class="issue-toc">
+        <a href="#v48-1"><span class="ix">01</span><span>扎克伯格的 Muse：能读你的邮件，发信要先问你</span><span class="cat">干货·访谈</span></a>
+        <a href="#v48-2"><span class="ix">02</span><span>Jev 创始人：AI 离不开人，是因为训练时就把人放了进去</span><span class="cat">观点</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v48-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>扎克伯格的 Muse：能读你的邮件，发信要先问你</h3></div>
+      <div class="meta"><span class="tag">干货·访谈</span><span class="sep">·</span>晚点再听LaterCast（整理 Sources 播客，Alex Heath 对谈扎克伯格；产品方自述）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/N3E-I8f9iMrpKjJjoD5Qkw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Muse 是 Meta 新推出的个人 AI 助手。它和一问一答的聊天 AI 不同：在云端有一台自己的电脑，你交给它一个目标，关掉对话后它还会接着办，比如一直盯着登山许可什么时候开放申请。扎克伯格在访谈里讲了它怎么替人干活、凭什么免费，以及怎么防止它乱用你的隐私。最后这部分最值得看：<b>"能读你的邮件"和"能替你发邮件"被拆成两道授权</b>，付款、登录这类操作也要你点头。</div>
+
+        <div class="detail">
+          <h4 class="blk">交给它的是目标，不是问题</h4>
+          <ul class="points">
+            <li><b>周末的事，它提前备好。</b><span class="eg">扎克伯格让 Muse 每个周末安排一次烘焙，难度要适合三岁的女儿和不会烘焙的他自己，并通过生鲜外送备好食材。有一次它选了棒棒糖蛋糕，结果难得出乎意料；他把"太难了"告诉它，下次就换个简单的。大女儿喜欢登山，有些山要提前申请许可，他让 Muse 盯着开放时间，约上以后报给他日期，他再决定哪天请假。</span></li>
+            <li><b>它会自己提下一步。</b><span class="eg">他和女儿玩策略游戏《文明》时，让 Muse 做了一份攻略。做完后它问：要不要扩展成历史课，介绍游戏里各个文明的真实背景？他同意后，它在攻略应用里加了一页。Muse 的界面里有个建议入口，会根据你交代过的事提议接下来能做什么，给不知道拿 AI 干什么的人一个具体选项。</span></li>
+            <li><b>为什么放在云端。</b><span class="eg">要让它在你不在时继续干活，就得有一台一直开着的电脑。扎克伯格不想让普通人为此先买台电脑放家里、再自己配软件，所以由云端提供，家里不懂技术的人也能直接用。</span></li>
+          </ul>
+
+          <h4 class="blk">怎么管住一个替你办事的 AI</h4>
+          <ul class="points">
+            <li><b>权限用到哪给到哪。</b><span class="eg">连上邮箱时先只给"读"，你明确要它发信时才加"发"。登录、付款、发送敏感信息都要你确认，也可以对某一类操作设成一直允许。付款时金额和付款方式先摆给你看，你点允许或拒绝。密码和银行卡另外存放，要用时经你授权才调用，不直接摊在助手面前。</span></li>
+            <li><b>另有一组"哨兵"盯着它。</b><span class="eg">这组助手专门检查主助手收到和发出的内容。比如有网页在文字里夹带指令，想诱导助手偏离任务；或者它准备发出的回复里带了你不想分享的资料，哨兵会拦下来让你先过目。</span></li>
+            <li><b>知道的事，不一定都要说出去。</b><span class="eg">扎克伯格举的例子：一位怀孕的用户订餐厅，想要好喝的无酒精鸡尾酒，但不想告诉餐厅自己怀孕了。助手得用上它知道的背景把事办好，同时分辨出哪些信息不该转告别人。他认为这种分寸要在训练模型时就考虑进去。</span></li>
+            <li><b>云端的内容，连 Meta 也看不到。</b><span class="eg">这是他的承诺。他请来了加密聊天软件 Signal 的创始人 Moxie Marlinspike 做相关项目，目标是让云端电脑像私人设备一样保密。具体技术细节说是几周后公布。</span></li>
+          </ul>
+
+          <h4 class="blk">免费，靠什么赚钱</h4>
+          <ul class="points">
+            <li><b>从交易里抽一小笔。</b><span class="eg">起步给每人每周 1 亿 token 的免费额度（token 是 AI 处理文字的计量单位），也可以付费订阅，但他希望绝大多数人不用花钱。他的设想是：助手帮用户经营小生意、购物、完成交易，Meta 从中收一点费用，这笔钱也可能由商家出，节目里还提到和支付公司 Stripe 合作。访谈没给任何实际收益数据，这还只是设想。</span></li>
+          </ul>
+
+          <blockquote>如果你把它连到邮箱，它一开始应该只有读取权限。（扎克伯格）</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>看格斗训练录像</b>：他在自己的综合格斗训练馆装了摄像头，让 Muse 看录像给反馈。有一次它直说他"看起来已经放弃抵抗了"，他承认那会儿确实累坏了。</li>
+              <li><b>和 Meta AI 怎么分</b>：他自己两个都用，想马上问个问题就用 Meta AI，长期要做的事交给 Muse。以后会不会合并，他没给确定答案。</li>
+              <li><b>会不会赢家通吃</b>：他认为帮人经营人际关系和帮人经营生意，未必是同一个产品最擅长，不同公司可以各自在不同事情上做到最好。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v48-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>Jev 创始人：AI 离不开人，是因为训练时就把人放了进去</h3></div>
+      <div class="meta"><span class="tag op">观点</span><span class="sep">·</span>橘AI（Jev 开发公司 TypeSafe 的 CEO Diogo Almeida 发布前演讲的听讲笔记；创始人讲自家路线）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/_a5iQadqfg3YVPiECs3QDw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>AI 能解出没人解过的数学题，可企业连一个退款决定都不敢交给客服机器人，只许它让用户去翻文档。Jev 的 CEO Diogo Almeida 在发布前一个月的演讲里给了他的解释：今天的大模型几乎都用一种叫 RLHF 的方法训练，也就是让人给回答打分，模型学着讨人喜欢。<b>目标既然是让屏幕前的人满意，那就永远得有个人在场</b>，没法真正自动化。Jev 想走另一条路：不求讨好，只求"说有几成把握，就真有几成对"，这样才敢让机器自己拍板。</div>
+
+        <div class="detail">
+          <h4 class="blk">他的论证</h4>
+          <ul class="points">
+            <li><b>讨好人，带出了两个毛病。</b><span class="eg">一是谄媚：有人放了一段放屁的音效，问 ChatGPT 这首音乐怎么样，它答"有种奇怪的氛围感"。二是幻觉，也就是 AI 一本正经地编造：打分时，犹豫很容易被看出来、被扣分，模型就学会了装自信，不肯承认自己不知道。Jev 用一个数字报出把握有多大，不知道的时候分数自然就低。笔记作者补了一句：如果训练数据本身就有错，这个办法也管不了。</span></li>
+            <li><b>现在的 AI 助手，人还是得一步步指挥。</b><span class="eg">他对自动化的定义是：一件机械到能跟人讲清楚、又能几乎免费地反复做的活。现在的 AI 助手虽然能干很长的任务，人还是得一路下指令，每下一次指令就是做一次决定，很累。企业吃过亏以后，干脆不让 AI 碰有风险的决定，把信息全摊给用户、让用户自己选，软件公司也就没法按"帮你办成了什么"来收钱。</span></li>
+            <li><b>软件只是变得好写了，没变聪明。</b><span class="eg">他说企业软件从 2019 年到今天基本没变，只是旁边挂了个聊天机器人。现在随口一说就能让 AI 写出个小软件，用完就扔，可这改变的只是写软件的过程，软件做出来的结果并没有更好。</span></li>
+            <li><b>他押的是"第三条路"。</b><span class="eg">他把训练模型的几条路线按目标分开：RLHF 求人满意；另一条拿有标准答案的题（数学、代码）来训练，求答对；Jev 求的是"校准过的决定"，即报出的把握和实际准确率对得上。他不完全否定 RLHF，但认为那是一段没人预料到的弯路。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>演讲原视频</b>：www.youtube.com/watch?v=cJ0EOzey--o。原文是听讲笔记，篇幅很短，想听完整论证建议看视频。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <div class="takeaway">
+      <div class="kk">// 本期串读</div>
+      <h3>敢让 AI 自己拍板，要么能拦住，要么它知道自己有几成把握</h3>
+      <ul class="points">
+        <li>Muse 的办法是把权限拆细，付款、发信这些收不回来的动作停下来等你点头；Jev 的办法是让 AI 报准自己的把握，有把握才放手。两条路指向同一个做法：<b>按"错了能不能撤回"来决定放手多少</b>。自己给 AI 分活时，可以先把步骤分成两堆：改错了能撤回的放心交出去，发出去、付出去就收不回来的，留一道人工确认。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== VOL.47 ==================== -->
-  <section class="issue active" id="v47">
+  <section class="issue" id="v47">
     <div class="issue-head">
       <div class="issue-vol">VOL.47 / 2026·09·22</div>
       <h2 class="issue-theme">先把话说清楚</h2>
