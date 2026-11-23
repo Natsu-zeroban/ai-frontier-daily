@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v75" data-vol="vol.75"><span class="vv">VOL.75 <span class="new">最新</span></span><span class="dd">2026·11·11 · 能跑不等于懂了</span></button>
+    <button class="tab active" data-issue="v76" data-vol="vol.76"><span class="vv">VOL.76 <span class="new">最新</span></span><span class="dd">2026·11·12 · 让它自己检查</span></button>
+    <button class="tab" data-issue="v75" data-vol="vol.75"><span class="vv">VOL.75</span><span class="dd">2026·11·11 · 能跑不等于懂了</span></button>
     <button class="tab" data-issue="v74" data-vol="vol.74"><span class="vv">VOL.74</span><span class="dd">2026·11·10 · 不太听话的那张</span></button>
     <button class="tab" data-issue="v73" data-vol="vol.73"><span class="vv">VOL.73</span><span class="dd">2026·11·09 · 尴尬的第一版</span></button>
     <button class="tab" data-issue="v72" data-vol="vol.72"><span class="vv">VOL.72</span><span class="dd">2026·11·06 · 错在便宜的地方</span></button>
@@ -342,8 +343,89 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.76 ==================== -->
+  <section class="issue active" id="v76">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.76 / 2026·11·12</div>
+      <h2 class="issue-theme">让它自己检查</h2>
+      <p class="issue-lead">AI 干活已经很快，慢的是人一条条检查。两篇讲的都是把检查也交出去：一篇让另一个 AI 按你的标准打分，一篇让 AI 自己截图、自己"听"声音，四十分钟无人值守做出一个射击游戏。</p>
+      <div class="issue-toc">
+        <a href="#v76-1"><span class="ix">01</span><span>AI 都在干活了，人为什么还是累</span><span class="cat">干货·方法</span></a>
+        <a href="#v76-2"><span class="ix">02</span><span>一句话、四十分钟、一个射击游戏</span><span class="cat">干货·教程</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v76-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>AI 都在干活了，人为什么还是累</h3></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>持续微调（个人实践）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/CR2gXERezgJ16vj-qKVEQw">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>作者把活拆成任务交给 AI，每一步都快了，人却还是累：下一步做什么、结果对不对、错了怎么改，全等她拍板，她一走开流程就停。她在做 AI 回复质量评估，这类活没有标准答案，于是试了 <b>"AI 判官"：一个 AI 干活，另一个 AI 按她定的标准打分，她只看两边对不上的</b>。这篇讲她踩的三个坑，和怎么从小处开始试。</div>
+
+        <div class="detail">
+          <h4 class="blk">流程变成什么样</h4>
+          <ul class="points">
+            <li><b>从逐条看，到只看分歧。</b><span class="eg">以前：她发起任务，AI 执行，她逐条检查、纠错，再重跑。现在：AI 批量执行，判官先评一遍，她只看有问题和有分歧的，把经验写成规则，再验证一轮。启发她的是 Lauren Tan，曾在 Meta、Netflix、Cursor 工作，现在是 SpaceX 的首席工程师，她一个月交付两千多次代码修改，靠的是一套多个 AI 分工的系统：有的收集用户反馈，有的拆任务，有的去做，做完自己检查、自己修，她本人主要定规则、抽查、拍关键的板。</span></li>
+          </ul>
+
+          <h4 class="blk">踩的三个坑</h4>
+          <ul class="points">
+            <li><b>判官和她看的根本不是一回事。</b><span class="eg">一开始一致率低得离谱。一条条看才发现，AI 看的是这句话属于哪类意图，她看的是有没有回应用户当下真正想要的。比如用户说"我现在不太方便说话"，AI 回"好的，那我继续为您介绍"，语法语气都没毛病，但没顾及对方处境。她只好倒过来拆自己凭什么判不合格，拆出四条：回应真实诉求、符合语境、语言自然、没有越界。很多她觉得"明摆着"的判断，其实全靠经验，自己从没说清过。</span></li>
+            <li><b>判官也会看走眼。</b><span class="eg">如果一批数据绝大多数本来就合格，判官无脑全判合格，一致率也很好看，恰恰漏掉了最该抓的那几条，所以要专门盯不合格的有没有漏。同一批数据反复改反复测，分数越来越高，系统却可能只是学会了说几句讨好打分标准的"安全话"，像学生刷同一套卷子。改完要换一批新数据再测。</span></li>
+            <li><b>它会自己扩大你的授权。</b><span class="eg">她有一次只回了"继续"两个字，AI 理解成她同意了方案里的所有细节，自己把执行范围扩大了。AI 能自己干的越多，越要提前说清哪些可以自己做、哪些必须先问。</span></li>
+          </ul>
+
+          <h4 class="blk">想试的话</h4>
+          <ul class="points">
+            <li><b>挑一个自己很熟的重复活。</b><span class="eg">最好是做过很多次、一眼就知道好坏的。把判断标准写下来，开两个对话窗口就够了，一个干活，一个按标准打分。你只看它们对不上的地方，先想清楚分歧从哪来，再写成文档或 Skill（装给 AI 的现成做法）。只做一次的活、一眼就能看出对错的活，不值得这么折腾。</span></li>
+          </ul>
+          <blockquote>以前总想着找一个不会出错的 AI，现在我更想要的是一套 AI 出错了也能被发现、被纠正的机制。——持续微调</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>改对一处不等于整体还对</b>：她给 AI 提了一条补充标准，AI 照加了，但新的这条和原来某条是重复的。她本希望它顺手把整套标准重新理一遍，所以改完以后，得有人或有个环节再看一遍整体。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v76-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>一句话、四十分钟、一个射击游戏</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>WquGuru（X 长文，个人复现）<span class="sep">·</span><a href="https://x.com/wquguru/status/2120382704030261437">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Fable 5.2 是 Anthropic 新出的旗舰模型，发布时流传最广的演示，是有人只用一句话就让它做出了一个第一人称射击游戏，模型、贴图、音效全靠代码生成，不用一张外部图片。作者照着复现，并把过程拆成音效、材质、建模、整个游戏四步，每步都给了提示词、耗时和花费。关键在于<b>开工前就让 AI 学会自己检查：自己打开网页截图看画面，自己把声音算出来查有没有爆音</b>，中途不用人插话。完整游戏跑了 40 分钟，折合约 16 美元。</div>
+
+        <div class="detail">
+          <h4 class="blk">怎么让它不用人盯</h4>
+          <ul class="points">
+            <li><b>工具很少。</b><span class="eg">用 Claude Code（Anthropic 能在电脑上自己干活的编程助手）的无人值守模式调用 Fable 5.2，一条命令启动，它自己写代码，最后交出一个 HTML 网页文件。另外装一个 agent-browser，让 AI 能在本机 Chrome 里打开自己写的网页，截图看效果、看有没有报错。</span></li>
+            <li><b>AI 听不见，就让它"看"声音。</b><span class="eg">浏览器有个离线渲染音频的功能，能把声音直接算成数据。作者在系统提示词里要求它用这个功能检查有没有爆音、有没有该响却没声的地方。它照做了，交付时还如实写了一句"未经人耳试听"。</span></li>
+          </ul>
+
+          <h4 class="blk">四步分别做出了什么</h4>
+          <ul class="points">
+            <li><b>先拿音效台试水。</b><span class="eg">第一次做，作者建议先跑最小的这一步：16 分钟、约 4.7 美元，做出一个带 14 个声音按钮的网页，步枪室内室外、换弹、脚步、子弹掠过、雨、远雷，还有一段约 30 秒的配乐，全是代码合成的。它还自己多加了一个"交火演示"按钮。</span></li>
+            <li><b>材质和建模。</b><span class="eg">材质那步做了雨夜码头：湿地面积水的实时反射、生锈的集装箱、配电柜。建模那步做了带装卸动画的岸边起重机、一艘 215 米的货船和一把带红点瞄具的步枪。它会自己列出不足，比如有些小坑被误画成了积水，第一人称看不到手臂。</span></li>
+            <li><b>一句话做整个游戏。</b><span class="eg">换到一个空文件夹，只用原作者那句提示词，它连续跑了 40 分钟，做出一款叫 SUBLEVEL 07 的射击游戏：潮湿的地下变电站走廊，三波飞行无人机，18 个代码合成的音效，还能切三档画质。交付前它自己写脚本把三波敌人全打通，确认胜利和死亡结算都正常、没有报错。</span></li>
+            <li><b>花费大头靠缓存省下来。</b><span class="eg">长任务里 AI 每一轮都要把前面的内容重读一遍，开启缓存后，重复读的部分按便宜得多的价格算。这一趟九成内容命中缓存，原价约 60 美元，实际约 16 美元。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>试玩和源码</b>：游戏可在线试玩（wquguru.github.io/fable52-fps-repro），仓库在 GitHub 的 wquguru/fable52-fps-repro，原文每一步都附了能直接复制的提示词。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.75 ==================== -->
-  <section class="issue active" id="v75">
+  <section class="issue" id="v75">
     <div class="newsflash">
       <div class="lb">☕ 要闻茶点 · 一句话时效消息</div>
       <p><b>GPT-6.2 Sol 的审美追上来了（卡尔的AI沃茨，个人实测）</b>｜GPT-6.2 Sol 是 OpenAI 还在灰度测试的新模型，作者在编程助手 Codex 里抽到后，拿它和公认审美最好的 Claude Opus 5.5（Anthropic 的旗舰模型）比了代码动画、网页 3D、界面设计和自动剪辑。他的结论是：提示词写得详细，两者效果不相上下；代码动画还差一点，Opus 5.5 做的 8 秒里每一秒都在动，Sol 要两三秒画面才动起来；剪辑反而更好，什么时候人物缩成小窗、素材放哪个位置，不装任何 Skill 也安排得当，前后两句话是排比时还会让画面保持一致，方便观众看懂。 <a href="https://mp.weixin.qq.com/s/pZlYI3miB-x-9R-MmvwFSQ">原文</a></p>
