@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v83" data-vol="vol.83"><span class="vv">VOL.83 <span class="new">最新</span></span><span class="dd">2026·11·23 · 各放各的位置</span></button>
+    <button class="tab active" data-issue="v84" data-vol="vol.84"><span class="vv">VOL.84 <span class="new">最新</span></span><span class="dd">2026·11·24 · 字不会糊</span></button>
+    <button class="tab" data-issue="v83" data-vol="vol.83"><span class="vv">VOL.83</span><span class="dd">2026·11·23 · 各放各的位置</span></button>
     <button class="tab" data-issue="v82" data-vol="vol.82"><span class="vv">VOL.82</span><span class="dd">2026·11·20 · 方块地球</span></button>
     <button class="tab" data-issue="v81" data-vol="vol.81"><span class="vv">VOL.81</span><span class="dd">2026·11·19 · 先拍草稿</span></button>
     <button class="tab" data-issue="v80" data-vol="vol.80"><span class="vv">VOL.80</span><span class="dd">2026·11·18 · 原型之后</span></button>
@@ -350,8 +351,60 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.84 ==================== -->
+  <section class="issue active" id="v84">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.84 / 2026·11·24</div>
+      <h2 class="issue-theme">字不会糊</h2>
+      <p class="issue-lead">AI 视频一碰到界面、文字和数字就容易糊，卡尔试了换一条路：让 AI 写代码来做动画。</p>
+      <div class="issue-toc">
+        <a href="#v84-1"><span class="ix">01</span><span>让 AI 写代码做动画</span><span class="cat">干货·测评</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v84-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>让 AI 写代码做动画</h3></div>
+      <div class="meta"><span class="tag">干货·测评</span><span class="sep">·</span>卡尔的AI沃茨（个人实测，带产品推广）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/E_NP62cntXJTuFv2zfd6Hg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>OiiOii 是一个用 AI 做视频的平台，新上的 Motion 功能不让视频模型一帧帧"画"，而是让大模型写一段会动的网页代码，把排版、图形、怎么动都写进去，再在云端渲染成视频。作者卡尔用它做了 5 条片子，画风都很朴素，但<b>文字清楚、数字算得准，哪里不满意可以单独改</b>，正好补上普通 AI 视频最怕的界面、图表和算账。</div>
+
+        <div class="detail">
+          <h4 class="blk">和普通 AI 视频差在哪</h4>
+          <ul class="points">
+            <li><b>字不糊。</b><span class="eg">作者给自己维护的一个开源项目做宣传片，两边对比：普通视频模型一碰到网页界面、代码框、中英文排版，就糊成一团看不清的乱码；Motion 不管镜头怎么推拉缩放，截图和文字边缘都清楚，音乐音效也卡好了点。</span></li>
+            <li><b>改一处，不用整条重来。</b><span class="eg">用视频模型，想改画面里一个数字，基本得整条重新生成，再花一次积分碰运气。Motion 可以在对话框里提要求；底下还有多轨时间轴，画面、每段旁白、每个音效各占一条，用鼠标拖就能调长短；单独一层的标题文字，直接在预览里改字改颜色，不花积分。</span></li>
+            <li><b>先排剧本再写代码，交付前自己检查。</b><span class="eg">作者只写了一句话："人打喷嚏的速度每次翻十倍，身体和街道会怎样，左上角一直挂一个实时风速表。"它先拆成 6 级、每级 7 秒，按真实的物理速度算每一级的破坏力，表上的数字怎么跳、片尾怎么吐槽都先排好，才开始写代码。交付前它试混了一遍音，发现音爆和爆炸声叠在一起会破音，自己把音量压了下去。</span></li>
+            <li><b>你说错了，它会对着时间线纠正。</b><span class="eg">作者想在鸽子被喷嚏吓飞的第 6 秒加个扑翅膀的音效，手滑打成了 0.6 秒。它去查了画面，回来说 0.6 秒还是片头，鸽子是 6.0 秒起飞，就把音效放在了第 6 秒。</span></li>
+          </ul>
+
+          <h4 class="blk">适合做什么，不适合做什么</h4>
+          <ul class="points">
+            <li><b>适合：要讲清数字、界面、原理的片子。</b><span class="eg">作者试的几条：产品宣传片；"一罐冰可乐喝下去 60 分钟身体里发生了什么"的科普，它会先联网核对数据（330 毫升约含 35 克糖），再跟着旁白画血糖曲线；一分钟讲清 AI 怎么一个字一个字算出回答的课件；复古 RPG 像素风的"月薪一万五是怎么花光的"，房租、外卖每扣一笔，血条按比例缩短，小人从西装整洁一路挨揍到头缠绷带、倒地。</span></li>
+            <li><b>不适合：写实画面。</b><span class="eg">它的画风是很基础的扁平几何卡通。要拍人物微表情、电影光影，还是交给 Seedance 2.5 这类视频模型。</span></li>
+          </ul>
+
+          <h4 class="blk">怎么用省事</h4>
+          <ul class="points">
+            <li><b>提示词别写长篇分镜。</b><span class="eg">定好大方向、说清想要什么声音感觉，就放手让它排；有现成的图片视频直接扔进去，不用硬写形容词。还没找到感觉时，可以用它自带的 25 套动效模板，比如玻璃质感、纸张拼贴、像素闯关，按格子把自己的文字填进去就行。</span></li>
+            <li><b>两个模型搭着用。</b><span class="eg">可选 Opus 5.5 和 DeepSeek V4.1 Flash。后者价格只有前者的二十分之一，遇到复杂的多段推演大约只有 Opus 七成的效果；套模板、做扁平风科普，用它就够了。</span></li>
+          </ul>
+          <blockquote>它真正厉害的就两件事，字排得干净、数据算得准，剩下不顺眼的地方，顺着时间轴像改 PPT 一样挑刺就行了。——卡尔</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>规格</b>：画面比例有横屏 16:9、竖屏 9:16 和方形 1:1，时长 15 到 180 秒，可导出 1080P 或 4K。</li>
+              <li><b>缺素材自动补</b>：需要配图时调 Seedream 或 GPT Image，中文配音调 Seed Audio，英文配音换 ElevenLabs，背景音乐和音效用 Suno 生成，最后都排进时间轴。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.83 ==================== -->
-  <section class="issue active" id="v83">
+  <section class="issue" id="v83">
     <div class="issue-head">
       <div class="issue-vol">VOL.83 / 2026·11·23</div>
       <h2 class="issue-theme">各放各的位置</h2>
