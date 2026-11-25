@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v84" data-vol="vol.84"><span class="vv">VOL.84 <span class="new">最新</span></span><span class="dd">2026·11·24 · 字不会糊</span></button>
+    <button class="tab active" data-issue="v85" data-vol="vol.85"><span class="vv">VOL.85 <span class="new">最新</span></span><span class="dd">2026·11·25 · 做一遍，记下来</span></button>
+    <button class="tab" data-issue="v84" data-vol="vol.84"><span class="vv">VOL.84</span><span class="dd">2026·11·24 · 字不会糊</span></button>
     <button class="tab" data-issue="v83" data-vol="vol.83"><span class="vv">VOL.83</span><span class="dd">2026·11·23 · 各放各的位置</span></button>
     <button class="tab" data-issue="v82" data-vol="vol.82"><span class="vv">VOL.82</span><span class="dd">2026·11·20 · 方块地球</span></button>
     <button class="tab" data-issue="v81" data-vol="vol.81"><span class="vv">VOL.81</span><span class="dd">2026·11·19 · 先拍草稿</span></button>
@@ -351,8 +352,101 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.85 ==================== -->
+  <section class="issue active" id="v85">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.85 / 2026·11·25</div>
+      <h2 class="issue-theme">做一遍，记下来</h2>
+      <p class="issue-lead">一篇是一个人用 AI 做出能玩的 3D 动作游戏，把每一步会在哪翻车摊开讲；一篇讲怎么把自己做对过一次的经验存下来，让 AI 下次照着做。</p>
+      <div class="issue-toc">
+        <a href="#v85-1"><span class="ix">01</span><span>一个人用 AI 做 3D 动作游戏</span><span class="cat">干货·实战</span></a>
+        <a href="#v85-2"><span class="ix">02</span><span>少建几个助手，多攒几个技能</span><span class="cat">干货·方法</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v85-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>一个人用 AI 做 3D 动作游戏</h3></div>
+      <div class="meta"><span class="tag">干货·实战</span><span class="sep">·</span>Fini.Yang（个人实测，文中带 Tripo 邀请推广）<span class="sep">·</span><a href="https://x.com/FiniYang/status/2124708834593952084">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Fini.Yang 不会建模、没找美术，花半个月用 AI 做出了一章 3D 动作游戏《暗黑三国·孤枪入夜》：赵云提长枪从荒村一路杀到祭坛打张角，电脑和手机的浏览器都能玩。他特意挑了最容易穿帮的长枪动作，把从一张概念图到能打的 Boss 战拆成 6 步，<b>每一步都写了最容易在哪翻车、怎么绕过去</b>。全章角色和场景的 3D 模型花了不到 42 块钱。</div>
+
+        <div class="detail">
+          <h4 class="blk">从一张图到能动的模型</h4>
+          <ul class="points">
+            <li><b>先在图上修好，再转 3D。</b><span class="eg">帅气的战斗立绘直接转 3D，手贴着胯、衣摆盖着脚的地方会粘成一块，武器焊死在手里。他先让 GPT Image 这类生图工具把概念图改成灰底、单人、空手、四肢分开的 A-Pose（双臂斜向下张开的标准站姿）。带火的火盆也只生成一个铁盆，火光留给游戏里实时做。</span></li>
+            <li><b>建模、装骨架、配动作，在 Tripo Studio 里一次做完。</b><span class="eg">上传修好的图生成模型，再"重拓扑"：把原始的 188 万个乱糟糟的小三角面，重新整理成 1 万个左右规整的四边形面，手机才跑得动。然后自动装上一套通用的 65 根骨头的人形骨架，勾上待机、跑步、受击动作导出。导出时必须勾"原地动作"，让人在动画里原地跑、往前走交给游戏代码，不然每跑完一圈人会弹回原点。</span></li>
+            <li><b>压文件只压贴图，模型一点不碰。</b><span class="eg">原始导出的文件里贴图没压缩，一面断墙就七十多 MB，加载要卡半分钟。他让 Claude Code 或 Codex 写脚本，只把贴图转成 JPEG，模型、骨骼和动画数据一个字节都不改，角色压到 3 MB 左右。带骨骼的角色乱减面，进游戏就满屏乱飞。</span></li>
+          </ul>
+          <blockquote>能在图片上花 1 分钟修掉的粘连，绝不要带进 3D 里花 3 小时返工。——Fini.Yang</blockquote>
+
+          <h4 class="blk">进游戏后，治三种动起来的毛病</h4>
+          <ul class="points">
+            <li><b>脚底溜冰。</b><span class="eg">原因有三个：切动作时腰部的骨头自带几厘米偏移，从站着切到跑步人会瞬移一下；跑步动画固定速度播放，和实际移速对不上；空手跑步的摆臂幅度太大，手里一拿枪就像拎着电风扇。他的办法是加载时把偏移归零，按"跑一圈动画实际迈出多远"算播放速度、跟着移速一起变。只改移速去凑动画不行，一加冲刺或手机摇杆推一半，脚又开始滑。</span></li>
+            <li><b>披风被腿扯成吊床。</b><span class="eg">自动装骨架时，长披风的下摆被分给了大腿骨来带。大步往前刺枪时，披风被拉长了 30 倍，还会挡住胳膊。他不回建模软件手工修，而是让 AI 在游戏运行时给腿加一个看不见的胶囊形碰撞体，把披风推开。</span></li>
+            <li><b>两只手握不住同一根枪。</b><span class="eg">通用动作库保证不了前后手一直握在同一根枪杆上，刺出去也只甩小臂不转腰，软绵绵的。他用 IK（先定好手要放在哪，再反推胳膊怎么弯）在加载时把三段连招的手位一次算好，又让 AI 搭了一个"动作审查台"，逐帧对比改前改后。边跑边出枪时下半身会突然站定往前滑，就把上下半身的动作分开播。</span></li>
+          </ul>
+
+          <h4 class="blk">打击感靠四个机制</h4>
+          <ul class="points">
+            <li><b>逼玩家控距离、抓时机。</b><span class="eg">枪尖打中伤害 1.35 倍，还停顿 45 毫秒；贴身只有 0.8 倍。敌人攻击快打到时翻滚，全局进入慢动作，下一枪必定暴击。</span></li>
+            <li><b>让场景里的东西变成打法。</b><span class="eg">火盆一枪挑燃后能照亮黑夜、圈内增伤，还能压住附近会复活小兵的敌人，于是打法变成先抢火盆、再冲后排。另外还有三选一的构筑卡（21 张同画风卡面是 Codex 批量生成的），张角有能打断的蓄力和要逐个击碎的护体符阵。</span></li>
+            <li><b>混战里要听得清提示。</b><span class="eg">只堆怪的血量和攻击，十个受击声同时响，玩家根本听不见 Boss 蓄力的提示音，就成了乱砍一气。枪声发闷，就把空挥的风声压低、把枪尖的金属声抬高。战曲是 Suno 生成的。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>新手先跑通最小一版</b>：先只做 1 个主角 + 1 个小兵，把模型交给原文末尾那段给 Claude Code 或 Codex 的总控指令，先出一个能走能打的雏形，披风、握枪、Boss 战再一步步补。原文附了 9 段提示词，大多是截图。</li>
+              <li><b>账怎么算</b>：全章模型用了不到 900 积分，按 Tripo 每月 140 元含 3000 积分的会员折算，不到 42 元。省积分的办法是图先修干净一次过、关掉 8K 贴图、小道具别给太多面数。</li>
+              <li><b>试玩</b>：sanguo.finiyang.com，电脑键鼠或手机横屏都能玩。他下一步打算把这套模型接进 Unity 和虚幻引擎。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v85-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>少建几个助手，多攒几个技能</h3></div>
+      <div class="meta"><span class="tag">干货·方法</span><span class="sep">·</span>晚点再听LaterCast（整理自 RoboNuggets 的 Jay 的视频）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/Zz7N1_f9bbi-FhdvhgwzbQ">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>很多人每遇到一种新任务，就新建一个专用的 AI 助手，各配一套身份和指令。Jay 借 Anthropic 工程师的思路给了另一种做法：只用一个通用助手，把你的工作经验存成可以反复调用的 Skill（技能包）。<b>助手缺的往往不是"你是一位顾问"这种身份，而是你这行的经验。</b>他还讲了怎么做出一个好用的技能，以及为什么技能不是写得越细越好。</div>
+
+        <div class="detail">
+          <h4 class="blk">技能是什么</h4>
+          <ul class="points">
+            <li><b>像给电脑装应用。</b><span class="eg">他打了个比方：模型是芯片，助手是操作系统，技能是装上去的应用。要一种新能力，装个应用就行，不用再买一台电脑。比如写方案，光有顾问的身份不够，还得知道一份合格的方案包含什么、怎么组织、哪些说法符合你的业务。</span></li>
+            <li><b>一个文件夹，一份说明书。</b><span class="eg">技能通常是一个文件夹，核心是一份叫 SKILL.md 的说明书，旁边可以放例子、模板和脚本。说明书开头的名字和描述就像工具箱上的标签，AI 靠它判断什么时候该打开。标签写不清楚，它在该用的时候就想不起来。</span></li>
+          </ul>
+
+          <h4 class="blk">怎么做出一个好技能</h4>
+          <ul class="points">
+            <li><b>先和 AI 一起做对一遍，再存下来。</b><span class="eg">要求往往不是一开始就说得清，真正重要的判断是在改的过程中冒出来的。他推荐开头就跟 AI 说："我们先一起做一遍这项任务，请留意我们的做法和每次纠正，结束时用 Skill Creator（专门帮你生成技能的工具）把这个过程整理成技能。"然后像带新人一样边做边指出哪里不对。他做视频动画就是这样，每次的反馈都补进同一个动画技能，让不同视频的设计保持一致。偶然改的一处，不必变成以后每次都要守的规矩。</span></li>
+            <li><b>说不清的操作，演示给它看。</b><span class="eg">按钮在哪、先点什么、为什么这里要停一下，写半天不如做一遍。Claude 的 Mac 桌面端有个录制技能的功能（部分套餐可用）：边操作边讲自己点了什么、为什么，录完让 Claude 起草一个技能，检查后保存。录出来的技能也要拿真实任务试过，网页改版、要登录都可能让它失灵。</span></li>
+            <li><b>不一定是一份操作步骤。</b><span class="eg">可以是一张资料地图：客户资料、购买记录、沟通历史分别在哪，写客户邮件前先去查。可以是一份交付规范：品牌颜色、字体、版式加示例，他视频配套的 PDF 就靠它统一设计。也可以只有一句话的定义：他写了个叫 wildcard 的技能，意思是"给我更大胆、出乎意料的点子"，以后不用每次重新解释。</span></li>
+          </ul>
+
+          <h4 class="blk">技能越成熟，越该偶尔不用它试一次</h4>
+          <ul class="points">
+            <li><b>旧规矩可能在拖新模型的后腿。</b><span class="eg">旧模型需要的详细限制，换成新模型未必还有用。他不建议直接删技能，而是同一个任务用技能和不用技能各跑一次，比一比结果。他做动画时发现，偶尔放开风格限制，会得到自己从没想过的方案。留着一个技能的理由，应该是它还在让结果变好，而不是当初花了很多时间写它。</span></li>
+          </ul>
+          <blockquote>你的操作流程，可能建立在旧的认知，以及当时模型能做到什么之上。——Jay</blockquote>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>借别人的技能</b>：可以先从官方或可信的目录里找现成的，再让 AI 按你的工作调整。安装量只说明它流行，不代表适合你，里面的脚本和依赖要自己看一遍。技能格式是开放的，能搬到别的工具里用，但脚本和权限不一定都能直接跑。</li>
+              <li><b>不是反对多个助手分工</b>：他说的"少建助手"，针对的是给差不多的任务反复搭专用助手，不是说多个 AI 分工协作没价值。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.84 ==================== -->
-  <section class="issue active" id="v84">
+  <section class="issue" id="v84">
     <div class="issue-head">
       <div class="issue-vol">VOL.84 / 2026·11·24</div>
       <h2 class="issue-theme">字不会糊</h2>
