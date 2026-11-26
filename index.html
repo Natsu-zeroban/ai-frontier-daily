@@ -265,7 +265,8 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-issue="v85" data-vol="vol.85"><span class="vv">VOL.85 <span class="new">最新</span></span><span class="dd">2026·11·25 · 做一遍，记下来</span></button>
+    <button class="tab active" data-issue="v86" data-vol="vol.86"><span class="vv">VOL.86 <span class="new">最新</span></span><span class="dd">2026·11·26 · 对着画面干活</span></button>
+    <button class="tab" data-issue="v85" data-vol="vol.85"><span class="vv">VOL.85</span><span class="dd">2026·11·25 · 做一遍，记下来</span></button>
     <button class="tab" data-issue="v84" data-vol="vol.84"><span class="vv">VOL.84</span><span class="dd">2026·11·24 · 字不会糊</span></button>
     <button class="tab" data-issue="v83" data-vol="vol.83"><span class="vv">VOL.83</span><span class="dd">2026·11·23 · 各放各的位置</span></button>
     <button class="tab" data-issue="v82" data-vol="vol.82"><span class="vv">VOL.82</span><span class="dd">2026·11·20 · 方块地球</span></button>
@@ -352,8 +353,97 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <button class="tab" data-issue="v1" data-vol="vol.01"><span class="vv">VOL.01</span><span class="dd">2026·07·14 · 上手指南</span></button>
   </nav>
 
+  <!-- ==================== VOL.86 ==================== -->
+  <section class="issue active" id="v86">
+    <div class="issue-head">
+      <div class="issue-vol">VOL.86 / 2026·11·26</div>
+      <h2 class="issue-theme">对着画面干活</h2>
+      <p class="issue-lead">两篇都在用谷歌新出的模型 Gemini 4 Neon，也都在让 AI 对着画面干活。一篇让它自己打开网页点一遍，看哪里坏了；另一篇让它照着视频写网页，或者先用代码排好动作，再交给视频模型出成片。</p>
+      <div class="issue-toc">
+        <a href="#v86-1"><span class="ix">01</span><span>谷歌 Antigravity 上手：让 AI 自己点网页测试</span><span class="cat">干货·教程</span></a>
+        <a href="#v86-2"><span class="ix">02</span><span>先拍视频再写网页，先写代码再拍视频</span><span class="cat">干货·实战</span></a>
+      </div>
+    </div>
+
+    <article class="thread" id="v86-1">
+      <div class="thread-top"><span class="thread-ix">01</span><h3>谷歌 Antigravity 上手：让 AI 自己点网页测试</h3></div>
+      <div class="meta"><span class="tag">干货·教程</span><span class="sep">·</span>老金带你玩AI（个人实测，主观）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/9OvpxYFZVbygmgTpRGz_xg">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>Antigravity 是谷歌的 AI 编程工具：你用大白话说要做什么，AI 自己写代码、跑起来。新版换上 Gemini 4 Neon 后，老金重新试了一遍。他最喜欢右边那个<b>内置浏览器</b>：AI 打开网页、往下滚、点按钮，每一步你都看得见。所以它能自己测自己写的东西，用 AI 做网页原型、小游戏的人可以少点很多遍。</div>
+
+        <div class="detail">
+          <h4 class="blk">让它自己测</h4>
+          <ul class="points">
+            <li><b>一句话交代测什么。</b><span class="eg">在对话里写"/browser 打开（页面地址），测试（要验的事），哪一步没过就告诉我卡在哪、留一张截图"。主对话用 Neon 思考，真正去点网页的是一个用 Gemini Flash 的小帮手。光标会跟着操作走，它停下来想的时候会显示 Thinking…。</span></li>
+            <li><b>看它要点错，随时接管。</b><span class="eg">浏览器底部有个红色 Stop 按钮，点了就换你来操作。几个标签页还能各测各的。谷歌官方演示的是一个结账页：改完代码，它会回到同一个页面重新检查一遍。</span></li>
+          </ul>
+
+          <h4 class="blk">模型怎么选</h4>
+          <ul class="points">
+            <li><b>按活的难度换档。</b><span class="eg">改文案、改配置、补个简单测试，先用 Hydrogen；要跨好几个文件找原因、理清一段改动，换 Neon；最复杂的交给 Carbon，付费的 Pro 账号现在也能用。</span></li>
+          </ul>
+
+          <h4 class="blk">三个进阶用法</h4>
+          <ul class="points">
+            <li><b>一个想，一个干。</b><span class="eg">在模型菜单里选 Orchestrator（编排），可以让 Neon 出方案、Hydrogen 照着改代码和跑测试。在 Settings → Models → Orchestrator Settings 里设置。</span></li>
+            <li><b>几件互不相干的事，同时开工。</b><span class="eg">用 /swarm 开"蜂群"，比如一个查键盘操作、一个补测试、一个检查手机屏宽下的显示。要事先说清谁只能看、谁能改哪份文件。老金提醒，没有详细的计划，它会疯狂产出垃圾。任务卡住时，在看板上点开对应的那个执行者，看它最后做了哪一步；切到 Graph 视图，能看出它是还在跑，还是在等另一项先完成。谷歌用这套做过一个双人小游戏：一个 AI 负责搭游戏，另一个 AI 进浏览器当第二个玩家试玩。</span></li>
+            <li><b>同一套检查跑很多页。</b><span class="eg">用 /run-workflow，写清要测哪些页面、每页验什么、失败怎么记录，让它先列步骤，你看过再批准。想长期留着这套验收，就存进项目里的 .agents/skills 目录，下次按名字叫它。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>安装</b>：官网 Download 页下载 Antigravity App，用 Google 账号登录。首次设置选 Software Engineering 才能看到代码改动，选错了在 Settings → General → Interface Layout 改回来。网络问题是最常见的卡点，原文没有展开讲。</li>
+              <li><b>其他功能</b>：喜欢命令行可以装 Antigravity CLI；主任务在跑时用 /btw 单独问一句；用 /schedule 让它十分钟后回来查测试结果；打开 Remote Control 后，电脑开着就能在手机网页上接着看任务。Pro、Ultra 用户还能把仓库交给谷歌的云端代理跑，但本机没提交的文件不会跟过去。</li>
+              <li><b>老金的感想</b>：各家工具的功能已经大差不差，真正拉开差距的还是模型。所以用户毫无忠诚度，谁强就用谁。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+
+    <article class="thread" id="v86-2">
+      <div class="thread-top"><span class="thread-ix">02</span><h3>先拍视频再写网页，先写代码再拍视频</h3></div>
+      <div class="meta"><span class="tag">干货·实战</span><span class="sep">·</span>歸藏的AI工具箱（个人实测，文末推荐 LibTV 优惠）<span class="sep">·</span><a href="https://mp.weixin.qq.com/s/ZxShAI8K059WKbHgOUYgIA">原文</a></div>
+      <div class="thread-body">
+        <div class="core"><b>核心：</b>歸藏把擅长写代码、审美也好的 Gemini 4 Neon，和一个很便宜的视频模型 MAGI-2 接到了一起，跑通了两个方向。一是先生成一段视频当视觉参考，再让 Neon 照着写网页。二是<b>先让 Neon 用代码做一段 2D Boss 战的动作草稿，再让视频模型照着动作画成水墨风</b>。动作不对就改代码，比反复重新生成视频省事得多。这么做划算，是因为 MAGI-2 五秒视频只要几毛钱。</div>
+
+        <div class="detail">
+          <h4 class="blk">MAGI-2 是什么水平</h4>
+          <ul class="points">
+            <li><b>画质接近第一梯队，价格低得多。</b><span class="eg">能出 30 秒 1080P 视频，可以同时参考多张图和视频，提示词最长能写两万字。原价每秒 5 毛，他用的 LibTV 平台限时每秒 5 分，5 秒视频两毛五。他觉得能"一次成片"，不用反复抽卡。</span></li>
+            <li><b>字不晃，还看得懂界面逻辑。</b><span class="eg">咖啡店视频里吐小票、盖章、点屏幕，文字出现时没有以往视频模型常见的抖动和变形。他还给了一张带颜色滑块的界面图，滑块滑到哪个色板，整个画面就换成那套配色，说明模型理解了这个操作。</span></li>
+            <li><b>目前两个小毛病。</b><span class="eg">自动润色提示词有时会偏；背景音乐和动作音效经常只出一个。他已反馈给官方，正在修。</span></li>
+          </ul>
+
+          <h4 class="blk">方向一：视频 → 网页</h4>
+          <ul class="points">
+            <li><b>先定视觉，再写代码。</b><span class="eg">在 LibTV 里先做一张六宫格分镜交给 MAGI-2，生成一段有图形、飘带和连续转场的视频。再让 Neon 读这段视频的配色和转场节奏，写一个一镜到底的滚动网页，往下滚时元素一直平滑变化。第一版就很好，后面只修了字体排版和几处闪烁。他的结论是：让 AI 凭空用代码画产品官网，效果往往很土；先有视频参考再写，就好得多。</span></li>
+            <li><b>声音和素材也能互相用。</b><span class="eg">MAGI-2 的视频只有音效没有音乐，他让 Neon 用代码生成一段电子乐配上去。代码写的音乐速度可控，于是直接当网页背景乐，滚得越快、节奏越快。LibTV 里生成的透明底产品图，也直接拿来当网页图片。</span></li>
+          </ul>
+
+          <h4 class="blk">方向二：代码 → 视频</h4>
+          <ul class="points">
+            <li><b>先用代码排动作。</b><span class="eg">让 Neon 写代码，生成一段 2D 横版 Boss 战的灰盒视频（只用简单色块，不画美术），里面排好跳跃、弹反、命中时的顿帧、镜头特写和连招站位。这段视频不要带声音，免得干扰后面的参考。</span></li>
+            <li><b>再交给视频模型上色。</b><span class="eg">在 LibTV 的画布里用"全能参考"，把角色设定图和这段灰盒视频一起放进去，用提示词让它整个重绘成水墨风，同时加上音效和音乐。动作不满意就回去改代码，比重新抽视频便宜，也能控制得更细，做好的素材还能复用。</span></li>
+          </ul>
+
+          <div class="more">
+            <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
+            <ul>
+              <li><b>现成的 Skill</b>：他把 MAGI-2 提示词的写法和两个方向的流程打包成了一个技能包，放在 github.com/op7418/guizang-magi2-skill。里面顺手修了 Antigravity 连 LibTV 的一个小问题，装上后你的 AI 助手也能直接跑这两套流程。</li>
+              <li><b>他的判断</b>：语言模型越来越会看和生成图像、视频，视频模型也越来越听得懂复杂需求。视频变便宜以后，用法不会只剩做短剧。</li>
+            </ul>
+          </div>
+        </div>
+        <button class="expand" aria-expanded="false"><span class="tx">展开全文</span> <span class="ar">▾</span></button>
+      </div>
+    </article>
+  </section>
+
   <!-- ==================== VOL.85 ==================== -->
-  <section class="issue active" id="v85">
+  <section class="issue" id="v85">
     <div class="issue-head">
       <div class="issue-vol">VOL.85 / 2026·11·25</div>
       <h2 class="issue-theme">做一遍，记下来</h2>
