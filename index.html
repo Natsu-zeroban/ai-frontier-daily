@@ -358,7 +358,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
     <div class="issue-head">
       <div class="issue-vol">VOL.86 / 2026·11·26</div>
       <h2 class="issue-theme">对着画面干活</h2>
-      <p class="issue-lead">两篇都在用谷歌新出的模型 Gemini 4 Neon，也都在让 AI 对着画面干活。一篇让它自己打开网页点一遍，看哪里坏了；另一篇让它照着视频写网页，或者先用代码排好动作，再交给视频模型出成片。</p>
+      <p class="issue-lead">谷歌新模型 Gemini 4 Neon 出来后，两位作者都拿它让 AI 对着画面干活：一位让它自己打开网页点一遍找毛病，一位让它和视频模型互相给对方当参考。</p>
       <div class="issue-toc">
         <a href="#v86-1"><span class="ix">01</span><span>谷歌 Antigravity 上手：让 AI 自己点网页测试</span><span class="cat">干货·教程</span></a>
         <a href="#v86-2"><span class="ix">02</span><span>先拍视频再写网页，先写代码再拍视频</span><span class="cat">干货·实战</span></a>
@@ -380,20 +380,21 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
 
           <h4 class="blk">模型怎么选</h4>
           <ul class="points">
-            <li><b>按活的难度换档。</b><span class="eg">改文案、改配置、补个简单测试，先用 Hydrogen；要跨好几个文件找原因、理清一段改动，换 Neon；最复杂的交给 Carbon，付费的 Pro 账号现在也能用。</span></li>
+            <li><b>按活的难度换档。</b><span class="eg">能选的模型分三档，Hydrogen 最轻，Neon 居中，Carbon 最强。改文案、改配置、补个简单测试，先用 Hydrogen；要跨好几个文件找原因、理清一段改动，换 Neon；最复杂的交给 Carbon，付费的 Pro 账号现在也能用。</span></li>
           </ul>
 
-          <h4 class="blk">三个进阶用法</h4>
+          <h4 class="blk">进阶用法</h4>
           <ul class="points">
             <li><b>一个想，一个干。</b><span class="eg">在模型菜单里选 Orchestrator（编排），可以让 Neon 出方案、Hydrogen 照着改代码和跑测试。在 Settings → Models → Orchestrator Settings 里设置。</span></li>
-            <li><b>几件互不相干的事，同时开工。</b><span class="eg">用 /swarm 开"蜂群"，比如一个查键盘操作、一个补测试、一个检查手机屏宽下的显示。要事先说清谁只能看、谁能改哪份文件。老金提醒，没有详细的计划，它会疯狂产出垃圾。任务卡住时，在看板上点开对应的那个执行者，看它最后做了哪一步；切到 Graph 视图，能看出它是还在跑，还是在等另一项先完成。谷歌用这套做过一个双人小游戏：一个 AI 负责搭游戏，另一个 AI 进浏览器当第二个玩家试玩。</span></li>
+            <li><b>几件互不相干的事，同时开工。</b><span class="eg">用 /swarm 开"蜂群"，比如一个查键盘操作、一个补测试、一个检查手机屏宽下的显示。要事先说清谁只能看、谁能改哪份文件。老金提醒，没有详细的计划，它会疯狂产出垃圾。谷歌用这套做过一个双人小游戏：一个 AI 负责搭游戏，另一个 AI 进浏览器当第二个玩家试玩。</span></li>
+            <li><b>任务卡住了，先看它停在哪。</b><span class="eg">在蜂群看板上点开对应的那个执行者，看它最后做了哪一步；切到 Graph 视图，能看出它是还在跑，还是在等另一项先完成。</span></li>
             <li><b>同一套检查跑很多页。</b><span class="eg">用 /run-workflow，写清要测哪些页面、每页验什么、失败怎么记录，让它先列步骤，你看过再批准。想长期留着这套验收，就存进项目里的 .agents/skills 目录，下次按名字叫它。</span></li>
           </ul>
 
           <div class="more">
             <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
             <ul>
-              <li><b>安装</b>：官网 Download 页下载 Antigravity App，用 Google 账号登录。首次设置选 Software Engineering 才能看到代码改动，选错了在 Settings → General → Interface Layout 改回来。网络问题是最常见的卡点，原文没有展开讲。</li>
+              <li><b>安装</b>：官网 Download 页下载 Antigravity App，用 Google 账号登录。首次设置选 Software Engineering 才能看到代码改动，选错了在 Settings → General → Interface Layout 改回来。网络环境是最常见的卡点。</li>
               <li><b>其他功能</b>：喜欢命令行可以装 Antigravity CLI；主任务在跑时用 /btw 单独问一句；用 /schedule 让它十分钟后回来查测试结果；打开 Remote Control 后，电脑开着就能在手机网页上接着看任务。Pro、Ultra 用户还能把仓库交给谷歌的云端代理跑，但本机没提交的文件不会跟过去。</li>
               <li><b>老金的感想</b>：各家工具的功能已经大差不差，真正拉开差距的还是模型。所以用户毫无忠诚度，谁强就用谁。</li>
             </ul>
@@ -412,7 +413,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
         <div class="detail">
           <h4 class="blk">MAGI-2 是什么水平</h4>
           <ul class="points">
-            <li><b>画质接近第一梯队，价格低得多。</b><span class="eg">能出 30 秒 1080P 视频，可以同时参考多张图和视频，提示词最长能写两万字。原价每秒 5 毛，他用的 LibTV 平台限时每秒 5 分，5 秒视频两毛五。他觉得能"一次成片"，不用反复抽卡。</span></li>
+            <li><b>画质接近第一梯队，价格低得多。</b><span class="eg">能出 30 秒 1080P 视频，可以同时参考多张图和视频。原价每秒 5 毛，他用的 LibTV 平台限时每秒 5 分，5 秒视频两毛五。他觉得能"一次成片"，不用反复抽卡。</span></li>
             <li><b>字不晃，还看得懂界面逻辑。</b><span class="eg">咖啡店视频里吐小票、盖章、点屏幕，文字出现时没有以往视频模型常见的抖动和变形。他还给了一张带颜色滑块的界面图，滑块滑到哪个色板，整个画面就换成那套配色，说明模型理解了这个操作。</span></li>
             <li><b>目前两个小毛病。</b><span class="eg">自动润色提示词有时会偏；背景音乐和动作音效经常只出一个。他已反馈给官方，正在修。</span></li>
           </ul>
@@ -432,7 +433,7 @@ footer { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); fo
           <div class="more">
             <div class="lb">延伸 · 原文还聊了这些（感兴趣可点原文）</div>
             <ul>
-              <li><b>现成的 Skill</b>：他把 MAGI-2 提示词的写法和两个方向的流程打包成了一个技能包，放在 github.com/op7418/guizang-magi2-skill。里面顺手修了 Antigravity 连 LibTV 的一个小问题，装上后你的 AI 助手也能直接跑这两套流程。</li>
+              <li><b>现成的 Skill</b>：他把 MAGI-2 提示词的写法和两个方向的流程打包成了一个技能包，放在 github.com/op7418/guizang-magi2-skill。装上后你的 AI 助手也能直接跑这两套流程。</li>
               <li><b>他的判断</b>：语言模型越来越会看和生成图像、视频，视频模型也越来越听得懂复杂需求。视频变便宜以后，用法不会只剩做短剧。</li>
             </ul>
           </div>
